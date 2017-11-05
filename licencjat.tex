@@ -1,0 +1,528 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{polski}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib} % potrzba do bibliografii
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\author{Kamila Choja}
+\title{Wybrane zastosowanie statystycznych metod porządkowania danych wielowymiarowych}
+
+
+\newtheorem{theorem}{Twierdzenie}[section]
+\newtheorem{definition}[theorem]{Definicja}
+
+\newcommand{\setR}{\mathbb{R}}
+
+\newcommand{\Lp}[2]{\operatorname{L}_{#1} \left( {#2} \right)}
+\newcommand{\norm}[2][]{\left\| {#2} \right\|_{#1}}
+\newcommand{\distance}[3][d]{\operatorname{#1}\left( {#2}; {#3}\right)}
+\newcommand{\mediana}{\operatorname{med}}
+
+\newcommand{\closure}[1]{\overline{#1}}
+\begin{document}
+\begin{titlepage}
+
+\begin{center}
+        \vspace*{1cm}
+        {\large POLITECHNIKA ŁÓDZKA}\\
+       \vspace*{1cm}
+        {\large WYDZIAŁ FIZYKI TECHNICZNEJ, INFORMATYKI I MATEMATYKI STOSOWANEJ}\\
+        \vspace*{2cm}
+    \end{center}        
+        
+\text{Kierunek: Matematyka}\\
+\vspace*{0.3cm}
+\hspace*{0.3cm}
+\text{Specjalność: Matematyczne Metody Analizy Danych Biznesowych}
+  
+\begin{center}
+\rule{\textwidth}{0.5pt}
+
+\vspace*{0.5cm}
+   
+{\large WYBRANE ZASTOSOWANIE STATYSTYCZNYCH METOD\\ }
+{\large PORZĄDKOWANIA DANYCH WIELOWYMIAROWYCH\\}
+\vspace*{1cm}
+
+
+\begin{flushright}
+Kamila Choja\\
+Nr albumu: 204052 
+ \end{flushright}
+\rule{\textwidth}{0.5pt}
+
+Praca licencjacka\\
+napisana w Instytucie Matematyki Politechniki Łódzkiej\\
+
+\vspace*{2cm}
+
+Promotor: dr Piotr Kowalski\\
+\vfill
+ŁÓDŹ, xxx 2017
+
+
+     \end{center}   
+\end{titlepage}
+
+\tableofcontents
+
+\chapter{Wstęp}
+
+
+\chapter{Preliminaria}  
+
+\section{Notacja}   
+\begin{itemize}
+\item $R^m$ - przestrzeń liniowa, wektorowa, jej elementy nazywamy zamiennie wektorami lub punktami
+\item $\mathcal{E}^n$ - przestrzeń euklidesowa n-wymiarowa
+\item O = $\{$O$_{1}$, O$_{2}$, ..., O$_{n}\}$ - zbiór obiektów przestrzennych
+\item X = $\{$X$_{1}$, X$_{2}$, ..., X$_{m}\}$ - zbiór zmiennych (cech)
+\item T = $\{$T$_{1}$, T$_{2}$, ..., T$_{k}\}$ - zbiór okresów (jednostek czasu)
+\item OX = O $\cdot$ X - zbiór obiekto-zmiennych 
+\item OT = O $\cdot$ T - zbiór obiekto-okresów
+\item XT = X $\cdot$ T - zbiór zmienno-okresów
+\item OXT = O $\cdot$ X $\cdot$ T - zbiór obiekto-zmienno-okresów
+\item $\Omega$ - przestrzeń zdarzeń elementarnych
+\item $\omega$ - zdarzenie elementarne 
+\item $\mathcal{F}$ - rodzina podzbiorów zbioru $\Omega$
+\item $\mediana (X_{j})$ - mediana cechy $X_{j}$
+\item $\rho$ - relacja porządkująca
+
+
+\end{itemize}
+\newpage
+
+\section{Słownik użytych pojęć}
+W pracy zostały wykorzystane następujące pojęcia, których wytłumaczenie znajduje się poniżej. 
+\begin{itemize}
+\item Statystyka matematyczna \cite[Rozdział 1]{gren1}\\
+Statystyka matematyczna zajmuje się metodami wnioskowania o całej zbiorowości statystycznej na podstawie zbadania pewnej jej części zwanej próbką lub próbą.\\
+ 
+\item Cecha statystyczna \cite[Rozdział 1]{mlodak2006}\\
+Cecha statystyczna jest to liczbowy opis przedmiotu dociekań tj. konkretnej dziedziny życia społeczno-gospodarczego.Służy ona do scharakteryzowania podmiotu badania.\\
+
+\item Macierz obserwacji (\cite[Rozdział 2]{mlodak2006}\\
+Niech $m>1$ oraz $n>1$ będą liczbami naturalnymi.  Macierzą obserwacji nazywamy macierz rozmiaru  $n \times m$  postaci
+\begin{center}
+
+$$X= \left[
+        \begin{array}{ccccc}
+x_{11} & x_{12} & ... & x_{1m}\\
+x_{21} & x_{22} & ... & x_{2m}\\
+$...$ & $...$ & $...$ & $...$\\
+x_{n1} & x_{n2} & ... & x_{nm}
+         \end{array}
+     \right] $$
+\end{center}
+gdzie:
+\\* $x_{ij}$ - zaobserwowana wartość $j$-tej cechy dla $i$-tego obiektu .\\
+
+\item Skala porządkowa \cite[Rozdział 1.2]{panek2013}\\
+Skalą porządkową nazywana jest skala, pozwalająca na stwierdzeniu identyczności lub różnic porównywanych obiektów, a także na porównywanie wariantów zmiennych zaobserwowanych w obiektach. Nie pozwala ona określić odległości między obiektami. Umożliwia zliczanie obiektów uporządkowanych(liczby relacji równości, nierówności, większości i mniejszości).\\
+
+\item Skala przedziałowa \cite[Rozdział 1.2]{panek2013}\\
+Skalą przedziałową nazywana jest skala, która w stosunku do skali porządkowej, pozwala obliczyć odległość między obiektami, dokonując pomiaru zmiennych za pomocą liczb rzeczywistych. Dla skali tej możliwe jest, obok operacji arytmetycznych dopuszczalnych dla skal o mniejszej mocy, także dodawanie i odejmowanie. Wartość zerowa na tej skali ma charakter umowny, co prowadzi do zachowania różnic między wartościami cechy, przy zmianie jednostek miary. \\
+
+\item Skala ilorazowa \cite[Rozdział 1.2]{panek2013}\\
+Skalą ilorazową nazywana jest skala, która jest podobna do skali przedziałowej(odwołanie), z tym że występuje w niej zero bezwględne(zero ogranicza lewostronnie zakres tej skali). Powoduje to, że można na tej skali obok operacji dopuszczalnych na skalach słabszych dokonywać także dzielenia i mnożenia, a tym samym przedstawiać dowolną wartość cechy danego obiektu jako wielokrotność wartości cechy dla innego obiektu.\\
+
+\item Zmienna objaśniająca \cite[Rozdział 1.1] {grabinski1982}
+Zmienną objaśniającą nazywamy zmienną w modelu statystycznym, która oddziałuje na zmienne objaśniane. Zmiennie  objaśniającą oznaczamy jako $X_{1}, ..., X_{k}$, z kolei zmienne objaśniane jako $Y$. \\
+
+\item Stymulanta \cite[Rozdział 1.5]{panek2013}\\
+Stymulantami nazywane są zmienne, których wysokie wartości badany w badanych obiektach są pożądane z punktu widzenia rozpatrywanego zjawiska.\\
+
+\item Destymulanta \cite[Rozdział 1.5]{panek2013}\\
+Destymulantami nazywane są zmienne, których wysokie wartości badany w badanych obiektach są niepożadane z punktu widzenia rozpatrywanego zjawiska.\\
+
+\item Nominanta \cite[Rozdział 1.5]{panek2013}\\
+Nominantami nazywane są zmienne, których odchylenia wartości w badanym obiekcie od wartości (lub przedziału wartości) uznawanych za najkorzystniejsze są niepożądane z punktu widzenia rozpatrywanego zjawiska.\\
+
+\item Transformacja normalizacyjna \cite[Rozdział 1.5]{panek2013}\\
+Transformacją zmiennych diagnostycznych, mających na celu ujednolicenie ich jednostek pomiarowych, przy zastosowaniu zmiennych diagnostycznych, nazywana jest transformacją normalizacyjną. Można ją przeprowadzić na zmiennych, opisujących porównywane obiekty, mierzonych na skali przedziałowej lub ilorazowej.\\ 
+\\*Ogólny wzór na przekształcenie normalizacyjne(Borys, 1978; Grabiński i in., 1989):
+\begin{center}
+\begin{equation}
+z_{ij}=\left(\frac{x_{ij} - a}{b}\right)^p , i=1,2,...,n; j=1,2,...,m; b\neq0,
+\end{equation}\\
+\end{center}
+gdzie:
+\\* $z_{ij}$ - znormalizowana wartość $j$-tej zmiennej w $i$-tym obiekcie,
+\\* $a,b,p$ - parametry normalizacyjne.
+\item Średnia arytmetyczna z próby \cite[Rozdział 2.2]{mlodak2006}\\
+Średnią arytmetyczną wartości cechy $X_{j}$ nazywamy wartość 
+\begin{center}
+$$\overline{x_{j}}= \frac{\sum_{i=1}^{n} x_{ij}}{n}$$\\
+\end{center}
+
+\item Odchylenie standardowe z próby \cite[Rozdział 2.2]{mlodak2006}\\
+Odchyleniem standardowym cechy $X_{j}$  nazywamy wartość 
+\begin{center}
+
+$$s_{j}= \sqrt{ s_{j}^2} = \sqrt{\frac{1}{n}\sum_{i=1}^{n} (x_{ij} - \overline{x_{j}})^2}$$\\
+
+\end{center}
+
+\item Mediana \cite[Rozdział 2.2]{mlodak2006}\\
+Medianę cechy $X_{j}$ nazywamy wartość \\
+\begin{center}
+
+med$(X_{j})= 
+y = \left\{ \begin{array}{ll}
+\frac{1}{2}\big(x_{(\frac{n}{2})j} + x_{(\frac{n}{2}+1)j}\big) & \textrm{jeśli n jest parzyste} \\\\
+x_{(\frac{n+1}{2})j} & \textrm{jeśli n jest nieparzyste}\\
+
+\end{array} \right.
+$\\
+\end{center}
+
+\item Przestrzeń euklidesowa n-wymiarowa $\mathcal{E}^n$ \citep[Rozdział 9]{kuratowski2004}\\
+Przestrzeń euklidesowa n-wymiarowa, jest przestrzenią metryczną przy zwykłej definicji odległości punktu $x=(x_1,x_2,...,x_n)$ od punktu $y=(y_1,y_2,...,y_n)$, danej wzorem Pitagorasa
+\begin{center}
+$$|x - y| =\sqrt{\sum_{i=1}^{n} |x_i - y_i|^2}$$
+\end{center}
+gdzie, $x$ i $y$ są ciągami złożonymi z n liczb rzeczywistych.
+\end{itemize}
+\newpage
+
+%% TODO wprowadzic podstawowe pojecia rachunku prawdopodobieństwa
+%% TODO wprowadzić przedstrzenie obiektów, cech, czasów oraz macierz obserwacji ''topologia
+
+%% TODO w kolejnej sekcji o porządkach matematycznych
+
+\section{Podstawowe pojęcia rachunku prawdopodobieństwa}
+
+\begin{definition}{Ciało zbiorów \cite[Rozdział 8.1]{rudnicki2006}\\}
+Rodzinę $A$ podzbiorów zbioru $X$ nazywamy ciałem zbiorów, jeżeli spełnia ona następujące warunku: \\
+\begin{enumerate}
+\item $\emptyset \in A$,
+\item jeżeli $A \in \mathcal{A}$, to $X \ A \in \mathcal{A}$,
+\item jeżeli $A \in \mathcal{A}$, to $A \cup B \in \mathcal{A}$.\\
+\end{enumerate}
+\end{definition}
+
+\begin{definition}{$\sigma$-algebra/ciało zbiorów/ zbiorów mierzalnych\cite[Rozdział 8.1]{rudnicki2006}\\}
+Ciało zbiorów $\mathcal{A}$ nazywamy $\sigma$-ciałem zbiorów, jeżeli spełnia ona warunek
+dla dowolnych zbiorów $A_{n} \in \mathcal{A}, n \in \mathbb{N}$, mamy
+\begin{center}
+$\bigcup\limits_{i=1}^{\infty} A_n \in \mathcal{A}$.
+\end{center}
+Elementy $\sigma$-ciała $\mathcal{A}$ nazywamy zbiorami mierzalnymi.\\
+\end{definition}
+
+\begin{definition}{Przestrzeń zdarzeń elementarnych \cite[w oparciu o rozdział 1.1]{krysicki1999}\\}
+Zbiór wszyskich możliwych wyników doświadczenia losowego nazywamy przestrzenią zdarzeń elementarnych i oznaczamy przez $\Omega$. Elementy zbioru $\Omega$ nazywamy zdarzeniami elementarnymi i oznaczamy $\omega$.\\
+\end{definition}
+
+\begin{definition}{Zdarzenie losowe \cite[w oparciu o rozdział 1.1]{krysicki1999}\\}
+Zdarzeniem losowym (zdarzeniem) nazywamy każdy zbiór $\textit{A} \in \mathcal{F}$, gdzie $\mathcal{F}$ jest rodziną podzbiorów $\Omega$ spełniającą następujące warunki:
+\begin{enumerate}
+\item $\Omega \in F$;
+\item Jeśli $A \in \mathcal{F}$, to $\textit{A$'$} \in \textit{F}$, gdzie $\textit{A$'$} = \Omega \backslash A $ jest zdarzeniem przeciwnym do zdarzenia $\textit{A}$;
+\item Jeśli $\textit{A}_{i} \in \textit{F}$, $i= 1, 2, ...$,to $\bigcup\limits_{i=1}^{\infty} A_{i} \in \mathcal{F} $
+\end{enumerate}
+Rodzinę $\mathcal{F}$ spełniającą warunki 1 - 3 nazywamy $\sigma$-ciałem podzbiorów zbioru $\Omega$\\
+\end{definition}
+
+\begin{definition}{Przestrzeń propabilistyczna \cite[w oparciu o rozdział 1.2]{krysicki1999}\\}
+Przestrzenią propabilistyczną nazywamy uporządkowaną trójkę $(\Omega, \mathcal{F}, P)$, gdzie $\Omega$ jest zbiorem zdarzeń elementarnych, $\mathcal{F}$ jest $\sigma$-ciałem podzbiorów $\Omega$, zaś $P$ jest prawdopodobieństwem określonym na $F$.\\
+\end{definition}
+
+\begin{definition}{Przestrzeń mierzalna w n-wymiarowej przestrzeni euklidesowej \cite[Rozdział 1]{bartoszewicz1996}\\}
+Niech $(\Omega, F, P)$ oznacza przestrzeń propabilistyczną. Przestrzenią mierzalną w n-wymiarowej przestrzeni euklidesowej $R^n$, nazywamy uporządkowaną dwójkę $(R^n, \textit{B}^n)$, gdzie $\textit{B}^n$ jest $\sigma$-ciałem podzbiorów borelowskich tej przestrzeni, $n \geq 1$. \\
+\end{definition}
+
+
+\begin{definition}{Prawdopodobieństwo \cite[w oparciu o rozdział 1.1]{krysicki1999}\\}
+Prawdopodobieństwem nazywamy dowolną funkcję $P$ o wartościach rzeczywistych, określoną na $\sigma$-ciele zdarzeń $\mathcal{F} \subset 2^\Omega$, spełniającą warunki: \\
+\begin{enumerate}
+\item $\textit{P(A)} \geq 0$ dla każdego $\textit{A} \in \mathcal{F}$
+\item $\textit{P}(\Omega) = 1$
+\item Jeśli $\textit{A}_{i} \in \mathcal{F}$, $i= 1, 2, ...$ oraz $A_{i} \cap A_{j}$ dla $i \neq j$, to 
+\end{enumerate}
+\begin{center}
+$P \Big(\bigcup\limits_{i=1}^{\infty} A_{i} \Big)=\sum_{i=1}^{\infty} P(A_{i}) $\\
+\end{center}
+\end{definition}
+
+\begin{definition}{Zmienna losowa \cite[Rozdział 2.1]{krysicki1999}\\}
+Niech $(\Omega, \mathcal{F}, P)$ będzie dowolną przestrzenią propabilistyczną. Dowolną funkcję $\textit{X} : \Omega \rightarrow \mathbb{R}$ nazywamy zmienną losową jednowymiarową, jeśli dla dowolnej liczby rzeczywistej $x$ zbiór zdarzeń elementarnych $\omega$, dla których spełniona jest nierówność $X(\omega)< x$ jest zdarzeniem, czyli 
+\begin{center}
+$\{\omega: X(\omega) < x \} \in \textit{F}$ dla każdego $x \in \mathbb{R}$\\
+\end{center}
+\end{definition}
+
+
+\begin{definition}{Funkcja mierzalna \cite[w oparciu o rozdział 8.2]{rudnicki2006}\\}
+Niech $X$ będzie niepustym zbiorem, $A$  $\sigma$-ciałem na $X$ i $\overline{\mathbb{R}} = \mathbb{R} \cup \{-\infty, \infty \}$. Funkcję $f: X \rightarrow \overline{\mathbb{R}}$ nazywamy mierzalną, jeżeli zbiór
+\begin{center}
+$\{ x \in X: f(x) > a \}$
+\end{center}
+jest mierzalny przy dowolnym $a \in \mathbb{R}$.\\
+\end{definition}
+
+\begin{definition}{Wektor losowy n-wymiarowy \cite[Rozdział 1]{bartoszewicz1996}\\}
+Wektorem losowym n-wymiarowym nazywamy funkcję $X: \Omega \rightarrow \mathbb{R}^n$ mierzalną względem $\sigma$-ciała $\mathcal{F}$ ($\mathcal{F}$-mierzalną), tzn. taką, że $X^{-1}(B) \in \mathcal{F}$ dla każdego $B \in \mathcal{F}$.\\
+\end{definition}
+
+\begin{definition}{Wartość oczekiwana \cite[Rozdział 2.6]{krysicki1999}\\}
+Niech $X$ będzie zmienną losową typu dyskretnego lub ciągłego. Wartością oczekiwaną zmiennej losowej $X$ nazywamy 
+\begin{center}
+$E(X)=\left\{ \begin{array}{ll}
+\sum_{i=1}^{n} x_ip_i &\textrm{jeśli zmienna jest typu dyskretnego} \\\\
+\int_{-\infty}^{\infty} xf(x)dx & \textrm{jeśli zmienna jest typu ciągłego}\\
+\end{array} \right.$\\
+\end{center}
+\end{definition}
+
+\begin{definition}{Wartość oczekiwana macierzy losowej $X$ \cite[Rozdział 1.3]{bartoszewicz1996}\\}
+Wartością oczekiwaną macierzy losowej $X$ nazywamy macierz postaci
+\begin{center}
+$E(X)=\left[
+        \begin{array}{ccccc}
+E(X_{11}) & E(X_{12}) & ... & E(X_{1r})\\
+E(X_{21}) & E(X_{22}) & ... & E(X_{2r})\\
+$...$ & $...$ & $...$ & $...$\\
+E(X_{n1}) & E(X_{n2}) & ... & E(X_{nr})
+         \end{array}
+     \right] $\
+\end{center}
+przy założeniu, że wszystkie wartości oczekiwane $E(X_{ij})$, $i=1, 2, ..., n, j=1, 2, ..., r$, istnieją.\\
+\end{definition}
+
+\begin{definition}{Macierz kowariancji n-wymiarowego wektora losowego $X$ \cite[Rozdział 1]{bartoszewicz1996}\\}
+Macierzą kowariancji n-wymiarowego wektora losowego $X$ nazywamy macierz
+\begin{center}
+$\sum=E\{[X-E(X)][X-E(X)]'\}$\\
+\end{center}
+\end{definition}
+
+\begin{definition}{Kowariancja \cite[Rozdział 1]{bartoszewicz1996}\\}
+Niech $X_{i}$ i $X_{j}$ będą zmiennymi losowymi, $\sum$ będzie macierzą kowariancji n-wymiarowego wektora losowego $X$. Kowariancją zmiennych losowych $X_{i}$ i $X_{j}$, nazywamy 
+\begin{center}
+$cov(X_{i},X_{j})=\sigma_{ij}=E\{[X_{i}-E(X_{i})][X_{j}-E(X_{j})]\}$, $i, j= 1, 2, ..., n$
+\end{center}
+gdzie $\sigma_{ij}$ jest elementem macierzy kowariancji n-wymiarowego wektora losowego $X$.\\
+\end{definition}
+
+\begin{definition}{Współczynnik Pearsona \cite[Rozdział 2.2]{mlodak2006}\\}
+Współczynnik Pearsona oznaczamy: 
+\begin{center}
+$r_{jk}= \frac{cov(X_{j},X_{k})}{s_{j}s_{k}}$\\
+
+\end{center}
+gdzie:
+\\* $cov(X_{j},X_{k})$ - kowariancja cech $X_{j}$ i $X_{k}$ .\\
+\end{definition}
+
+\begin{definition} {Macierz korelacji par zmiennych \cite[Rozdział 2.2]{mlodak2006}\\}
+Macierzą korelacji par zmiennych, nazywamy macierz postaci:
+\begin{center}
+$R= \left[
+        \begin{array}{ccccc}
+1 & r_{12} & ... & r_{1m}\\
+r_{21} & 1 & ... & r_{2m}\\
+$...$ & $...$ & $...$ & $...$\\
+r_{m1} & r_{m2} & ... & 1
+         \end{array}
+     \right] $
+\end{center}
+gdzie:
+\\* $r_{jk}$ - współczynnik korelacji liniowej Pearsona $j$-tej i $k$-tej cechy (czyli $X_{j}$ oraz $X_{k}$) .\\
+\end{definition}
+
+
+
+\newpage
+\section{Relacja porządkująca}
+W niniejszej pracy skupiamy się na zagadnieniu porządkowania danych wielowymiarowych. Koniecznym jest zatem przywołanie odpowiednich sformułowań dotyczących matematycznej definicji porządku. Najbardziej podstawowym pojęciem jest relacja porządku, którą teraz definiujemy\\
+
+\begin{definition}{Relacja porządkująca \cite[Rozdział 1]{kuratowski2004}\\}
+Niech dana relacja $\rho$, którą oznaczać będziemy przez $\leq$, będzie określona dla elementów ustalonego zbioru $X$. Mówimy, że relacja $\leq$ jest relacją porządkującą, jeśli spełnione są warunki:
+\begin{enumerate}
+\item $x \leq x$ dla każdego $x$ (zwrotność),
+\item jeśli $x \leq y$ i $y \leq x$, to $x=y$,
+\item jeśli $x \leq y$ i $y \leq z$, to $x \leq z$ (przechodniość).\\
+\end{enumerate}
+\end{definition}
+
+\begin{definition}{Relacja liniowo porządkująca (liniowy porządek) \cite[Rozdział 2]{blaszczyk2007}\\}
+Niech dany będzie zbiór $X$. Relację $\leq$ porządkującą zbiór $X$, nazywamy relacją liniowo porządkującą lub porządkiem liniowym, gdy dla dowolnych $x$, $y \in X$ spełnia ona następujący warunek liniowości:
+\begin{center}
+$x \leq y$ lub $y \leq x$
+\end{center}
+Parę $(X, \leq)$ nazywamy zbiorem liniowo uporządkowanym lub łańcuchem.\\
+\end{definition}
+
+\begin{definition}{Dobry porządek \cite[Rozdział 2]{blaszczyk2007}\\}
+Niech dany będzie zbiór $X$. Relację $\leq$ porządkującą zbiór $X$, nazywamy dobrym porządkiem na zbiorze $X$, gdy w każdym niepustym podzbiorze zbioru $X$ istnieje element najmniejszy względem relacji $\leq$. Jeśli relacja $\leq$ na zbiorze $X$ jest dobrym porządkiem, to mówimy, że para $(X,\leq)$ jest zbiorem dobrze uporządkowanym.\\
+\end{definition}
+
+\begin{definition}{Ograniczenie górne \cite[Rozdział 2]{blaszczyk2007}\\}
+Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Element $x \in X$ nazywamy ograniczeniem górnym zbioru $A$ względem relacji $\leq$, gdy $a \leq x$ dla każdego $a \in A$. \\
+\end{definition}
+
+\begin{definition}{Ograniczenie dolne \cite[Rozdział 2]{blaszczyk2007}\\}
+Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Element $y \in X$ nazywamy ograniczeniem dolnym zbioru $A$ względem relacji $\leq$, gdy $a \leq x$ dla każdego $a \in A$. \\
+\end{definition}
+
+\begin{definition}{Zbiór ograniczony z góry, zbiór ograniczony z dołu, zbiór ograniczony \cite[Rozdział 2]{blaszczyk2007}\\}
+Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Zbiór nazywamy ograniczonym z góry (ograniczonym z dołu), jeśli ma on ograniczenie górne (dolne). 
+$\newline$ 
+Zbiór ograniczony z dołu i z góry nazywamy ograniczonym. \\
+\end{definition}
+
+\begin{definition}{Kres górny \cite[Rozdział 2]{blaszczyk2007}\\}
+Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Jeśli zbiór $A$ jest ograniczony z góry i wśród ograniczeń górnych zbioru $A$ istnienie element najmniejszy $x_0$, to element ten nazywamy kresem górnym zbioru $A$ i oznaczamy symbolem $sup A$. Tak więc $x_0 =sup A$, gdy spełnione są następujące warunki:
+\begin{enumerate}
+\item $a \leq x_0$ dla każdego $a \in A$,
+\item jeśli $a \leq x$ dla każdego $a \in A$, to $x_0 \leq x$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}{Kres dolnym \cite[Rozdział 2]{blaszczyk2007}\\}
+Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Jeśli zbiór $A$ jest ograniczony z dołu i wśród ograniczeń dolnych zbioru $A$ istnienie element największy $x_0$, to element ten nazywamy kresem dolnym zbioru $A$ i oznaczamy symbolem $inf A$. Tak więc $x_0 =inf A$, gdy spełnione są następujące warunki:
+\begin{enumerate}
+\item $y_0 \leq a$ dla każdego $a \in A$,
+\item jeśli $y \leq a$ dla każdego $a \in A$, to $y \leq y_0$.
+\end{enumerate}
+\end{definition}
+
+$\newline$
+Przechodząc do dalszej dalszych pojęć związanych z porządkowaniem, przytoczę opis obiektu wzorcowego, a następnie podam jego formalną definicję.\\
+$\newline$
+Stwierdzenie w oparciu o \cite[Rozdział 2.2]{panek2013}\\
+Obiektem wzorcowym nazywany jest obiekt modelowy o pożądanych wartościach zmiennych wejściowych.\\
+
+\begin{definition}{Obiekt wzorcowy \cite[Rozdział 2.1]{mlodak2006}\\}
+Obiektem wzorcowym, nazywamy obiekt powstały na podstawie macierzy wystandaryzowanych zmiennych wejściowych. Współrzędnymi obiektu są: \\
+\begin{center}
+
+$O_{0}=[z_{oj}], j= 1,2,...,m.$\\
+
+\end{center}
+gdzie:
+\\*Współrzędne obiektu wzorcowego obliczamy na podstawie następującego wzoru: 
+\begin{center}
+$z_{oj}=max_{i}$
+\end{center}
+\begin{equation}
+z_{oj}=\left\{ \begin{array}{ll}
+\max\limits_{i} \Big\{z_{ij}\Big\}  & \textrm{dla  } z_{j}^S\\\\
+\min\limits_{i}\Big\{ z_{ij} \Big\} & \textrm{dla } z_{j}^D\\
+\end{array} \right.
+\end{equation}
+gdzie:
+\\*$j=1,2,...,m; i=1,2,...,n.$\\
+\end{definition}
+
+\begin{definition}{Funkcja kryterium dobroci uporządkowania \cite[Rozdział 2.2]{panek2013}\\}
+Funkcją kryterium dobroci uporządkowania nazywamy funkcję: 
+\begin{center}
+$$F^2= \sum_{i'=1}^{n-1} i' \sum_{i=1}^{n-i'} d_{ii'}$$\\
+
+\end{center}
+gdzie:
+\\* $d_{i,i'}$ - odległość euklidesowa między $i$-tym i $i'$-tym obiektem . \\
+\end{definition}
+
+\chapter{Metody porządkowania}
+
+W oparciu o \cite[Rozdział 2]{panek2013}, metody porządkowania zbioru obiektów można podzielić na metody porządkowania liniowego i metody porządkowania nieliniowego. Obie grupy metod mogą stanowić punkt wyjścia do grupowania obiektów. \\
+Metody porządkowania liniowego pozwalają na ustalenie hierarchii obiektów ze względu na określone kryterium. Problematyka związana z grupowaniem obiektów ma tutaj znaczenie drugoplanowe. Natomiast stosowanie metod porządkowania nieliniowego nie pozwala na ustalenie hierarchii obiektów, lecz wyłącznie wskazanie dla każdego z tych obiektów podobnych ze względu na wartości opisujących je zmiennych. Powoduje to, że porządkowanie nieliniowe stanowi przede wszystkim etap wstępny do grupowania obiektów.
+
+
+
+%\begin{thebibliography}{99}
+%\bibitem{gren1}
+% J.Greń
+%\emph{STATYSTYKA MATEMATYCZNA MODELE I ZADANIA},
+%Państwowe Wydawnictwo Naukowe,wstęp, 18, Warszawa 1984
+%\bibitem{panek1}
+% T.Panek, J.K.Zwierzchowski.
+%\emph{Statystyczne metody wielowymiarowej analizy porównawczej},
+%SZKOŁA GŁÓWNA HANDLOWA W WARSZAWIE,rozdział 1.2, 18, Warszawa 2016
+%\bibitem{panek2}
+% T.Panek, J.K.Zwierzchowski.
+%\emph{Statystyczne metody wielowymiarowej analizy porównawczej},
+%SZKOŁA GŁÓWNA HANDLOWA W WARSZAWIE,rozdział 1.5.1, 33, Warszawa 2016
+%\bibitem{panek3}
+% T.Panek, J.K.Zwierzchowski.
+%\emph{Statystyczne metody wielowymiarowej analizy porównawczej},
+%SZKOŁA GŁÓWNA HANDLOWA W WARSZAWIE,rozdział 1.5.2, 35, Warszawa 2016
+%\bibitem{panek4}
+% T.Panek, J.K.Zwierzchowski.
+%\emph{Statystyczne metody wielowymiarowej analizy porównawczej},
+%SZKOŁA GŁÓWNA HANDLOWA W WARSZAWIE,rozdział 2.2., 58, Warszawa 2016
+%\bibitem{panek5}
+% T.Panek, J.K.Zwierzchowski.
+%\emph{Statystyczne metody wielowymiarowej analizy porównawczej},
+%SZKOŁA GŁÓWNA HANDLOWA W WARSZAWIE,rozdział 2.2.3, 77, Warszawa 2016
+%\bibitem{grabinski1}
+% T.Grabiński, S.Wydymus, A.Zelias.
+%\emph{Metody doboru zmiennych w modelach ekonometrycznych},
+%Państwowe Wydawnictwo Naukowe,rozdział 1,13, Warszawa 1982
+%\bibitem{mlodak1}
+%Andrzej Młodak
+%\emph{Analiza Taksonomiczna W Statystyce Regionalnej},
+%Centrum Doradztwa i Informacji Difin,rozdział 1.2,21, Warszawa 2006
+%\bibitem{mlodak2}
+%Andrzej Młodak
+%\emph{Analiza Taksonomiczna W Statystyce Regionalnej},
+%Centrum Doradztwa i Informacji Difin,rozdział 1.2,22, Warszawa 2006
+%\bibitem{mlodak3}
+%Andrzej Młodak
+%\emph{Analiza Taksonomiczna W Statystyce Regionalnej},
+%Centrum Doradztwa i Informacji Difin,rozdział 2.1,26, Warszawa 2006
+%\bibitem{mlodak4}
+%Andrzej Młodak
+%\emph{Analiza Taksonomiczna W Statystyce Regionalnej},
+%Centrum Doradztwa i Informacji Difin,rozdział 2.2,28, Warszawa 2006
+%\bibitem{mlodak5}
+%Andrzej Młodak
+%\emph{Analiza Taksonomiczna W Statystyce Regionalnej},
+%Centrum Doradztwa i Informacji Difin,rozdział 2.2,29, Warszawa 2006
+%\bibitem{mlodak6}
+%Andrzej Młodak
+%\emph{Analiza Taksonomiczna W Statystyce Regionalnej},
+%Centrum Doradztwa i Informacji Difin,rozdział 2.2,30, Warszawa 2006
+%\end{thebibliography}
+
+\bibliography{plik_z_bibliografia}
+\bibliographystyle{plain}
+
+
+
+
+%% F1 F11 F1 F1
+
+%\section{•}
+%
+%\subsection{•}
+%sdibiasubdiasbi $\sin x$
+%
+%\begin{equation} %matematyka wysrodkowan z numerem
+%
+%\end{equation}
+%
+%\begin{equation*} %matematyka wysrodkowana bez numeru
+%
+%\end{equation*}
+%
+%\begin{align*} %matematyka wysrodkowana wielolinijkowa
+%
+%\end{align*}
+%
+%\begin{equation}
+%\begin{array}{•}
+%
+%\end{array}
+%\end{equation}
+
+
+\end{document}
