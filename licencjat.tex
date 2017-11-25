@@ -8,7 +8,16 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{natbib} % potrzba do bibliografii
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-%\usepackage[acronym]{glossaries} COS NIE DZIALA WYWALA BLEDY
+\usepackage[acronym]{glossaries} %COS NIE DZIALA WYWALA BLEDY
+
+\makeglossaries
+ 
+\newglossaryentry{latex}
+{
+        name=latex,
+        description={Is a mark up language specially suited for 
+scientific documents}
+}
 
 \author{Kamila Choja}
 \title{Wybrane zastosowanie statystycznych metod porządkowania danych wielowymiarowych}
@@ -73,6 +82,7 @@ Promotor: dr, mgr inż. Piotr Kowalski\\
 
 \chapter{Wstęp}
 
+\Gls{latex}
 
 \chapter{Preliminaria}  
 
