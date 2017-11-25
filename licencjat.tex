@@ -8,6 +8,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{natbib} % potrzba do bibliografii
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+%\usepackage[acronym]{glossaries} COS NIE DZIALA WYWALA BLEDY
 
 \author{Kamila Choja}
 \title{Wybrane zastosowanie statystycznych metod porządkowania danych wielowymiarowych}
@@ -26,7 +27,6 @@
 \newcommand{\closure}[1]{\overline{#1}}
 \begin{document}
 \begin{titlepage}
-
 \begin{center}
         \vspace*{1cm}
         {\large POLITECHNIKA ŁÓDZKA}\\
@@ -92,6 +92,12 @@ Promotor: dr, mgr inż. Piotr Kowalski\\
 \item $\mathcal{F}$ - rodzina podzbiorów zbioru $\Omega$
 \item $\mediana (X_{j})$ - mediana cechy $X_{j}$
 \item $\rho$ - relacja porządkująca
+\item $G$ - graf prosty
+\item $V(G)$ - zbiór wierzchołków grafu $G$
+\item $E(G)$ - krawędzie grafu $G$
+\item $D$ - graf skierowany(digraf)
+\item $V(D)$ - zbiór wierzchołków digrafu $D$
+\item $A(D)$ - rodzina łuków digrafu $D$
 
 
 \end{itemize}
@@ -195,7 +201,8 @@ gdzie, $x$ i $y$ są ciągami złożonymi z n liczb rzeczywistych.
 
 %% TODO w kolejnej sekcji o porządkach matematycznych
 
-\section{Podstawowe pojęcia rachunku prawdopodobieństwa}
+\section{Podstawowe pojęcia rachunku prawdopodobieństwa oraz statystyki}
+Na potrzeby pracy, zostały wykorzystane pojęcia rachunku prawdopodobieństwa oraz statystyki, konieczne to zrozumienia danych jako próby losowej. W tym celu niezbędne było wprowadzenie definicji prawdopodobieństwa, zmiennej losowej, a także pojęć powiązanych z tymi definicjami tj. ciała zbiorów, $\sigma$-ciała zbiorów, przestrzeni zdarzeń elementarnych, zdarzenia losowego. Poniższej zostały one wypisane.\\
 
 \begin{definition}{Ciało zbiorów \cite[Rozdział 8.1]{rudnicki2006}\\}
 Rodzinę $A$ podzbiorów zbioru $X$ nazywamy ciałem zbiorów, jeżeli spełnia ona następujące warunku: \\
@@ -336,8 +343,66 @@ gdzie:
 \\* $r_{jk}$ - współczynnik korelacji liniowej Pearsona $j$-tej i $k$-tej cechy (czyli $X_{j}$ oraz $X_{k}$) .\\
 \end{definition}
 
+\newpage
+\section{Podstawowe pojęcia teorii grafów}
+W pracy zostaną opisane zarówno metody porządkowania liniowego jak i nieliniowego, w tym celu należy wprowadzić definicje związane z teorią grafów, niezbędne przy opisywaniu metod porządkowania nieliniowego.\newline
+W celu wprowadzeniu definicji, należy wcześniej podać niezbędne pojęcia dotyczące grafów. Niezmiernie istotne jest podanie pojęć dotyczących grafów, dzięki którym później zostaną wprowadzone definicje.\newline
+Poniższe pojęcia zostały opracowane na podstawie \cite{wilson2008}\\
+
+%grafika grafu z wierzchołkami zastanowic sie  https://www.sharelatex.com/learn/Inserting_Images
+%make glossary do wprowadzenia pojec -> poczytac i sie zastanowic
 
 
+
+
+\begin{definition}{Graf prosty \cite[Rozdział 2]{wilson2008}\\}
+Niech $G$ będzie grafem prostym, tj. grafem składającym się z niepustego zbioru skończonego $V(G)$, którego elementy nazywamy wierzchołkami (lub węzłami), i skończonego zbioru $E(G)$ różnych par nieuporządkowanych różnych elementów zbioru $V(G)$, które nazywamy krawędziami. Zbiór $V(G)$ nazywamy zbiorem wierzchołków, a zbiór $E(G)$ ($E(G) \subseteq \{\{u,v\}: u,v \in V, u\neq v\}$) zbiorem krawędzi grafu $G$.\\
+Mówimy, że krawędź $\{v,w\}$ łączy wierzchołki $v$ i $w$, i na ogół oznaczamy ją krócej symbolem $vw$.\\
+\end{definition}
+
+\begin{definition}{Pętle \cite[Rozdział 2]{wilson2008}\\}
+Pętlami nazywamy krawędzie wielokrotne, łączące wierzchołek z samym sobą.\\
+\end{definition}
+
+\begin{definition}{Graf/graf ogólny \cite[Rozdział 2]{wilson2008}\\}
+Grafem nazywamy obiekt, w którym występują krawędzie wielokrotne oraz pętle.\\
+\end{definition}
+
+\begin{definition}{Trasa/marszruta \cite[Rozdział 3]{wilson2008}\\}
+Trasą (lub marszrutą) w danym grafie $G$ nazywamy skończony ciąg krawędzi postaci $v_{0}v_{1}, v_{1}v_{2}, ..., v_{m-1}v_{m}$, zapisywany również w postaci $v_{0} \rightarrow{} v_{1} \rightarrow{} v_{2} \rightarrow{} ... \rightarrow{} v_{m}$, w którym każde dwie kolejne krawędzie są albo sąsiednie, albo identyczne. Taka trasa wyznacza ciąg wierzchołków $v_{0}, v_{1}, ..., v_{m}$. Wierzchołek $v_{0}$ nazywamy wierzchołkiem początkowym, a wierzchołek $v_{m}$ wierzchołkiem końcowym trasy; mówimy też wtedy, o trasie od wierzchołka $v_{0}$ do wierzchołka $v_{m}$. Liczbę  krawędzi na trasie nazywamy długością trasy. \\
+\end{definition}
+
+\begin{definition}{Ścieżka \cite[Rozdział 3]{wilson2008}\\}
+Trasą, w której wszystkie krawędzie są różne, nazywamy ścieżką.\\
+\end{definition}
+
+\begin{definition}{Droga \cite[Rozdział 3]{wilson2008}\\}
+Ścieżkę, w której wierzchołki $v_{0}, v_{1}, ..., v_{m}$ są różne (z wyjątkiem, być może, równości $v_{0}=v_{m}$), nazywamy drogą. \\
+\end{definition}
+
+\begin{definition}{Droga zamknięta/ścieżka zamknięta \cite[Rozdział 3]{wilson2008}\\}
+Droga lub ścieżka jest zamknięta, jeśli $v_{0}=v_{m}$.\\
+\end{definition}
+
+\begin{definition}{Cykl \cite[Rozdział 3]{wilson2008}\\}
+Ścieżką zamkniętą zawierającą co najmniej jedną krawędź nazywamy cyklem. \\
+\end{definition}
+
+\begin{definition}{Graf spójny \cite[Rozdział 3]{wilson2008}\\}
+Graf jest spójny wtedy i tylko wtedy, gdy każda para wierzchołków jest połączona drogą.\\
+\end{definition}
+%%ilustracja grafu spójnego
+
+\begin{definition}{Drzewo \cite[Rozdział 4]{wilson2008}\\}
+Drzewem nazywamy graf spójny, nie zawierający cykli.\\
+\end{definition}
+%dodac grafike drzewa
+
+\begin{definition}{Graf skierowany \cite[Rozdział 7]{wilson2008}\\}
+Graf skierowany lub digraf $D$, skała się z niepustego zbioru skończonego $V(D)$ elementów nazywanych wierzchołkami i skończonej rodziny $A(D)$ par uporządkowanych elementów zbioru $V(D)$, nazywanych łukami. Zbiór $V(D)$ nazywamy zbiorem wierzchołków, a rodzinę $A(D)$ rodziną łuków digrafu D. Łuk $(v,w)$ zwykle zapisujemy jako $vw$.\\
+\end{definition}
+
+%dodac podstawowe pojecia zwiazane z diagramami, diagramem hessego
 \newpage
 \section{Relacja porządkująca}
 W niniejszej pracy skupiamy się na zagadnieniu porządkowania danych wielowymiarowych. Koniecznym jest zatem przywołanie odpowiednich sformułowań dotyczących matematycznej definicji porządku. Najbardziej podstawowym pojęciem jest relacja porządku, którą teraz definiujemy\\
@@ -433,8 +498,37 @@ gdzie:
 
 \chapter{Metody porządkowania}
 
-W oparciu o \cite[Rozdział 2]{panek2013}, metody porządkowania zbioru obiektów można podzielić na metody porządkowania liniowego i metody porządkowania nieliniowego. Obie grupy metod mogą stanowić punkt wyjścia do grupowania obiektów. \\
-Metody porządkowania liniowego pozwalają na ustalenie hierarchii obiektów ze względu na określone kryterium. Problematyka związana z grupowaniem obiektów ma tutaj znaczenie drugoplanowe. Natomiast stosowanie metod porządkowania nieliniowego nie pozwala na ustalenie hierarchii obiektów, lecz wyłącznie wskazanie dla każdego z tych obiektów podobnych ze względu na wartości opisujących je zmiennych. Powoduje to, że porządkowanie nieliniowe stanowi przede wszystkim etap wstępny do grupowania obiektów.
+Rozdział opracowany w oparciu o \cite[Rozdział 2]{panek2013}, metody porządkowania zbioru obiektów można podzielić na metody porządkowania liniowego i metody porządkowania nieliniowego. Obie grupy metod mogą stanowić punkt wyjścia do grupowania obiektów. \\
+Metody porządkowania liniowego pozwalają na ustalenie hierarchii obiektów ze względu na określone kryterium. Problematyka związana z grupowaniem obiektów ma tutaj znaczenie drugoplanowe. Natomiast stosowanie metod porządkowania nieliniowego nie pozwala na ustalenie hierarchii obiektów, lecz wyłącznie wskazanie dla każdego z tych obiektów podobnych ze względu na wartości opisujących je zmiennych. Powoduje to, że porządkowanie nieliniowe stanowi przede wszystkim etap wstępny do grupowania obiektów.\\
+
+\section{Metody porządkowania liniowego}
+
+Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu na prostą punktów reprezentujących obiekty, umieszczonych w wielowymiarowej przestrzeni zmiennych. Takie postępowanie pozwala na ustalenie hierarchii obiektów, czyli uporządkowanie ich od obiektu stojącego najwyżej w tej hierarchii do obiektu znajdującego się najniżej. Poniżej zostaną przedstawione własności uporządkowania liniowego obiektów.\\
+
+\begin{itemize}
+\item każdy obiekt ma przynajmniej jednego sąsiada i nie więcej niż dwóch sąsiadów,
+\item jeżeli sąsiadem $i$-tego obiektu jest $i'$-ty obiekt, to jednocześnie sąsiadem $i'$-tego obiektu jest $i$-ty obiekt,
+\item dokładnie dwa obiekty mają tylko jednego sąsiada.\\
+\end{itemize}
+\noindent
+
+Aby uporządkować liniowo obiekty, charakteryzujące je zmienne muszą być mierzone przynajmniej na skali porządkowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
+
+Metody porządkowania liniowego można podzielić na metody diagramowe, procedury oparte na zmiennej syntetycznej oraz procedury iteracyjne bazujące na optymalizacji funkcji kryterium dobroci uporządkowania.
+
+\newpage
+\subsection{Metody diagramowe}
+\noindent
+
+W metodach diagramowych stosuje się graficzną prezentację macierzy odległości zwanej diagramem. Przykładem metod diagramowych stanowi metoda Czekanowskiego. Punktem wyjścia tej metody, jest skonstruowanie macierzy odległości między obiektami $D=[d_{ii}]$, zdefiniowanej za pomocą dowolnej metryki. Mierniki odległości w macierzy odległości D dzieli się na klasy podobieństwa obiektów. Poszczególnym klasom podobieństwa obiektów przyporządkowuje się odpowiednie symbole graficzne, otrzymując nieuporządkowany diagram Czekanowskiego, co pozwala na wzrokową ocenę przebiegu porządkowania obiektów. Stąd też porządkowanie obiektów odbywa się poprzez porządkowanie diagramu. Polega ono na przestawieniu wierszy i odpowiadających im kolumn diagramu, tak aby symbole graficzne reprezentujące możliwie najmniejsze odległości skupiały się wzdłuż głównej przekątnej, a w miarę oddalania się od głównej przekątnej, pojawiały się symbole graficzne odpowiadające coraz większym odległościom. Kolejność uporządkowania obiektów jest określona przez kolejność odpowiadających im wierszy(kolumn).
+
+Do optymalizacji porządkowania zaproponowane zostało pewne kryterium
+
+
+
+
+
+
 
 
 
@@ -492,37 +586,16 @@ Metody porządkowania liniowego pozwalają na ustalenie hierarchii obiektów ze 
 %\emph{Analiza Taksonomiczna W Statystyce Regionalnej},
 %Centrum Doradztwa i Informacji Difin,rozdział 2.2,30, Warszawa 2006
 %\end{thebibliography}
-
-\bibliography{plik_z_bibliografia}
 \bibliographystyle{plain}
+\bibliography{plik_z_bibliografia}
+
 
 
 
 
 %% F1 F11 F1 F1
 
-%\section{•}
-%
-%\subsection{•}
-%sdibiasubdiasbi $\sin x$
-%
-%\begin{equation} %matematyka wysrodkowan z numerem
-%
-%\end{equation}
-%
-%\begin{equation*} %matematyka wysrodkowana bez numeru
-%
-%\end{equation*}
-%
-%\begin{align*} %matematyka wysrodkowana wielolinijkowa
-%
-%\end{align*}
-%
-%\begin{equation}
-%\begin{array}{•}
-%
-%\end{array}
-%\end{equation}
+
 
 
 \end{document}
