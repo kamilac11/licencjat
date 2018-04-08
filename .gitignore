@@ -9,3 +9,7 @@
 *.log
 *.out
 *.gz
+*.toc
+*.blg
+*.bbl
+*.blg

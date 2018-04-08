@@ -8,6 +8,7 @@
 \usepackage{amsthm}
 \usepackage{paralist}
 \usepackage{polski}
+\usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
 \usepackage{natbib} % potrzba do bibliografii
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
@@ -661,7 +662,7 @@ W niniejszej pracy skupiam się na zagadnieniu porządkowania danych wielowymiar
 Niech dane będą zbiory $X$ i $Y$. Relacją (dwuargumentową) między elementami zbiorów $X$ i $Y$ nazywamy dowolny podzbiór $\rho \subset X \times Y $. Jeśli $X=Y$ to mówimy, że $\rho$ jest relacją na zbiorze $X$. \\
 \end{definition} 
 
-\begin{definition}{Relacja porządkująca (częściowego porządku) \cite[Rozdział 2]{blaszczyk2007}\\}
+\begin{definition}{Relacja porządkująca (częściowego porządku) \cite[Rozdział 2]{blaszczyk2007}\\}\label{def-relacja-czesciowego-porzadku}
 Niech dana relacja $\rho$, którą oznaczać będziemy przez $\leq$, będzie określona dla elementów ustalonego zbioru $X$. Mówimy, że relacja $\leq$ jest relacją częściowego porządku, jeśli spełnione są warunki:
 \begin{enumerate}
 \item $x \leq x$ dla każdego $x$ (zwrotność),
@@ -689,8 +690,8 @@ Aby go skonstruować, należy postępować według poniższych kroków:
 \end{example}
 
 
-\begin{definition}{Relacja liniowo porządkująca (liniowy porządek) \cite[Rozdział 2]{blaszczyk2007}\\}
-Niech dany będzie niepusty zbiór $X$. Relację $\leq$ porządkującą zbiór $X$, nazywamy relacją liniowo porządkującą lub porządkiem liniowym, gdy dla dowolnych $x$, $y \in X$ spełnia ona następujący warunek liniowości:
+\begin{definition}{Relacja liniowo porządkująca (liniowy porządek) \cite[Rozdział 2]{blaszczyk2007}\\}\label{def-porzadek-liniowy}
+Niech dany będzie niepusty zbiór $X$. Relację $\leq$ porządkującą zbiór $X$, nazywamy relacją liniowo porządkującą lub porządkiem liniowym, gdy dla dowolnych $x$, $y \in X$ spełnia ona warunek spójności tzn.
 \begin{center}
 $x \leq y$ lub $y \leq x$
 \end{center}
@@ -793,77 +794,102 @@ Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu 
 \end{itemize}
 \noindent
 
+Powyżej wymienione silne własności są wynikiem posiadania jedynie skończonej ilości obiektów, podlegających uporządkowaniu. W następnej części pracy chcielibyśmy 
+\begin{itemize}
+\item Sformalizować rozumienie powyższych własności,
+\item Udowodnić ich poprawność,
+\item Rozważyć dostateczność tych własności w zbiorach o skończonej ilości obiektów.
+\end{itemize}
+
+Rozpocznijmy od sprecyzowania rozumienia pojęć takich jak sąsiad.
+
 \begin{definition}{Sąsiad względem relacji $\leq$\\ }
-Niech  $X$ będzie niepustym zbiorem, a $x, y$ będą elementami należącymi do tego zbioru. Mówi się, że $y \in X$ jest sąsiadem $x \in X$,co zapisujemy $ySx$, jeśli
-\begin{center}
-$y \leq x \vee x \leq y \quad \wedge \quad  \lnot \exists_{z \in X} \quad y \leq z \leq x \wedge x \leq z \leq y$.\\
-\end{center}
+Niech  $X$ będzie niepustym zbiorem, a $x, y$ będą dwoma różnymi elementami należącymi do tego zbioru. Powiemy, że $y \in X$ jest sąsiadem $x \in X$,co zapisujemy $ySx$, jeśli
+$$
+\left( y \leq x \lor x \leq y \right) \land \left(  \lnot \exists_{z \in X} x \neq z \neq y \Rightarrow y \leq z \leq x \lor x \leq z \leq y \right).
+$$
 \end{definition}
 
-\begin{wlasnosci}{Porządku liniowego\\}
-Niech $\leq$ będzie relacją zdefiniowaną w $X \times X$, taką że:
+\newcommand{\licznosc}[1]{\overline{\overline{#1}}}
+\begin{theorem}{Własności porządku liniowego w zbiorach skończonych\\}
+Niech $\leq$ będzie relacją porządku liniowego zdefiniowaną w $X \times X$, gdzie $X$ jest zbiorem ze skończoną liczbą obiektów, jednak złożonym conajmniej z dwóch elementów. Wtedy:
 \begin{enumerate}
-\item $\forall_{x \in X} \quad \overline{\overline{\{y \in X, ySx\}}} \in \{1,2\}$,
+\item $\forall_{x \in X} \quad \licznosc{\{y \in X, ySx\}} \in \{1,2\}$,
 \item $\forall_{x, y \in X} \quad ySx \Rightarrow xSy $,
 %\item $\overline{\overline{\{\x in X, \quad \overline{\overline{\{y \in X, ySx \}=1\}}}}}=2 $
-\item $\overline{\overline{\{x \in X, \quad \overline{\overline{\{y \in X, \quad ySx \}}}=1\}}}=2 $
+\item $\licznosc{\{x \in X, \quad \licznosc{\{y \in X, \quad ySx \}}=1\}}=2 $
 \end{enumerate}
 gdzie:\\
-$S$ oznacza sąsiada względem relacji $\leq$, z kolei relacja $\leq$ jest porządkiem liniowym zbioru danych $X$.
-\end{wlasnosci}
-
-\begin{theorem}{Porządek liniowy zbioru danych $X$ jest porządkiem liniowym w sensie definicji 2.5.3.\\} 
-Porządek liniowy zbioru danych $X$ jest porządkiem liniowym w sensie definicji 2.5.3.
+$S$ oznacza sąsiada względem relacji $\leq$.
 \end{theorem}
+
 \begin{proof}
-By udowodnić to twierdzenie należy odwołać się do definicji częściowego porządku, a następnie skorzystać z definicji relacji liniowego porządku. Zatem, należy wykazać zwrotność, przechodniość, słabą antysymetryczność oraz spójność relacji. Niech dany będzie skończony, niepusty zbiór $X$ (przez zbiór $X$ będziemy rozumieli zbiór danych), oraz relacja $\leq$.\\
-Załóżmy, że zbiór $X \subset \mathbb{R}^2$ oraz $X=\{a_1, a_2,..., a_n\},\quad n\in \mathbb{N}$ oraz $a_i=(x_i,y_i) \in X,  i\in \mathbb{N}$\\
-Niech dane będą dwa obiekty $a_i, a_j \in X, \quad a_i=(x_i, y_i)  \wedge a_j=(x_j, y_j),  i, j\in \mathbb{N}$\\
-\begin{itemize}%[(alph)]
-\item (zwrotność)\\
-Zauważmy, że $\forall{a_i \in X}_{i \in \mathbb{N}} \quad a_i \leq a_i$, wtedy
-\begin{center}
- $(x_i, y_i) \leq (x_i, y_i)$, czyli $x_i \leq x_i \wedge y_i \leq y_i$. \\
-\end{center}
-Zatem relacja $\leq$ jest zwrotna.
-\item (słaba antysymetryczność)\\
-Niech dane będą obiekty $a_i, a_j \in X$ wówczas 
-\begin{center}
-$a_i \leq a_j \quad \wedge \quad a_j \leq a_i$ czyli\\
-$(x_i, y_i) \leq (x_j, y_j) \quad \wedge \quad  (x_j, y_j) \leq (x_i, y_i)$ zatem \\
-$(x_i \leq x_j \wedge y_i \leq y_j) \wedge (x_j\leq x_i \wedge y_j \leq y_i)\quad  \Rightarrow \quad x_i=x_j \wedge y_j=y_i \quad \Rightarrow \quad (x_i,y_i)=(x_j,y_j)$
-\end{center}
-Zatem relacja $\leq$ jest słabo antysymetryczna.
-\item (przechodniość)\\
-Niech dane będą obiekty $a_i, a_j, a_k \in X$, takie że $\quad a_i \leq a_j \quad  \wedge \quad a_j \leq a_k$
-\begin{center}
-$(x_i, y_i) \leq (x_j, y_j) \quad \wedge \quad  (x_j, y_j) \leq (x_k, y_k)$ czyli\\ 
-$(x_i \leq x_j \wedge y_i \leq y_j) \wedge (x_j \leq x_k \wedge y_j \leq y_k) \quad \Rightarrow$\\
-$x_i \leq x_k \wedge y_i \leq y_k \quad \Rightarrow (x_i,y_i) \leq (x_k,y_k)$\\
-\end{center}
-Zatem $\forall_{a_i, a_j, a_k \in X}\quad a_i \leq a_k,  $ stąd relacja $\leq$ jest przechodnia. 
-\end{itemize}
-Na podstawie powyższych punktów, widać iż para $(X,\leq)$ jest zbiorem częściowo uporządkowanym, sprawdzimy teraz czy relacja ta jest spójna.
+Udowodnimy kolejne własności.
+\begin{enumerate}
+\item Niech $x \in X$. Przypuśćmy na początek, że $\licznosc{\{y \in X, ySx\}} = 0$, tzn. że obiekt $x$ nie posiada sąsiadów w tej relacji. Nasz zbiór $X$ jest jednak conajmniej dwuelementowy zatem istnieje element $y \in X$ i $ x \neq y$. Wobec spójności linowego porządku z Definicji \ref{def-porzadek-liniowy} zachodzi wtedy
+$$
+x \leq y \lor y \leq x.
+$$
+Jednak wiemy, że $y$ nie może być sąsiadem $x$ gdyż ten nieposiada sąsiadów. Zatem z definicji sąsiada musi istnieć $z \in X$ różny od obu $x \neq z \neq y$ spełniający warunek
+$$
+z \leq x \lor x \leq z.
+$$
+Powyższe rozumowanie dla $y$ można by dalej zastosować do $z$, uzyskując kolejne $z_1$ a później $z_2,z_3, \ldots$ dowolną ilość różnych elementów z których każdy występuje w relacji liniowego porządku z $x$, ale żaden z nich nie jest sąsiadem. Jednak nasz zbiór $X$ jest zbiorem skończonym, więc nigdy nie uda nam się utworzyć dowolnej ilości różnych elementów ze zbioru $X$ (elementy się wyczerpią). Zatem nasze przypuszczenie, że $\licznosc{\{y \in X, ySx\}} = 0$ jest fałszywe.
+
+Przypuśćmy dalej, że $\licznosc{\{y \in X, ySx\}} \geq 3$. Niech $a,b,c$ będą trzema różnymi elementami z $X$ będącymi sąsiadami dla $x$. Wtedy bez straty ogólności możemy przyjąć, że $a \leq x, b \leq x$ lub $x \leq a, x \leq b$. Istotnie mając 3 elementy w relacji wtedy conajmniej dwa muszą znajdować się po zgodnej stronie, a z dokładnością do oznaczeń możemy przyjąć, że będą nimi $a$ oraz $b$. Ustalmy zatem, że $a \leq x, b \leq x$. Wobec definicji \ref{def-porzadek-liniowy} wiemy, że $a \leq b$ lub $b \leq a$. Jeśli $a \leq b$ to $a \leq b \leq x$. Co przeczy temu, że $a$ jest sąsiadem $x$. Jeśli $b \leq a$ to $b \leq a \leq x$ co przeczy temu, że $b$ jest sąsiadem. Zupełnie analogicznie postępujemy dla przypadku $x \leq a, x \leq b$. Zatem uzyskujemy sprzeczność, bedącą efektem przypuszczenia, że mogą istnieć takie 3 elementy $a,b,c$. Zatem ostatecznie $\licznosc{\{y \in X, ySx\}} \in \{ 1,2 \}$.
+\item Niech $x,y \in X$ oraz niech $xSy$. {\color{red} Dokończyć} %TODO dokończyć (bardzo proste)
+\item Intuicyjnie te dwa elementy posiadające po jednym sąsiedzie są elementami maksymalnym i minimalnym w tym zbiorze. Udowodnimy kolejno:
 \begin{itemize}
-\item (spójność)\\
-Niech dane będą obiekty $a_i, a_j \in X$, przy czym $i\neq j, \quad i,j \in \mathbb{N}$.\\
-\begin{center}
-Wówczas $a_i \leq a_j \vee a_j\leq a_i$, czyli\\
-$(x_i,y_i)\leq (x_j,y_j) \quad \vee \quad (x_j,y_j) \leq (x_i, y_i)$\\
-$x_i \leq x_j \wedge y_i \leq y_j \quad \quad \vee \quad \quad x_j\leq x_i \wedge y_j\leq y_i$\\
-w tym przypadku $a_i \leq a_j \quad  \quad$ z kolei w tym przypadku $a_j \leq a_i.$
-\end{center}
-W związku z powyższym oznacza to, że obiekty są porównywalne
-\end{itemize} 
-Wobec powyższych zostało udowodnione, że relacja $\leq$ jest zwrotna, przechodnia, słabo antysymetryczna i spójna, w związku z tym para $(X, \leq)$ jest liniowym porządkiem.
+\item Element minimalny w zbiorze ma pojedynczego sąsiada. Istotnie zbiór musi posiadać dokładnie 1 element minimalny, tzn. $x_m \in X$ takie, że 
+$$
+\forall x \in X \quad x_m \leq x.
+$$
+Istotnie, przypuśćmy że nie istnieje element minimalny. Niech $x_1$ będzie dowolnym elementem z $X$. Skoro nie istnieje element minimalny to istnieje $x_2 \in X$ takie, że $x_2 \leq x_1$ i $x_2 \neq x_1$. Dla $x_2$ z braku elementu minimalnemu musi istnieć z kolei $x_3 \leq x_2$ takie, że $x_2 \neq x_3$. Itd. Co nie jest możliwe gdyż zbiór $X$ jest przecież skończonym zbiorem.
 
-
+Rozważmy dalej przypuszczenie gdyby były dwa lub więcej takich elementów. Wtedy to z antysymetryczności, oczywiście musiałyby być sobie równe. Jeśli $x_m, y_m$ są jednocześnie minimalne to
+$$
+\forall x \in X \quad x_m \leq x,
+$$
+oraz 
+$$
+\forall x \in X \quad y_m \leq x.
+$$
+Skąd natychmiast mamy, że $ x_m \leq y_m$ oraz $y_m \leq x_m$. Wobec antysymetryczności z definicji \ref{def-relacja-czesciowego-porzadku} mamy, że $x_m = y_m$ wbrew naszemu przypuszczenie, że są od siebie różne.
+Pozostaje pokazać, że element minimalny ma pojedynczego sąsiada. Przypuśćmy, że $y,z \in X$ są dwoma różnymi sąsiadami dla $x_m$. Wtedy $ x_m \leq y \lor y \leq x_m$ oraz $ x_m \leq z \lor z \leq x_m$. Skoro $x_m$ jest minimalny to musi to zatem oznaczać
+$$
+x_m \leq y \land x_m \leq z.
+$$ 
+Wobec spójności z definicji \ref{def-porzadek-liniowy} zachodzi $y \leq z$ lub $z \leq y$. Sprzeczność, gdyż wtedy któryś z nich nie mógłby być sąsiadem dla $x_m$.
+\item Element maksymalny $x_M$ w zbiorze ma pojedynczego sąsiada. {\color{red} Dokończyć} %TODO dokończyć
+\item Żaden inny element nie może mieć pojedynczego sąsiada. Przypuśćmy, że $x \in X$ nie będąc ani elementem minimalnym ani maksymalnym ma pojedynczego sąsiada. Wobec definicji elementu minimalnego i maksymalnego oraz spójności zachodzi
+$$
+x_m \leq x \leq x_M.
+$$
+Zatem albo $x_m$ jest sąsiadem $x$ albo istnieje $y_1$ taki, że $y \leq x$. {\color{red} Dokończyć} %TODO dokończyć
+Analogicznie albo $x_M$ jest sąsiadem $x$ albo istnieje $z_1$ taki, że $x \leq z_1$. {\color{red} Dokończyć} %TODO dokończyć
+W efekcie $x$ musi mieć dwóch sąsiadów. Co kończy dowód własności.
+\end{itemize}
+ %TODO tutaj
+\end{enumerate}
 \end{proof}
 
+W części pozycji - zwłaszcza tych omawiających praktyczny aspekt porządkowania danych - powyżej wykazane własności są często podawane. niemal na równi z definicją takiego uporządkowania. Poniżej podamy przykłady takich relacji, które też posiadają powyższy zestaw własności ale jednak nie opisują relacji będących porządkami liniowymi. 
+
+\begin{example}
+Rozważmy zbiór dwuelementowy $X = \{ a, b \}$ gdzie $a \leq b$ jedynym punktem tej relacji. Tak zdefiniowana relacja wypełnia wszystkie własności, ale nie spełnia założenie o zwrotności - zatem relacja ta nie jest liniowym porządkiem.
+\end{example}
+
+\begin{example}
+Rozważmy zbiór $X = \{a,b,c,d,e \}$ oraz relację definiującą następujące sąsiedztwa (wypisaną bez par symetrycznych) 
+$$
+aSb, bSc, aSc, dSe;
+$$
+{\color{red} Utworzyć diagram Hassego do tej relacji}
+Z diagramu widać, że taka relacja spełnia wszystkie omawiane wcześniej własności - jednak brakuje jej cech spójności. I tak np. nie możemy porównać (określić czy $d \leq a$ lub $a \leq d$)
+\end{example}
 
 
-
-Aby uporządkować liniowo obiekty, charakteryzujące je zmienne muszą być mierzone przynajmniej na skali porządkowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
+W podsumowaniu tej sekcji nadmieńmy jeszcze, że aby uporządkować liniowo obiekty, charakteryzujące je zmienne muszą być mierzone przynajmniej na skali porządkowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
 
 Metody porządkowania liniowego można podzielić na metody diagramowe, procedury oparte na zmiennej syntetycznej oraz procedury iteracyjne bazujące funkcji kryterium dobroci uporządkowania tzn. funkcji, którą się przyjmuje, lub też tworzy się ją aby w kolejnych iteracjach szukać takiego uporządkowania, które optymalizuje zbiór wartości tej funkcji. W kolejnej sekcji zostaną pokrótce przedstawione różne metody, z wyszczególnieniem najważniejszych założeniach każdej z nich.
 
@@ -1697,7 +1723,7 @@ Zbiór danych jest opracowaniem własnym, na podstawie ofert sprzedaży samochod
 %\begin{center}
 \begin{figure}[h]
 \centering
-\includegraphics[width=1\textwidth]{zbior2}
+%\includegraphics[width=1\textwidth]{zbior2} %TODO missing in repo
 \caption{Podgląd stworzonego zbioru}
 \label{fig:obrazek1}
 \end{figure}
