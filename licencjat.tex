@@ -3,11 +3,14 @@
 \usepackage{graphicx}
 \graphicspath{ {C:/Users/kamila/Documents/Praca licencjacka/} }
 \usepackage{amsmath}
+\usepackage{tikz}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{paralist}
 \usepackage{polski}
+\usepackage{xcolor}
+\usepackage{multicol}
 \usepackage[hidelinks]{hyperref}
 \usepackage{natbib} % potrzba do bibliografii
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
@@ -30,6 +33,7 @@
 \newcommand{\norm}[2][]{\left\| {#2} \right\|_{#1}}
 \newcommand{\distance}[3][d]{\operatorname{#1}\left( {#2}; {#3}\right)}
 \newcommand{\mediana}{\operatorname{med}}
+\newcommand{\licznosc}[1]{\overline{\overline{#1}}}
 
 \newcommand{\closure}[1]{\overline{#1}}
 \begin{document}
@@ -91,6 +95,7 @@ Poniżej znajduje się lista pojęć powszechnie używanych w pracy wraz z symbo
 \begin{itemize}
 \item $\mathbb{R}$ - zbiór liczb rzeczywistych
 \item $\mathbb{N}$ - zbiór liczb naturalnych
+%\item $\licznosc{[1]}$ - liczność zbioru
 %+-\item $\mathcal{E}^n$ - przestrzeń euklidesowa n-wymiarowa
 \item O = $\{$O$_{1}$, O$_{2}$, ..., O$_{n}\}$ - zbiór obiektów przestrzennych, $n \in \mathbb{N}$
 \item X = $\{$X$_{1}$, X$_{2}$, ..., X$_{n}\}$ - zbiór zmiennych (cech), gdzie $n \in \mathbb{N}$
@@ -642,11 +647,11 @@ Grafem niezorientowanym, nazywamy graf $G=<V,E>$, jeżeli relacja binarna tego g
 
 %dodac podstawowe pojecia zwiazane z diagramami, diagramem hessego
 \newpage
-\section{Wybrane pojęcia z teorii mnogości i topologii: relacja porządkująca, przestrzenie metryczne, miary odległości}
+\section{Wybrane pojęcia z teorii mnogości i topologii: relacja porządkująca, moc zbiorów, równoliczność, przestrzenie metryczne, miary odległości}
 \subsection{Relacja porządkująca}
 \noindent
 
-W niniejszej pracy skupiam się na zagadnieniu porządkowania danych wielowymiarowych. Konieczne jest zatem przywołanie odpowiednich sformułowań dotyczących matematycznej definicji porządku. Najbardziej podstawowym pojęciem jest relacja porządku, która zostanie zdefiniowana poniżej. 
+W niniejszej pracy skupiam się na zagadnieniu porządkowania danych wielowymiarowych. Konieczne jest zatem przywołanie odpowiednich sformułowań dotyczących matematycznej definicji porządku. Najbardziej podstawowym pojęciem jest relacja porządku, która zostanie zdefiniowana poniżej. W sekcji tej zostaną również podane pojęcia równoliczności zbiorów, mocy zbiorów, liczby kardynalnej ze względu na korzystanie z tych pojęć, przy definiowaniu właściwości porządkowania liniowego zbioru obiektów.
 
 %\begin{definition}{Relacja porządkująca \cite[Rozdział 1]{kuratowski2004}\\}
 %Niech dana relacja $\rho$, którą oznaczać będziemy przez $\leq$, będzie określona dla elementów ustalonego zbioru $X$. %Mówimy, że relacja $\leq$ jest relacją porządkującą, jeśli spełnione są warunki:
@@ -661,7 +666,7 @@ W niniejszej pracy skupiam się na zagadnieniu porządkowania danych wielowymiar
 Niech dane będą zbiory $X$ i $Y$. Relacją (dwuargumentową) między elementami zbiorów $X$ i $Y$ nazywamy dowolny podzbiór $\rho \subset X \times Y $. Jeśli $X=Y$ to mówimy, że $\rho$ jest relacją na zbiorze $X$. \\
 \end{definition} 
 
-\begin{definition}{Relacja porządkująca (częściowego porządku) \cite[Rozdział 2]{blaszczyk2007}\\}
+\begin{definition}{Relacja porządkująca (częściowego porządku) \cite[Rozdział 2]{blaszczyk2007}\\}\label{def-relacja-czesciowego-porzadku}
 Niech dana relacja $\rho$, którą oznaczać będziemy przez $\leq$, będzie określona dla elementów ustalonego zbioru $X$. Mówimy, że relacja $\leq$ jest relacją częściowego porządku, jeśli spełnione są warunki:
 \begin{enumerate}
 \item $x \leq x$ dla każdego $x$ (zwrotność),
@@ -673,7 +678,7 @@ Niech dana relacja $\rho$, którą oznaczać będziemy przez $\leq$, będzie okr
 
 %na podstawie: http://wazniak.mimuw.edu.pl/index.php?title=Matematyka_dyskretna_2/Wyk%C5%82ad_2:
 \begin{example}{Częściowego porządku na zbiorze\\}
-Wykorzystanie częściowego porządku na płaszczyźnie $\mathbb{R}^2$, obrazuje diagram Hassego, będącego grafem skierowanym, którego wierzchołki zostały poddane relacji porządkowania i reprezentują elementy  skończonego zbioru $X \subset \mathbb{R}$. 
+Wykorzystanie częściowego porządku na płaszczyźnie $\mathbb{R}^2$, obrazuje diagram Hassego, będący grafem skierowanym, którego wierzchołki zostały poddane relacji porządkowania i reprezentują elementy  skończonego zbioru $X \subset \mathbb{R}$. 
 Aby go skonstruować, należy postępować według poniższych kroków:
 \begin{itemize}
 \item Punkty obrazujące elementy zbioru $X$, umieszcza się na płaszczyźnie.
@@ -689,8 +694,8 @@ Aby go skonstruować, należy postępować według poniższych kroków:
 \end{example}
 
 
-\begin{definition}{Relacja liniowo porządkująca (liniowy porządek) \cite[Rozdział 2]{blaszczyk2007}\\}
-Niech dany będzie niepusty zbiór $X$. Relację $\leq$ porządkującą zbiór $X$, nazywamy relacją liniowo porządkującą lub porządkiem liniowym, gdy dla dowolnych $x$, $y \in X$ spełnia ona następujący warunek liniowości:
+\begin{definition}{Relacja liniowo porządkująca (liniowy porządek) \cite[Rozdział 2]{blaszczyk2007}\\}\label{def-porzadek-liniowy}
+Niech dany będzie niepusty zbiór $X$. Relację $\leq$ porządkującą zbiór $X$, nazywamy relacją liniowo porządkującą lub porządkiem liniowym, gdy dla dowolnych $x$, $y \in X$ spełnia ona następujący warunek spójności tzn.
 \begin{center}
 $x \leq y$ lub $y \leq x$
 \end{center}
@@ -730,6 +735,17 @@ Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Jeśli zb
 \item jeśli $y \leq a$ dla każdego $a \in A$, to $y \leq y_0$.
 \end{enumerate}
 \end{definition}
+
+\begin{definition}{Zbiory równoliczne \cite[Rozdział 2]{kuratowski2004}\\}
+Zbiory $A$ i $B$ nazywamy równolicznymi (tej samej mocy), jeśli istnieje pewna funkcja $f$ przekształcająca wzajemnie i jednoznacznie zbiór $A$ na zbiór $B$. Piszemy wtedy: $\licznosc{A}=\licznosc{B}$.
+\end{definition}
+
+%NA PODSTAWIE https://edu.pjwstk.edu.pl/wyklady/mad/scb/mad10/main10_p4.html
+%\begin{definition}{Liczba kardynalna \cite[Rozdział 2]{
+
+%\end{definition}
+
+
 
 \subsection{Przestrzenie metryczne, miary odległości}
 \noindent
@@ -784,7 +800,7 @@ Metody porządkowania liniowego pozwalają na ustalenie hierarchii obiektów ze 
 \section{Metody porządkowania liniowego}
 \noindent
 
-Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu na prostą punktów reprezentujących obiekty, umieszczonych w wielowymiarowej przestrzeni zmiennych. Takie postępowanie pozwala na ustalenie hierarchii obiektów, czyli uporządkowanie ich od obiektu stojącego najwyżej w tej hierarchii do obiektu znajdującego się najniżej. Poniżej zostaną przedstawione własności uporządkowania liniowego obiektów, wraz z podaniem matematycznej interpretacji tych własności.\\
+Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu na prostą punktów reprezentujących obiekty, umieszczonych w wielowymiarowej przestrzeni zmiennych. Takie postępowanie pozwala na ustalenie hierarchii obiektów, czyli uporządkowanie ich od obiektu stojącego najwyżej w tej hierarchii do obiektu znajdującego się najniżej. Poniżej zostaną przedstawione własności uporządkowania liniowego obiektów, wraz z podaniem ich matematycznej interpretacji.\\
 
 \begin{itemize}
 \item każdy obiekt ma przynajmniej jednego sąsiada i nie więcej niż dwóch sąsiadów,
@@ -793,77 +809,141 @@ Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu 
 \end{itemize}
 \noindent
 
-\begin{definition}{Sąsiad względem relacji $\leq$\\ }
-Niech  $X$ będzie niepustym zbiorem, a $x, y$ będą elementami należącymi do tego zbioru. Mówi się, że $y \in X$ jest sąsiadem $x \in X$,co zapisujemy $ySx$, jeśli
+Powyżej wymienione własności są wynikiem posiadania jedynie skończonej ilości obiektów, które podane są uporządkowaniu. W następnej części chciałabym 
+\begin{itemize}
+\item sformalizować rozumienie powyższych własności,
+\item udowodnić ich poprawność,
+\item rozważyć dostateczność tych własności w zbiorach o skończonej ilości obiektów.\\
+\end{itemize}
+
+
+Na początku zacznę od sprecyzowania takich pojęć jak sąsiad względem relacji.\\
+
+\begin{definition}{Sąsiad względem relacji $\leq$\\}\label{def-sasiada}
+Niech  $X$ będzie niepustym zbiorem, a $x, y$ będą dwoma różnymi elementami należącymi do tego zbioru. Mówi się, że $y \in X$ jest sąsiadem $x \in X$,co zapisujemy $ySx$, jeśli
 \begin{center}
-$y \leq x \vee x \leq y \quad \wedge \quad  \lnot \exists_{z \in X} \quad y \leq z \leq x \wedge x \leq z \leq y$.\\
+$\left(y \leq x \lor x \leq y \right) \quad \land \quad  \left(\lnot \exists_{z \in X}  \quad x\neq z \neq y \Rightarrow   y \leq z \leq x \lor x \leq z \leq y \right)$.\\
 \end{center}
 \end{definition}
 
-\begin{wlasnosci}{Porządku liniowego\\}
-Niech $\leq$ będzie relacją zdefiniowaną w $X \times X$, taką że:
+
+
+\begin{theorem}{Własności porządku liniowego w zbiorach skończonych\\}
+Niech $\leq$ będzie relacją porządku liniowego zdefiniowaną w $X \times X$, gdzie $X$ jest zbiorem ze skończoną liczbą obiektów, złożonym co najmniej z dwóch elementów. Wtedy
 \begin{enumerate}
-\item $\forall_{x \in X} \quad \overline{\overline{\{y \in X, ySx\}}} \in \{1,2\}$,
+\item $\forall_{x \in X} \quad \licznosc{\{y \in X, ySx\}} \in \{1,2\}$,
 \item $\forall_{x, y \in X} \quad ySx \Rightarrow xSy $,
-%\item $\overline{\overline{\{\x in X, \quad \overline{\overline{\{y \in X, ySx \}=1\}}}}}=2 $
-\item $\overline{\overline{\{x \in X, \quad \overline{\overline{\{y \in X, \quad ySx \}}}=1\}}}=2 $
+\item $\licznosc{\{x \in X, \quad \licznosc{\{y \in X, \quad ySx \}}=1\}}=2$
 \end{enumerate}
 gdzie:\\
-$S$ oznacza sąsiada względem relacji $\leq$, z kolei relacja $\leq$ jest porządkiem liniowym zbioru danych $X$.
-\end{wlasnosci}
-
-\begin{theorem}{Porządek liniowy zbioru danych $X$ jest porządkiem liniowym w sensie definicji 2.5.3.\\} 
-Porządek liniowy zbioru danych $X$ jest porządkiem liniowym w sensie definicji 2.5.3.
+$S$ oznacza sąsiada względem relacji $\leq$.
 \end{theorem}
-\begin{proof}
-By udowodnić to twierdzenie należy odwołać się do definicji częściowego porządku, a następnie skorzystać z definicji relacji liniowego porządku. Zatem, należy wykazać zwrotność, przechodniość, słabą antysymetryczność oraz spójność relacji. Niech dany będzie skończony, niepusty zbiór $X$ (przez zbiór $X$ będziemy rozumieli zbiór danych), oraz relacja $\leq$.\\
-Załóżmy, że zbiór $X \subset \mathbb{R}^2$ oraz $X=\{a_1, a_2,..., a_n\},\quad n\in \mathbb{N}$ oraz $a_i=(x_i,y_i) \in X,  i\in \mathbb{N}$\\
-Niech dane będą dwa obiekty $a_i, a_j \in X, \quad a_i=(x_i, y_i)  \wedge a_j=(x_j, y_j),  i, j\in \mathbb{N}$\\
-\begin{itemize}%[(alph)]
-\item (zwrotność)\\
-Zauważmy, że $\forall{a_i \in X}_{i \in \mathbb{N}} \quad a_i \leq a_i$, wtedy
-\begin{center}
- $(x_i, y_i) \leq (x_i, y_i)$, czyli $x_i \leq x_i \wedge y_i \leq y_i$. \\
-\end{center}
-Zatem relacja $\leq$ jest zwrotna.
-\item (słaba antysymetryczność)\\
-Niech dane będą obiekty $a_i, a_j \in X$ wówczas 
-\begin{center}
-$a_i \leq a_j \quad \wedge \quad a_j \leq a_i$ czyli\\
-$(x_i, y_i) \leq (x_j, y_j) \quad \wedge \quad  (x_j, y_j) \leq (x_i, y_i)$ zatem \\
-$(x_i \leq x_j \wedge y_i \leq y_j) \wedge (x_j\leq x_i \wedge y_j \leq y_i)\quad  \Rightarrow \quad x_i=x_j \wedge y_j=y_i \quad \Rightarrow \quad (x_i,y_i)=(x_j,y_j)$
-\end{center}
-Zatem relacja $\leq$ jest słabo antysymetryczna.
-\item (przechodniość)\\
-Niech dane będą obiekty $a_i, a_j, a_k \in X$, takie że $\quad a_i \leq a_j \quad  \wedge \quad a_j \leq a_k$
-\begin{center}
-$(x_i, y_i) \leq (x_j, y_j) \quad \wedge \quad  (x_j, y_j) \leq (x_k, y_k)$ czyli\\ 
-$(x_i \leq x_j \wedge y_i \leq y_j) \wedge (x_j \leq x_k \wedge y_j \leq y_k) \quad \Rightarrow$\\
-$x_i \leq x_k \wedge y_i \leq y_k \quad \Rightarrow (x_i,y_i) \leq (x_k,y_k)$\\
-\end{center}
-Zatem $\forall_{a_i, a_j, a_k \in X}\quad a_i \leq a_k,  $ stąd relacja $\leq$ jest przechodnia. 
-\end{itemize}
-Na podstawie powyższych punktów, widać iż para $(X,\leq)$ jest zbiorem częściowo uporządkowanym, sprawdzimy teraz czy relacja ta jest spójna.
+
+
+\begin{proof}Poniżej zostaną udowodnione powyższe własności.
+\begin{enumerate}
+\item Niech $x \in X$. Przypuśćmy na początek, że $\licznosc{\{y \in X, ySx\}} = 0$, tzn. że obiekt $x$ nie posiada sąsiadów w tej relacji. Nasz zbiór $X$ jest jednak co najmniej dwuelementowy zatem istnieje element $y \in X$ i $ x \neq y$. Wobec spójności linowego porządku z Definicji \ref{def-porzadek-liniowy} zachodzi wtedy
+$$ x \leq y \lor y \leq x.$$
+Jednak wiemy, że $y$ nie może być sąsiadem $x$ gdyż ten nie posiada sąsiadów. Zatem z definicji sąsiada musi istnieć $z \in X$ różny od obu $x \neq z \neq y$ spełniający warunek
+$$
+z \leq x \lor x \leq z.
+$$
+Powyższe rozumowanie dla $y$ można by dalej zastosować do $z$, uzyskując kolejne $z_1$ a później $z_2,z_3, \ldots$ dowolną ilość różnych elementów z których każdy występuje w relacji liniowego porządku z $x$, ale żaden z nich nie jest sąsiadem. Jednak nasz zbiór $X$ jest zbiorem skończonym, więc nigdy nie uda nam się utworzyć dowolnej ilości różnych elementów ze zbioru $X$ (elementy się wyczerpią). Zatem nasze przypuszczenie, że $\licznosc{\{y \in X, ySx\}} = 0$ jest fałszywe.
+
+Przypuśćmy dalej, że $\licznosc{\{y \in X, ySx\}} \geq 3$. Niech $a,b,c$ będą trzema różnymi elementami z $X$ będącymi sąsiadami dla $x$. Wtedy bez straty ogólności możemy przyjąć, że $a \leq x, b \leq x$ lub $x \leq a, x \leq b$. Istotnie mając 3 elementy w relacji wtedy co najmniej dwa muszą znajdować się po zgodnej stronie, a z dokładnością do oznaczeń możemy przyjąć, że będą nimi $a$ oraz $b$. Ustalmy zatem, że $a \leq x, b \leq x$. Wobec definicji \ref{def-porzadek-liniowy} wiemy, że $a \leq b$ lub $b \leq a$. Jeśli $a \leq b$ to $a \leq b \leq x$. Co przeczy temu, że $a$ jest sąsiadem $x$. Jeśli $b \leq a$ to $b \leq a \leq x$ co przeczy temu, że $b$ jest sąsiadem. Zupełnie analogicznie postępujemy dla przypadku $x \leq a, x \leq b$. Zatem uzyskujemy sprzeczność, będącą efektem przypuszczenia, że mogą istnieć takie 3 elementy $a,b,c$. Zatem ostatecznie $\licznosc{\{y \in X, ySx\}} \in \{ 1,2 \}$.
+
+\item Niech $x,y \in X$ oraz niech $ySx$. Korzystając z definicji sąsiada \ref{def-sasiada} mamy, że skoro $ySx$ to  $\left(y \leq x \lor x\leq y \right)\quad \land \quad  \left(\lnot \exists_{z \in X}  \quad x\neq z \neq y \Rightarrow   y \leq z \leq x \lor x \leq z \leq y \right)$. Zatem, wobec spójności porządku liniowego z Definicji \ref{def-porzadek-liniowy}, zachodzi $$ y\leq x \lor x\leq y.$$ Dzięki, czemu widać, że elementy są porównywane oraz możemy zapisać, że $xSy$. Zatem ostatecznie $ySx \Rightarrow xSy$.
+
+\item Intuicyjnie te dwa elementy posiadające po jednym sąsiedzie są elementami maksymalnym i minimalnym w tym zbiorze. Udowodnimy kolejno:
 \begin{itemize}
-\item (spójność)\\
-Niech dane będą obiekty $a_i, a_j \in X$, przy czym $i\neq j, \quad i,j \in \mathbb{N}$.\\
-\begin{center}
-Wówczas $a_i \leq a_j \vee a_j\leq a_i$, czyli\\
-$(x_i,y_i)\leq (x_j,y_j) \quad \vee \quad (x_j,y_j) \leq (x_i, y_i)$\\
-$x_i \leq x_j \wedge y_i \leq y_j \quad \quad \vee \quad \quad x_j\leq x_i \wedge y_j\leq y_i$\\
-w tym przypadku $a_i \leq a_j \quad  \quad$ z kolei w tym przypadku $a_j \leq a_i.$
-\end{center}
-W związku z powyższym oznacza to, że obiekty są porównywalne
-\end{itemize} 
-Wobec powyższych zostało udowodnione, że relacja $\leq$ jest zwrotna, przechodnia, słabo antysymetryczna i spójna, w związku z tym para $(X, \leq)$ jest liniowym porządkiem.
+\item Element minimalny w zbiorze ma pojedynczego sąsiada. Istotnie zbiór musi posiadać dokładnie 1 element minimalny, tzn. $x_m \in X$ takie, że 
+$$
+\forall x \in X \quad x_m \leq x.
+$$
+Istotnie przypuśćmy, że nie istnieje element minimalny. Niech $x_1$ będzie dowolnym elementem z $X$. Skoro nie istnieje element minimalny, to istnieje $x_2 \in X$ takie, że $x_2 \leq x_1$ i $x_2 \neq x_1$. Dla $x_2$ z braku elementu minimalnemu, musi istnieć z kolei $x_3 \leq x_2$ takie, że $x_2 \neq x_3$. Itd. Co nie jest możliwe, gdyż zbiór $X$ jest przecież skończonym zbiorem.
+Rozważmy dalej przypuszczenie gdyby były dwa lub więcej takich elementów. Wtedy to, z antysymetryczności, oczywiście musiałyby być sobie równe. Jeśli $x_m, y_m$ są jednocześnie minimalne to
+$$
+\forall x \in X \quad x_m \leq x,
+$$
+oraz 
+$$
+\forall x \in X \quad y_m \leq x.
+$$
+Skąd natychmiast mamy, że $ x_m \leq y_m$ oraz $y_m \leq x_m$. Wobec antysymetryczności z definicji \ref{def-relacja-czesciowego-porzadku} mamy, że $x_m = y_m$ wbrew naszemu przypuszczeniu, że są od siebie różne.
+Pozostaje pokazać, że element minimalny ma pojedynczego sąsiada. Przypuśćmy, że $y,z \in X$ są dwoma różnymi sąsiadami dla $x_m$. Wtedy $ x_m \leq y \lor y \leq x_m$ oraz $ x_m \leq z \lor z \leq x_m$. Skoro $x_m$ jest minimalny to musi to zatem oznaczać
+$$
+x_m \leq y \land x_m \leq z.
+$$ 
+Wobec spójności z definicji \ref{def-porzadek-liniowy} zachodzi $y \leq z$ lub $z \leq y$. Sprzeczność, gdyż wtedy któryś z nich nie mógłby być sąsiadem dla $x_m$.
+\item Element maksymalny $x_M$ w zbiorze ma pojedynczego sąsiada. Analogicznie do powyższego punktu, zbiór musi posiadać dokładnie 1 element maksymalny, tzn. $x_M \in X$ takie, że
+$$\forall x \in X \quad x \leq x_M.$$
+Istotnie przypuśćmy, że nie istnieje element maksymalny. Niech $x_1$ będzie dowolnym elementem z $X$. Skoro nie istnieje element maksymalny, to istnieje $x_2 \in X$ takie, że $x1 \leq x_2$ i $x_1 \neq x_2$. Dla $x_2$ z braku elementu maksymalnego, musi istnieć taki element $x_3 \in X$ i $x_3 \neq x_2$, że $x_2 \leq x_3$. Itd. Co nie jest możliwe, gdyż z założenia, zbiór $X$ jest skończonym zbiorem.
+Rozważmy dalej przypuszczenie gdyby były dwa lub więcej takich elementów. Wtedy to, z antysymetryczności, musiałyby być sobie równe. Jeśli $x_M, y_M$ są jednocześnie maksymalne, to 
+$$
+\forall x \in X \quad x \leq x_M,
+$$
+oraz 
+$$
+\forall x \in X \quad x \leq y_M.
+$$
+Stąd natychmiast mamy, że $x_M \leq y_M$ oraz $y_M \leq  x_M$. Wobec antysymetryczności z definicji \ref{def-relacja-czesciowego-porzadku} mamy, że $x_M = y_M$, co wbrew naszemu przypuszczeniu daje, że elementy te są od siebie różne.
+Pozostaje pokazać, że element maksymalny ma pojedynczego sąsiada. Przypuśćmy, że $y,z \in X$ są dwoma różnymi sąsiadami dla $x_M$. Wtedy $ x_M \leq y \lor y \leq x_M$ oraz $ x_M \leq z \lor z \leq x_M$. Skoro $x_M$ jest minimalny to musi to zatem oznaczać
+$$
+y \leq x_M \land z \leq x_M.
+$$ 
+Wobec spójności z definicji \ref{def-porzadek-liniowy} zachodzi $y \leq z$ lub $z \leq y$. Sprzeczność, gdyż wtedy któryś z nich nie mógłby być sąsiadem dla $x_M$.
 
+\item Żaden inny element nie może mieć pojedynczego sąsiada. Przypuśćmy, że $x \in X$ nie będąc ani elementem minimalnym ani maksymalnym ma pojedynczego sąsiada. Wobec definicji elementu minimalnego i maksymalnego oraz spójności zachodzi
+$$
+x_m \leq x \leq x_M.
+$$
+Zatem albo $x_m$ jest sąsiadem $x$ albo istnieje $y_1 \in X$ taki, że $y_1 \leq x$.
+\newline
+Zajmiemy się najpierw pierwszą częścią, tj. $x_m$ jest sąsiadem $x$. Na mocy definicji sąsiada \ref{def-sasiada}, wynika, że skoro $x_m$ jest sąsiadem elementu $x$ oraz element $x$ ma pojedynczego sąsiada i nie jest ani elementem maksymalnym, ani minimalnym, to  $$\left(x_m \leq x \lor x \leq x_m\right) \quad \land \quad \left(\lnot \exists_{z \in X}  \quad x\neq z \neq x_m \Rightarrow   x_m \leq z \leq x \lor x \leq z \leq x_m \right) $$
+Ale z faktu, że $x_m$ jest elementem minimalnym wynika, że $x_m \leq x$, zatem $x$ nie może być $x \leq x_m$, stąd $x$ jest  jedynym sąsiadem $x_m$, stąd element ten, nie może mieć jedynie pojedynczego sąsiada, ze względu na istnieje jeszcze elementu maksymalnego, którym element $x$ nie jest.\\
+Przejdźmy teraz do drugiej części, tj.istnieje $y_1 \in X$ taki, że $y_1 \leq x$. To oznaczałoby, że $y_1$ jest elementem minimalnym, zatem $x$, byłby pojedynczym sąsiadem $y_1$, a z faktu, że element $x$, nie jest ani elementem minimalnym, ani maksymalnym wynika, że musi istnieć taki element $x_M$, który będzie maksymalny, przez co element $x$ będzie miał dwóch sąsiadów. 
+\\Analogicznie albo $x_M$ jest sąsiadem $x$ albo istnieje $z_1 \in X$ taki, że $x \leq z_1$. 
+\newline
+Zajmiemy się najpierw pierwszą częścią, tj. $x_M$ jest sąsiadem $x$. Na mocy definicji sąsiada \ref{def-sasiada}, wynika, że skoro $x_M$ jest sąsiadem elementu $x$ oraz element $x$ ma pojedynczego sąsiada i nie jest ani elementem maksymalnym, ani minimalnym, to  $$\left(x_M \leq x \lor x \leq x_M\right) \quad \land \quad \left(\lnot \exists_{z \in X}  \quad x\neq z \neq x_M \Rightarrow   x_M \leq z \leq x \lor x \leq z \leq x_M \right) $$
+Ale z faktu, że $x_M$ jest elementem maksymalnym wynika, że $x \leq x_M$, zatem $x$ nie może być $x_M \leq x$, stąd $x$ jest  jedynym sąsiadem $x_M$, stąd element ten, nie może mieć jedynie pojedynczego sąsiada, ze względu na istnieje jeszcze, elementu minimalnego, którym element $x$ nie jest.\\
+Przejdźmy teraz do drugiej części, tj.istnieje $z_1 \in X$ taki, że $x \leq z_1$. To oznaczałoby, że $z_1$ jest elementem maksymalnym, zatem $x$, byłby pojedynczym sąsiadem $z_1$, a z faktu, że element $x$, nie jest ani elementem minimalnym, ani maksymalnym wynika, że musi istnieć taki element $x_m$, który będzie minimalny, przez co element $x$ będzie miał dwóch sąsiadów. 
 
+W efekcie $x$ musi mieć dwóch sąsiadów. Co kończy dowód własności.
+\end{itemize}
+
+\end{enumerate}
 \end{proof}
 
+Powyżej wykazane własności są często podawane, niemal na równi z definicją takiego uporządkowania, w pozycjach książkowych omawiających praktyczny aspekt porządkowania danych. Poniżej podane zostaną przykłady takich relacji, które też posiadają powyższy zestaw własności, ale nie opisują relacji będących porządkami liniowymi. 
+ 
+\begin{example}
+Rozważmy zbiór dwuelementowy $X = \{ a, b \}$ gdzie $a \leq b$ jedynym punktem tej relacji. Tak zdefiniowana relacja spełnia wszystkie własności, ale nie spełnia założenia o przechodniości - zatem relacja ta nie jest liniowym porządkiem.
+\end{example}
+
+\begin{example}
+Rozważmy zbiór $X = \{a,b,c,d,e \}$ oraz relację definiującą następujące sąsiedztwa (wypisaną bez par symetrycznych) 
+$aSb, bSc, aSc, cSe, dSe$
+Diagram Hassego prezentujący relację porządku tego zbioru jest postaci:
+$$
+\begin{tikzpicture}[scale=.7]
+  \node (a) at (-2,0) {$a$};
+  \node (b) at (2,0) {$b$};
+  \node (c) at (2,2) {$c$};
+ \node (e) at (3,3) {$e$};
+ \node (d) at (-3,3) {$d$};
+%  \node (zero) at (0,-2) {$0$};
+  \draw (b)--(a) --(c)-- (b) -- (c)--(e)--(d); %-- (one) -- (d) -- (zero);
+\end{tikzpicture}
+$$
+%https://tex.stackexchange.com/questions/47392/how-to-draw-a-poset-hasse-diagram-using-tikz
+%https://tex.stackexchange.com/questions/129583/how-can-i-produce-a-hasse-or-lattice-diagram/129641
+Z diagramu widać, że taka relacja spełnia wszystkie omawiane wcześniej własności - jednak brakuje jej cech spójności. I tak np. nie możemy porównać elementów $a$ i $d$, bowiem nie możemy określić czy  $d \leq a$ lub $a \leq d$.
+\end{example}
 
 
 
-Aby uporządkować liniowo obiekty, charakteryzujące je zmienne muszą być mierzone przynajmniej na skali porządkowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
+
+W podsumowaniu tej sekcji należy podkreślić, że by uporządkować liniowo obiekty, charakteryzujące je zmienne muszą być mierzone przynajmniej na skali porządkowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
 
 Metody porządkowania liniowego można podzielić na metody diagramowe, procedury oparte na zmiennej syntetycznej oraz procedury iteracyjne bazujące funkcji kryterium dobroci uporządkowania tzn. funkcji, którą się przyjmuje, lub też tworzy się ją aby w kolejnych iteracjach szukać takiego uporządkowania, które optymalizuje zbiór wartości tej funkcji. W kolejnej sekcji zostaną pokrótce przedstawione różne metody, z wyszczególnieniem najważniejszych założeniach każdej z nich.
 
@@ -1693,11 +1773,14 @@ $d_{i^{''}i^{''c}}$ - odległość $i^{''}$-tego obiektu, należącego do nowo p
 \section{Opis zbioru}
 \noindent
 %https://tex.stackexchange.com/questions/228271/creating-two-columns-in-beamer
-Zbiór danych jest opracowaniem własnym, na podstawie ofert sprzedaży samochodów osobowych, zamieszczonych na portalu $www.otomoto.pl$. Zebrane dane dotyczą szczegółowych informacji odnośnie samochodu, tj. jego marki, modelu, wersji, typu,koloru lakieru, pojemności silnika, roku produkcji, przebiegu, liczby drzwi, rodzaju skrzyni biegu, rodzaju paliwa, rodzaju napędu, wyposażenia w: ABS, komputer pokładowy, ESP, klimatyzację. Oprócz danych ściśle związanych z budową i wyposażeniem samochodu, pojawiły się również atrybuty związane z informacją o tym czy auto jest uszkodzone oraz bezwypadkowe,czy jest sprowadzane, jaki jest kraj aktualnej rejestracji, czy było serwisowane, czy sprzedający jest pierwszym właścicielem. Dodatkowo oprócz powyższych, został dodany atrybut najbardziej interesujący kupującego - czyli cena oraz województwo tj. miejsce skąd wystawiana jest oferta.
+Zbiór danych jest opracowaniem własnym, na podstawie ofert sprzedaży samochodów osobowych, zamieszczonych na portalu $www.otomoto.pl$ w okresie listopad - grudzień 2017 roku. Zebrane dane dotyczą szczegółowych informacji odnośnie samochodu, tj. jego marki, modelu, wersji, typu, koloru lakieru, pojemności silnika, roku produkcji, przebiegu, liczby drzwi, rodzaju skrzyni biegu, rodzaju paliwa, rodzaju napędu, wyposażenia w: ABS, komputer pokładowy, ESP, klimatyzację. Oprócz danych ściśle związanych z budową i wyposażeniem samochodu, pojawiły się również atrybuty, tj. cechy umieszczone w kolumnach, związane z informacją o tym czy auto jest uszkodzone oraz bezwypadkowe,czy jest sprowadzane, jaki jest kraj aktualnej rejestracji, czy było serwisowane, czy sprzedający jest pierwszym właścicielem. Dodatkowo oprócz powyższych, został dodany atrybut najbardziej interesujący kupującego - czyli cena oraz województwo tj. miejsce skąd wystawiana została oferta.
 %\begin{center}
 \begin{figure}[h]
 \centering
-\includegraphics[width=1\textwidth]{zbior2}
+%\includegraphics[width=1\textwidth]{zbior2}
+%\caption{Podgląd stworzonego zbioru}
+%\label{fig:obrazek1}
+\includegraphics[width=1\textwidth]{img/zbior3.jpg}
 \caption{Podgląd stworzonego zbioru}
 \label{fig:obrazek1}
 \end{figure}
@@ -1706,23 +1789,79 @@ Zbiór danych jest opracowaniem własnym, na podstawie ofert sprzedaży samochod
 \subsubsection{Użyte zmienne}
 \noindent
 
-W stworzonym zbiorze danych znajduje się 29 atrybutów, opisujących 61 różnych rekordów. Wśród zebranych danych można wyróżnić zarówno zmienne jakościowe, jak i ilościowe. 
+W stworzonym zbiorze danych znajduje się 29 atrybutów, opisujących 61 różnych rekordów, tj. obiektów reprezentowanych przez wiersze, którym przypisano pewne wartości atrybutów. Wśród zebranych danych można wyróżnić zarówno zmienne jakościowe, jak i ilościowe. 
 
-Zmiennymi jakościowymi są atrybuty: MARKA, MODEL, WERSJA, TYP, WOJEWODZTWO, KOLOR, RODZAJ.PALIWA, SKRZYNIA.BIEGOW, NAPED, 
-\newline
-KRAJ.AKTUALNEJ.REJESTRACJI, KRAJ.POCHODZENIA, STAN, ABS,
-\newline
-STATUS.POJAZDU.SPROWADZONEGO, PIERWSZY.WLASCICIEL, KTO.SPRZEDAJE, SERWISOWANY, KOMPUTER.POKLADOWY, ESP, KLIMATYZACJA, BEZWYPADKOWY, USZKODZONY.
-\newline
-Wśród zmiennych jakościowych można wyróżnić zmienne porządkowe, nominalne oraz binarne. W stworzonym zbiorze danych zmiennymi binarnymi są atrybuty: PIERWSZY.WLASCICIEL, SERWISOWANY, ABS, KOMPUTER.POKLADOWY, ESP, BEZWYPADKOWY, USZKODZONY. Pozostałe atrybuty są zmiennymi nominalnymi.%%%czy aby na pewno zmienne binarne? 
+Zmiennymi jakościowymi są atrybuty:
+\begin{multicols}{3} 
+\begin{itemize}
+	\item marka,
+	\item model,
+	\item typ,
+	\item wojewodztwo,
+	\item kolor,
+	\item rodzaj.paliwa,
+	\item skrzynia.biegow,
+	\item naped,
+	\item kraj.aktualnej.rejestracji,%KRAJ.AKTUALNEJ.REJESTRACJI,
+	\item kraj.pochodzenia,%KRAJ.POCHODZENIA,
+	\item stan,
+	\item ABS,
+	\item uszkodzony,
+	\item pierwszy.wlasciciel,%PIERWSZY.WLASCICIEL,
+	\item kto.sprzedaje,%KTO.SPRZEDAJE,
+	\item serwisowany,%SERWISOWANY,
+	\item komputer.pokladowy,%KOMPUTER.POKLADOWY,
+	\item ESP,
+	\item klimatyzacja,%KLIMATYZACJA,
+	\item bezwypadkowy,%BEZWYPADKOWY,
+	\item status.pojazdu.sprowadzanego%STATUS.POJAZDU.SPROWADZONEGO.
+\end{itemize}
+\end{multicols}
 
-Zmiennymi ilościowymi są atrybuty: CENA.[PLN].NETTO, CENA.[PLN].BRUTTO, MOC, POJEMNOSC.SKOKOWA[cm3], ROK.PRODUKCJI, PRZEBIEG[km], L.DRZWI. 
-\newline
-Wśród zmiennych ilościowych można wyróżnić zmienne skokowe oraz dyskretne. W stworzonym zbiorze danych, zmiennymi skokowymi są: MOC, POJEMNOŚĆ.SKOKOWA[cm3], ROK.PRODUKCJI, PRZEBIEG, L.DRZWI. Z kolei atrybuty: CENA.[PLN].NETTO, CENA.[PLN].BRUTTO są zmiennymi ciągłymi. 
+
+Wśród zmiennych jakościowych można wyróżnić zmienne porządkowe, nominalne oraz binarne. W stworzonym zbiorze danych zmiennymi binarnymi są atrybuty: 
+\begin{multicols}{3}
+\begin{itemize}
+	\item pierwszy.wlasciciel,%PIERWSZY.WLASCICIEL,
+	\item ABS,
+	\item serwisowany,%SERWISOWANY,
+	\item komputer.pokladowy, %KOMPUTER.POKLADOWY
+	\item ESP,
+	\item bezwypadkowy,%BEZWYPADKOWY,
+	\item uszkodzony.%USZKODZONY.
+\end{itemize}
+\end{multicols}
+
+Pozostałe atrybuty są zmiennymi nominalnymi.
+
+Zmiennymi ilościowymi są atrybuty:
+\begin{multicols}{3}
+\begin{itemize}
+ \item cena.netto[pln],%CENA.[PLN].NETTO,
+ \item cena.brutto[pln],% CENA.[PLN].BRUTTO
+ \item moc,%MOC
+ \item pojemnosc.skokowa[cm$^3$],% POJEMNOSC.SKOKOWA[cm3]
+ \item rok.produkcji, %ROK.PRODUKCJI
+ \item przebieg[km],%PRZEBIEG[km]
+ \item l.drzwi. %L.DRZWI
+\end{itemize}
+\end{multicols}
+
+Wśród zmiennych ilościowych można wyróżnić zmienne skokowe oraz dyskretne. W stworzonym zbiorze danych, zmiennymi skokowymi są: 
+\begin{multicols}{3}
+\begin{itemize}
+	\item moc, %MOC
+	\item pojemnosc.skokowa[cm$^3$], %POJEMNOSC.SKOKOWA[cm3]
+	\item rok.produkcji, %ROK.PRODUKCJI
+	\item przebieg, %PRZEBIEG,
+	\item l.drzwi. %L.DRZWI
+
+\end{itemize}
+\end{multicols}
+Z kolei atrybuty: cena.netto[pln], cena.brutto[pln] są zmiennymi ciągłymi. 
 %czy zmienne porządkowe nie powinny być zaliczane do zmiennych ilościowych?
 %l.drzwi powinna zostać zaliczona do zmiennych porządkowych 
 
-%wrzucic screen pogladowy do tych danych
 
 
 \bibliographystyle{plain}
