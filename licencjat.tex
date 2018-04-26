@@ -651,7 +651,7 @@ Grafem niezorientowanym, nazywamy graf $G=<V,E>$, jeżeli relacja binarna tego g
 \subsection{Relacja porządkująca}
 \noindent
 
-W niniejszej pracy skupiam się na zagadnieniu porządkowania danych wielowymiarowych. Konieczne jest zatem przywołanie odpowiednich sformułowań dotyczących matematycznej definicji porządku. Najbardziej podstawowym pojęciem jest relacja porządku, która zostanie zdefiniowana poniżej. W sekcji tej zostaną również podane pojęcia równoliczności zbiorów, mocy zbiorów, liczby kardynalnej ze względu na korzystanie z tych pojęć, przy definiowaniu właściwości porządkowania liniowego zbioru obiektów.
+W niniejszej pracy skupiam się na zagadnieniu porządkowania danych wielowymiarowych. Konieczne jest zatem przywołanie odpowiednich sformułowań dotyczących matematycznej definicji porządku. Najbardziej podstawowym pojęciem jest relacja porządku, która zostanie zdefiniowana poniżej. W sekcji tej zostaną również podane pojęcia równoliczności zbiorów, mocy zbioru ze względu na korzystanie z tych pojęć, przy definiowaniu właściwości porządkowania liniowego zbioru obiektów. Dodatkowo przytoczona została definicja zbioru skończonego, ze względu na   zastosowanie metod porządkowania na zbiorze skończonym.
 
 %\begin{definition}{Relacja porządkująca \cite[Rozdział 1]{kuratowski2004}\\}
 %Niech dana relacja $\rho$, którą oznaczać będziemy przez $\leq$, będzie określona dla elementów ustalonego zbioru $X$. %Mówimy, że relacja $\leq$ jest relacją porządkującą, jeśli spełnione są warunki:
@@ -736,11 +736,25 @@ Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Jeśli zb
 \end{enumerate}
 \end{definition}
 
-\begin{definition}{Zbiory równoliczne \cite[Rozdział 2]{kuratowski2004}\\}
-Zbiory $A$ i $B$ nazywamy równolicznymi (tej samej mocy), jeśli istnieje pewna funkcja $f$ przekształcająca wzajemnie i jednoznacznie zbiór $A$ na zbiór $B$. Piszemy wtedy: $\licznosc{A}=\licznosc{B}$.
+\begin{definition}{Zbiory równoliczne \cite[Rozdział 5]{blaszczyk2007}\\}
+Mówimy, że zbiory $A$ i $B$ są równoliczne (tej samej mocy), gdy istnieje bijekcja, tj. funkcja $f$ różnowartościowa, przekształcająca zbiór $A$ na zbiór $B$, tzn. $f: A \rightarrow B$. Piszemy wtedy:  $\licznosc{A}=\licznosc{B}$.
 \end{definition}
 
+\begin{definition}{Zbiór skończony \cite[Rozdział 5]{blaszczyk2007}\\}
+Mówimy, że zbiór $A$ jest skończony, gdy istnieje taka liczba naturalna $n$, że zbiór $A$ jest równoliczny z przedziałem w zbiorze liczb naturalnych
+\begin{center}
+$[0, n) = \{ k \in \mathbb{N}: k < n\}.$
+\end{center}
+Zatem, gdy zbiór $A$ jest równoliczny ze zbiorem $\{1, ..., k\}$, to mówimy że jest on $k$-elementowy, tj. mocy równej $k$.
+\end{definition}
+
+
+
+
+
 %NA PODSTAWIE https://edu.pjwstk.edu.pl/wyklady/mad/scb/mad10/main10_p4.html
+%to:
+%Zbiory $A$ i $B$ nazywamy równolicznymi (tej samej mocy), jeśli istnieje pewna funkcja $f$ przekształcająca wzajemnie i jednoznacznie zbiór $A$ na zbiór $B$. Piszemy wtedy: $\licznosc{A}=\licznosc{B}$.
 %\begin{definition}{Liczba kardynalna \cite[Rozdział 2]{
 
 %\end{definition}
@@ -800,12 +814,12 @@ Metody porządkowania liniowego pozwalają na ustalenie hierarchii obiektów ze 
 \section{Metody porządkowania liniowego}
 \noindent
 
-Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu na prostą punktów reprezentujących obiekty, umieszczonych w wielowymiarowej przestrzeni zmiennych. Takie postępowanie pozwala na ustalenie hierarchii obiektów, czyli uporządkowanie ich od obiektu stojącego najwyżej w tej hierarchii do obiektu znajdującego się najniżej. Poniżej zostaną przedstawione własności uporządkowania liniowego obiektów, wraz z podaniem ich matematycznej interpretacji.\\
+Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu na prostą punktów reprezentujących obiekty, umieszczonych w wielowymiarowej przestrzeni zmiennych. Takie postępowanie pozwala na ustalenie hierarchii obiektów, czyli uporządkowanie ich od obiektu stojącego najwyżej w tej hierarchii do obiektu znajdującego się najniżej. Poniżej zostaną przedstawione własności uporządkowania liniowego obiektów, wraz z podaniem ich matematycznej interpretacji.
 
 \begin{itemize}
 \item każdy obiekt ma przynajmniej jednego sąsiada i nie więcej niż dwóch sąsiadów,
 \item jeżeli sąsiadem $i$-tego obiektu jest $i'$-ty obiekt, to jednocześnie sąsiadem $i'$-tego obiektu jest $i$-ty obiekt,
-\item dokładnie dwa obiekty mają tylko jednego sąsiada.\\
+\item dokładnie dwa obiekty mają tylko jednego sąsiada.
 \end{itemize}
 \noindent
 
@@ -813,11 +827,11 @@ Powyżej wymienione własności są wynikiem posiadania jedynie skończonej ilo�
 \begin{itemize}
 \item sformalizować rozumienie powyższych własności,
 \item udowodnić ich poprawność,
-\item rozważyć dostateczność tych własności w zbiorach o skończonej ilości obiektów.\\
+\item rozważyć dostateczność tych własności w zbiorach o skończonej ilości obiektów.
 \end{itemize}
 
 
-Na początku zacznę od sprecyzowania takich pojęć jak sąsiad względem relacji.\\
+Na początku zacznę od sprecyzowania takich pojęć jak sąsiad względem relacji.
 
 \begin{definition}{Sąsiad względem relacji $\leq$\\}\label{def-sasiada}
 Niech  $X$ będzie niepustym zbiorem, a $x, y$ będą dwoma różnymi elementami należącymi do tego zbioru. Mówi się, że $y \in X$ jest sąsiadem $x \in X$,co zapisujemy $ySx$, jeśli
@@ -835,12 +849,12 @@ Niech $\leq$ będzie relacją porządku liniowego zdefiniowaną w $X \times X$, 
 \item $\forall_{x, y \in X} \quad ySx \Rightarrow xSy $,
 \item $\licznosc{\{x \in X, \quad \licznosc{\{y \in X, \quad ySx \}}=1\}}=2$
 \end{enumerate}
-gdzie:\\
-$S$ oznacza sąsiada względem relacji $\leq$.
+gdzie $S$ oznacza sąsiada względem relacji $\leq$.
 \end{theorem}
 
 
-\begin{proof}Poniżej zostaną udowodnione powyższe własności.
+\begin{proof}
+Poniżej zostaną udowodnione powyższe własności.
 \begin{enumerate}
 \item Niech $x \in X$. Przypuśćmy na początek, że $\licznosc{\{y \in X, ySx\}} = 0$, tzn. że obiekt $x$ nie posiada sąsiadów w tej relacji. Nasz zbiór $X$ jest jednak co najmniej dwuelementowy zatem istnieje element $y \in X$ i $ x \neq y$. Wobec spójności linowego porządku z Definicji \ref{def-porzadek-liniowy} zachodzi wtedy
 $$ x \leq y \lor y \leq x.$$
@@ -852,7 +866,7 @@ Powyższe rozumowanie dla $y$ można by dalej zastosować do $z$, uzyskując kol
 
 Przypuśćmy dalej, że $\licznosc{\{y \in X, ySx\}} \geq 3$. Niech $a,b,c$ będą trzema różnymi elementami z $X$ będącymi sąsiadami dla $x$. Wtedy bez straty ogólności możemy przyjąć, że $a \leq x, b \leq x$ lub $x \leq a, x \leq b$. Istotnie mając 3 elementy w relacji wtedy co najmniej dwa muszą znajdować się po zgodnej stronie, a z dokładnością do oznaczeń możemy przyjąć, że będą nimi $a$ oraz $b$. Ustalmy zatem, że $a \leq x, b \leq x$. Wobec definicji \ref{def-porzadek-liniowy} wiemy, że $a \leq b$ lub $b \leq a$. Jeśli $a \leq b$ to $a \leq b \leq x$. Co przeczy temu, że $a$ jest sąsiadem $x$. Jeśli $b \leq a$ to $b \leq a \leq x$ co przeczy temu, że $b$ jest sąsiadem. Zupełnie analogicznie postępujemy dla przypadku $x \leq a, x \leq b$. Zatem uzyskujemy sprzeczność, będącą efektem przypuszczenia, że mogą istnieć takie 3 elementy $a,b,c$. Zatem ostatecznie $\licznosc{\{y \in X, ySx\}} \in \{ 1,2 \}$.
 
-\item Niech $x,y \in X$ oraz niech $ySx$. Korzystając z definicji sąsiada \ref{def-sasiada} mamy, że skoro $ySx$ to  $\left(y \leq x \lor x\leq y \right)\quad \land \quad  \left(\lnot \exists_{z \in X}  \quad x\neq z \neq y \Rightarrow   y \leq z \leq x \lor x \leq z \leq y \right)$. Zatem, wobec spójności porządku liniowego z Definicji \ref{def-porzadek-liniowy}, zachodzi $$ y\leq x \lor x\leq y.$$ Dzięki, czemu widać, że elementy są porównywane oraz możemy zapisać, że $xSy$. Zatem ostatecznie $ySx \Rightarrow xSy$.
+\item Niech $x,y \in X$ oraz niech $ySx$. Korzystając z definicji sąsiada \ref{def-sasiada} mamy, że skoro $ySx$ to  $$\left(y \leq x \lor x\leq y \right)\quad \land \quad  \left(\lnot \exists_{z \in X}  \quad x\neq z \neq y \Rightarrow   y \leq z \leq x \lor x \leq z \leq y \right),$$ dodatkowo jeśli $xSy$, to $$\left(x \leq y \lor y\leq x \right)\quad \land \quad  \left(\lnot \exists_{z \in X}  \quad y\neq z \neq x \Rightarrow   x \leq z \leq y \lor y \leq z \leq x \right).$$ Zatem łącząc te dwa podejścia otrzymalibyśmy, że $ySx \land xSy \Rightarrow xSy \land ySx$, stąd ostatecznie, widać że  $ySx \Rightarrow xSy$. %spojnosc nie pokazywala ze to z moze istniec miedzy x i y
 
 \item Intuicyjnie te dwa elementy posiadające po jednym sąsiedzie są elementami maksymalnym i minimalnym w tym zbiorze. Udowodnimy kolejno:
 \begin{itemize}
@@ -877,7 +891,7 @@ $$
 Wobec spójności z definicji \ref{def-porzadek-liniowy} zachodzi $y \leq z$ lub $z \leq y$. Sprzeczność, gdyż wtedy któryś z nich nie mógłby być sąsiadem dla $x_m$.
 \item Element maksymalny $x_M$ w zbiorze ma pojedynczego sąsiada. Analogicznie do powyższego punktu, zbiór musi posiadać dokładnie 1 element maksymalny, tzn. $x_M \in X$ takie, że
 $$\forall x \in X \quad x \leq x_M.$$
-Istotnie przypuśćmy, że nie istnieje element maksymalny. Niech $x_1$ będzie dowolnym elementem z $X$. Skoro nie istnieje element maksymalny, to istnieje $x_2 \in X$ takie, że $x1 \leq x_2$ i $x_1 \neq x_2$. Dla $x_2$ z braku elementu maksymalnego, musi istnieć taki element $x_3 \in X$ i $x_3 \neq x_2$, że $x_2 \leq x_3$. Itd. Co nie jest możliwe, gdyż z założenia, zbiór $X$ jest skończonym zbiorem.
+Istotnie przypuśćmy, że nie istnieje element maksymalny. Niech $x_1$ będzie dowolnym elementem z $X$. Skoro nie istnieje element maksymalny, to istnieje $x_2 \in X$ takie, że $x_1 \leq x_2$ i $x_1 \neq x_2$. Dla $x_2$ z braku elementu maksymalnego, musi istnieć taki element $x_3 \in X$ i $x_3 \neq x_2$, że $x_2 \leq x_3$. Itd. Co nie jest możliwe, gdyż z założenia, zbiór $X$ jest skończonym zbiorem.
 Rozważmy dalej przypuszczenie gdyby były dwa lub więcej takich elementów. Wtedy to, z antysymetryczności, musiałyby być sobie równe. Jeśli $x_M, y_M$ są jednocześnie maksymalne, to 
 $$
 \forall x \in X \quad x \leq x_M,
@@ -899,16 +913,17 @@ x_m \leq x \leq x_M.
 $$
 Zatem albo $x_m$ jest sąsiadem $x$ albo istnieje $y_1 \in X$ taki, że $y_1 \leq x$.
 \newline
-Zajmiemy się najpierw pierwszą częścią, tj. $x_m$ jest sąsiadem $x$. Na mocy definicji sąsiada \ref{def-sasiada}, wynika, że skoro $x_m$ jest sąsiadem elementu $x$ oraz element $x$ ma pojedynczego sąsiada i nie jest ani elementem maksymalnym, ani minimalnym, to  $$\left(x_m \leq x \lor x \leq x_m\right) \quad \land \quad \left(\lnot \exists_{z \in X}  \quad x\neq z \neq x_m \Rightarrow   x_m \leq z \leq x \lor x \leq z \leq x_m \right) $$
-Ale z faktu, że $x_m$ jest elementem minimalnym wynika, że $x_m \leq x$, zatem $x$ nie może być $x \leq x_m$, stąd $x$ jest  jedynym sąsiadem $x_m$, stąd element ten, nie może mieć jedynie pojedynczego sąsiada, ze względu na istnieje jeszcze elementu maksymalnego, którym element $x$ nie jest.\\
-Przejdźmy teraz do drugiej części, tj.istnieje $y_1 \in X$ taki, że $y_1 \leq x$. To oznaczałoby, że $y_1$ jest elementem minimalnym, zatem $x$, byłby pojedynczym sąsiadem $y_1$, a z faktu, że element $x$, nie jest ani elementem minimalnym, ani maksymalnym wynika, że musi istnieć taki element $x_M$, który będzie maksymalny, przez co element $x$ będzie miał dwóch sąsiadów. 
-\\Analogicznie albo $x_M$ jest sąsiadem $x$ albo istnieje $z_1 \in X$ taki, że $x \leq z_1$. 
+Zajmiemy się najpierw pierwszą częścią, tj. $x_m$ jest sąsiadem $x$. Na mocy definicji sąsiada \ref{def-sasiada}, wynika, że skoro $x_m$ jest sąsiadem elementu $x$ oraz element $x$ ma pojedynczego sąsiada i nie jest ani elementem maksymalnym, ani minimalnym, to  $$\left(x_m \leq x \lor x \leq x_m\right) \quad \land \quad \left(\lnot \exists_{z \in X}  \quad x\neq z \neq x_m \Rightarrow   x_m \leq z \leq x \lor x \leq z \leq x_m \right). $$
+Ale z faktu, że $x_m$ jest elementem minimalnym, wynika że $x_m \leq x$, zatem $x$ nie może zachodzić $x \leq x_m$. Zauważmy teraz, że z faktu, iż $x_M$ jest elementem maksymalnym zbioru $X$, wynika że $ x \leq x_M$, oraz dodatkowo istnieje takie $x_1 \in X$, że $x\leq x_1 \leq x_M$. Dalej, istnienie $x_1$ powoduje, że istnieje taki element $x_2 \in X$, że $x \leq x_2 \leq x_1 \leq x_M$. Itd. Jednakże, skoro zbiór $X$ jest zbiorem skończonym, to musi istnieć taki element $x_j \in X$, że $x \leq x_j$, który będzie sąsiadem z $x$, zatem $xSx_j$. Zatem ostatecznie $xSx_m$ i $xSx_j$, a to przeczy założeniu, że $x$ ma pojedynczego sąsiada. \\
+Przejdźmy teraz do drugiej części, tj. istnieje $y_1\in X$, taki że $y_1 \leq x$. Zacznijmy najpierw od założenia,  że $x_M$ jest sąsiadem $x$. Wówczas analogicznie do powyższego i definicji sąsiada \ref{def-sasiada}, mamy że skoro $x_M$ jest sąsiadem $x$ i element ten nie jest ani maksymalny ani minimalny to, z definicji sąsiada mamy
+$$
+\left(x_M \leq x \lor x \leq x_M\right) \quad \land \quad \left(\lnot \exists_{z \in X}  \quad x\neq z \neq x_M \Rightarrow   x_M \leq z \leq x \lor x \leq z \leq x_M \right). 
+$$
+Ale z faktu, że $x_M$ jest elementem maksymalnym, wynika że $x \leq x_M$. Dokładając również istnieje elementu minimalnego w zbiorze $X$, mamy że $x_m \leq x$. Co więcej istnieje taki element $y_1 \in X$, że $x_m \leq y_1 \leq x$. Dalej istnienie $y_1$ powoduje, że istnieje taki $y_2 \in X$, że $x_m \leq y_1 \leq y_2 \leq x$. Itd.  Jednakże, skoro zbiór $X$ jest zbiorem skończonym, to musi istnieć taki element $y_i \in X$, że $y_i \leq x$, który będzie sąsiadem z $x$. Zatem ostatecznie $y_iSx$ i $xSx_M$, co przeczy założeniu że $x$ ma pojedynczego sąsiada.\\
 \newline
-Zajmiemy się najpierw pierwszą częścią, tj. $x_M$ jest sąsiadem $x$. Na mocy definicji sąsiada \ref{def-sasiada}, wynika, że skoro $x_M$ jest sąsiadem elementu $x$ oraz element $x$ ma pojedynczego sąsiada i nie jest ani elementem maksymalnym, ani minimalnym, to  $$\left(x_M \leq x \lor x \leq x_M\right) \quad \land \quad \left(\lnot \exists_{z \in X}  \quad x\neq z \neq x_M \Rightarrow   x_M \leq z \leq x \lor x \leq z \leq x_M \right) $$
-Ale z faktu, że $x_M$ jest elementem maksymalnym wynika, że $x \leq x_M$, zatem $x$ nie może być $x_M \leq x$, stąd $x$ jest  jedynym sąsiadem $x_M$, stąd element ten, nie może mieć jedynie pojedynczego sąsiada, ze względu na istnieje jeszcze, elementu minimalnego, którym element $x$ nie jest.\\
-Przejdźmy teraz do drugiej części, tj.istnieje $z_1 \in X$ taki, że $x \leq z_1$. To oznaczałoby, że $z_1$ jest elementem maksymalnym, zatem $x$, byłby pojedynczym sąsiadem $z_1$, a z faktu, że element $x$, nie jest ani elementem minimalnym, ani maksymalnym wynika, że musi istnieć taki element $x_m$, który będzie minimalny, przez co element $x$ będzie miał dwóch sąsiadów. 
+Zajmijmy się teraz trzecim przypadkiem, tj. gdy ani $x_m$ oraz $x_M$ nie są sąsiadami elementu $x$. Z faktu, iż zbiór $X$ posiada element minimalny $x_m$, który nie jest sąsiadem elementu $x$, wynika że istnieje taki element $x_1 \in X$, że $x_m \leq x_1 \leq x$. Co więcej istnieje taki $x_2 \in X$, że $x_m \leq x_1 \leq x_2 \leq x.$ Itd. I znów skoro zbiór $X$ jest skończony, to istnieje taki element $x_j \in X$, że $x_j \leq x$ i $x_jSx$. Z drugiej strony, skoro zbiór $X$ posiada element maksymalny $x_M$, który nie jest sąsiadem elementu $x$, wynika że istnieje taki element $y_1 \in X$, że $x \leq y_1 \leq x_M$. Analogicznie do wcześniejszych kroków, istnieje takie element $y_2 \in X$, że $x \leq y_2 \leq y_1 \leq x_M$. Itd.  Zbiór $X$ jest zbiorem skończonym, zatem musi istnieć taki element $y_i \in X$, że $x \leq y_i$ i $xSy_1$. \\
+Łącząc te dwa warunki, wynika że $x$ musi mieć dwóch sąsiadów. Co kończy dowód własności.
 
-W efekcie $x$ musi mieć dwóch sąsiadów. Co kończy dowód własności.
 \end{itemize}
 
 \end{enumerate}
@@ -917,30 +932,40 @@ W efekcie $x$ musi mieć dwóch sąsiadów. Co kończy dowód własności.
 Powyżej wykazane własności są często podawane, niemal na równi z definicją takiego uporządkowania, w pozycjach książkowych omawiających praktyczny aspekt porządkowania danych. Poniżej podane zostaną przykłady takich relacji, które też posiadają powyższy zestaw własności, ale nie opisują relacji będących porządkami liniowymi. 
  
 \begin{example}
-Rozważmy zbiór dwuelementowy $X = \{ a, b \}$ gdzie $a \leq b$ jedynym punktem tej relacji. Tak zdefiniowana relacja spełnia wszystkie własności, ale nie spełnia założenia o przechodniości - zatem relacja ta nie jest liniowym porządkiem.
+Rozważmy zbiór dwuelementowy $X = \{ a, b \}$ gdzie $a \leq b$ jest jedynym punktem tej relacji. Tak zdefiniowana relacja spełnia wszystkie własności, ale nie spełnia założenia o zwrotności - zatem relacja ta nie jest liniowym porządkiem. 
+\newline Diagram Hassego prezentując tę relację jest postaci: 
+$$
+\begin{tikzpicture}[scale=.7]
+  \node (a) at (-2,0) {$a$};
+  \node (b) at (2,1) {$b$};
+%  \node (zero) at (0,-2) {$0$};
+  \draw (a)--(b) ; %-- (one) -- (d) -- (zero);
+\end{tikzpicture}
+$$
 \end{example}
 
 \begin{example}
-Rozważmy zbiór $X = \{a,b,c,d,e \}$ oraz relację definiującą następujące sąsiedztwa (wypisaną bez par symetrycznych) 
-$aSb, bSc, aSc, cSe, dSe$
+Rozważmy zbiór $X = \{a,b,c,d,e \}$ oraz relację definiującą następujące sąsiedztwa (wypisaną bez par symetrycznych) $aSb, bSc, aSc, dSe$. Ponadto dołóżmy warunek zwrotności, tj. $a \leq a$, $b \leq b$, $c \leq c$, $d \leq d$, $e \leq e$. 
+\newline
 Diagram Hassego prezentujący relację porządku tego zbioru jest postaci:
 $$
 \begin{tikzpicture}[scale=.7]
   \node (a) at (-2,0) {$a$};
   \node (b) at (2,0) {$b$};
   \node (c) at (2,2) {$c$};
- \node (e) at (3,3) {$e$};
+ \node (e) at (1,3) {$e$};
  \node (d) at (-3,3) {$d$};
 %  \node (zero) at (0,-2) {$0$};
-  \draw (b)--(a) --(c)-- (b) -- (c)--(e)--(d); %-- (one) -- (d) -- (zero);
+  \draw (b)--(a) --(c)-- (b) -- (c); %--(e)--(d); -- (one) -- (d) -- (zero);
+  \draw (d)--(e);
 \end{tikzpicture}
 $$
 %https://tex.stackexchange.com/questions/47392/how-to-draw-a-poset-hasse-diagram-using-tikz
 %https://tex.stackexchange.com/questions/129583/how-can-i-produce-a-hasse-or-lattice-diagram/129641
-Z diagramu widać, że taka relacja spełnia wszystkie omawiane wcześniej własności - jednak brakuje jej cech spójności. I tak np. nie możemy porównać elementów $a$ i $d$, bowiem nie możemy określić czy  $d \leq a$ lub $a \leq d$.
+Z diagramu widać, że taka relacja spełnia wszystkie omawiane wcześniej własności - jednak nie jest spójna. I tak np. nie możemy porównać elementów $a$ i $d$, bowiem nie możemy określić czy  $d \leq a$ lub $a \leq d$.
 \end{example}
 
-
+%przyklady diagramow hassego!!! https://www.math.uni.wroc.pl/~newelski/dydaktyka/wdm-A/skrypt3/skrypt/node9.html
 
 
 W podsumowaniu tej sekcji należy podkreślić, że by uporządkować liniowo obiekty, charakteryzujące je zmienne muszą być mierzone przynajmniej na skali porządkowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
