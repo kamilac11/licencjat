@@ -101,8 +101,11 @@ Poniżej znajduje się lista pojęć powszechnie używanych w pracy wraz z symbo
 %\item $\licznosc{[1]}$ - liczność zbioru
 %+-\item $\mathcal{E}^n$ - przestrzeń euklidesowa n-wymiarowa
 \item O = $\{$O$_{1}$, O$_{2}$, $\dots$, O$_{n}\}$ - zbiór obiektów przestrzennych, tj. opisywanych przez wiele atrybutów, $n \in \mathbb{N}$
-\item X = $\{$X$_{1}$, X$_{2}$, $\ldots$, X$_{m}\}$ - zbiór zmiennych lub inaczej cech opisujących obiekty, gdzie $m \in \mathbb{N}$, dodatkowo X$_{1}=\{x_{i1}\}$, co oznacza wartość 1-szej cechy dla $i$-tego obiektu, przy czym $i \in \mathbb{N}$
+\item $X=[x_{ij}]$ - macierz danych, gdzie $x_{ij}$-oznacza wartość $j$-tej zmiennej dla $i$-tego obiektu, gdzie $i=1,\ldots,n$, $j=1,\ldots, m,$, $n,m \in \mathbb{N}$
 \item $X$ - w rozdziale drugim przez $X$ najczęściej oznaczać będziemy dowolny zbiór, jednak w dalszych rozdziałach najczęściej służyć on będzie do opisywania macierzy zawierającej podstawowe (surowe) dane do analizy
+\item $x^S$ - oznaczenie zmiennej mającej charakter stymulanty
+\item $x^D$ - oznaczenie zmiennej mającej charakter destymulanty
+\item $x^N$ - oznaczenie zmiennej mającej charakter nominanty
 \item $Y$ - w rozdziale drugim używana jest najczęściej do oznaczenie zmiennej losowej
 \item $\Omega$ - oznaczenie dowolnej przestrzeni zdarzeń elementarnych $\omega$, z rodziną podzbiorów $\mathcal{F}$
 %\item $\sigma$ -  sigma ciało zbiorów $\mathcal{F}$
@@ -111,6 +114,7 @@ Poniżej znajduje się lista pojęć powszechnie używanych w pracy wraz z symbo
 %\item $\mediana ( \cdot)$ - oznaczać będzie mediany z próby
 \item $\leq$ - oznaczenie relacji częściowego porządku, przy dołożeniu warunku spójności oznaczać będzie relację liniowego porządku
 \item $G$ - oznaczenie ogólnego grafu prostego dla którego $V(G)$ jest zbiorem wierzchołków grafu, a $E(G)$ zbiorem jego krawędzi
+
 
 %\item $D$ - graf skierowany(digraf)
 %\item $V(D)$ - zbiór wierzchołków digrafu $D$
@@ -175,7 +179,7 @@ Macierzą odległości cech zmiennych nazywamy macierz, której elementami są o
 $D = [d_{ii'}].$\\
 \end{center}
 gdzie:\\
-$dii'$-odległość między $i$-tym a $i'$-tym obiektem, dla $i,i'=1,2,...,n$
+$dii'$-odległość między $i$-tym a $i'$-tym obiektem, dla $i,i'=1,2,\ldots,n$
 \end{definition}
 
 W statystyce posługujemy się pojęciami skal do opisu różnych typów danych, które mogą podlegać naszej analizie. I tak zdefiniujmy następujące rodzaje skal:
@@ -195,7 +199,7 @@ Jest to skala, która w stosunku do skali porządkowej, pozwala obliczyć odleg�
 Skala ta, podobna jest do skali przedziałowej, z tym że występuje w niej zero bezwględne - punkt, który mówi o tym, że dana zmienna nie występuje, oraz ogranicza lewostronnie zakres skali ilorazowej. Powoduje to, że można na tej skali obok operacji dodawania i odejmowania, dokonywać także dzielenia i mnożenia, a tym samym przedstawiać dowolną wartość cechy danego obiektu jako wielokrotność wartości cechy dla innego obiektu. Przykład zmiennych przedstawianych na skali ilorazowej: napięcie elektryczne, bezrobocie, inflacja.
 
 %\item Zmienna objaśniająca \cite[Rozdział 1.1] {grabinski1982}
-%Zmienną objaśniającą nazywamy zmienną w modelu statystycznym, która oddziałuje na zmienne objaśniane. Zmiennie  %objaśniającą oznaczamy jako $X_{1}, ..., X_{k}$, z kolei zmienne objaśniane jako $Y$. \\
+%Zmienną objaśniającą nazywamy zmienną w modelu statystycznym, która oddziałuje na zmienne objaśniane. Zmiennie  %objaśniającą oznaczamy jako $X_{1}, ldots, X_{k}$, z kolei zmienne objaśniane jako $Y$. \\
 \end{itemize}
 
 \begin{definition}{Stymulanta \cite[Rozdział 1.5]{panek2013}}
@@ -210,17 +214,7 @@ Destymulantami nazywane są zmienne, których wysokie wartości badany w badanyc
 Nominantami nazywane są zmienne, których odchylenia wartości w badanym obiekcie od wartości (lub przedziału wartości) uznawanych za najkorzystniejsze są niepożądane z punktu widzenia rozpatrywanego zjawiska.
 \end{definition}
 
-%\item Transformacja normalizacyjna \cite[Rozdział 1.5]{panek2013}\\
-%Transformacją zmiennych diagnostycznych, mających na celu ujednolicenie ich jednostek pomiarowych, przy zastosowaniu zmiennych diagnostycznych, nazywana jest transformacją normalizacyjną. Można ją przeprowadzić na zmiennych, opisujących porównywane obiekty, mierzonych na skali przedziałowej lub ilorazowej.\\ 
-%\\*Ogólny wzór na przekształcenie normalizacyjne(Borys, 1978; Grabiński i in., 1989):
-%\begin{center}
-%\begin{equation}
-%z_{ij}=\left(\frac{x_{ij} - a}{b}\right)^p , i=1,2,...,n; j=1,2,...,m; b\neq0,
-%\end{equation}\\
-%\end{center}
-%gdzie:
-%\\* $z_{ij}$ - znormalizowana wartość $j$-tej zmiennej w $i$-tym obiekcie,
-%\\* $a,b,p$ - parametry normalizacyjne.
+
 
 %\item Stopień podobieństwa obiektów \cite[Rozdział 1.6]{panek2013}\\
 %Stopień podobieństwa obiektów, jest wielkość mówiąca o podobieństwie obiektów między sobą. Jest on mierzony za pomocą miar odległości lub tez miar bliskości(zgodności).\\
@@ -356,6 +350,60 @@ Nominantami nazywane są zmienne, których odchylenia wartości w badanym obiekc
 %\\* $r_{jk}$ - współczynnik korelacji liniowej Pearsona $j$-tej i $k$-tej cechy (czyli $X_{j}$ oraz $X_{k}$) .\\
 %\end{definition}
 
+\subsection{Wybrane operacje statystyczne dla zmiennych}
+\subsubsection{Normalizacja zmiennych}
+Bardzo ważnym krokiem przed rozpoczęciem pracy na zbiorze danych jest ujednolicenie ich charakteru, tj. przekształcenie zmiennych (mierzonych na skali przedziałowej lub ilorazowej) opisujących obiekty w zbiorze, w celu pozbycia się dysproporcji między nimi czy też dominacji jednych zmiennych nad drugimi. W tym celu stosuje się transformację normalizacyjną. Można wyróżnić trzy podstawowe typy przekształceń normalizacyjnych:
+\begin{itemize}
+\item standaryzacja,
+\item unitaryzacja,
+\item przekształcenie ilorazowe
+\item rangowanie zmiennych
+\end{itemize}
+\begin{enumerate}
+\item Celem standaryzacji jest otrzymanie zmiennych o odchyleniu standardowym równym 1 i wartości oczekiwanej  równej 0. W tym celu dla każdej zmiennej, będącej cechą obiektu oblicza się odchylenie standardowe na podstawie wartości tej zmiennej dla wszystkich obiektów, a także wartość oczekiwaną na tej samej zasadzie. W kolejnym kroku dla każdego obiektu liczymy jego znormalizowana wartość tj. od wartości zmiennej odejmujemy wartość oczekiwaną dla danej cechy, a otrzymaną różnicę dzielimy przez odchylenie standardowe dla tej cechy,co można to zapisać w postaci
+$$
+z_{ij}=\frac{x_{ij} - \Ex (x_j)}{\sigma(x_j)}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+$$
+gdzie
+$z_{ij}$-wartość znormalizowanej zmiennej $j$-tej zmiennej, w $i$-tym obiekcie.
+
+
+\item W pracy skorzystałam również z unitaryzacji, stosowanej w celu uzyskania zmiennych o ujednoliconym zakresie zmienności, u mnie przedział ten to $[0,1]$. W tym celu od wartości zmiennej w obiekcie, odejmuje się minimalną wartość występującej dla tej cechy, a następnie różnica ta dzielona jest przez różnicę między maksymalną a minimalną wartością zmiennej, poddanej normalizacji. Znormalizowana zmienna jest postaci
+$$
+z_{ij}=\frac{x_{ij} - \min\limits_{i}\{x_{ij}\}}{\max\limits_{i} \{x_{ij}\} - \min\limits_{i} \{x_{ij}\}}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m. 
+$$
+\item Kolejna metoda normalizacyjna, wykorzystana w pracy to przekształcenie ilorazowe. Stosuje się  je w celu odniesieniu wartości zmiennej do ustalonej wartości - może to być wartość oczekiwana danej zmiennej na tle analizowanych obiektów, wartość minimalna lub maksymalna tej cechy. W pracy za tę wartość przyjęłam wartość oczekiwaną zmiennej. Każda wartość zmiennej dla danego obiektu jest dzielona przez wartość oczekiwaną tej zmiennej, a postać znormalizowanej zmiennej to
+$$
+z_{ij}=\frac{x_{ij}}{\Ex (x_j)}, \quad \Ex (x_j) \neq 0 \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+$$ 
+\item Przy zastosowaniu metody rang, wykorzystuje się normalizację rangową. Stosuje się ją przeważnie, gdy zmienne opisujące obiekty mierzone są na skali porządkowej. W pierwszym kroku wartości zmiennych opisujących obiekty zostają uporządkowane ze względu na ich wartości po procesie normalizacji. W kolejnym kroku wartościom zmiennej przyporządkowywane są rangi - czyli wartości liczbowe, będące najczęściej numerami miejsc zajmowanych przez obiekty w uporządkowanym zbiorze. Postać zmiennej znormalizowanej rangowo
+$$
+z_{ij}=h, \quad dla x_{hj}=x_{ij}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+$$
+gdzie 
+$h$-ranga nadana $i$-temu obiektowi znajdującemu się na $h$-tym miejscu w uporządkowanym zbiorze, ze względu na wartość $j$-tej zmiennej. 
+\end{enumerate}
+
+\subsubsection{Stymulacja zmiennych}
+W celu ujednolicenia charakteru danych należy poddać je pewnym przekształceniom, polegającym na zamianie destymulant i nominant na stymulanty. Tego typu transformacje nazywamy stymulacją. Można wyróżnić dwie najczęściej stosowane metody, tj. przekształcenie ilorazowe oraz przekształcenie różnicowe. W zależności od skali na której mierzone są zmienne, należy stosować odpowiednie przekształcenie stymulacyjne.
+
+W przypadku przekształcenia ilorazowego można go stosować tylko dla zmiennych mierzonych na skali ilorazowej. Stymulacja destymulant wygląda nastepująco
+$$
+x_{ij}^{S}=[x_{ij}^{D}]^{-1},  \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+$$
+dla nominant
+$$
+x_{ij}^{S}=\frac{\max\{x_{j}^{N},x_{ij}^{N}\}}{\max\{x_{j}^{N},x_{ij}^{N}\}}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+$$
+
+Dla zmiennych mierzonych na skali ilorazowej czy też przedziałowej. Stymulacja dla destumulant prezetuje się następująco
+$$
+x_{ij}^{S}=\max\limits_{i} \{x_{ij}^{D}\} - x_{ij}^{D}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+$$
+dla nominant
+$$
+x_{ij}^{S}=-|x_{ij}^{N}-x_{j}^{N}|, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+$$
 
 
 
@@ -612,9 +660,6 @@ Grafem nazywamy parę $G=(V,E)=(V(G),E(G))$, gdzie $V$ jest niepustym, skończon
 Pętlami w grafie nazywamy krawędzie reprezentowane przez $\{a\}$ gdzie $a$ jest pewnym wierzchołkiem, tj. łączące wierzchołek z samym sobą.
 \end{definition}
 
-%\begin{definition}{Graf/graf ogólny \cite[Rozdział 2]{wilson2008}\\}
-%Grafem nazywamy obiekt, w którym występują krawędzie wielokrotne oraz pętle.\\
-%\end{definition}
 
 \begin{definition}{Wierzchołki sąsiednie, krawędzie sąsiednie \cite[Rozdział 2]{wilson2008}}
 Mówimy, że dwa wierzchołki $v$ i $w$ grafu $G$ są sąsiednie, jeśli istnieje krawędź $vw$ która je łączy. 
@@ -632,14 +677,16 @@ Analogicznie definiuje się krawędzie sąsiednie.
 
 
 \begin{definition}{Krawędzie sąsiednie \cite[Rozdział 2]{wilson2008}}
-Dwie krawędzie $e$ i $f$ grafu $G$ są sąsiednie, jeśli mają wspólny wierzchołek.
+Dwie krawędzie $e$ i $f$ grafu $G$ są sąsiednie, jeśli mają wspólny wierzchołek, tj
+$$
+\forall{e, f} \in E(G) \quad \exists{d}\in V(G) \quad d \in e \land d\in f
+$$
+
 $$
 \begin{tikzpicture}[scale=.7]
-  \node (v) at (-2,0) {$v$};
-  \node (w) at (1,1) {$w$};
-  \node (c) at (-3,0) {$c$};
-  \draw (c)--(v)--(w); 
-  
+  \draw (-1.75,0)-- node[above] {f} ++(2,0);
+  \draw node(d) at (-2,0) {$d$};
+  \draw (-4.25,0) --node[above] {e} ++(2,0);
 \end{tikzpicture}
 $$
 \end{definition}
@@ -695,19 +742,26 @@ Każdy graf jednoznacznie wyznacza pewną relację dwuargumentową (binarną) w 
 \end{uwaga}
 
 \begin{uwaga}
-Digraf w porównaniu do grafu, składa się ze zbioru krawędzi będących uporządkowanymi parami wierzchołków, tj. elementów zbioru $V$. Mamy zatem, że $E \subset V \times V$, co można przyrównać do definicji relacji dwuargumentowej w zbiorze $V$, gdzie relacja=$E$=zbiór krawędzi, zaś dziedzina relacji=$V$=zbiór wierzchołków. W przypadku grafu, mamy że zbiór krawędzi jest zbiorem nieuporządkowanych par wierzchołków, tj. $E \subset \{\{a,b\}: a, b \in V \}$  
+Niech dany będzie digraf $D$ składający się z niepustego zbioru skończonego wierzchołków $V(D)$ i skończonej rodziny krawędzi$E(D)$. W momencie gdy $\forall{a,b} \in V(D) \quad <a,b> \in E(D)$ oraz $<b,a> \in E(D)$, to taki graf skierowany, staje się grafem niezorientowanym. 
+$$
+\begin{tikzpicture}[scale=.7]
+\draw [->] (0,-2) --(0,0) ;
+ \draw node(a) at (0,0.25) {$a$};
+ \draw [->] (0,0) --(0,-2); 
+ \draw node (b) at (0, -2.35) {$b$};
+\end{tikzpicture}
+$$
+
 \end{uwaga}
 %mozna tez powiedzec ze digram jako graf skierowany posiada krawedzie skierowane, ktore wskazuja kierunek polaczenia wierzcholkow, stad te uporzadkowane pary
 
 % n0http://math.uni.lodz.pl/~malfil/pliki/grafy_r1.pdf
 
-%\begin{definition}{Graf niezorientowany \cite[Rozdział 2.3]{panek2013}}
-%Grafem niezorientowanym, nazywamy graf $G=<V,E>$, jeżeli relacja binarna tego grafu jest symetryczna, tj. %dla dowolnych wierzchołków $v,v^{'} \in V$, $(v,v^{'}) \in E$ wttw $(v^{'},v) \in E$.
-%\end{definition}
 
 
 
-\section{Wybrane pojęcia z teorii mnogości i topologii: relacja porządkująca, moc zbiorów, równoliczność, przestrzenie metryczne, miary odległości}
+
+\section{Wybrane pojęcia z teorii mnogości, topologii i algebry liniowej}
 \subsection{Relacja porządkująca}
 
 
@@ -748,13 +802,13 @@ Aby go skonstruować, należy postępować według poniższych kroków:
 Zobrazowanie relacji częściowego porządku, dla punktów $A, B, C, D, E, F \in \mathbb{R}^2$
 $$
 \begin{tikzpicture}[scale=.7]
-  \node (A) at (-2,0) {$A$};
-  \node (B) at (0,4) {$B$};
+  \node (A) at (-1,0) {$A$};
+  \node (B) at (0,2) {$B$};
   \node (C) at (1,1) {$C$};
- \node (E) at (3,2) {$E$};
+ \node (E) at (3,1.5) {$E$};
  \node (F) at (3,0) {$F$};
- \node (D) at (2,5) {$D$};
-  \draw (C)--(A)--(B)--(D)--(C) --(E)-- (F); %--(e)--(d); -- (one) -- (d) -- (zero);
+ \node (D) at (2,2.5) {$D$};
+  \draw (C)--(A)--(B)--(D)--(C) --(E)-- (F); 
   \draw (A)--(F)--(E);
 \end{tikzpicture}
 $$
@@ -773,6 +827,17 @@ Parę $(X, \leq)$ nazywamy zbiorem liniowo uporządkowanym lub łańcuchem.
 
 \begin{definition}{Dobry porządek \cite[Rozdział 2]{blaszczyk2007}}
 Niech dany będzie zbiór $X$. Relację $\leq$ porządkującą zbiór $X$, nazywamy dobrym porządkiem na zbiorze $X$, gdy w każdym niepustym podzbiorze zbioru $X$ istnieje element najmniejszy względem relacji $\leq$. Jeśli relacja $\leq$ na zbiorze $X$ jest dobrym porządkiem, to mówimy, że para $(X,\leq)$ jest zbiorem dobrze uporządkowanym.
+\end{definition}
+
+\begin{definition}{Elementy wyróżnione \cite[Rozdział 2]{blaszczyk2007}}
+Niech $X$ będzie zbiorem częściowo uporządkowanym przez relacje $\leq$ oraz niech $a \in X$. Mówimy, że:
+\begin{enumerate}
+\item $a$ jest elementem najmniejszym w $X$, gdy $\forall x \in X \quad a \leq x$
+\item $a$ jest elementem minimalnym w $X$, gdy $\lnot ((\exists x \in X) \quad x <a )$
+\item $a$ jest elementem największym w $X$, gdy $\forall x \in X \quad x\leq a$
+\item $a$ jest elementem maksymalnym w $X$, gdy $\lnot ((\exists x\in X) \quad a <x)$
+\end{enumerate}
+
 \end{definition}
 
 
@@ -885,6 +950,60 @@ $$\forall{(x_1,x_2,\ldots,x_n),(y_1,y_2,\ldots,y_n) \in \mathbb{R}^n} \quad \mat
 
 %Tw o metryce euklidesowej w K^n ?? -zeszyt topologia rok 2 
 
+\subsection{Rachunek macierzowy}
+
+\begin{definition}{Grupa \cite[Rozdział 0]{banaszak2002}}
+Grupą nazywamy zbiór P z działaniem $\cdot: P \times P \rightarrow P$ dla którego są spełnione następujące warunki:
+\begin{enumerate}
+\item Dla dowolnych $a,b,c \in P \quad (a\cdot b)\cdot c=a \cdot(b\cdot c) $ (łączność)
+\item Istnieje element $e \in P$ (nazywany elementem neutralnym grupy), taki że dla każdego $a \in P$ mamy, $e\cdot a=a\cdot e=a$
+\item Dla każdego $a \in P$ istnieje element $b\in P$ (nazywany elementem odwrotnym do $a$), taki że $a\cdot b=b \cdot a=e$.
+\end{enumerate}
+Dodatkowo, mówimy że grupa $P$ jest przemienna, gdy dla dowolnych $a,b\in P \quad a\cdot b=b\cdot a$.
+\end{definition}
+
+\begin{definition}{Pierścień \cite[Rozdział 0]{banaszak2002}}
+Pierścieniem nazywamy zbiór $R$ z dwoma działaniami: z dodawaniem $+: R\times R \rightarrow R$ i z mnożeniem $\cdot: R \times R \rightarrow R$, dla których są spełnione następujące warunki:
+\begin{enumerate}
+\item Zbiór $R$ z działaniem $+$ jest grupą przemienną. Element neutralny działania $+$oznaczamy przez 0.
+\item Dla dowolnych $a,b,c \in R \quad (a\cdot b)\cdot c=a\cdot(b\cdot c)$ (łączność mnożenia).
+\item Dla dowolnych $a, b,c \in R$
+$$
+a \cdot (b+c)=a\cdot b + a\cdot c
+$$
+$$
+(a+b) \cdot c=a\cdot c + b\cdot c
+$$(rozdzielność mnożenia względem dodawania).
+\end{enumerate}
+
+\end{definition}
+
+\begin{definition}{Ciało \cite[Rozdział 0]{banaszak2002}}
+Ciałem nazywamy zbiór $K$ z działaniami: $+: K\times K \rightarrow K$ oraz $\cdot: K \times K \rightarrow K$, takimi że:
+\begin{enumerate}
+\item Zbiór $K$ z działaniami $+$ i $\cdot$ jest pierścieniem przemiennym z jedynką.
+\item Zbiór $K^{*}=K \backslash \{0\}$ z działaniem $\cdot$ jest grupa.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}{Macierz \cite[Rozdział 1]{banaszak2002}}
+Niech $K$ będzie ciałem i $m, n \in \mathbb{N}$. Macierzą o $m$-wierszach, $n$-kolumnach i o wyrazach z $K$ nazywamy każdą funkcję postaci
+$A: \{1,\ldots, m \} \times \{1, \ldots, n\} \rightarrow K$
+\end{definition}
+
+\begin{example}
+Macierz $A$ o $m$-wierszach i $n$-kolumnach najczęściej zapisuje się postaci $A= [a_{ij}]_{i \leq m, j \leq n}$, tj. 
+$$
+A= \begin{bmatrix}
+a_{11} & a_{12} &  & a_{1n} \\
+a_{21} & a_{22} & \ldots & a_{2n}\\ 
+\ldots & \ldots & \ldots & \ldots\\
+a_{m1} & a_{m2} & \ldots & a_{mn} \\
+\end{bmatrix}    
+$$
+\end{example}
+
+
 
 \chapter{Metody porządkowania}
 Rozdział ten został opracowany w oparciu o \cite[Rozdział 2]{panek2013}, omówiono w nim ogólnie metody porządkowania zarówno liniowego jak i nieliniowego, po to by w kolejnym rozdziale szczegółowo przyjrzeć się wybranym metodą wraz z przedstawieniem ich algorytmów oraz dokładnych opisów matematycznych, z uwzględnieniem ich wad oraz zalet.
@@ -900,7 +1019,7 @@ Porządkowanie liniowe obiektów polega, w ujęciu geometrycznym, na rzutowaniu 
 \item jeżeli sąsiadem $i$-tego obiektu jest $i'$-ty obiekt, to jednocześnie sąsiadem $i'$-tego obiektu jest $i$-ty obiekt,
 \item dokładnie dwa obiekty mają tylko jednego sąsiada.
 \end{itemize}
-\noindent
+
 
 Powyżej wymienione własności są wynikiem posiadania jedynie skończonej ilości obiektów, które podane są uporządkowaniu. W następnej części chciałabym 
 \begin{itemize}
@@ -1051,133 +1170,145 @@ Metody porządkowania liniowego można podzielić na metody diagramowe, procedur
 
 
 \subsection{Metody diagramowe}
-\noindent
+
 
 W metodach diagramowych stosuje się graficzną reprezentację macierzy odległości zwanej diagramem. Macierz konstruowana jest w oparciu o odległości między obiektami, wyznaczone za pomocą dowolnej metryki. Porządkowanie obiektów polega na porządkowaniu diagramu, tj. przestawieniu wierszy i odpowiadających im kolumn diagramu, tak aby symbole graficzne reprezentujące najmniejsze odległości skupiały się wzdłuż głównej przekątnej, zaś w miarę oddalania się od głównej przekątnej znajdowały się symbole graficzne odpowiadające coraz to większym odległością.  %W kolejnym etapie następuje dzielenie mierników odległości macierzy, na klasy podobieństwa obiektów. Kolejny krok polega na przyporządkowaniu poszczególnym klasom podobieństwa, obiektów odpowiedniego symbolu graficznego. Samo porządkowanie obiektów polega na porządkowaniu diagramu, tj. przestawieniu wierszy i odpowiadających im kolumn diagramu, tak aby symbole graficzne reprezentujące najmniejsze odległości skupiały się wzdłuż głównej przekątnej, zaś w miarę oddalania się od głównej przekątnej znajdowały się symbole graficzne odpowiadające coraz to większym odległością. 
 
-
 Jako narzędzie pomocnicze w porządkowaniu danych, może stanowić kryterium postaci:
 
-\begin{center}
-$$F^1= \sum_{i=1}^{n} \sum_{i'>1}^{n} d_{ii'}w_{ii'}$$\\
-\end{center}
-gdzie:\\
- $d_{ii'}$ - odległość euklidesowa między $i$-tym i $i'$-tym obiektem . \\
- $w_{ii'}$ - wagi elementów macierzy odległości, zdefiniowane w oparciu o jeden z następujących wzorów: \\
+
+$$
+F^1= \sum_{i=1}^{n} \sum_{i'>1}^{n} d_{ii'}w_{ii'}
+$$
+
+gdzie:
+
+ $d_{ii'}$ - odległość euklidesowa między $i$-tym i $i'$-tym obiektem . 
  
- \begin{center}
+ $w_{ii'}$ - wagi elementów macierzy odległości, zdefiniowane w oparciu o jeden z następujących wzorów: 
  
- $ w_{ii'}=\frac{| i-i' |}{n-1}$, $\qquad$ \\
-   \end{center}
-   \begin{center}
- $ w_{ii'}=\frac{1}{n(n-1)}\lbrack{2n|i-i'-1|+i+i'-(i-i)^2\rbrack}$,\\
- \end{center}
- \begin{center}
- $ w_{ii'}=\frac{1}{n(n-1)}\lbrack{2n|i-i'|+2-i-i'-(i-i)^2\rbrack}$.\\
-\end{center}
+$$
+w_{ii'}=\frac{| i-i' |}{n-1}, \qquad
+$$
+
+$$
+w_{ii'}=\frac{1}{n(n-1)}\lbrack{2n|i-i'-1|+i+i'-(i-i)^2\rbrack},
+$$
+$$
+w_{ii'}=\frac{1}{n(n-1)}\lbrack{2n|i-i'|+2-i-i'-(i-i)^2\rbrack}.
+$$
+ 
+
 
 Dodatkowo wagi elementów macierzy odległości tworzą macierz wag postaci:
 
-\begin{center}
-$W=\lbrack{w_{ii'}\rbrack},\quad i,i'=1, 2, ..., n.$
-\end{center}
+$W=\lbrack{w_{ii'}\rbrack},\quad i,i'=1, 2, \ldots, n.$
+
 
 %%przyklad diagramu http://www.antropologia.uw.edu.pl/MaCzek/maczek.html
 
 
-\newpage
+
 \subsection{Metody oparte na zmiennych syntetycznych}
 
-W tym podrozdziale zostaną opisane metody porządkowania oparte na zmiennych syntetycznych, tj. funkcji których wartości będą służyć do porządkowania danych. Metody oparte na zmiennych syntetycznych dzielimy na wzorcowe i bezwzorcowe. Poniżej zostaną one opisane szczegółowo, jednak wcześniej zostaną przedstawione wzory wyznaczające zmienną syntetyczną. \\
+W tym podrozdziale zostaną opisane metody porządkowania oparte na zmiennych syntetycznych, tj. funkcji których wartości będą służyć do porządkowania danych. Metody oparte na zmiennych syntetycznych dzielimy na wzorcowe i bezwzorcowe. Poniżej zostaną one opisane szczegółowo, jednak wcześniej zostaną przedstawione wzory wyznaczające zmienną syntetyczną. 
 
 \subsubsection{Sposoby wyznaczania zmiennej syntetycznej}
 
 \begin{enumerate}
 \item dla średniej arytmetycznej:
-\begin{center}
-$$s_{i}=\frac{1}{m} \sum_{j=1}^{m} z_{ij}w_{j},  \quad i=1, 2, ..., n,$$
-\end{center}
+
+$$
+s_{i}=\frac{1}{m} \sum_{j=1}^{m} z_{ij}w_{j},  \quad i=1, 2, \ldots, n,
+$$
+
 \item dla średniej geometrycznej:
-\begin{center}
-$$s_{i}=\prod_{j=1}^{m} (z_{ij})^{w_{j}}, \quad i=1, 2, ..., n,$$
-\end{center}
+
+$$
+s_{i}=\prod_{j=1}^{m} (z_{ij})^{w_{j}}, \quad i=1, 2, \ldots, n,
+$$
+
 \item dla średniej harmonicznej
-\begin{center}
-$$s_{i}=\big[\sum_{j=1}^{m} \frac{w_{j}}{z_{ij}}\big]^{-1}, \quad i=1, 2, ..., n,$$\\
-\end{center}
+
+$$
+s_{i}=\big[\sum_{j=1}^{m} \frac{w_{j}}{z_{ij}}\big]^{-1}, \quad i=1, 2, \ldots, n,
+$$
+
 \end{enumerate}
-gdzie:\\
-$s_{i}$ - wartość zmiennej syntetycznej w $i$-tym obiekcie,\\
+gdzie:
+$s_{i}$ - wartość zmiennej syntetycznej w $i$-tym obiekcie,
 $w_{j}$ - waga $j$-tej zmiennej.
 
 \subsubsection{Metody bewzorcowe}
-\noindent
+
 
 W metodach tych, unormowane wartości podanych zmiennych wejściowych są uśrednianie, przez przypisywanie im odpowiednich wag. 
 Poniżej zostaną omówione wybrane metody porządkowania bezwzorcowego.
 
 \subsubsection{Metoda rang}
-\noindent
 
 
 Metoda ta bazuje na normalizacji rangowej, w związku z tym zmienne mierzone są na skali porządkowej. Dla każdego obiektu wyznacza się sumę przyporządkowanych mu rang ze względu na wszystkie zmienne. Na końcu obliczana jest wartość zmiennej syntetycznej, jako średniej wartości rang. W oparciu o tę wartość następuje porządkowanie obiektów. Wzór na obliczenie wartości zmiennej syntetycznej: 
-\begin{center}
-$$s_{i}=\frac{1}{m}\sum_{j=1}^{m} z_{ij},\quad i=1, 2, ..., n,$$\\
-\end{center}
-gdzie:\\
+$$
+s_{i}=\frac{1}{m}\sum_{j=1}^{m} z_{ij},\quad i=1, 2, \ldots, n,
+$$
+
+gdzie:
+
 $z_{ij}$-zmienna znormalizowana rangowo, tj.
-\begin{center}
-$z_{ij}=h$ dla $x_{hj}=x_{ij}, \quad h,i=1, 2, ..., n.$
-\end{center}
-gdzie:\\
+$
+z_{ij}=h$ dla $x_{hj}=x_{ij}, \quad h,i=1, 2, \ldots, n.
+$
+gdzie:
+
 $h$-ranga nadana $i$-temu obiektowi znajdującemu się na $h$-tym miejscu w uporządkowanym szeregu obiektów ze względu na $j$-tą zmienną.
 
 
 \subsubsection{Metoda sum}
-\noindent
 
 
-Metoda ta bazuje na konstrukcji zmiennej syntetycznej przy pomiarze zmiennych na skali ilorazowej lub przedziałowej. Dla każdego obiektu obliczana jest wartość zmiennej syntetycznej, jako średnia arytmetyczna wartości zmiennych przy przyjęciu jednakowych wag dla każdej zmiennej. Eliminowane są ujemne wartości zmiennej syntetycznej przy wykorzystaniu przekształcenia: 
-\begin{center}
-$s_{i}'=s_{i}-\min\{s_i\}, \quad i=1, 2, ..., n$.\\
-\end{center}
+Metoda ta bazuje na konstrukcji zmiennej syntetycznej przy pomiarze zmiennych na skali ilorazowej lub przedziałowej, w związku z tym w pierwszym kroku należy dokonać przekształcenia zmiennych przy pomocy unitaryzacji. Następnie dla każdego obiektu obliczana jest wartość zmiennej syntetycznej, jako średnia arytmetyczna wartości zmiennych przy przyjęciu jednakowych wag dla każdej zmiennej. Eliminowane są ujemne wartości zmiennej syntetycznej przy wykorzystaniu przekształcenia: 
+$$
+s_{i}'=s_{i}-\min\{s_i\}, \quad i=1, 2, \ldots, n.
+$$
 
 Końcowa postać zmiennej syntetycznej otrzymywana jest po przeprowadzeniu normalizacji według wzoru:
-\begin{center}
-$s_{i}''=\frac{s_{i}'}{\max\{s_{i}'\}},\quad i=1, 2, ..., n$.\\
-\end{center}
+$$
+s_{i}''=\frac{s_{i}'}{\max\{s_{i}'\}},\quad i=1, 2, \ldots, n.
+$$
 Powyższe przekształcenia powodują unormowanie miary syntetycznej w przedziale [0,1]. Powyższa wielkość wykorzystywana jest do uporządkowania obiektów.
-\newpage
+
 
 \subsubsection{Metoda wzorcowe}
-\noindent
 
-W metodach tych zakłada się istnienie obiektu wzorcowego $O_{0}=[z_{0j}], \quad  j= 1,2,...,m$, w którym zmienne wejściowe $z_{0j},  j= 1,2,...,m$, będące współrzędnymi obiektu wzorcowego, przyjmują optymalne wartości, które to mogą być ustalane na podstawie ogólnie przyjętych norm, subiektywnej opinii dotyczącej obserwowanego obiektu, lub też opinii ekspertów. Poszczególne metody różnią się sposobem wyznaczania obiektu wzorcowego, poniżej zostaną one przedstawione.
+
+W metodach tych zakłada się istnienie obiektu wzorcowego $O_{0}=[z_{0j}], \quad  j= 1,2,\ldots,m$, w którym zmienne wejściowe $z_{0j},  j= 1,2,\ldots,m$, będące współrzędnymi obiektu wzorcowego, przyjmują optymalne wartości, które to mogą być ustalane na podstawie ogólnie przyjętych norm, subiektywnej opinii dotyczącej obserwowanego obiektu, lub też opinii ekspertów. Poszczególne metody różnią się sposobem wyznaczania obiektu wzorcowego, poniżej zostaną one przedstawione.
 
 \subsubsection{Metoda Hellwiga}
-\noindent
+
 
 W metodzie tej, obiekt wzorcowy wyznaczony jest na podstawie wystandaryzowanych zmiennych wejściowych. Współrzędnym obiektu wzorcowego przyporządkowuje się maksimum, gdy zmienne wejściowe są stymulantami lub minimum gdy zmienne są destymulantami. Obiekty są uporządkowywane na podstawie odległości od obiektu wzorcowego, przy wykorzystaniu odległości euklidesowej.
 Miara syntetyczna jest postaci: 
-\begin{center}
-$$s_i=1-\frac{d_{i0}}{d_{0}},\quad i=1, 2, ..., m ,$$
-\end{center}
+$$
+s_i=1-\frac{d_{i0}}{d_{0}},\quad i=1, 2, \ldots, m ,
+$$
+
 gdzie:
-\newline
+
+
 współrzędne obiektu wzorcowego są obliczane na podstawie wzoru:
 $$z_{0j}=\left\{ \begin{array}{ll}
-\max\limits_{i} \{z_{ij}\} & \textrm{dla  } z_{j}^S,\quad j=1,2,...,m, \quad i=1,2,...,n,\\\\
-\min\limits_{i} \{z_{ij}\} & \textrm{dla } z_{j}^D, \quad j=1,2,...,m, \quad i=1,2,...,n,\\
+\max\limits_{i} \{z_{ij}\} & \textrm{dla  } z_{j}^S,\quad j=1,2,\dots,m, \quad i=1,2,\dots,n, \\
+\min\limits_{i} \{z_{ij}\} & \textrm{dla } z_{j}^D, \quad j=1,2,\dots,m, \quad i=1,2,\dots,n,
 \end{array} \right. $$
 $$d_{i0}=\bigg[\sum_{j=1}^{m} (z_{ij} - z_{0j})^2 \bigg]^\frac{1}{2} ,$$ 
 $$d_{0}=\overline{d_{0}} + 2S(d_{0}) ,$$
 $$\overline{d_{0}}=\frac{1}{n}\sum_{i=1}^{n} d_{i0} ,$$
 $$S(d_{0})=\bigg[\frac{1}{n}\sum_{i=1}^{n} (d_{i0}-\overline{d_{0}})^2 \bigg]^\frac{1}{2} .$$
 
-Wartości miary $s_{i}$ zazwyczaj są z przedziału $[0, 1]^2$. Należy tu zaznaczyć, że wartości miary są tym wyższe, im mniej jest oddalony obiekt od obiektu wzorcowego. 
+Wartości miary $s_{i}$ zazwyczaj są z przedziału $[0, 1]$. Należy tu zaznaczyć, że wartości miary są tym wyższe, im mniej jest oddalony obiekt od obiektu wzorcowego. 
 
 \subsubsection{Metoda Walesiaka}
-\noindent
 
 
 Metoda ta bazuje na konstrukcji zmiennej syntetycznej w oparciu o badanie odległości obiektów od obiektu wzorcowego , przy wykorzystaniu uogólnionej miary odległości. Umożliwia ona  porządkowanie obiektów, jeżeli opisujące je charakterystyki są mierzone przynajmniej na skali porządkowej. W takim przypadku, zmienne wejściowe o postaci nominant muszą zostać podaje stymulacji. Z kolei gdy zmienne są mierzone na skali przedziałowej lub ilorazowej, należy je znormalizować. 
@@ -1186,101 +1317,105 @@ Miara syntetyczna oparta na uogólnionej mierze odległości przyjmuje postać:
 s_i=\frac{1}{2}-\frac{\sum_{j=1}^{m} w_{j}a_{i0j}b_{0ij} + \sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}a_{ii^{''}j}b_{0i^{''}j}}{2\bigg[\bigg(\sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}a^{2}_{ii^{''}j} \bigg)\cdot \bigg(\sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}b^{2}_{0i^{''}j}\bigg) \bigg]^{\frac{1}{2} }}
 \end{equation}
 gdzie:
-$$w_{j} \in [0, m]$$
-$$\sum_{j=1}^{m} w_{j}=m$$
-\newline
-Ostateczna postać zmiennej syntetycznej zależy od skali pomiaru zmiennych. 
+\begin{itemize}
+\item $a_{ii^{*}j}$-miernik odległości $i$-tego obiektu o $j$-tej zmiennej, od  $i^{*}$-tego obiektu, gdzie $i^{*}=0,i^{''}$, przy czym $i^{''}\neq 0$
+\item $b_{0i^{*}j}$-miernik odległości obiektu wzorcowego o $j$-tej zmiennej, od $i^{*}$-tego obiektu, gdzie $i^{*}=i,i^{''}$, przy czym $i^{''}\neq 0$
+\item $w_{j}$-waga $j$ tej zmiennej, dla której spełnione są warunki:
+\end{itemize}
+$$w_{j} \in [0, m] \quad \land \quad \sum_{j=1}^{m} w_{j}=m$$
 
+
+Ostateczna postać zmiennej syntetycznej zależy od skali pomiaru zmiennych. 
 Jeśli zmienne charakteryzujące obiekty mierzone są na skali ilorazowej lub przedziałowej, stosowane jest następujące podstawienie:
-\begin{center}
-$a_{ii^{*}j}=z_{ij} - z_{i^{*}j}$ dla $i^{*}=0,i^{''},$\\
+
+$a_{ii^{*}j}=z_{ij} - z_{i^{*}j}$ dla $i^{*}=0,i^{''},$
+
 $b_{0i^{*}j}=z_{0j}-z_{i^*j}$ dla $i^{*}=i,i^{''}$.
-\end{center}
+
 gdzie:
-\newline
+
 $z_{0j}$-wystandaryzowana wartość j-tej zmiennej dla obiektu wzorcowego
 
-Z kolei, gdy zmienne charakteryzujące obiekty mierzone są na skali porządkowej to stosowne jest podstawienie:
 
+Z kolei, gdy zmienne charakteryzujące obiekty mierzone są na skali porządkowej to stosowne jest podstawienie:
 \begin{equation}
 a_{ii^{*}j}=\left\{ \begin{array}{lll}
-1  & \textrm{dla  } z_{ij}>z_{i^{*}j},\\\\
-0 & \textrm{dla } z_{ij}=z_{i^{*}j}, \quad i^{*}=0,i^{'},\\\\
+1  & \textrm{dla  } z_{ij}>z_{i^{*}j}, \\
+0 & \textrm{dla } z_{ij}=z_{i^{*}j}, \quad i^{*}=0,i^{'},\\
 -1 & \textrm{dla } z_{ij}<z_{i^{*}j},\\
 \end{array} \right.
 \end{equation}
 
 \begin{equation}
 b_{0i^{*}j}=\left\{ \begin{array}{lll}
-1  & \textrm{dla  } z_{0j}>z_{i^{*}j}, \quad i^{*}=i,i^{'},\\\\
-0 & \textrm{dla } z_{0j}=z_{i^{*}j},\quad i^{*}=i,i^{'},\\\\
+1  & \textrm{dla  } z_{0j}>z_{i^{*}j}, \quad i^{*}=i,i^{'},\\
+0 & \textrm{dla } z_{0j}=z_{i^{*}j},\quad i^{*}=i,i^{'},\\
 -1 & \textrm{dla } z_{0j}<z_{i^{*}j}.\\
 \end{array} \right.
 \end{equation}
-
 Zmienna syntetyczna przyjmuje wartości z przedziału $[0,1]$. Czym niższa wartość zmiennej syntetycznej, tym bliżej wzorca leży dany obiekt.
 
 \subsubsection{Metoda dystansowa}
-\noindent
+
 
 W metodzie tej zmienna syntetyczna wyznaczana jest na podstawie odległości każdego obiektu od obiektu wzorca, przy wykorzystaniu np. metryki euklidesowej. Miara syntetyczna, przy wykorzystaniu przekształcenia unitaryzacyjnego, jest postaci: 
-\newline
 \begin{equation}
-s_{i}=\bigg(\frac{d_{i0}-\min\limits_{i}\{d_{i0}\}}{\max\limits_{i}\{d_{i0}\}-\min\limits_{i}\{d_{i0}\}} \bigg)^{p}, \quad i=1,2,...,m
+s_{i}=\bigg(\frac{d_{i0}-\min\limits_{i}\{d_{i0}\}}{\max\limits_{i}\{d_{i0}\}-\min\limits_{i}\{d_{i0}\}} \bigg)^{p}, \quad i=1,2,\dots,m
 \end{equation}
-
-Miara syntetyczna uzyskana tą metodą jest unormowana i przyjmuje wartości z przedziału: $[0,1]$. Czym wyższa wartość miary, tym bliżej obiektu wzorcowego leży dany obiekt. 
+Miara syntetyczna uzyskana tą metodą jest unormowana i przyjmuje wartości z przedziału: $[0,1]$. Czym niższa wartość miary, tym bliżej obiektu wzorcowego leży dany obiekt. 
 
 \subsection{Metody iteracyjne}
-\noindent
+
 
 W metodach tych przyjmowania jest funkcja kryterium dobroci porządkowania i w kolejnych iteracjach poszukiwane jest takie uporządkowanie liniowe obiektów, które optymalizuje wartość funkcji kryterium, aż do osiągnięcia przez nią wartości optymalnej tj. maksymalnej lub minimalnej. 
 
 
 \subsubsection{Metoda Szczotki}
-\noindent
+
 
 W metodzie tej poszukiwane jest  takie liniowe uporządkowanie obiektów, dla którego funkcja kryterium dobroci uporządkowania osiąga maksimum:
 \begin{equation}
 F^{2}=\sum_{i^{'}=1}^{n-1} i^{'}\sum_{i=1}^{n-i^{'}} d_{ii^{'}} \rightarrow     \max  
 \end{equation}
 gdzie:
-\newline
-$d_{ii^{'}}$ - odległość euklidesowa miedzy $i$-tym i $i^{'}$-tym obiektem.\\
+
+$d_{ii^{'}}$ - odległość euklidesowa miedzy $i$-tym i $i^{'}$-tym obiektem.
+
 Sposób postępowania:
-\newline
+
 W pierwszym kroku dokonywane jest dowolne liniowe uporządkowanie obiektów, dla którego obliczana jest wartość funkcji kryterium (3.5). W kolejnym etapie obliczana jest wartość funkcji kryterium dla każdej możliwej transpozycji pary obiektów.
 Uporządkowanie to stanowi punkt wyjścia do oceny, czy kolejna transpozycja dowolnej pary obiektów pozwoli na wzrost wartości funkcji kryterium. Powyższe postępowanie kontynuowane jest tak długo, aż transpozycja dowolnej pary obiektów nie prowadzi do wzrostu wartości funkcji kryterium. 
 % Jeżeli wartość funkcji kryterium dla każdej z transpozycji par obiektów są mniejsze od wartości tej funkcji dla uporządkowania wyjściowego obiektów, uporządkowanie to uważane jest za najlepsze. W przeciwnym wypadku, dokonywana jest transpozycja tej pary obiektów, dla której wzrost wartości funkcji kryterium jest największy. 
 
 
-\subsection{Metody gradientowe} %%zle wyglada suma w jednym rownaniu
-\noindent
+\subsection{Metody gradientowe} 
+
 
 W metodach gradientowych dąży się do takiego liniowego uporządkowania obiektów, które jak najmniej zniekształca relacje strukturalne porządkowanego zbioru obiektów. Od strony geometrycznej oznacza to, że odległości pomiędzy punktami reprezentującymi obiekty w przestrzeni jednowymiarowej, określonej przez zmienną syntetyczną, w jak najmniejszym stopniu zniekształcają odległości pomiędzy tymi punktami w przestrzeni wielowymiarowej, określonej przez zmienne wejściowe. Metody gradientowe poszukują takich współrzędnych punktów reprezentujących obiekty w przestrzeni jednowymiarowej, dla których funkcja dobroci uporządkowania osiąga minimum, co można przedstawić za pomocą wariantów:
  
 \begin{equation}
-F^{3}=\frac{\sum\limits_{\substack{i,i^{'}=1\\ i \neq i^{'}}}^n (d_{ii^{'}}^{s} - d_{ii^{'}})^2 }{\sum\limits_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} d_{ii^{'}} } \rightarrow     \min  
+F^{3}=\frac{\sum\limits_{i,i^{'}=1,i \neq i^{'}}^n (d_{ii^{'}}^{s} - d_{ii^{'}})^2 }{\sum\limits_{\substack{i,i^{'}=1  i<i^{'}}}^{n} d_{ii^{'}} } \rightarrow     \min  
 \end{equation}
 
 \begin{equation}
-F^{4}=\sum_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} \bigg( \frac{d_{ii^{'}}^{s} - d_{ii^{'}}}{d_{ii^{'}}} \bigg) ^2  \rightarrow     \min  
+F^{4}=\sum_{i,i^{'}=1, i<i^{'}}^{n} \bigg( \frac{d_{ii^{'}}^{s} - d_{ii^{'}}}{d_{ii^{'}}} \bigg) ^2  \rightarrow     \min 
 \end{equation}
 
 \begin{equation}
-F^{5}=\frac{1}{\sum\limits_ {\substack{i,i^{'}=1 \\ i\neq i^{'}}}^{n} d_{ii^{'}}} \sum_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} \frac{\bigg(d_{ii^{'}}^{s} - d_{ii^{'}}\bigg)^2}{d_{ii^{'}}}\rightarrow     \min  
+F^{5}=\frac{1}{\sum\limits_ {i,i^{'}=1,  i\neq i^{'}}^{n} d_{ii^{'}}} \sum_{\substack{i,i^{'}=1  i<i^{'}}}^{n} \frac{\bigg(d_{ii^{'}}^{s} - d_{ii^{'}}\bigg)^2}{d_{ii^{'}}}\rightarrow     \min  
 \end{equation}
 
 gdzie:
-\newline
-$d_{ii^{'}}$ - odległość euklidesowa miedzy $i$-tym i $i^{'}$-tym obiektem.\\
+
+
+$d_{ii^{'}}$ - odległość euklidesowa miedzy $i$-tym i $i^{'}$-tym obiektem.
 %Sposób postępowania:
 %\newline
 %Punkt wyjścia procedury, polega na dowolnym liniowym uporządkowaniu obiektów, następnie w trakcie kolejnych iteracji poszukiwane jest ekstremum funkcji wielu zmiennych, zapewniające jak największy spadek wartości funkcji kryterium. Poniżej zostały szczegółowo omówione kroki postępowania:
 
 %Na początku wyznaczana jest wartość funkcji kryterium dla wyjściowego, liniowego uporządkowania obiektów (wyjściowych wartości zmiennych syntetycznych w tych obiektach), przy czym wartość funkcji jest przyjmowana jako wynik iteracji dla $t = 0$:
 %\begin{equation}
-%F^{5}=\frac{1}{c} \sum_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} \frac{\bigg(d_{ii,^{'}t}^{s} - d_{ii^{'}}\bigg)^2}{d_{ii^{'}}}
+%F^{5}=\frac{1}{c} \sum_{\substack{i,i^{'}=1  i<i^{'}}}^{n} \frac{\bigg(d_{ii,^{'}t}^{s} - d_{ii^{'}}\bigg)^2}{d_{ii^{'}}}
 %\end{equation}
 
 %gdzie:
@@ -1311,9 +1446,9 @@ $d_{ii^{'}}$ - odległość euklidesowa miedzy $i$-tym i $i^{'}$-tym obiektem.\\
 
 %Na wstępie zakłada się maksymalną oraz minimalną wartość parametru $W$, wskaźnik skali zmian wartości tego parametru pomiędzy iteracjami $W_{t+1}/W_{t}$ oraz maksymalną liczbę iteracji. Procedurę iteracyjną rozpoczynamy od przyjętej maksymalnej wartości parametru $W$. Postępowanie iteracyjne jest kontynuowane do momentu gdy nastąpi wzrost wartości wzrost wartości funkcji kryterium. Po tym następuje powrót do wartości zmiennej syntetycznej z poprzedniej iteracji, przy jednoczesnym zmniejszeniu wartości parametru $W$ o przyjęty wskaźnik jego zmian. Procedura kontynuowana jest do momentu, aż wartość parametru $W$, nie spadnie poniżej założonej wartości minimalnej lub gdy osiągnie z góry założoną liczbę iteracji. 
 
-\newpage
+
 \section{Metody porządkowania nieliniowego}
-\noindent
+
 
 Metody porządkowania nieliniowego nie pozwalają na ustaleniu hierarchii obiektów, lecz na określeniu dla każdego z nich, stopnia podobieństwa do innych obiektów, ze względu na ich charakterystyki. 
 
@@ -1322,17 +1457,16 @@ Aby uporządkować nieliniowo obiekty, charakteryzujące je zmienne powinny być
 Metody porządkowania nieliniowego można podzielić na metody dendrytowe i metody aglomeracyjne. Metody dendrytowe prowadzą do powstania dendrytu, będącego ilustracją graficzną  położenia względem siebie obiektów ze względu na ich podobieństwo. Z kolei metody aglomeracyjne prowadzą do utworzenia drzewka połączeń, będącego graficzną ilustracją hierarchii łączenia obiektów, ze względu na ich podobieństwo.
 
 \subsection{Metody dendrytowe}
-\noindent 
+
 
 Metody dendrytowe opierają się na regułach i pojęciach teorii grafów. Porządkowanie dendrytowe polega na przyporządkowaniu obiektom poszczególnych wierzchołków dendrytu, w tym celu budowany jest dendryt. Poniżej zostaną opisane przykłady metod dendrytowych, tj. taksonomia wrocławska oraz metoda Prima. 
 
 \subsubsection{Taksonomia wrocławska}
-\noindent
 
 
 W metodzie tej obiekty dzielone są grupy obiektów najbardziej do siebie podobnych, tj. takich, których odległość między sobą jest najmniejsza. W tym celu w każdym wierszu(kolumnie) macierzy odległości $D$, wyznaczamy jest element najmniejszy: 
 \begin{equation}
-d_ii^{'}= \max\limits_{i^{'}} {d_{ii^{'}}}, \quad i,i^{'}=1,2,...,n, i\neq i^{'}.
+d_ii^{'}= \max\limits_{i^{'}} {d_{ii^{'}}}, \quad i,i^{'}=1,2,\dots,n, i\neq i^{'}.
 \end{equation}
 %W pierwszym etapie tej metody, dla każdego obiektu $O_{i}$ poszukiwany jest obiekt $O_{i^{'}}$, który jest najbardziej do niego podobny. W tym celu w każdym wierszu(kolumnie) macierzy odległości $D$, wyznaczamy jest element najmniejszy: 
 %\begin{equation}
@@ -1347,7 +1481,7 @@ Otrzymane pary najbardziej podobnych do siebie obiektów, przedstawiane są w po
 %Powyższy proces przeprowadzany jest do momentu, aż nie powstanie graf spójny, w ten sposób tworzone są skupienia wyższego rzędu 
 
 \subsubsection{Metoda Prima}
-\noindent
+
 
 W odróżnieniu od taksonomii wrocławskiej, metoda Prima nie wymaga operowania cały czas pełną, wyjściową macierzą odległości. W trakcie tworzenia dendrytu, na każdym etapie zbiór porządkowanych obiektów jest klasyfikowany do jednego z dwóch podzbiorów, np. $A$ i $B$. Niech zbiór $A$ będzie pierwszym z nich a zbiór $B$ drugim. Pierwszy z nich zawiera obiekty należące na danym etapie do dendrytu, zaś drugi zawiera obiekty nie należące na tym etapie do dendrytu.
 
@@ -1358,19 +1492,22 @@ Na początku procedury, zbiór $A$ jest zbiorem pustym, z kolei zbiór $B$ zawie
 W powstałym dendrycie wierzchołkami są obiekty przechodzące kolejno do zbioru A, z kolei wiązadłami łączącymi wierzchołki są minimalne wartości elementów wektora d, otrzymanego w kolejnych krokach przyłączania obiektów do dendrytu. 
 
 \subsection{Metody aglomeracyjne}
-\noindent
+
+
 %opis statystyczny
 %"Krotko rzecz ujmuja metody te opieraja sie na macierzy odleglosci i na podstawie tejże odleglosci sa laczone w grupy +-"
 Istotą metod aglomeracyjnych jest utworzenie drzewka połączeń - dendrogramu. W ten sposób zobrazowana jest hierarchia łączenia obiektów, na podstawie zmniejszającego się podobieństwa między obiektami włączonymi do dendrogramu, w kolejnych etapach a obiektami należącymi już do dendrogramu. Hierarchia połączeń określa wzajemnie położenie względem siebie obiektów oraz grup obiektów powstających w kolejnych etapach tworzenia drzewka. Grupy podobnych do siebie obiektów tworzą oddzielne gałęzie.  
 %opis algorytmu chyba tu sie powinien rozpoczyna opis, tak jak bylo robione wczesiej
-Punktem wyjściem metod aglomeracyjnych stanowi założenie, że każdy obiekt stanowi odrębną, jednoelementową grupę $(\mathrm{G_{r}}, r=1,2,...,z)$.\\
+Punktem wyjściem metod aglomeracyjnych stanowi założenie, że każdy obiekt stanowi odrębną, jednoelementową grupę $(\mathrm{G_{r}}, r=1,2,\dots,z)$.
+
 W kolejnych krokach następuje łączenie ze sobą grupy obiektów najbardziej do siebie podobnych ze względu na wartości opisujących je zmiennych. Podobieństwo weryfikowane jest na podstawie odległości między grupami obiektów. %Poniżej zostały szczegółowo omówione kroki postępowania:
 
-Na początku odległości między jednoelementowymi grupami obiektów $\mathrm{G_{1}},...,\mathrm{G_{z}}$ są elementami wyjściowej macierzy odległości $\bold{D}$. W macierzy $\bold{D}$ poszukiwane są najmniejsze odległości pomiędzy grupami obiektów:
+Na początku odległości między jednoelementowymi grupami obiektów $\mathrm{G_{1}},\dots,\mathrm{G_{z}}$ są elementami wyjściowej macierzy odległości $\bold{D}$. W macierzy $\bold{D}$ poszukiwane są najmniejsze odległości pomiędzy grupami obiektów:
 \begin{equation}
-d_{rr^{'}}= \min\limits_{ii^{'}} {d_{ii^{'}}}, \quad i=1,2,...,n_{r}, \quad i^{'}=1,2,...,n_{r^{'}}, \quad r,r^{'}=1,2,...,z, r\neq r^{'}.
+d_{rr^{'}}= \min\limits_{ii^{'}} {d_{ii^{'}}}, \quad i=1,2,\dots,n_{r}, \quad i^{'}=1,2,\dots,n_{r^{'}}, \quad r,r^{'}=1,2,\dots,z, r\neq r^{'}.
 \end{equation}
-gdzie:\\
+gdzie:
+
 $d_{rr^{'}}$ - odległość $r$-tej od $r^{'}$-tej grupy.
 %W kolejnym kroku następuje łączenie do siebie obiektów podobnych w jedną grupę, w wyniku czego wyjściowa liczba grup zmniejszona jest o jeden, oraz rozpoczęta jest budowa drzewka połączeń. Następnie wyznacza się ponownie odległość nowo utworzonej grupy obiektów od wszystkich pozostałych grup obiektów. Odległości te umieszczone zostają w macierzy odległości $\mathrm{D}$ - w miejscu wierszy i kolumn odpowiadających obiektom(grupom obiektów) połączonych w jedną grupę. Po każdym etapie grupowania ponownie określana jest odległość między nowo powstałą grupa a pozostałymi grupami. Warto również dodać, że odległości te tworzą nową, aktualną na danym etapie grupowania, macierz odległości o co raz mniejszym wymiarze $(n-u)(n-u)$, gdzie $u$ jest $u$-tym etapem łączenia grup obiektów.  Procedura łączenia grup obiektów powtarzana jest tak długo, aż nie zostanie utworzona jedna grupa, tj. zostanie utworzone pełne drzewko połączeń. 
 
@@ -1378,87 +1515,98 @@ Ogólny wzór wyznaczania odległości nowo powstałej grupy $\mathrm{G_{r^{''}}
 \begin{equation}
 d_{r^{'''}r^{''}}=\alpha_{r}d_{r^{'''}r} + \alpha_{r^{'}}d_{r^{'''}r^{'}} + \beta d_{rr^{'}} + \gamma|d_{r^{'''}r} - d_{r^{'''}r^{'}}| 
 \end{equation}
-gdzie:\\
+gdzie:
 $\alpha_{r},\alpha_{r^{'}}, \beta, \gamma$ - współczynniki przekształceń odmienne dla różnych metod aglomeracyjnych
 %opis metod
 
 Poszczególne metody aglomeracyjne, różnią się między sobą sposobami wyznaczania odległości między obiektami. Poniżej zostały wymienione najczęściej stosowane metody aglomeracyjne, które będą dokładniej omówione w kolejnym podrozdziale.
 \begin{itemize}
-\item metoda najbliższego sąsiedztwa (metoda pojedynczego wiązania) \\
+\item metoda najbliższego sąsiedztwa (metoda pojedynczego wiązania) 
+
 parametry  przekształceń $\alpha_{r}=0,5 \quad \alpha_{r^{'}}=0,5 \quad  \beta=0 \quad \gamma=0,5$.
-\item metoda najdalszego sąsiedztwa (metoda pełnego wiązania)\\
+\item metoda najdalszego sąsiedztwa (metoda pełnego wiązania)
+
 parametry  przekształceń $\alpha_{r}=0,5 \quad \alpha_{r^{'}}=0,5 \quad \beta=0 \quad \gamma=-0,5$.
-\item metoda średniej międzygrupowej (metoda średnich połączeń)\\
+\item metoda średniej międzygrupowej (metoda średnich połączeń)
+
 parametry  przekształceń $\alpha_{r}=\frac{n_{r}}{n_{r} + n_{r^{'}}} \quad \alpha_{r^{'}}=\frac{n_{r^{'}}}{n_{r} + n_{r^{'}}} \quad \beta=0 \quad \gamma=0$).
-\item metoda mediany\\
+\item metoda mediany
+
 parametry  przekształceń $\alpha_{r}=0,5 \quad \alpha_{r^{'}}=0,5 \quad \beta=-025 \quad \gamma=0$.
-\item metoda środka ciężkości\\
+\item metoda środka ciężkości
+
 parametry  przekształceń $\alpha_{r}=\frac{n_{r}}{n_{r} + n_{r^{'}}}; \alpha_{r^{'}}=\frac{n_{r^{'}}}{n_{r} + n_{r^{'}}} \quad \beta=\frac{-n_{r}n_{r^{'}}}{(n_{r} + n_{r^{'}})^{2}} \quad \gamma=0$.
-\item metoda Warda\\
+\item metoda Warda
+
 parametry  przekształceń $\alpha_{r}=\frac{n_{r}+n_{r^{'''}}}{n_{r} + n_{r^{'}}+n_{r^{'''}}} \quad \alpha_{r^{'}}=\frac{n_{r^{'}}+n_{r^{'''}}}{n_{r} + n_{r^{'}}+n_{r^{'''}}} \quad \beta=\frac{-n_{r^{'''}}}{n_{r} + n_{r^{'}}+n_{r^{'''}}} \quad \gamma=0$.
 
 \end{itemize}
  
 \subsubsection{Metoda najbliższego sąsiedztwa}
-\noindent
+
 
 W metodzie tej odległość między dwoma grupami obiektów jest równa odległości pomiędzy najbliższymi obiektami (sąsiadami), które należą do dwóch różnych grup obiektów. Odległość ta opisana jest wzorem:
 \begin{equation}
 d_{rr^{'}}= \min\limits_{ii^{'}} {d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})},
 \end{equation}
 \begin{center}
-$i=1,2,...,n_{r}, \quad i^{'}=1,2,...,n_{r^{'}}, \quad r,r^{'}=1,2,...,z, \quad r \neq r^{'}, $
+$i=1,2,\dots,n_{r}, \quad i^{'}=1,2,\dots,n_{r^{'}}, \quad r,r^{'}=1,2,\dots,z, \quad r \neq r^{'}, $
 \end{center}
-gdzie:\\
+gdzie:
+
 \begin{equation}
-\bold{O_{i}}=[z_{ij}], \quad j=1,2,...,m.
+\bold{O_{i}}=[z_{ij}], \quad j=1,2,\dots,m.
 \end{equation}
 
 \subsubsection{Metoda najdalszego sąsiedztwa}
-\noindent
+
 
 W metodzie tej odległość między dwoma grupami obiektów jest równa odległości pomiędzy najdalszymi obiektami (sąsiadami), które należą do dwóch różnych grup obiektów. Odległość ta opisana jest wzorem: 
 \begin{equation}
 d_{rr^{'}}= \max\limits_{ii^{'}} {d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})},
 \end{equation}
 \begin{center}
-$i=1,2,...,n_{r}, \quad i^{'}=1,2,...,n_{r^{'}}, \quad r,r^{'}=1,2,...,z, \quad r \neq r^{'}, $
+$i=1,2,\dots,n_{r}, \quad i^{'}=1,2,\dots,n_{r^{'}}, \quad r,r^{'}=1,2,\dots,z, \quad r \neq r^{'}, $
 \end{center}
 
 \subsubsection{Metoda średniej międzygrupowej}
-\noindent
+
 
 W metodzie tej odległość między dwoma grupami obiektów równa jest średniej arytmetycznej odległości między wszystkimi parami obiektów należących do dwóch różnych wzór. Odległość ta opisana jest wzorem: 
 \begin{equation}
 d_{rr^{'}}=\frac{1}{n_{r}n_{r^{'}}}\sum_{i^{'}=1}^{n_{r^{'}}}\sum_{i=1}^{n_{r}} d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})
 \end{equation}
 \begin{center}
-$r,r^{'}=1,2,...,z, \quad r \neq r^{'}. $
+$r,r^{'}=1,2,\dots,z, \quad r \neq r^{'}. $
 \end{center}
 
 \subsubsection{Metoda mediany}
-\noindent
+
 
 W metodzie tej odległość między grupami obiektów jest równa medianie odległości pomiędzy wszystkimi parami obiektów należących do dwóch grup. Odległość ta opisana jest wzorem: 
 \begin{equation}
 d_{rr^{'}}= \bold{med}_{i,i^{'}} \{d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})\},
 \end{equation}
 \begin{center}
-$i=1,2,...,n_{r}, \quad i^{'}=1,2,...,n_{r^{'}}, \quad r,r^{'}=1,2,...,z, \quad r \neq r^{'}. $
+$i=1,2,\dots,n_{r}, \quad i^{'}=1,2,\dots,n_{r^{'}}, \quad r,r^{'}=1,2,\dots,z, \quad r \neq r^{'}. $
 \end{center}
 
 \subsubsection{Metoda środków ciężkości}
-\noindent
+
 
 W metodzie tej odległość między dwoma grupami jest równa odległości między środkami ciężkości tych grup. Odległość ta opisana jest wzorem: 
 \begin{equation}
 d_{rr^{'}}=d_{i^{c}i^{'c}}(\bf{O_i^{c}}=\overline{O}_{r}\in G_{r}, O_{i^{'c}}=\overline{O}_{r} \in G_{r^{'}}),
 \end{equation}
 \begin{center}
-$i=1,2,...,n_{r}, \quad i^{'}=1,2,...,n_{r^{'}}, \quad r,r^{'}=1,2,...,z, \quad r \neq r^{'}. $
+$i=1,2,\dots,n_{r}, \quad i^{'}=1,2,\dots,n_{r^{'}}, \quad r,r^{'}=1,2,\dots,z, \quad r \neq r^{'}. $
 \end{center}
-gdzie:\\
-$d_{i^{c}i^{'c}}$ - odległość środka ciężkości $r$-tej grupy od środka ciężkości $r_{'}$-tej grupy,\\
+gdzie:
+
+
+$d_{i^{c}i^{'c}}$ - odległość środka ciężkości $r$-tej grupy od środka ciężkości $r_{'}$-tej grupy,
+
+
 $\bf{\overline{O}_{i^{c}},\overline{O}_{i^{'c}}}$ - środki ciężkości odpowiednio $r$-tej i $r^{'}$-tej grupy obiektów. przy czym:
 \begin{equation}
 \bold{O}_{i^{c}}=\bold{\overline{O}}_{r}=\frac{1}{n_{r}}\bold{\sum_{i=1}^{n_{r}}} \bold{O}_{i},
@@ -1468,408 +1616,21 @@ $\bf{\overline{O}_{i^{c}},\overline{O}_{i^{'c}}}$ - środki ciężkości odpowie
 \end{equation}
 
 \subsubsection{Metoda Warda}
-\noindent
+
 
 W metodzie tej odległości między dwoma grupami obiektów nie można przedstawić wprost za pomocą odległości między obiektami należącymi do tych grup. Dwie grupy obiektów podczas tworzenia drzewka połączeń, na dowolnym etapie są łączone w jedną grupę,w celu zminimalizowania sumy kwadratów odchyleń wszystkich obiektów z tych dwóch grup od środka ciężkości nowej grupy, powstałej w wyniku połączenia tych dwóch grup. Proces ten oznacza, że na każdym etapie łączenia grup obiektów, w jedną grupę łączy się te grupy, które charakteryzują się najmniejszym zróżnicowaniem ze względu na opisujące je zmienne. Zróżnicowanie badania się przy pomocy kryterium $ESS (Erros Sum of Squares)$ sformułowanego przez J.H. Warda, które jest postaci:
 \begin{equation}
 ESS= \bold{\sum_{i^{''}=1}^{n_r^{''}}} d_{i^{''}i^{''c}}^2 ( \bold{O}_{i^{''}} \in \bold{G}_{r^{''}}, \bold{O}_{i^{''c}}=\bold{\overline{O}}_{r^{''}} \in \bold{G}_{r^{''}} ),
 \end{equation} 
 gdzie:
-$d_{i^{''}i^{''c}}$ - odległość $i^{''}$-tego obiektu, należącego do nowo powstałej $r^{''}$-tej grupy od środka ciężkości tej grupy,\\
+$d_{i^{''}i^{''c}}$ - odległość $i^{''}$-tego obiektu, należącego do nowo powstałej $r^{''}$-tej grupy od środka ciężkości tej grupy,
 \begin{equation}
 \bold{O}_{i^{''c}} = \bold{\overline{O}}_{r^{''}}=\frac{1}{n_{r^{''}}} \bold{\sum_{i^{''}=1}^{n_r^{''}}} \bold{O}_{i^{''}}.
 \end{equation}
 
-\newpage
-\chapter{Szczegółowe opisy wybranych metod porządkowania}
-\section{Metody porządkowania liniowego}
-\subsubsection{Metody diagramowe}
-\noindent
 
-W metodach diagramowych stosuje się graficzną reprezentację macierzy odległości zwanej diagramem. Macierz konstruowana jest w oparciu o odległości między obiektami, wyznaczone za pomocą dowolnej metryki. W kolejnym etapie następuje dzielenie mierników odległości macierzy, na klasy podobieństwa obiektów. Kolejny krok polega na przyporządkowaniu poszczególnym klasom podobieństwa obiektów odpowiedniego symbolu graficznego. Samo porządkowanie obiektów polega na porządkowaniu diagramu, tj. przestawieniu wierszy i odpowiadających im kolumn diagramu, tak aby symbole graficzne reprezentujące najmniejsze odległości skupiały się wzdłuż głównej przekątnej, zaś w miarę oddalania się od głównej przekątnej znajdowały się symbole graficzne odpowiadające coraz to większym odległością. 
 
 
-Jako narzędzie pomocnicze w porządkowaniu danych, może stanowić kryterium postaci:
-
-\begin{center}
-$$F^1= \sum_{i=1}^{n} \sum_{i'>1}^{n} d_{ii'},w_{ii'}$$\\
-\end{center}
-gdzie:\\
- $d_{i,i'}$ - odległość euklidesowa między $i$-tym i $i'$-tym obiektem . \\
- $w_{i,i'}$ - wagi elementów macierzy odległości, zdefiniowane w oparciu o jeden z następujących wzorów: \\
- 
- \begin{center}
- 
- $ w_{i,i'}=\frac{| i-i' |}{n-1}$, $\qquad$ \\
-   \end{center}
-   \begin{center}
- $ w_{i,i'}=\frac{1}{n(n-1)}\lbrack{2n|i-i'-1|+i+i'-(i-i)^2\rbrack}$,\\
- \end{center}
- \begin{center}
- $ w_{i,i'}=\frac{1}{n(n-1)}\lbrack{2n|i-i'|+2-i-i'-(i-i)^2\rbrack}$.\\
-\end{center}
-
-Dodatkowo wagi elementów macierzy odległości tworzą macierz wag postaci:
-
-\begin{center}
-$W=\lbrack{w_{ii'}\rbrack}, i,i'=1, 2, ..., n.$
-\end{center}
-
-%%przyklad diagramu http://www.antropologia.uw.edu.pl/MaCzek/maczek.html
-
-\subsubsection{Metoda rang}
-\noindent
-
-
-Na początku przeprowadzana jest stymulacja zmiennych, w kolejnym kroku dla każdego obiektu wyznacza się sumę przyporządkowanych mu rang ze względu na wszystkie zmienne. W chwili gdy dana wartość zmiennej występuje w więcej niż jednym obiekcie, następuje przyporządkowanie im jednakowej rangi będącej średnią arytmetyczną z przysługujących im rang. Na końcu zostaje obliczona wartość zmiennej syntetycznej, jako średnia wartość rang:\\
-\begin{center}
-$$s_{i}=\frac{1}{m}\sum_{j=1}^{m} z_{ij}, i=1, 2, ..., n,$$\\
-\end{center}
-gdzie:\\
-$z_{ij}$-zmienna znormalizowana rangowo, tj.
-\begin{center}
-$z_{ij}=h$ dla $x_{hj}=x_{ij}, h,i=1, 2, ..., n.$
-\end{center}
-gdzie:\\
-$h$-ranga nadana $i$-temu obiektowi znajdującemu się na $h$-tym miejscu w uporządkowanym szeregu obiektów ze względu na $j$-tą zmienną.
-
-\subsubsection{Metoda sum}
-\noindent
-
-
-Metoda ta bazuje na konstrukcji zmiennej syntetycznej przy pomiarze zmiennych na skali ilorazowej lub przedziałowej. W pierwszym etapie zostaje dokonana stymulacja zmiennych. Następnie obliczana jest wartość zmiennej syntetycznej dla każdego obiektu, jako średnia arytmetyczna z wartości zmiennych, przy przyjęciu jednakowych wag dla każdej zmiennych. Następnie eliminowane są ujemne wartości zmiennej syntetycznej, poprzez przesuwanie jej skali do punktu zerowego, przy użyciu przekształcenia:
-\begin{center}
-$$s_{i}'=s_{i}-min\{s_i\}, i=1, 2, ..., n$$.\\
-\end{center}
-
-Końcowa postać zmiennej syntetycznej otrzymywana jest po przeprowadzeniu normalizacji według wzoru:
-\begin{center}
-$s_{i}''=\frac{s_{i}'}{max\{s_{i}'\}}, i=1, 2, ..., n$.\\
-\end{center}
-Powyższe przekształcenia powodują unormowanie miary syntetycznej w przedziale [0,1].
-\newpage
-
-\subsubsection{Metody wzorcowe}
-\noindent
-
-W metodach tych zakłada się istnienie obiektu wzorcowego, w którym zmienne wejściowe przyjmują optymalne wartości, które to mogą być ustalane na podstawie ogólnie przyjętych norm, subiektywnej opinii dotyczącej obserwowanego obiektu, lub też opinii ekspertów. Poniżej zostaną omówione wybrane metody porządkowania, wzorcowe.
-
-\subsubsection{Metoda Hellwiga}
-\noindent
-
-W metodzie tej, w pierwszym etapie wyznacza się obiekt wzorcowy, na podstawie wystandaryzowanych zmiennych wejściowych. Współrzędnym obiektu wzorcowego przyporządkowuje się maksimum, gdy zmienne wejściowe są stymulantami, lub też minimum gdy zmienne wejściowe są destymulantami. Następnie dla każdego obiektu, następuje obliczenie jego odległości od obiektu wzorcowego, w tym celu najczęściej wykorzystywana jest metryka euklidesowa. 
-Miara syntetyczna jest postaci: 
-\begin{center}
-$$s_i=1-\frac{d_{i0}}{d_{0}}, i=1, 2, ..., m ,$$
-\end{center}
-gdzie:
-\newline
-współrzędne obiektu wzorcowego są obliczane na podstawie wzoru:
-$$z_{0j}=\left\{ \begin{array}{ll}
-\max\limits_{i} \{z_{ij}\} & \textrm{dla  } z_{j}^S, j=1,2,...,m, i=1,2,...,n\\\\
-\min\limits_{i} \{z_{ij}\} & \textrm{dla } z_{j}^D, j=1,2,...,m, i=1,2,...,n\\
-\end{array} \right., $$
-$$d_{i0}=\bigg[\sum_{j=1}^{m} (z_{ij} - z_{0j})^2 \bigg]^\frac{1}{2} ,$$ 
-$$d_{0}=\overline{d_{0}} + 2S(d_{0}) ,$$
-$$\overline{d_{0}}=\frac{1}{n}\sum_{i=1}^{n} d_{i0} ,$$
-$$S(d_{0})=\bigg[\frac{1}{n}\sum_{i=1}^{n} (d_{i0}-\overline{d_{0}})^2 \bigg]^\frac{1}{2} .$$
-
-Wartości miary $s_{i}$ zazwyczaj są z przedziału $[0; 1]^2$. Należy tu zaznaczyć, że wartości miary są tym wyższe, im mniej jest oddalony obiekt od obiektu wzorcowego. 
-
-\subsubsection{Metoda Walesiaka}
-\noindent
-
-
-Metoda ta bazuje na konstrukcji zmiennej syntetycznej w oparciu o badanie odległości obiektów od obiektu wzorcowego , przy wykorzystaniu uogólnionej miary odległości. Umożliwia ona  porządkowanie obiektów, jeżeli opisujące je charakterystyki są mierzone przynajmniej na skali porządkowej. W takim przypadku, zmienne wejściowe o postaci nominant muszą zostać podaje stymulacji. Z kolei gdy zmienne są mierzone na skali przedziałowej lub ilorazowej, należy je znormalizować. 
-Miara syntetyczna oparta na uogólnionej mierze odległości przyjmuje postać:
-\begin{equation}
-s_i=\frac{1}{2}-\frac{\sum_{j=1}^{m} w_{j}a_{i0j}b_{0ij} + \sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}a_{ii^{''}j}b_{0i^{''}j}}{2\bigg[\sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}a^{2}_{ii^{''}j} \cdot \sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}b^{2}_{0i^{''}j} \bigg]^{\frac{1}{2} }}
-\end{equation}
-gdzie:
-$$w_{j} \in [0; m]$$
-$$\sum_{j=1}^{m} w_{j}=m$$
-\newline
-Ostateczna postać zmiennej syntetycznej zależy od skali pomiaru zmiennych. 
-
-Jeśli zmienne charakteryzujące obiekty mierzone są na skali ilorazowej lub przedziałowej, stosowane jest następujące podstawienie:
-\begin{center}
-$a_{ii^{*}j}=z_{ij} - z_{i^{*}j}$ dla $i^{*}=0,i^{''}$
-$b_{0i^{*}j}=z_{0j}-z_{i^*j}$ dla $i^{*}=i,i^{''}$.
-\end{center}
-gdzie:
-\newline
-$z_{0j}$-wystandaryzowana wartość j-tej zmiennej dla obiektu wzorcowego
-
-Z kolei, gdy zmienne charakteryzujące obiekty mierzone są na skali porządkowej to stosowne jest podstawienie:
-
-\begin{equation}
-a_{ii^{*}j}=\left\{ \begin{array}{lll}
-1  & \textrm{dla  } z_{ij}>z_{i^{*}j},\\\\
-0 & \textrm{dla } z_{ij}=z_{i^{*}j}, i^{*}=0,i^{'}\\\\
--1 & \textrm{dla } z_{ij}<z_{i^{*}j}\\
-\end{array} \right.
-\end{equation}
-
-\begin{equation}
-b_{0i^{*}j}=\left\{ \begin{array}{lll}
-1  & \textrm{dla  } z_{0j}>z_{i^{*}j}, i^{*}=i,i^{'}\\\\
-0 & \textrm{dla } z_{0j}=z_{i^{*}j}, i^{*}=i,i^{'}\\\\
--1 & \textrm{dla } z_{0j}<z_{i^{*}j},\\
-\end{array} \right.
-\end{equation}
-
-Zmienna syntetyczna przyjmuje wartości z przedziału $[0;1]$. Czym niższa wartość zmiennej syntetycznej, tym bliżej wzorca leży dany obiekt.
-
-\subsubsection{Metoda dystansowa}
-\noindent
-
-Podobnie jak wcześniej opisane metody, w pierwszym kroku należy wyznaczyć zmienną syntetyczną w oparciu o jej odległość od obiektu wzorca, dla każdego z porównywanych obiektów, przy wykorzystaniu np. metryki euklidesowej. Miara syntetyczna, przy wykorzystaniu przekształcenia unitaryzacyjnego, jest postaci: 
-\newline
-\begin{equation}
-s_{i}=\bigg(\frac{d_{i0}-\min\limits_{i}\{d_{i0}\}}{\max\limits_{i}\{d_{i0}\}-\min\limits_{i}\{d_{i0}\}} \bigg)^{p}, i=1,2,...,m
-\end{equation}
-
-Miara syntetyczna uzyskana tą metodą jest unormowana i przyjmuje wartości z przedziału: $[0;1]$. Czym wyższa wartość miary, tym bliżej obiektu wzorcowego leży dany obiekt. 
-
-\subsection{Metody iteracyjne}
-\noindent
-
-W metodach tych przyjmowania jest funkcja kryterium dobroci porządkowania i w kolejnych iteracjach poszukiwane jest takie uporządkowanie liniowe obiektów, które optymalizuje wartość funkcji kryterium aż do osiągnięcia przez nią wartości optymalnej tj. maksymalnej lub minimalnej. 
-
-
-\subsubsection{Metoda Szczotki}
-\noindent
-
-W metodzie tej takie liniowe uporządkowanie obiektów, dla którego funkcja kryterium dobroci uporządkowania osiąga maksimum:
-\begin{equation}
-F^{2}=\sum_{i^{'}=1}^{n-1} i^{'}\sum_{i=1}^{n-i^{'}} d_{ii^{'}} \rightarrow     \max  
-\end{equation}
-gdzie:
-\newline
-$d_{ii^{'}}$ - odległość euklidesowa miedzy $i$-tym i $i^{'}$-tym obiektem.\\
-Sposób postępowania:
-\newline
-W pierwszym kroku dokonywane jest dowolne liniowe uporządkowanie obiektów, dla którego obliczana jest wartość funkcji kryterium (3.5). W kolejnym etapie obliczana jest wartość funkcji kryterium dla każdej możliwej transpozycji pary obiektów. Jeżeli wartość funkcji kryterium dla każdej z transpozycji par obiektów są mniejsze od wartości tej funkcji dla uporządkowania wyjściowego obiektów, uporządkowanie to uważane jest za najlepsze. W przeciwnym wypadku, dokonywana jest transpozycja tej pary obiektów, dla której wzrost wartości funkcji kryterium jest największy. 
-\newline
-Uporządkowanie to stanowi punkt wyjścia do oceny, czy kolejna transpozycja dowolnej pary obiektów pozwoli na wzrost wartości funkcji kryterium. Powyższe postępowanie kontynuowane jest tak długo, aż transpozycja dowolnej pary obiektów nie prowadzi do wzrostu wartości funkcji kryterium. 
-
-\subsection{Metody gradientowe} %%zle wyglada suma w jednym rownaniu
-\noindent
-
-W metodach gradientowych dąży się do takiego liniowego uporządkowania obiektów, które jak najmniej zniekształca relacje strukturalne porządkowanego zbioru obiektów. Od strony geometrycznej oznacza to, że odległości pomiędzy punktami reprezentującymi obiekty w przestrzeni jednowymiarowej, określonej przez zmienną syntetyczną, w jak najmniejszym stopniu zniekształcają odległości pomiędzy tymi punktami w przestrzeni wielowymiarowej, określonej przez zmienne wejściowe. Metody gradientowe poszukują takich współrzędnych punktów reprezentujących obiekty w przestrzeni jednowymiarowej, dla których funkcja dobroci uporządkowania osiąga minimum, co można przedstawić za pomocą wariantów:
- 
-\begin{equation}
-F^{3}=\frac{\sum_{\substack{i,i^{'}=1\\i \neq i^{'}}}^{n} (d_{ii^{'}}^{s} - d_{ii^{'}})^2 }{\sum_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} d_{ii^{'}}, } \rightarrow     \min  
-\end{equation}
-
-\begin{equation}
-F^{4}=\sum_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} \bigg( \frac{d_{ii^{'}}^{s} - d_{ii^{'}}}{d_{ii^{'}}} \bigg) ^2  \rightarrow     \min  
-\end{equation}
-
-\begin{equation}
-F^{5}=\frac{1}{\sum_ {\substack{i,i^{'}=1 \\ i\neq i^{'}}}^{n} d_{ii^{'}}} \sum_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} \frac{\bigg(d_{ii^{'}}^{s} - d_{ii^{'}}\bigg)^2}{d_{ii^{'}}}\rightarrow     \min  
-\end{equation}
-
-gdzie:
-\newline
-$d_{ii^{'}}$ - odległość euklidesowa miedzy $i$-tym i $i^{'}$-tym obiektem.\\
-%Sposób postępowania:
-\newline
-Punkt wyjścia procedury, polega na dowolnym liniowym uporządkowaniu obiektów, następnie w trakcie kolejnych iteracji poszukiwane jest ekstremum funkcji wielu zmiennych, zapewniające jak największy spadek wartości funkcji kryterium. Poniżej zostały szczegółowo omówione kroki postępowania:
-
-Na początku wyznaczana jest wartość funkcji kryterium dla wyjściowego, liniowego uporządkowania obiektów (wyjściowych wartości zmiennych syntetycznych w tych obiektach), przy czym wartość funkcji jest przyjmowana jako wynik iteracji dla $t = 0$:
-\begin{equation}
-F^{5}=\frac{1}{c} \sum_{\substack{i,i^{'}=1 \\ i<i^{'}}}^{n} \frac{\bigg(d_{ii,^{'}t}^{s} - d_{ii^{'}}\bigg)^2}{d_{ii^{'}}}
-\end{equation}
-
-gdzie:
-
-\begin{equation}
-c=\frac{1}{\sum_{\substack{i,i^{'}=1 \\ i<i^{i}}}^n d_{ii^{'}}},
-\end{equation}
-Przy czym wartości zmiennych oryginalnych oraz wyjściowych wartości zmiennych syntetycznych, zostały znormalizowane na przedziale $[0;1]$.
-
-Współrzędne zmiennych syntetycznych dla obiektów w kolejnej iteracji $t+1$ wyznacza się na podstawie wzoru:
-\begin{equation}
-s_{i,t+1}=s_{i,t} - W\Delta_{i}(t),
-\end{equation}
-gdzie:
-\begin{equation}
-\Delta_{i}(t)=\frac{\delta F_{t}^{5}}{\delta s_{i,t}} : \frac{\delta F_{t}^{5}}{(\delta s_{i,t})^{2}},
-\end{equation}
-przy czym:
-\begin{equation}
-\frac{\delta F^{5}}{\delta s_{i}}=-\frac{2}{c}\sum_{\substack{i^{'}=1 \\ i \neq i^{'}}}^n \bigg( \frac{d_{ii^{'}} - d_{ii^{'}}^s}{d_{ii^{'}}+d_{ii^{'}}^{s}} \bigg)(s_{i} - s_{i^{'}}),
-\end{equation}
-
-\begin{equation}
-\frac{\delta^2 F^{5}}{(\delta s_{i})^{2}}=-\frac{2}{c}\sum_{\substack{i\neq1 \\ i \neq i^{'}}}^n \frac{1}{d_{ii^{'}}d_{ii^{'}}^{s}} \bigg[ (d_{ii^{'}} - d_{ii^{'}}^s) - \frac{(s_i - s_{i^{'}})^2}{d_{ii^{'}}^s} \bigg( 1+ \frac{d_{ii^{'}}-d_{ii^{'}}^{s}}{d_{ii^{'}}^s} \bigg) \bigg].
-\end{equation}
-\newline
-$W$ - parametr.
-
-Na wstępie zakłada się maksymalną oraz minimalną wartość parametru $W$, wskaźnik skali zmian wartości tego parametru pomiędzy iteracjami $W_{t+1}/W_{t}$ oraz maksymalną liczbę iteracji. Procedurę iteracyjną rozpoczynamy od przyjętej maksymalnej wartości parametru $W$. Postępowanie iteracyjne jest kontynuowane do momentu gdy nastąpi wzrost wartości wzrost wartości funkcji kryterium. Po tym następuje powrót do wartości zmiennej syntetycznej z poprzedniej iteracji, przy jednoczesnym zmniejszeniu wartości parametru $W$ o przyjęty wskaźnik jego zmian. Procedura kontynuowana jest do momentu, aż wartość parametru $W$, nie spadnie poniżej założonej wartości minimalnej lub gdy osiągnie z góry założoną liczbę iteracji. 
-
-\section{Metody porządkowania nieliniowego}
-\noindent
-
-Porządkowanie nieliniowe polega, od strony geometrycznej, na rzutowaniu na płaszczyznę obiektów umieszczonych w wielowymiarowej przestrzeni zmiennych. Ta metoda porządkowania nie pozwala na ustaleniu hierarchii obiektów, lecz na określeniu dla każdego z nich, stopnia podobieństwa do innych obiektów, ze względu na ich charakterystyki. 
-
-Aby uporządkować nieliniowo obiekty, charakteryzujące je zmienne powinny być mierzone przynajmniej na skali przedziałowej lub ilorazowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
-
-Metody porządkowania nieliniowego można podzielić na metody dendrytowe i metody aglomeracyjne. Metody dendrytowe prowadzą do powstania dendrytu, będącego ilustracją graficzną  położenia względem siebie obiektów ze względu na ich podobieństwo. Z kolei metody aglomeracyjne prowadzą do utworzenia drzewka połączeń, będącego graficzną ilustracją hierarchii łączenia obiektów, ze względu na ich podobieństwo.
-
-\subsection{Metody dendrytowe}
-\noindent 
-
-Metody dendrytowe opierają się na regułach i pojęciach teorii grafów. Porządkowanie dendrytowe polega na przyporządkowaniu obiektom poszczególnych wierzchołków dendrytu, w tym celu budowany jest dendryt. Poniżej zostaną opisane przykłady metod dendrytowych, tj. taksonomia wrocławska oraz metoda Prima. 
-
-\subsubsection{Taksonomia wrocławska}
-\noindent
-
-W pierwszym etapie tej metody, dla każdego obiektu $O_{i}$ poszukiwany jest obiekt $O_{i^{'}}$, który jest najbardziej do niego podobny. W tym celu w każdym wierszu(kolumnie) macierzy odległości $D$, wyznaczamy jest element najmniejszy: 
-\begin{equation}
-d_ii^{'}= \max\limits_{i^{'}} {d_{ii^{'}}}, i,i^{'}=1,2,...,n; i\neq i^{'}.
-\end{equation}
-
-Następnie otrzymane pary najbardziej podobnych do siebie obiektów, przedstawiane są w postaci grafu niezorientowanego, Długość krawędzi łączących wierzchołki grafu, są proporcjonalne do odległości między obiektami. Może się zdarzyć, że wśród wyznaczonych par połączeń, pojawią się połączenia występujące dwukrotnie, jedno z nich zostanie wyeliminowane, ponieważ kolejność połączeń w dendrycie nie jest istotne. Warto również zwrócić uwagę, na fakt iż w dendrycie danych obiekt może występować tylko jeden raz, w związku z tym jeżeli w łączeniu występują wielokrotnie te same obiekty, to zostaną one połączone w zespoły zwane skupieniami. 
-
-W kolejnym kroku, sprawdza się, czy utworzony graf jest spójny. Jeżeli tak będzie, to algorytm zostaje zakończony. W przeciwnym wypadku, poszczególne składowe dendrytu łączy się w większe zespoły. Odpowiednie skupienia łączone są ze sobą w miejscach, określonych przez minimalną odległość między nimi. Tworzone są w ten sposób skupienia 2-go rzędu. W tym celu znajdowana jest najmniejsza odległość każdego obiektu jednego skupienia, od obiektów należących do pozostałych skupień. Z uzyskanych odległości wybierana jest odległość najmniejsza, która zostaje wiązadłem łączącym skupienia. 
-
-Powyższy proces przeprowadzany jest do momentu, aż nie powstanie graf spójny, w ten sposób tworzone są skupienia wyższego rzędu 
-
-\subsubsection{Metoda Prima}
-\noindent
-
-W odróżnieniu od taksonomii wrocławskiej, metoda Prima nie wymaga operowania cały czas pełną, wyjściową macierzą odległości. W trakcie tworzenia dendrytu, na każdym etapie zbiór porządkowanych obiektów jest klasyfikowany do jednego z dwóch podzbiorów, np. $A$ i $B$. Niech zbiór $A$ będzie pierwszym z nich a zbiór $B$ drugim. Pierwszy z nich zawiera obiekty należące na danym etapie do dendrytu, zaś drugi zawiera obiekty nie należące na tym etapie do dendrytu.\\
-Sposób postępowania:\\
-Na początku procedury, zbiór $A$ jest zbiorem pustym, z kolei zbiór $B$ zawiera wszystkie obiekty. W pierwszym kroku do zbioru $A$ zostaje włączony dowolny obiekt, nie ma to wpływu na ostateczną postać dendrytu. Następnie do zbioru $A$ zostają włączone te obiekty zbioru $B$, najbardziej podobne do obiektów należących już do zbioru $A$. Proces ten trwa do momentu, aż zbiór $B$ nie będzie pusty.  W tym celu w pierwszym kroku algorytmu zostaje stworzony wektor $d$, zawierający odległości wybranego obiektu zbioru $A$, od pozostałych obiektów zbioru $B$. Po utworzeniu wektora, sprawdzane jest dla którego elementu odległość od elementu ze zbioru $A$, jest najmniejsza. Po znalezieniu tego elementu, zostaje on włączony do zbioru $A$ i usunięty ze zbioru $B$. Po tym etapie, sprawdzane jest czy zbiór $B$ jest pusty, jeżeli tak jest to algorytm kończy działanie, zaś w przeciwnym wypadku, zostaje ponownie tworzony wektor $d$, którego elementami są najmniejsze z odległości każdego z obiektów pozostających jeszcze w zbiorze $B$ od obiektów, które należą do zbioru $A$. Ponownie wybierany jest z wektora $d$ najmniejszy element i włączany do zbioru $A$ przy jednoczesnym usunięciu ze zbioru $B$. 
-
-W powstałym dendrycie wierzchołkami są obiekty przechodzące kolejno do zbioru A, z kolei wiązadłami łączącymi wierzchołki są minimalne wartości elementów wektora d, otrzymanego w kolejnych krokach przyłączania obiektów do dendrytu. 
-
-\subsection{Metody aglomeracyjne}
-\noindent
-%opis statystyczny
-%"Krotko rzecz ujmuja metody te opieraja sie na macierzy odleglosci i na podstawie tejże odleglosci sa laczone w grupy +-"
-Istotą metod aglomeracyjnych jest utworzenie drzewka połączeń - dendrogramu. W ten sposób zobrazowana jest hierarchia łączenia obiektów, na podstawie zmniejszającego się podobieństwa między obiektami włączonymi do dendrogramu, w kolejnych etapach a obiektami należącymi już do dendrogramu. Hierarchia połączeń określa wzajemnie położenie względem siebie obiektów oraz grup obiektów powstających w kolejnych etapach tworzenia drzewka. Grupy podobnych do siebie obiektów tworzą oddzielne gałęzie.  
-%opis algorytmu chyba tu sie powinien rozpoczyna opis, tak jak bylo robione wczesiej
-Punktem wyjściem metod aglomeracyjnych stanowi założenie, że każdy obiekt stanowi odrębną, jednoelementową grupę $(\mathrm{G_{r}}, r=1,2,...,z).$. W kolejnych krokach następuje łączenie ze sobą grupy obiektów najbardziej do siebie podobnych ze względu na wartości opisujących je zmiennych. Podobieństwo weryfikowane jest na podstawie odległości między grupami obiektów. Poniżej zostały szczegółowo omówione kroki postępowania:
-
-Na początku odległości między jednoelementowymi grupami obiektów $\mathrm{G_{1}},...,\mathrm{G_{z}}$ są elementami wyjściowej macierzy odległości $\bold{D}$. W macierzy $\bold{D}$ poszukiwane są najmniejsze odległości pomiędzy grupami obiektów:
-\begin{equation}
-d_{rr^{'}}= \min\limits_{ii^{'}} {d_{ii^{'}}}, i=1,2,...,n_{r}; i^{'}=1,2,...,n_{r^{'}}; r,r^{'}=1,2,...,z; r\neq r^{'}.
-\end{equation}
-gdzie:\\
-$d_{rr^{'}}$ - odległość $r$-tej od $r^{'}$-tej grupy.
-W kolejnym kroku następuje łączenie do siebie obiektów podobnych w jedną grupę, w wyniku czego wyjściowa liczba grup zmniejszona jest o jeden, oraz rozpoczęta jest budowa drzewka połączeń. Następnie wyznacza się ponownie odległość nowo utworzonej grupy obiektów od wszystkich pozostałych grup obiektów. Odległości te umieszczone zostają w macierzy odległości $\mathrm{D}$ - w miejscu wierszy i kolumn odpowiadających obiektom(grupom obiektów) połączonych w jedną grupę. Po każdym etapie grupowania ponownie określana jest odległość między nowo powstałą grupa a pozostałymi grupami. Warto również dodać, że odległości te tworzą nową, aktualną na danym etapie grupowania, macierz odległości o co raz mniejszym wymiarze $(n-u)(n-u)$, gdzie $u$ jest $u$-tym etapem łączenia grup obiektów.  Procedura łączenia grup obiektów powtarzana jest tak długo, aż nie zostanie utworzona jedna grupa, tj. zostanie utworzone pełne drzewko połączeń. 
-
-Ogólny wzór wyznaczania odległości nowo powstałej grupy $\mathrm{G_{r^{''}}}$, powstałej w wyniku połączenia grup $\mathrm{G_{r}}$ i $\mathrm{G_{r^{'}}}$, od pozostałych grup ${G_r{'''}}$, przy tworzeniu drzewka połączeń ma postać:
-\begin{equation}
-d_{r^{'''}r^{''}}=\alpha_{r}d_{r^{'''}r} + \alpha_{r^{'}}d_{r^{'''}r^{'}} + \beta d_{rr^{'}} + \gamma|d_{r^{'''}r} - d_{r^{'''}r^{'}}| 
-\end{equation}
-gdzie:\\
-$\alpha_{r},\alpha_{r^{'}}, \beta, \gamma$ - współczynniki przekształceń odmienne dla różnych metod aglomeracyjnych
-%opis metod
-
-Poszczególne metody aglomeracyjne, różnią się między sobą sposobami wyznaczania odległości między obiektami. Poniżej zostały wymienione najczęściej stosowane metody aglomeracyjne, które będą dokładniej omówione w kolejnym podrozdziale.
-\begin{itemize}
-\item metoda najbliższego sąsiedztwa (metoda pojedynczego wiązania) \\
-parametry  przekształceń $\alpha_{r}=0,5; \alpha_{r^{'}}=0,5; \beta=0; \gamma=0,5$,
-\item metoda najdalszego sąsiedztwa (metoda pełnego wiązania)\\
-parametry  przekształceń $\alpha_{r}=0,5; \alpha_{r^{'}}=0,5; \beta=0; \gamma=-0,5$,
-\item metoda średniej międzygrupowej (metoda średnich połączeń)\\
-parametry  przekształceń $\alpha_{r}=\frac{n_{r}}{n_{r} + n_{r^{'}}}; \alpha_{r^{'}}=\frac{n_{r^{'}}}{n_{r} + n_{r^{'}}}; \beta=0; \gamma=0$),
-\item metoda mediany\\
-parametry  przekształceń $\alpha_{r}=0,5; \alpha_{r^{'}}=0,5; \beta=-025; \gamma=0$,
-\item metoda środka ciężkości\\
-parametry  przekształceń $\alpha_{r}=\frac{n_{r}}{n_{r} + n_{r^{'}}}; \alpha_{r^{'}}=\frac{n_{r^{'}}}{n_{r} + n_{r^{'}}}; \beta=\frac{-n_{r}n_{r^{'}}}{(n_{r} + n_{r^{'}})^{2}}; \gamma=0$,
-\item metoda Warda\\
-parametry  przekształceń $\alpha_{r}=\frac{n_{r}+n_{r^{'''}}}{n_{r} + n_{r^{'}}+n_{r^{'''}}}; \alpha_{r^{'}}=\frac{n_{r^{'}}+n_{r^{'''}}}{n_{r} + n_{r^{'}}+n_{r^{'''}}}; \beta=\frac{-n_{r^{'''}}}{n_{r} + n_{r^{'}}+n_{r^{'''}}}; \gamma=0$.
-
-\end{itemize}
- 
-\subsubsection{Metoda najbliższego sąsiedztwa}
-\noindent
-
-W metodzie tej odległość między dwoma grupami obiektów jest równa odległości pomiędzy najbliższymi obiektami (sąsiadami), które należą do dwóch różnych grup obiektów. Odległość ta opisana jest wzorem:
-\begin{equation}
-d_{rr^{'}}= \min\limits_{ii^{'}} {d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})},
-\end{equation}
-\begin{center}
-$i=1,2,...,n_{r}; i^{'}=1,2,...,n_{r^{'}}; r,r^{'}=1,2,...,z; r \neq r^{'}, $
-\end{center}
-gdzie:\\
-\begin{equation}
-\bold{O_{i}}=[z_{ij}], j=1,2,...,m.
-\end{equation}
-
-\subsubsection{Metoda najdalszego sąsiedztwa}
-\noindent
-
-W metodzie tej odległość między dwoma grupami obiektów jest równa odległości pomiędzy najdalszymi obiektami (sąsiadami), które należą do dwóch różnych grup obiektów. Odległość ta opisana jest wzorem: 
-\begin{equation}
-d_{rr^{'}}= \max\limits_{ii^{'}} {d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})},
-\end{equation}
-\begin{center}
-$i=1,2,...,n_{r}; i^{'}=1,2,...,n_{r^{'}}; r,r^{'}=1,2,...,z; r \neq r^{'}, $
-\end{center}
-
-\subsubsection{Metoda średniej międzygrupowej}
-\noindent
-
-W metodzie tej odległość między dwoma grupami obiektów równa jest średniej arytmetycznej odległości między wszystkimi parami obiektów należących do dwóch różnych wzór. Odległość ta opisana jest wzorem: 
-\begin{equation}
-d_{rr^{'}}=\frac{1}{n_{r}n_{r^{'}}}\sum_{i^{'}=1}^{n_{r^{'}}}\sum_{i=1}^{n_{r}} d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})
-\end{equation}
-\begin{center}
-$r,r^{'}=1,2,...,z; r \neq r^{'}. $
-\end{center}
-
-\subsubsection{Metoda mediany}
-\noindent
-
-W metodzie tej odległość między grupami obiektów jest równa medianie odległości pomiędzy wszystkimi parami obiektów należących do dwóch grup. Odległość ta opisana jest wzorem: 
-\begin{equation}
-d_{rr^{'}}= \bold{med}_{i,i^{'}} \{d_{ii^{'}}(\bf{O_i} \in G_{r}, O_{i^{'}} \in G_{r^{'}})\},
-\end{equation}
-\begin{center}
-$i=1,2,...,n_{r}; i^{'}=1,2,...,n_{r^{'}}; r,r^{'}=1,2,...,z; r \neq r^{'}. $
-\end{center}
-
-\subsubsection{Metoda środków ciężkości}
-\noindent
-
-W metodzie tej odległość między dwoma grupami jest równa odległości między środkami ciężkości tych grup. Odległość ta opisana jest wzorem: 
-\begin{equation}
-d_{rr^{'}}=d_{i^{c}i^{'c}}(\bf{O_i^{c}}=\overline{O}_{r}\in G_{r}, O_{i^{'c}}=\overline{O}_{r} \in G_{r^{'}}),
-\end{equation}
-\begin{center}
-$i=1,2,...,n_{r}; i^{'}=1,2,...,n_{r^{'}}; r,r^{'}=1,2,...,z; r \neq r^{'}. $
-\end{center}
-gdzie:\\
-$d_{i^{c}i^{'c}}$ - odległość środka ciężkości $r$-tej grupy od środka ciężkości $r_{'}$-tej grupy,\\
-$\bf{\overline{O}_{i^{c}},\overline{O}_{i^{'c}}}$ - środki ciężkości odpowiednio $r$-tej i $r^{'}$-tej grupy obiektów. przy czym:
-\begin{equation}
-\bold{O}_{i^{c}}=\bold{\overline{O}}_{r}=\frac{1}{n_{r}}\bold{\sum_{i=1}^{n_{r}}} \bold{O}_{i}
-\end{equation}
-\begin{equation}
-\bold{O}_{i^{'c}}=\bold{\overline{O}}_{r^{'}}=\frac{1}{n_{r^{'}}}\bold{\sum_{i^{'}=1}^{n_{r^{'}}}} \bold{O}_{i^{'}}.
-\end{equation}
-
-\subsubsection{Metoda Warda}
-\noindent
-
-W metodzie tej odległości między dwoma grupami obiektów nie można przedstawić wprost za pomocą odległości między obiektami należącymi do tych grup. Dwie grupy obiektów podczas tworzenia drzewka połączeń, na dowolnym etapie są łączone w jedną grupę,w celu zminimalizowania sumy kwadratów odchyleń wszystkich obiektów z tych dwóch grup od środka ciężkości nowej grupy, powstałej w wyniku połączenia tych dwóch grup. Proces ten oznacza, że na każdym etapie łączenia grup obiektów, w jedną grupę łączy się te grupy, które charakteryzują się najmniejszym zróżnicowaniem ze względu na opisujące je zmienne. Zróżnicowanie badania się przy pomocy kryterium $ESS (Erros Sum of Squares)$ sformułowanego przez J.H. Warda, które jest postaci:
-\begin{equation}
-ESS= \bold{\sum_{i^{''}=1}^{n_r^{''}}} d_{i^{''}i^{''c}}^2 ( \bold{O}_{i^{''}} \in \bold{G}_{r^{''}}, \bold{O}_{i^{''c}}=\bold{\overline{O}}_{r^{''}} \in \bold{G}_{r^{''}} ),
-\end{equation} 
-gdzie:
-$d_{i^{''}i^{''c}}$ - odległość $i^{''}$-tego obiektu, należącego do nowo powstałej $r^{''}$-tej grupy od środka ciężkości tej grupy,\\
-\begin{equation}
-\bold{O}_{i^{''c}} = \bold{\overline{O}}_{r^{''}}=\frac{1}{n_{r^{''}}} \bold{\sum_{i^{''}=1}^{n_r^{''}}} \bold{O}_{i^{''}}.
-\end{equation}
-
-\newpage
 \chapter{Zastosowanie wybranych metod porządkowania danych wielowymiarowych}
 
 \section{Opis zbioru}
@@ -1963,60 +1724,6 @@ Wśród zmiennych ilościowych można wyróżnić zmienne skokowe oraz dyskretne
 Z kolei atrybuty: cena.netto[pln], cena.brutto[pln] są zmiennymi ciągłymi. 
 %czy zmienne porządkowe nie powinny być zaliczane do zmiennych ilościowych?
 %l.drzwi powinna zostać zaliczona do zmiennych porządkowych 
-
-\section{Normalizacja zmiennych}
-Bardzo ważnym krokiem przed rozpoczęciem pracy na zbiorze danych jest ujednolicenie ich charakteru, tj. przekształcenie zmiennych (mierzonych na skali przedziałowej lub ilorazowej) opisujących obiekty w zbiorze, w celu pozbycia się dysproporcji między nimi czy też dominacji jednych zmiennych nad drugimi. W tym celu stosuje się transformację normalizacyjną. Można wyróżnić trzy podstawowe typy przekształceń normalizacyjnych:
-\begin{itemize}
-\item standaryzacja,
-\item unitaryzacja,
-\item przekształcenie ilorazowe
-\item rangowanie zmiennych
-\end{itemize}
-\begin{enumerate}
-\item Celem standaryzacji jest otrzymanie zmiennych o odchyleniu standardowym równym 1 i wartości oczekiwanej  równej 0. W tym celu dla każdej zmiennej, będącej cechą obiektu oblicza się odchylenie standardowe na podstawie wartości tej zmiennej dla wszystkich obiektów, a także wartość oczekiwaną na tej samej zasadzie. W kolejnym kroku dla każdego obiektu liczymy jego znormalizowana wartość tj. od wartości zmiennej odejmujemy wartość oczekiwaną dla danej cechy, a otrzymaną różnicę dzielimy przez odchylenie standardowe dla tej cechy,co można to zapisać w postaci
-$$
-z_{ij}=\frac{x_{ij} - \Ex (x_j)}{\sigma(x_j)}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
-$$
-gdzie
-$z_{ij}$-wartość znormalizowanej zmiennej $j$-tej zmiennej, w $i$-tym obiekcie.
-
-
-\item W pracy skorzystałam również z unitaryzacji, stosowanej w celu uzyskania zmiennych o ujednoliconym zakresie zmienności, u mnie przedział ten to $[0,1]$. W tym celu od wartości zmiennej w obiekcie, odejmuje się minimalną wartość występującej dla tej cechy, a następnie różnica ta dzielona jest przez różnicę między maksymalną a minimalną wartością zmiennej, poddanej normalizacji. Znormalizowana zmienna jest postaci
-$$
-z_{ij}=\frac{x_{ij} - \min\limits_{i}\{x_{ij}\}}{\max\limits_{i} \{x_{ij}\} - \min\limits_{i} \{x_{ij}\}}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m. 
-$$
-\item Kolejna metoda normalizacyjna, wykorzystana w pracy to przekształcenie ilorazowe. Stosuje się  je w celu odniesieniu wartości zmiennej do ustalonej wartości - może to być wartość oczekiwana danej zmiennej na tle analizowanych obiektów, wartość minimalna lub maksymalna tej cechy. W pracy za tę wartość przyjęłam wartość oczekiwaną zmiennej. Każda wartość zmiennej dla danego obiektu jest dzielona przez wartość oczekiwaną tej zmiennej, a postać znormalizowanej zmiennej to
-$$
-z_{ij}=\frac{x_{ij}}{\Ex (x_j)}, \quad \Ex (x_j) \neq 0 \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
-$$ 
-\item Przy zastosowaniu metody rang, wykorzystuje się normalizację rangową. Stosuje się ją przeważnie, gdy zmienne opisujące obiekty mierzone są na skali porządkowej. W pierwszym kroku wartości zmiennych opisujących obiekty zostają uporządkowane ze względu na ich wartości po procesie normalizacji. W kolejnym kroku wartościom zmiennej przyporządkowywane są rangi - czyli wartości liczbowe, będące najczęściej numerami miejsc zajmowanych przez obiekty w uporządkowanym zbiorze. Postać zmiennej znormalizowanej rangowo
-$$
-z_{ij}=h, \quad dla x_{hj}=x_{ij}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
-$$
-gdzie 
-$h$-ranga nadana $i$-temu obiektowi znajdującemu się na $h$-tym miejscu w uporządkowanym zbiorze, ze względu na wartość $j$-tej zmiennej. 
-\end{enumerate}
-
-\section{Stymulacja zmiennych}
-W rozdziale 2 umieściłam sekcje dotyczącą użytych pojęć w pracy. Pojawiła się tam definicja stymulanty, destymulanty, nominanty. Pracując na danych niezbędne jest ujednolicenie ich charakteru. Najczęściej sprowadza się ono do zamiany destymulant i nominant na stymulanty. Tego typu transformacje nazywamy stymulacją. Można wyróżnić dwie najczęściej stosowane metody, tj. przekształcenie ilorazowe oraz przekształcenie różnicowe. W zależności od skali na której mierzone są zmienne, należy stosować odpowiednie przekształcenie stymulacyjne.
-
-W przypadku przekształcenia ilorazowego można go stosować tylko dla zmiennych mierzonych na skali ilorazowej. Stymulacja destymulant wygląda nastepująco
-$$
-x_{ij}^{S}=[x_{ij}^{D}]^{-1},  \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
-$$
-dla nominant
-$$
-x_{ij}^{S}=\frac{\max\{x_{j}^{N},x_{ij}^{N}\}}{\max\{x_{j}^{N},x_{ij}^{N}\}}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
-$$
-
-Dla zmiennych mierzonych na skali ilorazowej czy też przedziałowej. Stymulacja dla destumulant prezetuje się następująco
-$$
-x_{ij}^{S}=\max\limits_{i} \{x_{ij}^{D}\} - x_{ij}^{D}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
-$$
-dla nominant
-$$
-x_{ij}^{S}=-|x_{ij}^{N}-x_{j}^{N}|, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
-$$
 
 
 
