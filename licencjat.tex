@@ -128,35 +128,21 @@ Poniżej znajduje się lista pojęć powszechnie używanych w pracy wraz z symbo
 W pracy zostały wykorzystane następujące pojęcia, których wytłumaczenie znajduje się poniżej. 
 \begin{itemize}
 %pojecia proby,statystyi, modelu - formalne mozna podac w oparciu o wyklady Bartoszewicza i pliku- "proba_mod staty_statytsyka folder: pliki pdf do pracy
-\item Statystyka matematyczna \cite[w oparciu o rozdział 1]{gren1}
-Statystyka matematyczna zajmuje się metodami wnioskowania o całej zbiorowości statystycznej na podstawie zbadania pewnej jej części zwanej próbką lub próbą.
+\item Statystyka matematyczna \cite[w oparciu o rozdział 1]{krysicki1999}
+Statystyka matematyczna zajmuje się opisywaniem i analizą zjawisk przy użyciu metod rachunku prawdopodobieństwa. 
 
 
-\item Model statystyczny \cite[w oparciu o rozdział 2]{bartoszewicz1996}
-Modelem statystycznym nazywamy przestrzeń próby doświadczenia tj. wartości zmiennych losowych o jednakowym rozkładzie, rodzinę podzbiorów zbioru zmiennych oraz prawdopodobieństwo występowania danej zmiennej. Można tutaj wskazać analogię do rachunku prawdopodobieństwa, tj. uporządkowanej trójki $(\Omega,\mathcal{F},P)$.
+%\item Model statystyczny \cite[w oparciu o rozdział 2]{bartoszewicz1996}
+%Modelem statystycznym nazywamy przestrzeń próby doświadczenia tj. wartości zmiennych losowych o jednakowym rozkładzie, rodzinę podzbiorów zbioru zmiennych oraz prawdopodobieństwo występowania danej zmiennej. Można tutaj wskazać analogię do rachunku prawdopodobieństwa, tj. uporządkowanej trójki $(\Omega,\mathcal{F},P)$.
  
  
-\item Cecha statystyczna \cite[Rozdział 1]{mlodak2006}
-Cecha statystyczna jest to liczbowy opis przedmiotu dociekań tj. konkretnej dziedziny życia społeczno-gospodarczego.Służy ona do scharakteryzowania podmiotu badania.
+\item Cecha statystyczna \cite[Rozdział 1]{krysicki1999}
+Cecha statystyczna jest to właściwość wspólna dla danego zbioru obserwacji. Jej wartości pozwalają rozróżnić elementy zbioru między sobą. cechy statystyczne można podzielić na te mierzalne, tj. ilościowe (np. długość, ciężar), oraz niemierzalne tj. jakościowe(np. kolor, płeć, zawód, województwo).
 
 \end{itemize}
-%mozliwa modyfikacja definicji na przedstawieniu macierzy jako funkcji
-\begin{definition}{Macierz \cite[w oparciu o rozdział 1.1]{banaszak2002}}
-Niech $X$ będzie skończonym podzbiorem liczb $\mathbb{R}$. Macierzą wymiaru $m\times n$ (tzn. o $m$ wierszach i $n$ kolumnach) nazywamy prostokątną tablicę utworzoną z elementów zbioru $X$, postaci:
 
-$$
-X= \begin{bmatrix}
-a_{11} & a_{12} &  & a_{1n} \\
-a_{21} & a_{22} & \ldots & a_{2n}\\ 
-\ldots & \ldots & \ldots & \ldots\\
-a_{m1} & a_{m2} & \ldots & a_{mn} \\
-\end{bmatrix}         
-$$
-gdzie:
-$a_{ij} \in X$, dla $ 1 \leq i\leq m, \quad 1\leq j \leq n$
-\end{definition}
+W celu prezentacji dużych ilości danych, w analizie danych korzysta się z pojęcia macierzy. Poniżej zostanie przedstawiona definicja macierzy obserwacji, czyli zbiorowi obiektów, opisywanych przez zmienne. W rozdziale dotyczącym Wybranych pojęć z teorii mnogości, topologii oraz algebry liniowej, zostanie podana jej algebraiczna definicja. 
 
-W analizie danych macierze wykorzystywane są nader często. Jest tak gdyż, pozwalają w jasny i przystępny sposób prezentować duże ilości danych. Wyszczególnia się więc wiele różnych rodzajów macierzy, pod względem rodzajów i cech danych które zawierają i prezentują. I tak zdefiniujmy w szczególności:
 
 \begin{definition}[{Macierz obserwacji \cite[Rozdział 2]{mlodak2006}}]
 Niech $m>1$ oraz $n>1$ będą liczbami naturalnymi.  Macierzą obserwacji nazywamy macierz rozmiaru  $n \times m$  postaci
@@ -396,11 +382,11 @@ $$
 x_{ij}^{S}=\frac{\max\{x_{j}^{N},x_{ij}^{N}\}}{\max\{x_{j}^{N},x_{ij}^{N}\}}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
 $$
 
-Dla zmiennych mierzonych na skali ilorazowej czy też przedziałowej. Stymulacja dla destumulant prezetuje się następująco
+Dla zmiennych mierzonych na skali ilorazowej czy też przedziałowej stosuje się przekształecenie różnicowe. Stymulacja dla destymulant prezentuje się następująco
 $$
-x_{ij}^{S}=\max\limits_{i} \{x_{ij}^{D}\} - x_{ij}^{D}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
+x_{ij}^{S}=\max\limits_{i} \{x_{ij}^{D}\} - x_{ij}^{D}, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m,
 $$
-dla nominant
+a dla nominant
 $$
 x_{ij}^{S}=-|x_{ij}^{N}-x_{j}^{N}|, \quad i = 1,2, \ldots, n, \quad j=1,2,\ldots, m.
 $$
@@ -733,6 +719,7 @@ Drzewem nazywamy graf spójny, nie zawierający cykli.
 \end{definition}
 %dodac grafike drzewa
 
+%graf skierowany https://tex.stackexchange.com/questions/162521/tikz-and-directed-graph
 \begin{definition}{Graf skierowany(digraf albo graf zorientowany) \cite[Rozdział 7]{wilson2008}}
 Graf skierowany lub digraf $D$, składa się z niepustego zbioru skończonego $V(D)$ elementów nazywanych wierzchołkami i skończonej rodziny $E(D)$ par uporządkowanych elementów zbioru $V(D)$, nazywanych łukami. Zbiór $V(D)$ nazywamy zbiorem wierzchołków, a rodzinę $E(D)$ rodziną łuków digrafu D (krawędzi grafu skierowanego). Łuk $(v,w)$ zwykle zapisujemy jako $vw$. Graf skierowany oznaczamy zwykle w postaci pary uporządkowanej $G=<V,E>$\\
 \end{definition}
@@ -1098,8 +1085,8 @@ oraz
 $$
 \forall x \in X \quad x \leq y_M.
 $$
-Stąd natychmiast mamy, że $x_M \leq y_M$ oraz $y_M \leq  x_M$. Wobec antysymetryczności z definicji \ref{def-relacja-czesciowego-porzadku}, mamy że $x_M = y_M$, co wbrew naszemu przypuszczeniu daje, że elementy te są od siebie różne.
-Pozostaje pokazać, że element maksymalny ma pojedynczego sąsiada. Przypuśćmy, że $y, z \in X$ są dwoma różnymi sąsiadami dla $x_M$. Wtedy $ x_M \leq y \lor y \leq x_M$ oraz $ x_M \leq z \lor z \leq x_M$. Skoro $x_M$ jest minimalny to musi to zatem oznaczać
+Stąd natychmiast mamy, że $x_M \leq y_M$ oraz $y_M \leq  x_M$. Wobec antysymetryczności z definicji \ref{def-relacja-czesciowego-porzadku}, mamy że $x_M = y_M$, co wbrew naszemu przypuszczeniu daje, że elementy te nie są od siebie różne.
+Pozostaje pokazać, że element maksymalny ma pojedynczego sąsiada. Przypuśćmy, że $y, z \in X$ są dwoma różnymi sąsiadami dla $x_M$. Wtedy $ x_M \leq y \lor y \leq x_M$ oraz $ x_M \leq z \lor z \leq x_M$. Skoro $x_M$ jest elementem maksymalny to musi to zatem oznaczać
 $$
 y \leq x_M \land z \leq x_M.
 $$ 
@@ -1214,30 +1201,32 @@ $W=\lbrack{w_{ii'}\rbrack},\quad i,i'=1, 2, \ldots, n.$
 W tym podrozdziale zostaną opisane metody porządkowania oparte na zmiennych syntetycznych, tj. funkcji których wartości będą służyć do porządkowania danych. Metody oparte na zmiennych syntetycznych dzielimy na wzorcowe i bezwzorcowe. Poniżej zostaną one opisane szczegółowo, jednak wcześniej zostaną przedstawione wzory wyznaczające zmienną syntetyczną. 
 
 \subsubsection{Sposoby wyznaczania zmiennej syntetycznej}
-
+W pracy dla zachowania ogólności, przyjmuję że wszystkie zmienne opisujące obiekty mają jednakowe wagi, w związku z tym wzory służące do wyznaczenia zmiennej syntetycznej są postaci:
 \begin{enumerate}
 \item dla średniej arytmetycznej:
 
 $$
-s_{i}=\frac{1}{m} \sum_{j=1}^{m} z_{ij}w_{j},  \quad i=1, 2, \ldots, n,
+s_{i}=\frac{1}{m} \sum_{j=1}^{m} z_{ij},  \quad i=1, 2, \ldots, n,
 $$
 
 \item dla średniej geometrycznej:
 
 $$
-s_{i}=\prod_{j=1}^{m} (z_{ij})^{w_{j}}, \quad i=1, 2, \ldots, n,
+s_{i}=\prod_{j=1}^{m} (z_{ij})^{\frac{1}{m}}, \quad i=1, 2, \ldots, n,
 $$
 
 \item dla średniej harmonicznej
 
 $$
-s_{i}=\big[\sum_{j=1}^{m} \frac{w_{j}}{z_{ij}}\big]^{-1}, \quad i=1, 2, \ldots, n,
+s_{i}=\big[\sum_{j=1}^{m} \frac{1}{z_{ij}}\big]^{-1} \cdot m, \quad i=1, 2, \ldots, n,
 $$
 
 \end{enumerate}
 gdzie:
 $s_{i}$ - wartość zmiennej syntetycznej w $i$-tym obiekcie,
 $w_{j}$ - waga $j$-tej zmiennej.
+
+
 
 \subsubsection{Metody bewzorcowe}
 
