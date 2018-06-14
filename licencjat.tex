@@ -88,9 +88,23 @@ Promotor: dr, mgr inż. Piotr Kowalski\\
 \tableofcontents
 
 \chapter{Wstęp}
-Wielowymiarowa analiza danych jest pojęciem dosyć nowym, jedną z jej części są metody porządkowania. W ujęciu matematycznym porządkowanie jest niczym innym jak relacją porządku, który możemy podzielić na porządek liniowy oraz częściowy zbiorze.  Ze względu na to, w sekcji \ref{teoria mnogosci} zostały opracowane pojęcia teorii mnogości. Niezbędnym również było wprowadzenie podstawowych pojęć rachunku prawdopodobieństwa, w celu zrozumienia danych jako próby losowej, w tym celu został stworzona sekcja \ref{rachunek prawdopodobienstwa}. 
+Wielowymiarowa analiza danych jest pojęciem dosyć nowym, jedną z jej części są metody porządkowania. Aby móc w pełni zrozumieć to zagadnienie, należy przyjrzeć się podłożu matematycznemu tego tematu. 
+Dane które chcemy poddać analizie, są niczym innym jak próbą losową, składającą są z niezależnych zmiennych losowych, w związku z tym w sekcji \ref{rachunek prawdopodobienstwa} zostały przytoczone podstawowe pojęcia rachunku prawdopodobieństwa oraz statystyki, dzięki temu w dalszej części pracy łatwiej zrozumieć zbiór danych jako zbiór obiektów, opisywanych przez zmienne. Mając opracowane te zagadnienia, mogłam przejść do matematycznej interpretacji porządku, gdyż czym tak naprawdę on jest? Otóż porządek to nic innego jak relacja porządku, który możemy podzielić na porządek liniowy - czyli tę relację która umożliwia nam porównywanie każdych dwóch obiektów między sobą, a także na porządek częściowy który to podobnie jak relacja porządku liniowego umożliwia porównywanie obiektów między sobą, aczkolwiek nie zachodzi to na wszystkich elementach danego zbioru, zatem nie jest spełniony warunek spójności. Ze względu na powyższe została opracowana sekcja \ref{teoria mnogosci}, w której umieściłam wszystkie niezbędne definicje z zakresu teorii mnogości z których korzystam w pracy. 
 
-W rozdziale 4 zostaną omówione implementacje porządku liniowego jak i częściowego. Ze względu na to, że część praktyczna pracy, została w większości oparta na książce \cite{panek2013}, w związku z tym użyłam przyjętych przez autora nazw statystycznych podziału relacji porządku, tj. metody porządkowania liniowego, natomiast metody będące odpowiednikiem relacji częściowego porządku zostały umieszczone pod nazwą metody porządkowania nieliniowego. 
+W dalszej części pracy zostały opracowane podstawowe pojęcia teorii grafów \ref{grafy}, spowodowane to zostało interpretację graficzną częściowego uporządkowania zbioru, którego to metody statystyczne opracowane na podstawie \citep{panek2013} zostały przedstawione obok metod porządkowania liniowego w rozdziale \ref{metody porzadkowania}. Ze względu na to również, że część praktyczna pracy, została w większości oparta na podstawie  tej pozycji, użyłam przyjętych przez autora nazw statystycznych podziału relacji porządku, tj. metody porządkowania liniowego, natomiast metody będące odpowiednikiem relacji częściowego porządku zostały umieszczone pod nazwą metody porządkowania nieliniowego. Pozostając przy rozdziale \ref{metody porzadkowania} na samym jego początku zostały omówione własności porządkowania liniowego, które to w dalszej  kolejności zostały sformalizowane, a następnie udowodnione. 
+Ostatni rozdział pracy \ref{Zastosowanie} stanowi jej praktyczny aspekt. Omówiłam w nim stworzony przez siebie zbiór danych, na którym to w dalszej części pracy przetestowałam stworzone przez siebie implementacje wybranych metod porządkowania. Algorytmy zostały napisane w programie R-Studio.  Na koniec wyniki uporządkowań zostały porównane.
+
+%Przy metodach porządkowania warto wspomnieć o interpretacji geometrycznej uporządkowania. W przypadku relacji częściowego porządku, interpretacją jest diagram Hassego, w którym to dany obiekt łączy jest z drugim, gdy jeden jest poprzednikiem drugiego, a drugi jest następnikiem pierwszego. %%odwolanie do sekcji grafy slabe - pomyslec; moze niezbendym bylo opracowanie podstawowoych pojec z teorii grafow, ze wzgledu na to ze w roddziale 3 - odwolanie, opracowanym na podstawie ksiazki \cite{panek2013} zostały tam omówione statystyczne metody porządkowania - liniowe i nieliniowe. Powracajac do ujecie matemtycznego, te drugie sa niczym innym jak interpretacja relacji czesciowego porzadku
+%Jako że w dalszej części pracy zostały przedstawione 
+%%pomyslec odowloanie do grafu i metod prozadkowania w jendym
+%Po wprowadzeniu powyższych pojęć, mogłam przejść do części praktycznej pracy tj. implementacji wybranych %zastosowań metod porządkowania. W związku z tym został stworzony rozdział 4 \ref{Zastosowanie}, w którym to %omówiłam stworzony przez siebie zbiór obiektów, a następnie zaprezentowałam własne algorytmy wybranych metod, które zostały opracowane z wykorzystaniem R-Studio.
+
+
+
+
+% W ujęciu matematycznym porządkowanie jest niczym innym jak relacją porządku, który możemy podzielić na porządek liniowy oraz częściowy na danym zbiorze. Ze względu na to, w sekcji \ref{teoria mnogosci} zostały opracowane wybrane pojęcia teorii mnogości, po to by w dalszej części pracy móc przejść do  Niezbędnym również było wprowadzenie podstawowych pojęć rachunku prawdopodobieństwa, w celu zrozumienia danych jako próby losowej, w tym celu została stworzona sekcja \ref{rachunek prawdopodobienstwa}. Mając tak opracowane podstawy teoretyczne mogłam przejść do 
+
+%W rozdziale 3 zostaną omówione implementacje porządku liniowego jak i częściowego. Ze względu na to, że część praktyczna pracy, została w większości oparta na książce \cite{panek2013}, w związku z tym użyłam przyjętych przez autora nazw statystycznych podziału relacji porządku, tj. metody porządkowania liniowego, natomiast metody będące odpowiednikiem relacji częściowego porządku zostały umieszczone pod nazwą metody porządkowania nieliniowego. 
 
 \chapter{Preliminaria}  
 
@@ -601,7 +615,7 @@ $f(y)=\frac{1}{\sqrt{2\pi}}e^\frac{-(y)^2}{2}.$
 
 
 
-\section{Podstawowe pojęcia teorii grafów} %https://edu.pjwstk.edu.pl/wyklady/mad/scb/mad03/main03_p1.html
+\section{Podstawowe pojęcia teorii grafów}\label{grafy} %https://edu.pjwstk.edu.pl/wyklady/mad/scb/mad03/main03_p1.html
 W pracy zostaną opisane zarówno metody porządkowania liniowego jak i nieliniowego tzn. w ujęciu matematycznym - porządku częściowego, w tym celu należy wprowadzić definicje związane z teorią grafów, niezbędne przy opisywaniu metod porządkowania nieliniowego.
 
 
@@ -986,8 +1000,8 @@ $$
 
 
 
-\chapter{Metody porządkowania}
-Rozdział ten został opracowany w oparciu o \cite[Rozdział 2]{panek2013}, omówiono w nim ogólnie metody porządkowania zarówno liniowego jak i nieliniowego, po to by w kolejnym rozdziale szczegółowo przyjrzeć się wybranym metodą wraz z przedstawieniem ich algorytmów oraz dokładnych opisów matematycznych, z uwzględnieniem ich wad oraz zalet.
+\chapter{Metody porządkowania}\label{metody porzadkowania}
+Rozdział ten został opracowany w oparciu o \cite[Rozdział 2]{panek2013}, omówiono w nim ogólnie wybrane metody porządkowania zarówno liniowego jak i nieliniowego, po to by w kolejnym rozdziale szczegółowo przyjrzeć się wybranym metodą wraz z przedstawieniem ich algorytmów oraz dokładnych opisów matematycznych, z uwzględnieniem ich wad oraz zalet.
 
 Metody porządkowania liniowego umożliwiają przeprowadzenie takiego porządkowania, w wyniku którego kolejność obiektów zwracana jest od tego o najlepszych zmiennych do tego o najsłabszych zmiennych, które opisują obiekt, innymi słowy ustalana jest hierarchia obiektów, na podstawie określonego kryterium(np. wartości zmiennych). Z kolei metody porządkowania nieliniowego nie pozwalają na ustaleniu hierarchii, natomiast w wyniku uporządkowania możliwe jest wskazanie dla każdego z obiektów poddanych porządkowaniu, obiektów podobnych ze względu na opisujące je zmienne. 
  %Problematyka związana z grupowaniem obiektów ma tutaj znaczenie drugoplanowe. Natomiast stosowanie metod porządkowania nieliniowego nie pozwala na ustalenie hierarchii obiektów, lecz wyłącznie wskazanie dla każdego z tych obiektów podobnych ze względu na wartości opisujących je zmiennych. Powoduje to, że porządkowanie nieliniowe stanowi przede wszystkim etap wstępny do grupowania obiektów.\\
@@ -1447,7 +1461,7 @@ W pierwszym kroku przeprowadzane jest dowolne liniowe uporządkowanie obiektów.
 \section{Metody porządkowania nieliniowego}
 
 
-Metody porządkowania nieliniowego w odróżnieniu od metod porządkowania liniowego, polegają nie na uporządkowaniu obiekt w sposób hierarchiczny, a na określeniu dla każdego z obiektu, stopnia podobieństwa z innymi obiektami, na podstawie opisujących je zmiennych. 
+Metody porządkowania nieliniowego w odróżnieniu od metod porządkowania liniowego, polegają nie na uporządkowaniu obiektów w sposób hierarchiczny, a na określeniu dla każdego z nich, stopnia podobieństwa z innymi obiektami, na podstawie opisujących je zmiennych. 
 %nie pozwalają na ustaleniu hierarchii obiektów, lecz na określeniu dla każdego z nich, stopnia podobieństwa do innych obiektów, ze względu na ich charakterystyki. 
 
 Aby zastosować metody porządkowania nieliniowego, zmienne opisujące obiekty, powinny być mierzone na skali przedziałowej lub ilorazowej. Gdy zmienne te mierzone są na skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji.
@@ -1602,30 +1616,31 @@ $$
 
 $$i=1,2,\dots,n_{z}, \quad k=1,2,\dots,n_{z^{'}}, \quad z,z^{'}=1,2,\dots,n, \quad z \neq z^{'}. $$
 
-
-\subsubsection{Metoda środków ciężkości}
-
-
-W metodzie tej odległość między dwoma grupami jest równa odległości między środkami ciężkości tych grup. Odległość ta opisana jest wzorem: 
-\begin{equation}
-d_{zz^{'}}=d_{i^{c}k^{c}}(\bf{O_i^{c}}=\overline{O}_{z}\in G_{z}, O_{k^{c}}=\overline{O}_{z} \in G_{z^{'}}),
-\end{equation}
-\begin{center}
-$i=1,2,\dots,n_{z}, \quad k=1,2,\dots,n_{z^{'}}, \quad z,z^{'}=1,2,\dots,n, \quad z \neq z^{'}. $
-\end{center}
-gdzie:
-
-
-$d_{i^{c}k^{c}}$ - odległość środka ciężkości $z$-tej grupy od środka ciężkości $z_{'}$-tej grupy,
-
-
-$\bf{\overline{O}_{i^{c}},\overline{O}_{k^{c}}}$ - środki ciężkości odpowiednio $z$-tej i $z^{'}$-tej grupy obiektów. przy czym:
-$$
-\bold{O}_{i^{c}}=\bold{\overline{O}}_{z}=\frac{1}{n_{z}}\bold{\sum_{i=1}^{n_{z}}} \bold{O}_{i},
-$$
-$$
-\bold{O}_{k^{c}}=\bold{\overline{O}}_{z^{'}}=\frac{1}{n_{z^{'}}}\bold{\sum_{k=1}^{n_{z^{'}}}} \bold{O}_{k}.
-$$
+%14.06
+%\subsubsection{Metoda środków ciężkości}
+%
+%
+%W metodzie tej odległość między dwoma grupami jest równa odległości między środkami ciężkości tych grup. Odległość ta opisana jest wzorem: 
+%\begin{equation}
+%d_{zz^{'}}=d_{i^{c}k^{c}}(\bf{O_i^{c}}=\overline{O}_{z}\in G_{z}, O_{k^{c}}=\overline{O}_{z} \in G_{z^{'}}),
+%\end{equation}
+%\begin{center}
+%$i=1,2,\dots,n_{z}, \quad k=1,2,\dots,n_{z^{'}}, \quad z,z^{'}=1,2,\dots,n, \quad z \neq z^{'}. $
+%\end{center}
+%gdzie:
+%
+%
+%$d_{i^{c}k^{c}}$ - odległość środka ciężkości $z$-tej grupy od środka ciężkości $z_{'}$-tej grupy,
+%
+%
+%$\bf{\overline{O}_{i^{c}},\overline{O}_{k^{c}}}$ - środki ciężkości odpowiednio $z$-tej i $z^{'}$-tej grupy obiektów. przy czym:
+%$$
+%\bold{O}_{i^{c}}=\bold{\overline{O}}_{z}=\frac{1}{n_{z}}\bold{\sum_{i=1}^{n_{z}}} \bold{O}_{i},
+%$$
+%$$
+%\bold{O}_{k^{c}}=\bold{\overline{O}}_{z^{'}}=\frac{1}{n_{z^{'}}}\bold{\sum_{k=1}^{n_{z^{'}}}} \bold{O}_{k}.
+%$$
+%%
 %07.06
 %\subsubsection{Metoda Warda}
 %
@@ -1643,7 +1658,9 @@ $$
 
 
 
-\chapter{Zastosowanie wybranych metod porządkowania danych wielowymiarowych}
+\chapter{Zastosowanie wybranych metod porządkowania danych wielowymiarowych}\label{Zastosowanie}
+
+
 
 \section{Opis zbioru}
 
@@ -1737,10 +1754,8 @@ Z kolei atrybuty: cena.netto[pln], cena.brutto[pln] są zmiennymi ciągłymi.
 %czy zmienne porządkowe nie powinny być zaliczane do zmiennych ilościowych?
 %l.drzwi powinna zostać zaliczona do zmiennych porządkowych 
 
-
-
-
-
+\section{Użyte programy}
+Zbiór danych został umieszczony w programie Excel, z kolei implementacje zostały opracowane przy wykorzystaniu programu R-Studio, który to jest niekomercyjnym programem mającym zastosowanie w statystyce i ekonometrii. 
 
 
 
