@@ -1937,7 +1937,10 @@ Zmiennymi ilościowymi są atrybuty:
 Zbiór danych został umieszczony w programie Excel, z kolei implementacje zostały stworzone w języku R, który to ma zastosowanie w statystyce i ekonometrii. 
 
 
-\section{Metoda ...}
+\section{Implementacje wybranych metod}
+W sekcji tej zaprezentujemy implementacje wybranych metod porządkowania liniowego oraz nieliniowego. W części dotyczącej porządkowania liniowego porównamy również wyniki porządkowania par metod: metody rang i metody sum, metody sum i metody Hellwiga, metody rand i metody Hellwiga. Zostanie to przeprowadzone na całym zbiorze obiektów. 
+
+\subsection{Metody porządkowania nieliniowego}
 {
 %% dane z eksperymentu "metoda nieliniowa duzy.Rmd"
 
@@ -1982,7 +1985,7 @@ Zbiór danych został umieszczony w programie Excel, z kolei implementacje zosta
 
 %TODO
 
-\section{Wstęp}\label{wstep}
+\subsubsection{Wstęp}\label{wstep}
 
 Zostanie tutaj zaprezentowane zastosowanie nieliniowego porządkowania
 danych przy pomocy istniejących funkcji biblioteki cluster, w której to
@@ -1993,12 +1996,12 @@ sąsiedztwa, ward - metoda Warda, average - metoda średniej między
 grupowej. Poniżej zostanie zaprezentowane zastosowanie metod single oraz
 complete wraz z porównaniem wyników porządkowania.
 
-\subsection{Import danych}\label{import-danych}
+\subsubsection{Import danych}\label{import-danych}
 
 Na początku należy zaimportować dane, które chcemy poddać porządkowaniu.
-W tym celu należy zaimportować bibloteke readxl - gdyż dane pobieramy z
+W tym celu należy zaimportować biblotekę readxl - gdyż dane pobieramy z
 excela, a w kolejnym kroku wywołujemy plik, podając naszą ścieżkę pliku
-z rozszerzeniem xlsx. My użyjemy tutaj zbioru zawierającego 8 obiektów,
+z rozszerzeniem xlsx. My użyjemy tutaj zbioru wszystkich obiektów,
 będących ofertami sprzedaży aut.
 
 \begin{Shaded}
@@ -2037,7 +2040,7 @@ Podgląd danych:
 ## #   KLIMATYZAJCA <dbl>, BEZWYPADKOWY <dbl>, USZKODZONY <dbl>
 \end{verbatim}
 
-\subsection{Podzbiór danych}\label{podzbior-danych}
+\subsubsection{Podzbiór danych}\label{podzbior-danych}
 
 W kolejnym, kroku po przyjrzeniu się zbiorowi danych, użytkownik musi
 zadecydować na których danych ilościowych chce pracować - ważna jest
@@ -2061,14 +2064,14 @@ przebieg.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Transformacje danych}\label{transformacje-danych}
+\subsubsection{Transformacje danych}\label{transformacje-danych}
 
-Przed samym porządkowaniem, wymaganym jest aby zmienne miały charakter
+Przed samym porządkowaniem, wymagane jest aby zmienne miały charakter
 stymulant oraz by zostały poddane transformacji normalizacyjnej. Aby
 funkcja dokonująca porządkowania dawała poprawny wynik, użytkownik musi
-zająć się tranformacją przed jej zastosowaniem. Poniżej podałam tego
+zająć się transformacją przed jej zastosowaniem. Poniżej podaliśmy tego
 przykład. Dla zmiennych które stymulantami nie są, należy dokonać
-stymulacji. Wsród moich zmiennych poddanych porządkowaniu, do stymulant
+stymulacji. Wśród zmiennych poddanych porządkowaniu, do stymulant
 nie należy zmienna zmienna: przebieg - jest destymulantą, w związku z
 tym, została przekształcona na stymulantę, za pomocą przekształcenia
 ilorazowego.
@@ -2092,12 +2095,13 @@ funkcji, należy nadpisać zbiór by zmiany zostały zapisane.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{dane_porzadkowanie<-}\KeywordTok{stymulacja_przeksztalcenie_ilorazowe}\NormalTok{(dane_porzadkowanie,}\StringTok{"PRZEBIEG_[km]"}\NormalTok{)}
+\NormalTok{dane_porzadkowanie<-}\KeywordTok{stymulacja_przeksztalcenie_ilorazowe}\NormalTok{(dane_porzadkowanie,}
+\StringTok{"PRZEBIEG_[km]"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 W celu uzyskania porównywalności między zmiennymi, zostały one poddane
-transformacji normalizacyjnej - unitaryzacja
+transformacji normalizacyjnej - przy pomocy unitaryzacji.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2118,7 +2122,7 @@ transformacji normalizacyjnej - unitaryzacja
 \end{Highlighting}
 \end{Shaded}
 
-\section{Nieliniowe porządkowanie przy pomocy metod
+\subsubsection{Nieliniowe porządkowanie przy pomocy metod
 aglomeracyjnych}\label{nieliniowe-porzadkowanie-przy-pomocy-metod-aglomeracyjnych}
 
 Chcąc zastosować funkcję agnes, należy w pierwszej kolejności wyznaczyć
@@ -2128,7 +2132,7 @@ wykorzystania funkcja dist(x, method=``'') - w miejsce x należy wpisać
 nazwę tabeli zawierających dane do uporządkowania, a w nawiasie{[},{]}
 na miejscu drugiej współrzędnej należy podać wektor kolumn, na podstawie
 którego wartości zostanie wyznaczona macierz odległości. W miejsce
-argumentu method należy wpisać nazwę metryki na podstawie której zostana
+argumentu method należy wpisać nazwę metryki na podstawie której zostanie
 obliczona odległość - w naszym przypadku będzie to euclidean -
 euklidesowa.
 
@@ -2140,7 +2144,7 @@ euklidesowa.
 \end{Shaded}
 
 Następnie należy zaimportować bibliotekę cluster, by móc skorzystać z
-metod aglomerycyjnych. Jak już zostało wspomnanie we wstępnie, wywołanie
+metod aglomeracyjnych. Jak już zostało wspomnanie we wstępnie, wywołanie
 metod aglomeracyjnych odbywa się dzięki funkcji agnes(x, method=``'') .
 W miejsce argumentu x - zostanie podana wyznaczona macierz odległości z
 kolei, w kolejnym argumencie - method zostanie podana reguła wyznaczania
@@ -2178,12 +2182,14 @@ Dendrogram dla metody najbliższego sąsiada:
 \end{verbatim}
 
 \begin{verbatim}
-## Welcome! Related Books: `Practical Guide To Cluster Analysis in R` at https://goo.gl/13EFCZ
+## Welcome! Related Books: `Practical Guide To Cluster Analysis in 
+R` at https://goo.gl/13EFCZ
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{fviz_dend}\NormalTok{(metoda_najblizszego, }\DataTypeTok{lwd=}\FloatTok{0.1}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.45}\NormalTok{, }\DataTypeTok{main =} \StringTok{"Metoda najbliższego sąsiedztwa"}\NormalTok{)}
+\KeywordTok{fviz_dend}\NormalTok{(metoda_najblizszego, }\DataTypeTok{lwd=}\FloatTok{0.1}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.45}\NormalTok{, }
+\DataTypeTok{main =} \StringTok{"Metoda najbliższego sąsiedztwa"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2193,13 +2199,14 @@ Dendrogram dla metody najdalszego sąsiada:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{fviz_dend}\NormalTok{(metoda_najdalszego, }\DataTypeTok{lwd=}\FloatTok{0.1}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.45}\NormalTok{, }\DataTypeTok{main =} \StringTok{"Metoda najdalszego sąsiedztwa"}\NormalTok{)}
+\KeywordTok{fviz_dend}\NormalTok{(metoda_najdalszego, }\DataTypeTok{lwd=}\FloatTok{0.1}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.45}\NormalTok{, }
+\DataTypeTok{main =} \StringTok{"Metoda najdalszego sąsiedztwa"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{Metoda_nieliniowa_duzy_files/figure-latex/unnamed-chunk-10-1.pdf}
 
-\subsection{Porównanie wyników
+\subsubsection{Porównanie wyników
 uporządkowania}\label{porownanie-wynikow-uporzadkowania}
 
 W przypadku dendrogramu uzyskanego metodą najdalszego sąsiedztwa można
@@ -2210,15 +2217,751 @@ zostały pogrupowane w jedną grupę (tu mowa o obiektach o numerach
 indeksów 49, 50, 53, 57, 58), natomiast w przypadku metody najbliższego
 sąsiedztwa obiekty te zostały rozdzielone w pojedyncze grupy. Można
 również zauważyć, że w przypadku uporządkowania metodą najdalszego
-sąsiedztwa obiekty tworzą pewnego rodzaju pogrupy, skupiska, z kolei w
+sąsiedztwa obiekty tworzą pewnego rodzaju podgrupy, skupiska, z kolei w
 przypadku uporządkowania metodą najbliższego sąsiada, wynik
 porządkowania można porównać do wyglądu lawiny, lub góry, u której
 podnóża znajdują się obiekty o najniższych wartościach opisywanych je
 zmiennych, które to łączą się i dochodzą do szczytu, który stanowią
 obiekty, o najwyższych wartościach opisywanych je zmiennych.
 
+}
+\subsection{Metody porządkowania liniowego}
+{
+
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+
+
+\subsubsection{Wstęp}\label{wstep}
+
+Zostaną tu zaprezentowane metody liniowe: metoda sum, rang oraz Hellwiga. Dla wszystkich metod będziemy korzystać z tego samego zbioru danych. Zbiór ten jest podzbiorem wyjściowego zbioru danych, zawiera 8 najbardziej różniących się obiektów. Różnice dla każdej z metod będą zaczynały się od sekcji związanej z transformacją danych. 
+Wobec powyższego, podobnie jak przy metodach porządkowania nieliniowego, użytkownik musi zaimportować dane, które chce poddać porządkowaniu. 
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(readxl)}
+\NormalTok{zbior_danych <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"datasets/8_Rozniacych_sie_obiektow.xlsx"}\NormalTok{, }
+                           \DataTypeTok{sheet =} \StringTok{"Arkusz1"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{c}\NormalTok{(}\StringTok{"numeric"}\NormalTok{,}\StringTok{"text"}\NormalTok{, }
+                           \StringTok{"text"}\NormalTok{, }\StringTok{"text"}\NormalTok{, }\StringTok{"text"}\NormalTok{, }\StringTok{"text"}\NormalTok{,                                                                              }\StringTok{"blank"}\NormalTok{,}\StringTok{"numeric"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{, }
+                              \StringTok{"numeric"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{, }\StringTok{"text"}\NormalTok{,  }\StringTok{"numeric"}\NormalTok{, }
+                              \StringTok{"text"}\NormalTok{, }\StringTok{"text"}\NormalTok{, }\StringTok{"text"}\NormalTok{, }\StringTok{"text"}\NormalTok{,}\StringTok{"text"}\NormalTok{, }
+                                  \StringTok{"text"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{, }\StringTok{"text"}\NormalTok{, }\StringTok{"text"}\NormalTok{, }
+                                   \StringTok{"text"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{,                                                                              }\StringTok{"numeric"}\NormalTok{, }
+                                   \StringTok{"numeric"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{, }\StringTok{"numeric"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `col_type = "blank"` deprecated. Use "skip" instead.
+\end{verbatim}
+
+Podgląd danych:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(zbior_danych)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 29
+##      Nr MARKA  MODEL  WERSJA TYP   WOJEWODZTWO `CENA.BRUTTO_[p~ `MOC_[km]`
+##   <dbl> <chr>  <chr>  <chr>  <chr> <chr>                  <dbl>      <dbl>
+## 1  1.00 Mazda  3      II     komp~ zachodniop~            25200        105
+## 2  2.00 Jaguar XF     X260   kombi dolnoslask~           323600        240
+## 3  3.00 Subaru B9 Tr~ <NA>   suv   malopolskie            38900        245
+## 4  4.00 Volks~ Golf   VII    kombi lodzkie               113900        150
+## 5  5.00 Peuge~ 508    <NA>   kombi slaskie                42500        115
+## 6  6.00 Opel   Antara <NA>   suv   lodzkie                24000        150
+## # ... with 21 more variables: `POJEMNOSC.SKOKOWA_[cm3]` <dbl>,
+## #   ROK.PRODUKCJI <dbl>, `PRZEBIEG_[km]` <dbl>, KOLOR <chr>, L.DZRZWI
+## #   <dbl>, RODZAJ.PALIWA <chr>, SKRZYNIA.BIEGOW <chr>, NAPED <chr>,
+## #   KRAJ.AKTUALNEJ.REJESTRACJI <chr>, KRAJ.POCHODZENIA <chr>,
+## #   STATUS.POJAZDU.SPROWADZONEGO <chr>, PIERWSZY.WLASCICIEL <dbl>,
+## #   KTO.SPRZEDAJE <chr>, STAN <chr>, SERWISOWANY <chr>, ABS <dbl>,
+## #   KOMPUTER.POKLADOWY <dbl>, ESP <dbl>, KLIMATYZAJCA <dbl>, BEZWYPADKOWY
+## #   <dbl>, USZKODZONY <dbl>
+\end{verbatim}
+
+\subsubsection{Podzbiór danych}\label{podzbior-danych}
+
+W kolejnym, kroku po przyjrzeniu się zbiorowi danych, użytkownik musi
+zadecydować na których danych ilościowych chce pracować - ważna jest
+znajomość danych. Dodatkowo pierwszą kolumną musi być kolumna
+zawierająca numery indeksów obiektów, ze względu na to, że w wyniku
+zastosowania funkcji odpowiedzialnej za porządkowanie, zostaną zwrócone
+w kolejności malejącej numery indeksów, mówiące o kolejności
+uporządkowania. W związku z tym, za pomocą poniższej procedury
+użytkownik tworzy podzbiór zaimportowanego zbioru, gdzie w miejsce ``''
+wpisuje nazwy kolumn zawierających zmienne ilościowe, wybrane do
+porządkowania(przyjmijmy założenie, że podzbiór będzie nazywał się
+dane\_porzadkowanie - będzie to pomocne w dalszej części programu). U
+mnie wybranymi kolumnami są: cena, moc, pojemność, rok produkcji,
+przebieg.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-zbior_danych[}\KeywordTok{c}\NormalTok{(}\StringTok{"Nr"}\NormalTok{,}\StringTok{"CENA.BRUTTO_[pln]"}\NormalTok{,}\StringTok{"MOC_[km]"}\NormalTok{,}
+                                   \StringTok{"POJEMNOSC.SKOKOWA_[cm3]"}\NormalTok{,}
+                                   \StringTok{"ROK.PRODUKCJI"}\NormalTok{,}\StringTok{"PRZEBIEG_[km]"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Transformacje danych}\label{transformacje-danych}
+
+Przed zastosowaiem metod, należy dokonać ich transformacji. W pierwszym
+kroku należy dokonać stymulacji destymulant - dla metody rang i metody
+Hellwiga zostanie użyte przekształcenie ilorazowe, dla metody sum
+przekształcenie ilorazowe. Po stymulacji można przejść do transformacji
+normalizacyjnej - metoda sum i metoda rang za pomocą normalizacji,
+natomiast metoda Hellwiga za pomocą standaryzacji. Do powyższych
+operacji, zostaną wykorzystane wcześniej zbudowane ogolne funkcje
+odpowiedzialne za to.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stymulacja_przeksztalcenie_roznicowe<-function(x,y)}
+  \NormalTok{\{}
+  \NormalTok{max_wartosc=}\KeywordTok{max}\NormalTok{(x[}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)])}
+  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]=max_wartosc-x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]}
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(x)}
+  \NormalTok{\}}
+
+\NormalTok{stymulacja_przeksztalcenie_ilorazowe<-function(x,y)}
+  \NormalTok{\{}
+  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]=}\DecValTok{1}\NormalTok{/x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]}
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(x)}
+  \NormalTok{\}}
+
+\NormalTok{unitaryzacja<-function(x)}
+  \NormalTok{\{}
+  \NormalTok{maksi=}\DecValTok{0}
+  \NormalTok{minim=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{maksi[j]=}\KeywordTok{max}\NormalTok{(x[j])}
+    \NormalTok{minim[j]=}\KeywordTok{min}\NormalTok{(x[j])}
+    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{x[i,j]=(x[i,j]-minim[j])/(maksi[j]-minim[j])}
+    \NormalTok{\}}
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(x)}
+  \NormalTok{\}}
+
+\NormalTok{standaryzacja<-function(x)}
+  \NormalTok{\{}
+  \NormalTok{suma=}\DecValTok{0}
+  \NormalTok{srednia=}\DecValTok{0}
+  \NormalTok{odchylenie=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{suma[j]=}\KeywordTok{sum}\NormalTok{(x[j])}
+    \NormalTok{srednia[j]=suma[j]/}\KeywordTok{nrow}\NormalTok{(x)}
+    \NormalTok{suma_kwadratow=}\DecValTok{0}
+    \NormalTok{kwadrat=}\DecValTok{0}
+    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{kwadrat=(x[i,j]-srednia[j])^}\DecValTok{2}
+      \NormalTok{suma_kwadratow=suma_kwadratow+kwadrat}
+    \NormalTok{\}}
+    \NormalTok{odchylenie[j]=}\KeywordTok{sqrt}\NormalTok{(suma_kwadratow/}\KeywordTok{nrow}\NormalTok{(x))  }
+    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{x[i,j]=(x[i,j]-srednia[j])/odchylenie[j]}
+    \NormalTok{\} }
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(x)}
+  \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Gdy użytkownik chce skorzystać z tej funkcji, w miejsce x musi wpisać
+nazwę zbioru, a w miejsce y nazwę kolumny w ``'', którą chce poddać
+stymulacji.
+
+
+UWAGA - kolumny wymagające stymulacji, muszą zostać osobno poddane
+działaniu poniższej funkcji, dodatkowo po każdym zastosowaniu funkcji,
+należy nadpisać zbiór by zmiany zostały zapisane.
+
+\subsection{Metoda sum}
+\subsubsection{Stymulacja} 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-}\KeywordTok{stymulacja_przeksztalcenie_roznicowe}\NormalTok{(dane_porzadkowanie,}
+\StringTok{"PRZEBIEG_[km]"}\NormalTok{)} 
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Transformacja normalizacyjna}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-}\KeywordTok{unitaryzacja}\NormalTok{(dane_porzadkowanie)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Funkcja porządkująca}\label{funkcja-porzadkujaca-metoda-sum}
+
+Chcąc przeprowadzić porządkowanie znormalizowanych danych za pomocą metody sum, należy użyć poniższej funkcji:
+%W celu dokonania porządkowania na unormowanych danych, należy zastosować
+%poniższą funkcję tj. funkcja\_porzadkowanie\_metoda\_sum, zwraca ona
+%numery indeksów obiektów wg kolejności, która uzyskały one po
+%uporządkowaniu. Funkcja ta jest postaci:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{funkcja_porzadkowanie_metoda_sum<-function(x)}
+  \NormalTok{\{}
+    \NormalTok{x[,}\StringTok{"zmienna_syntetyczna"}\NormalTok{] <-}\DecValTok{0} \CommentTok{#kolumna to zmienna_syntetyczna}
+    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{for(j in }\DecValTok{2}\NormalTok{:(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{1}\NormalTok{))}
+      \NormalTok{\{}
+          \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]+x[i,j]}
+      \NormalTok{\}}
+    \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]/(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{2}\NormalTok{)  }\CommentTok{#liczba kolumn - (kolumna_nr_indeksu+kolumna_zmienna_synt)}
+    \NormalTok{\}}
+    \CommentTok{#wyeliminowanie ujemnych wartosci zmiennej syntetycznej}
+    \NormalTok{min_zmienna=}\KeywordTok{min}\NormalTok{(x$zmienna_syntetyczna)}
+    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]-min_zmienna}
+    \NormalTok{\}}
+    \CommentTok{#normalizacja zm. syntetycznej}
+    \NormalTok{max_zmienna=}\KeywordTok{max}\NormalTok{(x$zmienna_syntetyczna)}
+    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]/max_zmienna}
+    \NormalTok{\}}
+    \NormalTok{x<-x[}\KeywordTok{order}\NormalTok{(-x$zmienna_syntetyczna),]}
+    \KeywordTok{return}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Wywołanie funkcji dla zbioru dane\_porzadkowanie 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{funkcja_porzadkowanie_metoda_sum}\NormalTok{(dane_porzadkowanie)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 8 x 1
+##      Nr
+##   <dbl>
+## 1  2.00
+## 2  4.00
+## 3  3.00
+## 4  5.00
+## 5  6.00
+## 6  1.00
+## 7  8.00
+## 8  7.00
+\end{verbatim}
+
+Funkcja zwraca nam indeksy uporządkowanych obiektów, tj. 1-wsze miejsce
+zajął obiekt z numerem indeksu 2, 2-gie miejsce obiekt z numerem indeksu
+równym 3, z kolei miejsce ostatnie zajął obiekt o numerze indeksu równym
+7.
+
+\subsection{Metoda rang}
+\subsubsection{Stymulacja} 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-}\KeywordTok{stymulacja_przeksztalcenie_ilorazowe}\NormalTok{(dane_porzadkowanie,}
+\StringTok{"PRZEBIEG_[km]"}\NormalTok{)} 
+\end{Highlighting}
+\end{Shaded}
+
+
+\subsubsection{Transformacja normalizacyjna}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-}\KeywordTok{unitaryzacja}\NormalTok{(dane_porzadkowanie)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Funkcja porządkująca}\label{funkcja-porzadkujaca-metoda-rang}
+
+Chcąc przeprowadzić porządkowanie znormalizowanych danych za pomocą metody rang, należy użyć poniższej funkcji:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{funkcja_porzadkowanie_metoda_rang<-function(x)}
+  \NormalTok{\{}
+  \NormalTok{y<-x }
+  \NormalTok{for (i in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{x[}\KeywordTok{ncol}\NormalTok{(x)+}\DecValTok{1}\NormalTok{]=}\KeywordTok{rank}\NormalTok{(-x[i])}
+  \NormalTok{\}}
+  \NormalTok{x[,}\StringTok{"zmienna_syntetyczna"}\NormalTok{] <-}\DecValTok{0} \CommentTok{#ostatnia kolumna to zmienna_syntetyczna}
+  \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{for(j in (}\KeywordTok{ncol}\NormalTok{(y)+}\DecValTok{1}\NormalTok{):(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{1}\NormalTok{))}
+    \NormalTok{\{}
+      \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]+x[i,j]}
+      \NormalTok{j=j}\DecValTok{+1}
+    \NormalTok{\}}
+    \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]/(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{7}\NormalTok{)}
+  \NormalTok{\}}
+  \NormalTok{x<-x[}\KeywordTok{order}\NormalTok{(x$zmienna_syntetyczna),]}
+  \KeywordTok{print}\NormalTok{(}\StringTok{"Numery indeksów obiektów po uporządkowaniu: "}\NormalTok{)}
+  \KeywordTok{return}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Wywołanie funkcji dla zbioru dane\_porzadkowanie 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{funkcja_porzadkowanie_metoda_rang}\NormalTok{(dane_porzadkowanie)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Numery indeksów obiektów po uporządkowaniu: "
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 8 x 1
+##      Nr
+##   <dbl>
+## 1  2.00
+## 2  4.00
+## 3  3.00
+## 4  5.00
+## 5  6.00
+## 6  1.00
+## 7  8.00
+## 8  7.00
+\end{verbatim}
+
+Na podstawie powyższego wyniku, widać, że 1-wsze miejsce zajęła oferta
+sprzedaży z numerem indeksu = 2, a ostatnie oferta z numerem indeksu o
+numerzer 7.
+
+\subsection{Metoda Hellwiga}
+\subsubsection{Stymulacja} 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-}\KeywordTok{stymulacja_przeksztalcenie_ilorazowe}\NormalTok{(dane_porzadkowanie,}
+\StringTok{"PRZEBIEG_[km]"}\NormalTok{)} 
+\end{Highlighting}
+\end{Shaded}
+
+
+\subsubsection{Transformacja normalizacyjna}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-}\KeywordTok{standaryzacja}\NormalTok{(dane_porzadkowanie)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Funkcja porządkująca}\label{funkcja-porzadkujaca-metoda-Hellwiga}
+
+Chcąc przeprowadzić porządkowanie znormalizowanych danych za pomocą metody rang, należy użyć poniższej funkcji:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{funkcja_porzadkowanie_metoda_Hellwiga<-function(x)}
+  \NormalTok{\{}
+  \NormalTok{obiekt_wz=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{  }
+  \NormalTok{obiekt_wz[j]=}\KeywordTok{max}\NormalTok{(x[j])}
+  \NormalTok{\}}
+  \NormalTok{odleg<-}\StringTok{ }\NormalTok{x[}\KeywordTok{c}\NormalTok{(}\StringTok{"Nr"} \NormalTok{)]}
+  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+  \NormalTok{SUMKA=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{SUMKA=SUMKA+(x[i,j]-obiekt_wz[j])^}\DecValTok{2}
+  \NormalTok{\}}
+  \NormalTok{odleg[i,}\DecValTok{2}\NormalTok{]=}\KeywordTok{sqrt}\NormalTok{(SUMKA) }\CommentTok{#kolumna zawierajaca odleglosci}
+  \NormalTok{\}  }
+  \NormalTok{d_0=}\DecValTok{0}
+  \NormalTok{suma=}\DecValTok{0}
+  \NormalTok{srednia=}\DecValTok{0}
+  \NormalTok{odchylenie=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(odleg))}
+  \NormalTok{\{}
+    \NormalTok{suma[j]=}\KeywordTok{sum}\NormalTok{(odleg[j])}
+    \NormalTok{srednia[j]=suma[j]/}\KeywordTok{nrow}\NormalTok{(odleg)}
+    \NormalTok{suma_kwadratow=}\DecValTok{0}
+    \NormalTok{kwadrat=}\DecValTok{0}
+    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(odleg))}
+    \NormalTok{\{}
+      \NormalTok{kwadrat=(odleg[i,j]-srednia[j])^}\DecValTok{2}
+      \NormalTok{suma_kwadratow=suma_kwadratow+kwadrat}
+    \NormalTok{\}}
+  
+    \NormalTok{odchylenie[j]=}\KeywordTok{sqrt}\NormalTok{(suma_kwadratow/}\KeywordTok{nrow}\NormalTok{(odleg))  }
+    \NormalTok{d_0=srednia[j]+}\DecValTok{2}\NormalTok{*odchylenie[j]  }\CommentTok{#d_0 to po prostu wartosc}
+    \NormalTok{\}}
+\CommentTok{#ostatnia kolumna to jak zawsze zmienna syntetyczna}
+    \NormalTok{x[,}\StringTok{"zmienna_syntetyczna"}\NormalTok{] <-}\DecValTok{0}
+    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=}\DecValTok{1}\NormalTok{-(odleg[i,}\DecValTok{2}\NormalTok{]/d_0)}
+    \NormalTok{\}}
+    \NormalTok{x<-x[}\KeywordTok{order}\NormalTok{(-x$zmienna_syntetyczna),]}
+    \KeywordTok{return}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}
+    \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Wywołanie funkcji dla zbioru dane\_porzadkowanie 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{metoda_Hellwiga}\NormalTok{(dane_porzadkowanie)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 8 x 1
+##      Nr
+##   <dbl>
+## 1  2.00
+## 2  4.00
+## 3  3.00
+## 4  6.00
+## 5  5.00
+## 6  1.00
+## 7  8.00
+## 8  7.00
+\end{verbatim}
+
+Na podstawie powyższego wyniku, widać, że 1-wsze miejsce zajęła oferta
+sprzedaży z numerem indeksu = 2, a ostatnie oferta z numerem indeksu o
+numerze 7.
+}
+
+\subsection{Porównanie wyników}
+{
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+\subsubsection{Wstęp}\label{wstep}
+Porównanie wyników porządkowania najlepiej będzie widoczne na całym zbiorze obiektów. W związku z tym należy zaimportować cały zbiór danych. Po to by dla każdej z trzech metod stworzyć osobne zbiór danych, które to zbiory zostaną następnie poddane wybranej metodzie stymulacji oraz transformacji normalizacyjnej, odpowiedniej dla każdej z nich.  
+
+\subsubsection{Import danych}
+Tak samo jak przy implementacji metod porządkowania nieliniowego, importujemy pełen zbiór obiektów.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(readxl)}
+\NormalTok{zbior_danych <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"datasets/zbior_danych.xlsx"}\NormalTok{, }
+                           \DataTypeTok{sheet =} \StringTok{"DANE_INNA_WERSJA"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Podzbiór danych}
+Mając zaimportowany zbiór danych, tworzymy podzbiór na którym będziemy pracować. 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_porzadkowanie<-zbior_danych[}\KeywordTok{c}\NormalTok{(}\StringTok{"Nr"}\NormalTok{,}\StringTok{"CENA.BRUTTO_[pln]"}\NormalTok{,}\StringTok{"MOC_[km]"}\NormalTok{,}
+                                   \StringTok{"POJEMNOSC.SKOKOWA_[cm3]"}\NormalTok{,}
+                                   \StringTok{"ROK.PRODUKCJI"}\NormalTok{,}\StringTok{"PRZEBIEG_[km]"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Transformacja danych}
+Ze względu na to, że metodY: sum, rang, Hellwiga bazują na różnych przekształceniach, tworzymy 3 podzbiory, które poddamy wcześniej już zaprezenowanym metodom stymulacji. 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_rang<-}\KeywordTok{stymulacja_przeksztalcenie_ilorazowe}\NormalTok{(dane_porzadkowanie,}\StringTok{"PRZEBIEG_[km]"}\NormalTok{)}
+\NormalTok{dane_hellwig<-}\KeywordTok{stymulacja_przeksztalcenie_ilorazowe}\NormalTok{(dane_porzadkowanie,}\StringTok{"PRZEBIEG_[km]"}\NormalTok{)}
+\NormalTok{dane_sum<-}\KeywordTok{stymulacja_przeksztalcenie_roznicowe}\NormalTok{(dane_porzadkowanie,}\StringTok{"PRZEBIEG_[km]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Teraz dokonamy przekształcenia normalizacyjnego wystymulowanych
+podzbiorów.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_sum<-}\KeywordTok{unitaryzacja}\NormalTok{(dane_sum)}
+\NormalTok{dane_rang<-}\KeywordTok{unitaryzacja}\NormalTok{(dane_rang)}
+\NormalTok{dane_hellwig<-}\KeywordTok{standaryzacja}\NormalTok{(dane_hellwig)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Porządkowanie}
+Wykorzystamy tutaj wcześniej już wyjaśnione funkcje odpowiedzialne za porządkowanie. 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dane_sum<-}\KeywordTok{funkcja_porzadkowanie_metoda_sum}\NormalTok{(dane_sum)}
+\NormalTok{dane_rang<-}\KeywordTok{funkcja_porzadkowanie_metoda_rang}\NormalTok{(dane_rang)}
+\NormalTok{dane_hellwig<-}\KeywordTok{funkcja_porzadkowanie_metoda_Hellwiga}\NormalTok{(dane_hellwig)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Porównanie wyników}
+W celu porównania wyników uporządkowania zostały stworzone trzy tabele
+pomocnicze. Każda tabela zawiera trzy kolumny, w dwóch pierwszych
+kolumnach znajdują się indeksy obiektów po uporządkowaniu. Z kolei w
+kolumnie trzeciej-``porownanie'' znajduje się jedna z dwóch wartości: 0
+lub 1. Odpowiednio wartość 1 jest przypisywana tym rekordom, dla których
+zgadza się kolejność uporządkowania przy zastosowaniu dwóch różnych
+metod porządkowania. Dodatkowo zostały również stworzone trzy tabele o
+nazwie ``podsumowanie''. W nich
+
+\subsubsection{Para 1: metoda rang i metoda
+sum}\label{para-1-metoda-rang-i-metoda-sum}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabela_porownawcza=}\KeywordTok{data.frame}\NormalTok{(dane_rang,dane_sum)}
+\KeywordTok{names}\NormalTok{(tabela_porownawcza)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"dane_rang"}\NormalTok{,}\StringTok{"dane_sum"}\NormalTok{)}
+\NormalTok{tabela_porownawcza$porownanie=}\DecValTok{0} 
+
+\CommentTok{#inwersja}
+\NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(tabela_porownawcza))\{}
+  \NormalTok{if(tabela_porownawcza$dane_sum[i]==tabela_porownawcza$dane_rang[i])\{}
+    \NormalTok{tabela_porownawcza$porownanie[i]=}\DecValTok{1}
+  \NormalTok{\}}
+\NormalTok{\}}
+\KeywordTok{head}\NormalTok{(tabela_porownawcza,}\DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    dane_rang dane_sum porownanie
+## 1         49       49          1
+## 2         50       50          1
+## 3         53       53          1
+## 4         48       16          0
+## 5         52       48          0
+## 6         16       52          0
+## 7         57       38          0
+## 8         38       57          0
+## 9         37       37          1
+## 10        58       58          1
+## 11        44       44          1
+## 12        17       46          0
+## 13        56       17          0
+## 14        20        1          0
+## 15        46       41          0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#podsumowanie }
+\NormalTok{podsumowanie=}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(tabela_porownawcza$porownanie))}
+\KeywordTok{names}\NormalTok{(podsumowanie)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"wartość"}\NormalTok{,}\StringTok{"ilosc wystąpień"}\NormalTok{)}
+\NormalTok{podsumowanie}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   wartość ilosc wystąpień
+## 1       0              51
+## 2       1              10
+\end{verbatim}
+
+\subsubsection{Para 2: metoda rang i metoda
+Hellwiga}\label{para-2-metoda-rang-i-metoda-hellwiga}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabela_porownawcza=}\KeywordTok{data.frame}\NormalTok{(dane_rang,dane_hellwig)}
+\KeywordTok{names}\NormalTok{(tabela_porownawcza)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"dane_rang"}\NormalTok{,}\StringTok{"dane_hellwig"}\NormalTok{)}
+\NormalTok{tabela_porownawcza$porownanie=}\DecValTok{0} 
+
+\CommentTok{#inwersja}
+\NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(tabela_porownawcza))\{}
+  \NormalTok{if(tabela_porownawcza$dane_hellwig[i]==tabela_porownawcza$dane_rang[i])\{}
+    \NormalTok{tabela_porownawcza$porownanie[i]=}\DecValTok{1}
+  \NormalTok{\}}
+\NormalTok{\}}
+\KeywordTok{head}\NormalTok{(tabela_porownawcza,}\DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    dane_rang dane_hellwig porownanie
+## 1         49           53          0
+## 2         50           49          0
+## 3         53           50          0
+## 4         48           16          0
+## 5         52           57          0
+## 6         16           48          0
+## 7         57           52          0
+## 8         38           58          0
+## 9         37           38          0
+## 10        58           37          0
+## 11        44           46          0
+## 12        17           54          0
+## 13        56           56          1
+## 14        20           36          0
+## 15        46            7          0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#podsumowanie }
+\NormalTok{podsumowanie=}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(tabela_porownawcza$porownanie))}
+\KeywordTok{names}\NormalTok{(podsumowanie)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"wartość"}\NormalTok{,}\StringTok{"ilosc wystąpień"}\NormalTok{)}
+\NormalTok{podsumowanie}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   wartość ilosc wystąpień
+## 1       0              56
+## 2       1               5
+\end{verbatim}
+
+\subsubsection{Para 3: metoda sum i metoda
+hellwiga}\label{para-3-metoda-sum-i-metoda-hellwiga}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabela_porownawcza=}\KeywordTok{data.frame}\NormalTok{(dane_sum,dane_hellwig)}
+\KeywordTok{names}\NormalTok{(tabela_porownawcza)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"dane_sum"}\NormalTok{,}\StringTok{"dane_hellwig"}\NormalTok{)}
+\NormalTok{tabela_porownawcza$porownanie=}\DecValTok{0} 
+
+\CommentTok{#inwersja}
+\NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(tabela_porownawcza))\{}
+  \NormalTok{if(tabela_porownawcza$dane_hellwig[i]==tabela_porownawcza$dane_sum[i])\{}
+    \NormalTok{tabela_porownawcza$porownanie[i]=}\DecValTok{1}
+  \NormalTok{\}}
+\NormalTok{\}}
+\KeywordTok{head}\NormalTok{(tabela_porownawcza,}\DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    dane_sum dane_hellwig porownanie
+## 1        49           53          0
+## 2        50           49          0
+## 3        53           50          0
+## 4        16           16          1
+## 5        48           57          0
+## 6        52           48          0
+## 7        38           52          0
+## 8        57           58          0
+## 9        37           38          0
+## 10       58           37          0
+## 11       44           46          0
+## 12       46           54          0
+## 13       17           56          0
+## 14        1           36          0
+## 15       41            7          0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#podsumowanie }
+\NormalTok{podsumowanie=}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(tabela_porownawcza$porownanie))}
+\KeywordTok{names}\NormalTok{(podsumowanie)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"wartość"}\NormalTok{,}\StringTok{"ilosc wystąpień"}\NormalTok{)}
+\NormalTok{podsumowanie}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   wartość ilosc wystąpień
+## 1       0              59
+## 2       1               2
+\end{verbatim}
+
+\subsection{Podsumowanie}\label{podsumowanie}
+
+Na podstawie powyższych wyników zauważamy, że najwięcej zgodności wyniku
+porządkowania jest widoczne dla pary pierwszej - metody rang oraz metody
+sum. W przypadku kolejnych par, zgodność ta jest juz niewielka, ze
+względu na to że w wyniku uporządkowania obiekty zajmują np. o miejsce
+niżej lub wyżej w stosunku do drugiej metody.
+
+
+
 
 }
+
 
 
 \bibliographystyle{plain}
