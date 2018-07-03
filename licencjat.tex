@@ -43,6 +43,7 @@
 \newcommand{\Ex}{\operatorname{E}}
 \newcommand{\Variance}{\operatorname{Var}}
 
+
 \newcommand{\closure}[1]{\overline{#1}}
 
 \begin{document}
@@ -143,6 +144,9 @@ Poniżej znajduje się lista pojęć powszechnie używanych w pracy wraz z symbo
 \item $\mathfrak{B}$ - rodzina wszystkich zbiorów otwartych %https://www.sharelatex.com/learn/Mathematical_fonts
 %\item $\mediana ( \cdot)$ - oznaczać będzie mediany z próby
 \item $\leq$ - oznaczenie relacji częściowego porządku, przy dołożeniu warunku spójności oznaczać będzie relację liniowego porządku
+\item $\mediana{\{\cdot\}}$ - oznaczenie mediany zbioru
+\item $\max{\{\cdot\}}$ - oznaczenie maksymalnej wartości zbioru
+\item $\min{\{\cdot\}}$ - oznaczenie minimalnej wartości zbioru
 \item $\licznosc{\{\cdot\}}$ - oznaczenie mocy zbioru
 \item $G$ - oznaczenie ogólnego grafu prostego dla którego $V(G)$ jest zbiorem wierzchołków grafu, a $E(G)$ zbiorem jego krawędzi
 
@@ -551,13 +555,19 @@ $$\sigma_Y=\mathcal{D}(Y)=\sqrt{\mathcal{D}^2Y}.$$
 \end{definition}
 
 \begin{definition}{Próba losowa n-elementowa \cite[Rozdział 2]{bartoszewicz1996}}\\
-Niech $(\Omega, \mathcal{F}, P)$ będzie przestrzenią probabilistyczną, zaś $Y$ będzie wektorem losowym.  
-Próbą losowa $n$-elementową nazywamy $n$-elementowy ciąg niezależnych zmiennych losowych o jednakowym prawdopodobieństwie, tzn. ciąg postaci $Y=(Y_1, Y_2, \ldots, Y_n)$.
+Niech $(\Omega, \mathcal{F}, P)$ będzie przestrzenią probabilistyczną, zaś $Y_{i}:\Omega^{n}  \rightarrow \mathbb{R}$ będzie zmienną losową.  
+Próbą losowa $n$-elementową nazywamy $n$-elementowy ciąg niezależnych zmiennych losowych o jednakowym prawdopodobieństwie, tzn. ciąg postaci $(\omega_{1}, \omega_{2}, \ldots, \omega_{n}) \in \Omega^{n}$, taki że $Y_{i}(\omega_{1}, \omega_{2}, \ldots, \omega_{n})=Y(\omega_{i})$.
 \end{definition}
 
 \begin{uwaga}
-Średnią z próby oznaczamy $\overline{Y}$ i wyliczamy za pomocą wzoru: $\overline{Y}=\frac{1}{n}\sum\limits_{i=1}^{n}{Y_{i}}$.
+Średnią z próby oznaczamy $\overline{Y}$ i wyliczamy za pomocą wzoru: $\overline{Y}(\omega)=\frac{1}{n}\sum\limits_{i=1}^{n}{Y(\omega_{i})}$.
 \end{uwaga}
+
+\begin{uwaga}
+Powyższa definicja dana jest w języku rachunku prawdopodobieństwa. W języku statystycznym próbę losową rozumiemy jako wartość pochodząca z realizacji pewnego doświadczenia.
+\end{uwaga}
+
+
 
 \begin{definition}{Rozkład normalny (Gaussa) \cite[Rozdział 5.10]{jakubowski2004}}\\
 Jeśli zmienna losowa $Y$ ma gęstość postaci
@@ -586,7 +596,7 @@ $$f(y)=\frac{1}{\sqrt{2\pi}}e^\frac{-(y)^2}{2}.$$
 %\end{definition}
 
 
-\section{Wybrane operacje statystyczne dla zmiennych}
+\section{Wybrane operacje statystyczne dla zmiennych}\label{wybrane_operacje_statystyczne}
 \subsubsection{Normalizacja zmiennych}
 Ważnym krokiem przed rozpoczęciem pracy na zbiorze danych jest ujednolicenie ich charakteru, tj. przekształcenie zmiennych (mierzonych na skali przedziałowej lub ilorazowej) opisujących obiekty w zbiorze, w celu pozbycia się dysproporcji między nimi czy też dominacji jednych zmiennych nad drugimi. W tym celu stosuje się transformację normalizacyjną. Wyróżniamy trzy podstawowe typy przekształceń normalizacyjnych:
 \begin{itemize}
@@ -1535,7 +1545,7 @@ Metody porządkowania nieliniowego dzielimy na metody dendrytowe oraz aglomeracy
 Dendrytem nazywamy graf spójny, niezawierający cykli. 
 \end{definition}
 
-Metody dendrytowe opierają się na pojęciach teorii grafów. Metody te polegają na stworzeniu dendrytu, którego wierzchołki odpowiadają odpowiednim obiektom poddanym porządkowaniu. Krawędzie łączące wierzchołki odpowiadają zaś odległością między obiektami. Poniżej zostały opisane przykłady metod dendrytowych, tj. taksonomia wrocławska oraz metoda Prima. 
+Metody dendrytowe opierają się na pojęciach teorii grafów. Metody te polegają na stworzeniu dendrytu, którego wierzchołki odpowiadają odpowiednim obiektom poddanym porządkowaniu. Krawędzie łączące wierzchołki odpowiadają zaś odległością między obiektami. Przykładem metod dendrytowych jest taksonomia wrocławska, metoda Prima.   Poniżej zostanie jednak opisana jedynie metoda taksonomii wrocławskiej.  
 
 
 \subsubsection{Taksonomia wrocławska}
@@ -1603,13 +1613,14 @@ $$
 
 %Powyższy proces przeprowadzany jest do momentu, aż nie powstanie graf spójny, w ten sposób tworzone są skupienia wyższego rzędu 
 
-\subsubsection{Metoda Prima}
-
-
-W odróżnieniu od taksonomii wrocławskiej, metoda Prima nie wymaga posługiwania się cały czas wyjściową macierzą odległości. W trakcie tworzenia dendrytu, zbiór porządkowanych obiektów jest przyporządkowywany do jednego z dwóch zbiorów, np. niech $C$ i $E$ oznaczają te zbiory. Niech zbiór $C$ będzie pierwszym z nich a zbiór $E$ drugim. Pierwszy z nich zawiera obiekty należące na danym etapie do dendrytu, zaś drugi zawiera obiekty nie należące na tym etapie do dendrytu.
-
-W początkowym etapie, zbiór $C$ jest zbiorem pustym, z kolei do zbioru $E$ należą wszystkie obiekty, należące do zbioru poddanego porządkowaniu. Następnie w zbiorze $C$ zostaje umieszczony dowolny element ze zbioru $E$, dowolność nie ma wpływu na ostateczną postać dendrytu. W tym momencie zostaje utworzony wektor $c$ w którym przechowywane są odległości tego elementu od pozostałych elementów zbioru $E$. W kolejnym etapie do zbioru $C$ włączany jest ten obiekt, którego odległość od elementu  zbioru $C$ jest jak najmniejsza. Po dołączeniu tego elementu wektor $c$ przechowuje odległości tych dwóch obiektów zbioru $C$ od pozostałych elementów zbioru $E$, a procedura dołączania kolejnych obiektów polega na tym samym. Cały proces trwa do momentu, aż zbiór $E$ nie będzie zawierał żadnego elementu. 
-
+%03.07
+%\subsubsection{Metoda Prima}
+%
+%
+%W odróżnieniu od taksonomii wrocławskiej, metoda Prima nie wymaga posługiwania się cały czas wyjściową macierzą odległości. W trakcie tworzenia dendrytu, zbiór porządkowanych obiektów jest przyporządkowywany do jednego z dwóch zbiorów, np. niech $C$ i $E$ oznaczają te zbiory. Niech zbiór $C$ będzie pierwszym z nich a zbiór $E$ drugim. Pierwszy z nich zawiera obiekty należące na danym etapie do dendrytu, zaś drugi zawiera obiekty nie należące na tym etapie do dendrytu.
+%
+%W początkowym etapie, zbiór $C$ jest zbiorem pustym, z kolei do zbioru $E$ należą wszystkie obiekty, należące do zbioru poddanego porządkowaniu. Następnie w zbiorze $C$ zostaje umieszczony dowolny element ze zbioru $E$, dowolność nie ma wpływu na ostateczną postać dendrytu. W tym momencie zostaje utworzony wektor $c$ w którym przechowywane są odległości tego elementu od pozostałych elementów zbioru $E$. W kolejnym etapie do zbioru $C$ włączany jest ten obiekt, którego odległość od elementu  zbioru $C$ jest jak najmniejsza. Po dołączeniu tego elementu wektor $c$ przechowuje odległości tych dwóch obiektów zbioru $C$ od pozostałych elementów zbioru $E$, a procedura dołączania kolejnych obiektów polega na tym samym. Cały proces trwa do momentu, aż zbiór $E$ nie będzie zawierał żadnego elementu. 
+%03.07
 
 
 % Proces ten trwa do momentu, aż zbiór $E$ nie będzie pusty.  W tym celu w pierwszym kroku algorytmu zostaje stworzony wektor $d$, zawierający odległości wybranego obiektu zbioru $C$, od pozostałych obiektów zbioru $E$. Po utworzeniu wektora, sprawdzane jest dla którego elementu odległość od elementu ze zbioru $C$, jest najmniejsza. Po znalezieniu tego elementu, zostaje on włączony do zbioru $A$ i usunięty ze zbioru $E$. Po tym etapie, sprawdzane jest czy zbiór $B$ jest pusty, jeżeli tak jest to algorytm kończy działanie, zaś w przeciwnym wypadku, zostaje ponownie tworzony wektor $d$, którego elementami są najmniejsze z odległości każdego z obiektów pozostających jeszcze w zbiorze $E$ od obiektów, które należą do zbioru $C$. Ponownie wybierany jest z wektora $d$ najmniejszy element i włączany do zbioru $C$ przy jednoczesnym usunięciu ze zbioru $E$. 
@@ -1620,10 +1631,10 @@ W powstałym dendrycie wierzchołkami są obiekty przechodzące zbioru $C$, z ko
 Przed opisem działania metod aglomeracyjnych, wprowadzimy definicję łańcucha połączeń.
 
 \begin{definition}{Łańcuch połączeń}\\
-Niech $O=\{O_{1},O_{2},..., O_{n}\}, \quad n\in \mathbb{N}$ oznacza zbiór obiektów. Łańcuchem połączeń nazwiemy skończony ciąg $(C_{i})_{i=1}^{n}$, taki że:
+Niech $O=\{O_{1},O_{2},..., O_{n}\}, \quad n\in \mathbb{N}$ oznacza zbiór obiektów. Łańcuchem połączeń nazwiemy skończony ciąg $(C_{i})_{i=1}^{N}$, taki że:
 \begin{enumerate}
-\item $C_{i}=\{O_{i}\}$ dla $i=1, 2, \cdot, n$
-\item $\forall_{i<n} \quad \exists_{j,k \in \mathbb{N}} \quad C_{i}=C_{j} \cup C_{k}$
+\item $C_{i}=\{O_{i}\}$ dla $i=1, 2, \ldots, n$
+\item $\forall_{i\geq n} \quad \exists_{j,k \in \mathbb{N}} \quad C_{i}=C_{j} \cup C_{k}$
 \item $C_{n}=O=\{O_{1},O_{2},..., O_{n}\}$
 \item $\forall_{i<j,  {i,j \in \mathbb{N}}} \quad C_{i} \cap C_{j} \neq \emptyset \Rightarrow  C_{i} \subset C_{j}$ 
 \end{enumerate}
@@ -1632,8 +1643,30 @@ Niech $O=\{O_{1},O_{2},..., O_{n}\}, \quad n\in \mathbb{N}$ oznacza zbiór obiek
 \begin{uwaga}
 Graficzną reprezentacje łańcucha połączeń nazywamy dendrogramem. 
 \end{uwaga}
+
+\begin{example}
+Zaprezentujemy teraz przykład tworzenia łańcucha połączeń. Niech dany będzie zbiór obiektów $O=\{O_1, O_2, O_3\}$. Wtedy przykładowy łańcuch połączeń jest postaci \\
+$C=\{ \{O_1\}, \{O_2\}, \{O_3\}, \{O_1, O_2\}, \{O_1, O_2, O_3\} \}$. Zaprezentujemy go teraz graficznie, w postaci dendrogramu: 
+$$
+\begin{tikzpicture}[scale=.7]
+  \node (1) at (0.0,-0.40) {$O_{1}$};
+  \node (2) at (2.0,-0.40) {$O_{2}$};
+  \node (3) at (5,-0.40) {$O_{3}$}; 
+   \draw (0,0)--(0,1); 
+   \draw (0,1)--(2,1);
+   \draw (2,0)--(2,1);
+   \draw (1,1)--(1,3);
+   \draw (1,3)--(5,3);
+   \draw (5,0)--(5,3);
+\end{tikzpicture}
+$$ 
+\end{example}
+
 %opis statystyczny
 %"Krotko rzecz ujmuja metody te opieraja sie na macierzy odleglosci i na podstawie tejże odleglosci sa laczone w grupy +-"
+
+\noindent{Opis działania metod aglomeracyjnych:}
+
 Istotą metod aglomeracyjnych jest utworzenie łańcucha połączeń - dendrogramu. W ten sposób zobrazowana jest kolejność łączenia obiektów, na podstawie zmniejszającego się podobieństwa między obiektami włączonymi do dendrogramu, a tymi wcześniej do niego należącymi. Położenie obiektów oraz grup obiektów, które powstały w kolejnych etapach tworzenia łańcucha, jest przeprowadzone na podstawie kolejności połączeń tych obiektów i grup. Każde ogniwo w łańcuchu oznacza grupy obiektów podobnych do siebie. 
 %07.06
 %między obiektami włączonymi do dendrogramu, w kolejnych etapach a obiektami należącymi już do dendrogramu. Hierarchia połączeń określa wzajemnie położenie względem siebie obiektów oraz grup obiektów powstających w kolejnych etapach tworzenia drzewka. Grupy podobnych do siebie obiektów tworzą oddzielne gałęzie.  
@@ -1731,7 +1764,7 @@ $$z,z^{'}=1,2,\dots,n, \quad z \neq z^{'}. $$
 
 W metodzie tej odległość między grupami obiektów jest równa medianie odległości pomiędzy wszystkimi parami obiektów należących do dwóch grup. Odległość ta opisana jest wzorem: 
 $$
-d_{zz^{'}}= \bold{med}_{i,k} \{d_{ik}(\bf{O_i} \in G_{z}, O_{k} \in G_{z^{'}})\},
+d_{zz^{'}}= \mediana_{i,k} \{d_{ik}(\bf{O_i} \in G_{z}, O_{k} \in G_{z^{'}})\},
 $$
 
 $$i=1,2,\dots,n_{z}, \quad k=1,2,\dots,n_{z^{'}}, \quad z,z^{'}=1,2,\dots,n, \quad z \neq z^{'}. $$
@@ -1883,7 +1916,209 @@ Zbiór danych został umieszczony w programie Excel, z kolei implementacje zosta
 
 \section{Implementacje wybranych metod}
 W sekcji tej zaprezentujemy implementacje wybranych metod porządkowania liniowego oraz nieliniowego. W części dotyczącej porządkowania liniowego porównamy również wyniki porządkowania par metod: metody rang i metody sum, metody sum i metody Hellwiga, metody rang i metody Hellwiga. Zostanie to przeprowadzone na całym zbiorze obiektów. 
-Zacznijmy jednak od implementacji metod porządkowania nieliniowego.
+Zaczniemy jednak od przedstawienia ogólnych funkcji odpowiedzialnych za stymulacje oraz transformacje normalizacyjne. Po to by móc następnie je wykorzystać przy prezentacji wybranych metod porządkowania nieliniowego oraz liniowego. 
+\subsection{Stymulacja zmiennych}
+{
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+
+Poniżej zostaną przedstawione metody stymulacji zmiennych opisane wcześniej w rozdziale \ref{wybrane_operacje_statystyczne}. Ograniczamy
+się tu do przypadku, że dana zmienna jest destymulantą i należy
+ją poddać stymulacji. W tym celu stworzyliśmy dwie funkcje:
+stymulacja\_przeksztalcenie\_ilorazowe(x,y) oraz
+stymulacja\_przeksztalcenie\_roznicowe(x,y). W miejscu argumentu x
+należy wpisać nazwę zbioru na którym dokonywane jest porządkowanie, z
+kolei w miejscu argumentu y należy podać nazwę kolumny poddanej
+stymulacji, z tym że nazwa kolumny musi zostać podana w ``''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stymulacja_przeksztalcenie_ilorazowe<-function(x,y)}
+\NormalTok{\{}
+  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]=}\DecValTok{1}\NormalTok{/x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]}
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stymulacja_przeksztalcenie_roznicowe<-function(x,y)}
+\NormalTok{\{}
+  \NormalTok{max_wartosc=}\KeywordTok{max}\NormalTok{(x[}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)])}
+  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]=max_wartosc-x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]}
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{uwaga} Stymulacja zmiennych dokonywana jest pojedynczo, tj. jeżeli w
+naszym zbiorze jest wiele zmiennych mających charakter destymulanty, dla
+każdej z nich musimy użyć funkcji a na sam koniec nadpisać nasz zbiór,
+tym nowym wystymulowanym, dzięki czemu przekształcenia zostaną zapisane.
+\end{uwaga}
+
+}
+\subsection{Transformacje normalizacyjne}
+Poniżej zostaną przedstawione ogólne funkcje transformacji normalizacyjnej - standaryzacja, unitaryzacja, przekształcenie ilorazowe. Podobnie jak metody stymulacji zmiennych, zostały one wcześniej omówione w rozdziale \ref{wybrane_operacje_statystyczne}. Aby wywołać którąś z poniższych funkcji, należy w miejsce x wpisać nazwę zbioru.
+
+{
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{standaryzacja<-function(x)}
+\NormalTok{\{}
+  \NormalTok{suma=}\DecValTok{0}
+  \NormalTok{srednia=}\DecValTok{0}
+  \NormalTok{odchylenie=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{suma[j]=}\KeywordTok{sum}\NormalTok{(x[j])}
+    \NormalTok{srednia[j]=suma[j]/}\KeywordTok{nrow}\NormalTok{(x)}
+    \NormalTok{suma_kwadratow=}\DecValTok{0}
+    \NormalTok{kwadrat=}\DecValTok{0}
+    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{kwadrat=(x[i,j]-srednia[j])^}\DecValTok{2}
+      \NormalTok{suma_kwadratow=suma_kwadratow+kwadrat}
+    \NormalTok{\}}
+    \NormalTok{odchylenie[j]=}\KeywordTok{sqrt}\NormalTok{(suma_kwadratow/}\KeywordTok{nrow}\NormalTok{(x))  }
+    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{x[i,j]=(x[i,j]-srednia[j])/odchylenie[j]}
+    \NormalTok{\} }
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{unitaryzacja<-function(x)}
+\NormalTok{\{}
+  \NormalTok{maksi=}\DecValTok{0}
+  \NormalTok{minim=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{maksi[j]=}\KeywordTok{max}\NormalTok{(x[j])}
+    \NormalTok{minim[j]=}\KeywordTok{min}\NormalTok{(x[j])}
+    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+    \NormalTok{x[i,j]=(x[i,j]-minim[j])/(maksi[j]-minim[j])}
+    \NormalTok{\}}
+  \NormalTok{\}}
+\KeywordTok{return}\NormalTok{(x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{przeksztalcenie_ilorazowe<-function(x)}
+\NormalTok{\{}
+  \NormalTok{suma=}\DecValTok{0}
+  \NormalTok{srednia=}\DecValTok{0}
+  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{suma[j]=}\KeywordTok{sum}\NormalTok{(x[j])}
+    \NormalTok{srednia[j]=suma[j]/}\KeywordTok{nrow}\NormalTok{(x)}
+    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+    \NormalTok{\{}
+      \NormalTok{x[i,j]=x[i,j]/srednia[j]}
+    \NormalTok{\}}
+  \NormalTok{\} }
+\KeywordTok{return}\NormalTok{(x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+}
+
+
+
 \subsection{Metody porządkowania nieliniowego}
 {
 %% dane z eksperymentu "metoda nieliniowa duzy.Rmd"
@@ -2019,24 +2254,6 @@ nie należy zmienna zmienna: przebieg - jest destymulantą, w związku z
 tym, została przekształcona na stymulantę, za pomocą przekształcenia
 ilorazowego.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{stymulacja_przeksztalcenie_ilorazowe<-function(x,y)}
-  \NormalTok{\{}
-  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-  \NormalTok{\{}
-    \NormalTok{x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]=}\DecValTok{1}\NormalTok{/x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]}
-  \NormalTok{\}}
-  \KeywordTok{return}\NormalTok{(x)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Gdy użytkownik chce skorzystać z tej funkcji, w miejsce x musi wpisać
-nazwę zbioru, a w miejsce y nazwę kolumny w ``'', którą chce poddać
-stymulacji. UWAGA - kolumny wymagające stymulacji, muszą zostać osobno
-poddane działaniu poniższej funkcji, dodatkowo po każdym zastosowaniu
-funkcji, należy nadpisać zbiór by zmiany zostały zapisane.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2050,28 +2267,12 @@ transformacji normalizacyjnej - przy pomocy unitaryzacji.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{unitaryzacja<-function(x)}
-\NormalTok{\{}
-  \NormalTok{maksi=}\DecValTok{0}
-  \NormalTok{minim=}\DecValTok{0}
-  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
-  \NormalTok{\{}
-    \NormalTok{maksi[j]=}\KeywordTok{max}\NormalTok{(x[j])}
-    \NormalTok{minim[j]=}\KeywordTok{min}\NormalTok{(x[j])}
-    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-    \NormalTok{\{}
-      \NormalTok{x[i,j]=(x[i,j]-minim[j])/(maksi[j]-minim[j])}
-    \NormalTok{\}}
-  \NormalTok{\}}
-  \KeywordTok{return}\NormalTok{(x)}
-\NormalTok{\}}
-
 \NormalTok{dane_porzadkowanie<-}\KeywordTok{unitaryzacja}\NormalTok{(dane_porzadkowanie)}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Nieliniowe porządkowanie przy pomocy metod
-aglomeracyjnych}\label{nieliniowe-porzadkowanie-przy-pomocy-metod-aglomeracyjnych}
+\subsubsection{Zastosowanie metod aglomeracyjnych}
+
 
 Chcąc zastosować funkcję agnes, należy w pierwszej kolejności wyznaczyć
 macierz odległości pomiędzy wszystkimi parami obiektów. Do wyznaczenia
@@ -2140,8 +2341,7 @@ Dendrogram dla metody najdalszego sąsiada:
 
 \includegraphics{Metoda_nieliniowa_duzy_files/figure-latex/unnamed-chunk-10-1.pdf}
 
-\subsubsection{Porównanie wyników
-uporządkowania}\label{porownanie-wynikow-uporzadkowania}
+\subsubsection{Porównanie wyników uporządkowania}
 
 W przypadku dendrogramu uzyskanego metodą najdalszego sąsiedztwa można
 zauważyć większą odległość wiązań niż dla metody najbliższego
@@ -2282,82 +2482,8 @@ kroku należy dokonać stymulacji destymulant - dla metody rang i metody
 Hellwiga zostanie użyte przekształcenie ilorazowe, dla metody sum
 przekształcenie ilorazowe. Po stymulacji można przejść do transformacji
 normalizacyjnej - dla metod: sum i rang użyjemy normalizacji,
-natomiast dla metody Hellwiga standaryzacji. Do powyższych
-operacji, zostaną wykorzystane zbudowane ogólne funkcje
-za to odpowiedzialne.
+natomiast dla metody Hellwiga standaryzacji.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{stymulacja_przeksztalcenie_roznicowe<-function(x,y)}
-  \NormalTok{\{}
-  \NormalTok{max_wartosc=}\KeywordTok{max}\NormalTok{(x[}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)])}
-  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-  \NormalTok{\{}
-    \NormalTok{x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]=max_wartosc-x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]}
-  \NormalTok{\}}
-  \KeywordTok{return}\NormalTok{(x)}
-  \NormalTok{\}}
-
-\NormalTok{stymulacja_przeksztalcenie_ilorazowe<-function(x,y)}
-  \NormalTok{\{}
-  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-  \NormalTok{\{}
-    \NormalTok{x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]=}\DecValTok{1}\NormalTok{/x[i,}\KeywordTok{which}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(x)==y)]}
-  \NormalTok{\}}
-  \KeywordTok{return}\NormalTok{(x)}
-  \NormalTok{\}}
-
-\NormalTok{unitaryzacja<-function(x)}
-  \NormalTok{\{}
-  \NormalTok{maksi=}\DecValTok{0}
-  \NormalTok{minim=}\DecValTok{0}
-  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
-  \NormalTok{\{}
-    \NormalTok{maksi[j]=}\KeywordTok{max}\NormalTok{(x[j])}
-    \NormalTok{minim[j]=}\KeywordTok{min}\NormalTok{(x[j])}
-    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-    \NormalTok{\{}
-      \NormalTok{x[i,j]=(x[i,j]-minim[j])/(maksi[j]-minim[j])}
-    \NormalTok{\}}
-  \NormalTok{\}}
-  \KeywordTok{return}\NormalTok{(x)}
-  \NormalTok{\}}
-
-\NormalTok{standaryzacja<-function(x)}
-  \NormalTok{\{}
-  \NormalTok{suma=}\DecValTok{0}
-  \NormalTok{srednia=}\DecValTok{0}
-  \NormalTok{odchylenie=}\DecValTok{0}
-  \NormalTok{for (j in }\DecValTok{2}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(x))}
-  \NormalTok{\{}
-    \NormalTok{suma[j]=}\KeywordTok{sum}\NormalTok{(x[j])}
-    \NormalTok{srednia[j]=suma[j]/}\KeywordTok{nrow}\NormalTok{(x)}
-    \NormalTok{suma_kwadratow=}\DecValTok{0}
-    \NormalTok{kwadrat=}\DecValTok{0}
-    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-    \NormalTok{\{}
-      \NormalTok{kwadrat=(x[i,j]-srednia[j])^}\DecValTok{2}
-      \NormalTok{suma_kwadratow=suma_kwadratow+kwadrat}
-    \NormalTok{\}}
-    \NormalTok{odchylenie[j]=}\KeywordTok{sqrt}\NormalTok{(suma_kwadratow/}\KeywordTok{nrow}\NormalTok{(x))  }
-    \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-    \NormalTok{\{}
-      \NormalTok{x[i,j]=(x[i,j]-srednia[j])/odchylenie[j]}
-    \NormalTok{\} }
-  \NormalTok{\}}
-  \KeywordTok{return}\NormalTok{(x)}
-  \NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Gdy użytkownik chce skorzystać z tej funkcji, w miejsce x musi wpisać
-nazwę zbioru, a w miejsce y nazwę kolumny w ``'', którą chce poddać
-stymulacji.
-
-
-UWAGA - kolumny wymagające stymulacji, muszą zostać osobno poddane
-działaniu poniższej funkcji, dodatkowo po każdym zastosowaniu funkcji,
-należy nadpisać zbiór by zmiany zostały zapisane.
 
 \subsection{Metoda sum}
 \subsubsection{Stymulacja} 
@@ -2387,29 +2513,29 @@ Chcąc przeprowadzić porządkowanie znormalizowanych danych za pomocą metody s
 \begin{Highlighting}[]
 \NormalTok{funkcja_porzadkowanie_metoda_sum<-function(x)}
   \NormalTok{\{}
-    \NormalTok{x[,}\StringTok{"zmienna_syntetyczna"}\NormalTok{] <-}\DecValTok{0} \CommentTok{#kolumna to zmienna_syntetyczna}
-    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{x[,}\StringTok{"zmienna_syntetyczna"}\NormalTok{] <-}\DecValTok{0} \CommentTok{#ostatnia kolumna to zmienna_syntetyczna}
+  \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{for(j in }\DecValTok{2}\NormalTok{:(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{1}\NormalTok{))}
     \NormalTok{\{}
-      \NormalTok{for(j in }\DecValTok{2}\NormalTok{:(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{1}\NormalTok{))}
-      \NormalTok{\{}
-          \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]+x[i,j]}
-      \NormalTok{\}}
-    \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]/(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{2}\NormalTok{)  }\CommentTok{#liczba kolumn - (kolumna_nr_indeksu+kolumna_zmienna_synt)}
-    \NormalTok{\}}
-    \CommentTok{#wyeliminowanie ujemnych wartosci zmiennej syntetycznej}
-    \NormalTok{min_zmienna=}\KeywordTok{min}\NormalTok{(x$zmienna_syntetyczna)}
-    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-    \NormalTok{\{}
-      \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]-min_zmienna}
-    \NormalTok{\}}
-    \CommentTok{#normalizacja zm. syntetycznej}
-    \NormalTok{max_zmienna=}\KeywordTok{max}\NormalTok{(x$zmienna_syntetyczna)}
-    \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
-    \NormalTok{\{}
-      \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]/max_zmienna}
-    \NormalTok{\}}
-    \NormalTok{x<-x[}\KeywordTok{order}\NormalTok{(-x$zmienna_syntetyczna),]}
-    \KeywordTok{return}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}
+      \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]+x[i,j]}
+    \NormalTok{\}}\CommentTok{#liczba kolumn - (kolumna_nr_indeksu+kolumna_zmienna_synt)}
+  \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]/(}\KeywordTok{ncol}\NormalTok{(x)-}\DecValTok{2}\NormalTok{)  }
+  \NormalTok{\}}
+  \CommentTok{#wyeliminowanie ujemnych wartosci zmiennej syntetycznej}
+  \NormalTok{min_zmienna=}\KeywordTok{min}\NormalTok{(x$zmienna_syntetyczna)}
+  \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]-min_zmienna}
+  \NormalTok{\}}
+  \CommentTok{#normalizacja zm. syntetycznej}
+  \NormalTok{max_zmienna=}\KeywordTok{max}\NormalTok{(x$zmienna_syntetyczna)}
+  \NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(x))}
+  \NormalTok{\{}
+    \NormalTok{x[i,}\KeywordTok{ncol}\NormalTok{(x)]=x[i,}\KeywordTok{ncol}\NormalTok{(x)]/max_zmienna}
+  \NormalTok{\}}
+  \NormalTok{x<-x[}\KeywordTok{order}\NormalTok{(-x$zmienna_syntetyczna),]}
+  \KeywordTok{return}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2616,7 +2742,7 @@ sprzedaży z numerem indeksu = 2, a ostatnie oferta z numerem indeksu o
 numerze 7.
 }
 
-\subsection{Porównanie wyników dla całego zbioru}
+\subsection{Porównanie wyników metod porządkowania liniowego dla całego zbioru}
 {
 \newcommand{\VerbBar}{|}
 \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
@@ -2702,7 +2828,7 @@ podzbiorów.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Porządkowanie}
+\subsection{Zastosowanie funkcji odpowiedzialnych za porządkowania}
 Wykorzystamy tutaj wcześniej już wyjaśnione funkcje odpowiedzialne za porządkowanie. 
 
 \begin{Shaded}
@@ -2724,8 +2850,8 @@ metod porządkowania. Dodatkowo zostały również stworzone trzy tabele o
 nazwie ``podsumowanie''. W nich zliczane są wystąpienia wartości: 0 oraz 1 
 w kolumnie poprzedniej tabeli - ``porownanie''.
 
-\subsection{Para 1: metoda rang i metoda
-sum}\label{para-1-metoda-rang-i-metoda-sum}
+\subsubsection{Para 1: metoda rang i metoda
+sum}%\label{para-1-metoda-rang-i-metoda-sum}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2779,8 +2905,8 @@ sum}\label{para-1-metoda-rang-i-metoda-sum}
 ## 2       1              10
 \end{verbatim}
 
-\subsection{Para 2: metoda rang i metoda
-Hellwiga}\label{para-2-metoda-rang-i-metoda-hellwiga}
+\subsubsection{Para 2: metoda rang i metoda
+Hellwiga}%\label{para-2-metoda-rang-i-metoda-Hellwiga}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2834,8 +2960,8 @@ Hellwiga}\label{para-2-metoda-rang-i-metoda-hellwiga}
 ## 2       1               5
 \end{verbatim}
 
-\subsection{Para 3: metoda sum i metoda
-hellwiga}\label{para-3-metoda-sum-i-metoda-hellwiga}
+\subsubsection{Para 3: metoda sum i metoda
+Hellwiga}%\label{para-3-metoda-sum-i-metoda-Hellwiga}
 
 \begin{Shaded}
 \begin{Highlighting}[]
