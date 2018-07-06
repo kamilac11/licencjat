@@ -101,19 +101,19 @@ Praca została uporządkowana w~5 rozdziałach. Rozdział 1 stanowi bieżący ws
 Kluczowe teorie dotyczące samego porządkowania danych statystycznych zgromadzone są w~rozdziale 3. W~tej części pracy omawiane są również najistotniejsze sposoby wydobywania porządków z~danych statystycznych, prezentowana jest ich systematyka oraz omawiane są właściwości oraz odmiany. Podstawowy podział na: metody porządkowania liniowego - pozwalające określić ukryte porządki liniowe, oraz metody nieliniowe - służące do wskazywania grafowych reprezentacji odkrytych porządków częściowych, rozdziela dwie główne sekcje tego rozdziału. Z~kolei w~rozdziale 4 przedstawiamy eksperymenty przeprowadzone celem lepszego zaprezentowania treści rozdziału 3. Dla potrzeb tej pracy został wytworzony zbiór wielowymiarowych danych - reprezentujący pewien podzbiór ogłoszeń znaczącego portalu z~ofertami sprzedaży pojazdów. Ponadto w~rozdziale tym opisujemy własne implementacje wybranych algorytmów z~rozdziału 3 opracowane w~języku R i~prezentujemy uzyskane porządki. W~rozdziale 5 zawarte jest treściwe podsumowanie, zarówno z~zakresu opisu statystycznych algorytmów porządkowania danych jak i~dla wyników przeprowadzonych eksperymentów.
 
 %25.06
-%W dalszej części pracy zostały opracowane podstawowe pojęcia teorii grafów \ref{grafy}, spowodowane to zostało interpretację graficzną częściowego uporządkowania zbioru, którego to metody statystyczne opracowane na~podstawie \citep{panek2013} zostały przedstawione obok metod porządkowania liniowego w~rozdziale \ref{metody porzadkowania}. Ze względu na~to również, że część praktyczna pracy, została w~większości oparta na~podstawie  tej pozycji, użyłam przyjętych przez autora nazw statystycznych podziału relacji porządku, tj. metody porządkowania liniowego, natomiast metody będące odpowiednikiem relacji częściowego porządku zostały umieszczone pod nazwą metody porządkowania nieliniowego. Pozostając przy rozdziale \ref{metody porzadkowania} na~samym jego początku zostały omówione własności porządkowania liniowego, które to w~dalszej  kolejności zostały sformalizowane, a następnie udowodnione. 
+%W dalszej części pracy zostały opracowane podstawowe pojęcia teorii grafów \ref{grafy}, spowodowane to zostało interpretację graficzną częściowego uporządkowania zbioru, którego to metody statystyczne opracowane na~podstawie \citep{panek2013} zostały przedstawione obok metod porządkowania liniowego w~rozdziale \ref{metody porzadkowania}. Ze względu na~to również, że część praktyczna pracy, została w~większości oparta na~podstawie  tej pozycji, użyłam przyjętych przez autora nazw statystycznych podziału relacji porządku, tj. metody porządkowania liniowego, natomiast metody będące odpowiednikiem relacji częściowego porządku zostały umieszczone pod nazwą metody porządkowania nieliniowego. Pozostając przy rozdziale \ref{metody porzadkowania} na~samym jego początku zostały omówione własności porządkowania liniowego, które to w~dalszej  kolejności zostały sformalizowane, a~następnie udowodnione. 
 %Ostatni rozdział pracy \ref{Zastosowanie} stanowi jej praktyczny aspekt. Omówiłam w~nim stworzony przez siebie zbiór danych, na~którym to w~dalszej części pracy przetestowałam stworzone przez siebie implementacje wybranych metod porządkowania. Algorytmy zostały napisane w~programie R-Studio.  Na~koniec wyniki uporządkowań zostały porównane.
 %25.06
 
-%Przy metodach porządkowania warto wspomnieć o interpretacji geometrycznej uporządkowania. W~przypadku relacji częściowego porządku, interpretacją jest diagram Hassego, w~którym to dany obiekt łączy jest z~drugim, gdy jeden jest poprzednikiem drugiego, a drugi jest następnikiem pierwszego. %%odwolanie do sekcji grafy slabe - pomyslec; moze niezbendym bylo opracowanie podstawowoych pojec z~teorii grafow, ze wzgledu na~to ze w~roddziale 3 - odwolanie, opracowanym na~podstawie ksiazki \cite{panek2013} zostały tam omówione statystyczne metody porządkowania - liniowe i~nieliniowe. Powracajac do ujecie matemtycznego, te drugie sa niczym innym jak interpretacja relacji czesciowego porzadku
+%Przy metodach porządkowania warto wspomnieć o~interpretacji geometrycznej uporządkowania. W~przypadku relacji częściowego porządku, interpretacją jest diagram Hassego, w~którym to dany obiekt łączy jest z~drugim, gdy jeden jest poprzednikiem drugiego, a~drugi jest następnikiem pierwszego. %%odwolanie do sekcji grafy slabe - pomyslec; moze niezbendym bylo opracowanie podstawowoych pojec z~teorii grafow, ze wzgledu na~to ze w~roddziale 3 - odwolanie, opracowanym na~podstawie ksiazki \cite{panek2013} zostały tam omówione statystyczne metody porządkowania - liniowe i~nieliniowe. Powracajac do ujecie matemtycznego, te drugie sa niczym innym jak interpretacja relacji czesciowego porzadku
 %Jako że w~dalszej części pracy zostały przedstawione 
 %%pomyslec odowloanie do grafu i~metod prozadkowania w~jendym
-%Po wprowadzeniu powyższych pojęć, mogłam przejść do części praktycznej pracy tj. implementacji wybranych %zastosowań metod porządkowania. W~związku z~tym został stworzony rozdział 4 \ref{Zastosowanie}, w~którym to %omówiłam stworzony przez siebie zbiór obiektów, a następnie zaprezentowałam własne algorytmy wybranych metod, które zostały opracowane z~wykorzystaniem R-Studio.
+%Po wprowadzeniu powyższych pojęć, mogłam przejść do części praktycznej pracy tj. implementacji wybranych %zastosowań metod porządkowania. W~związku z~tym został stworzony rozdział 4 \ref{Zastosowanie}, w~którym to %omówiłam stworzony przez siebie zbiór obiektów, a~następnie zaprezentowałam własne algorytmy wybranych metod, które zostały opracowane z~wykorzystaniem R-Studio.
 
 
 
 
-% W~ujęciu matematycznym porządkowanie jest niczym innym jak relacją porządku, który możemy podzielić na~porządek liniowy oraz częściowy na~danym zbiorze. Ze względu na~to, w~sekcji \ref{teoria mnogosci} zostały opracowane wybrane pojęcia teorii mnogości, po to by w~dalszej części pracy móc przejść do  Niezbędnym również było wprowadzenie podstawowych pojęć rachunku prawdopodobieństwa, w~celu zrozumienia danych jako próby losowej, w~tym celu została stworzona sekcja \ref{rachunek prawdopodobienstwa}. Mając tak opracowane podstawy teoretyczne mogłam przejść do 
+% W~ujęciu matematycznym porządkowanie jest niczym innym jak relacją porządku, który możemy podzielić na~porządek liniowy oraz częściowy na~danym zbiorze. Ze względu na~to, w~sekcji \ref{teoria mnogosci} zostały opracowane wybrane pojęcia teorii mnogości, po to by~w~dalszej części pracy móc przejść do  Niezbędnym również było wprowadzenie podstawowych pojęć rachunku prawdopodobieństwa, w~celu zrozumienia danych jako próby losowej, w~tym celu została stworzona sekcja \ref{rachunek prawdopodobienstwa}. Mając tak opracowane podstawy teoretyczne mogłam przejść do 
 
 %W rozdziale 3 zostaną omówione implementacje porządku liniowego jak i~częściowego. Ze względu na~to, że część praktyczna pracy, została w~większości oparta na~książce \cite{panek2013}, w~związku z~tym użyłam przyjętych przez autora nazw statystycznych podziału relacji porządku, tj. metody porządkowania liniowego, natomiast metody będące odpowiednikiem relacji częściowego porządku zostały umieszczone pod nazwą metody porządkowania nieliniowego. 
 
@@ -149,7 +149,7 @@ Poniżej znajduje się lista pojęć powszechnie używanych w~pracy wraz z~symbo
 \item $\max{(\cdot)}$ - oznaczenie maksymalnej wartości zbioru,
 \item $\min{(\cdot)}$ - oznaczenie minimalnej wartości zbioru,
 \item $\licznosc{(\cdot)}$ - oznaczenie mocy zbioru,
-\item $G$ - oznaczenie ogólnego grafu prostego dla którego $V(G)$ jest zbiorem wierzchołków grafu, a $E(G)$ zbiorem jego krawędzi,
+\item $G$ - oznaczenie ogólnego grafu prostego dla którego $V(G)$ jest zbiorem wierzchołków grafu, a~$E(G)$ zbiorem jego krawędzi,
 
 
 %\item $D$ - graf skierowany(digraf)
@@ -163,13 +163,13 @@ Poniżej znajduje się lista pojęć powszechnie używanych w~pracy wraz z~symbo
 \section{Słownik użytych pojęć}
 W pracy zostały wykorzystane następujące pojęcia:
 \begin{itemize}
-%pojecia proby,statystyi, modelu - formalne mozna podac w~oparciu o wyklady Bartoszewicza i~pliku- "proba_mod staty_statytsyka folder: pliki pdf do pracy
-\item Statystyka matematyczna \cite[w oparciu o rozdział 1]{krysicki1999}\\
+%pojecia proby,statystyi, modelu - formalne mozna podac w~oparciu o~wyklady Bartoszewicza i~pliku- "proba_mod staty_statytsyka folder: pliki pdf do pracy
+\item Statystyka matematyczna \cite[w oparciu o~rozdział 1]{krysicki1999}\\
 Statystyka matematyczna jest nauką zajmującą się opisywaniem i~analizą zjawisk przy użyciu metod rachunku prawdopodobieństwa. 
 
 
-%\item Model statystyczny \cite[w oparciu o rozdział 2]{bartoszewicz1996}
-%Modelem statystycznym nazywamy przestrzeń próby doświadczenia tj. wartości zmiennych losowych o jednakowym rozkładzie, rodzinę podzbiorów zbioru zmiennych oraz prawdopodobieństwo występowania danej zmiennej. Można tutaj wskazać analogię do rachunku prawdopodobieństwa, tj. uporządkowanej trójki $(\Omega,\mathcal{F},P)$.
+%\item Model statystyczny \cite[w oparciu o~rozdział 2]{bartoszewicz1996}
+%Modelem statystycznym nazywamy przestrzeń próby doświadczenia tj. wartości zmiennych losowych o~jednakowym rozkładzie, rodzinę podzbiorów zbioru zmiennych oraz prawdopodobieństwo występowania danej zmiennej. Można tutaj wskazać analogię do rachunku prawdopodobieństwa, tj. uporządkowanej trójki $(\Omega,\mathcal{F},P)$.
  
  
 \item Cecha statystyczna \cite[Rozdział 1]{krysicki1999}\\
@@ -180,12 +180,12 @@ Cecha statystyczna jest to właściwość wspólna dla danego zbioru obserwacji.
 W celu prezentacji dużych ilości danych, w~analizie danych korzysta się z~pojęcia macierzy. Poniżej zostanie przedstawiona formalna definicja macierzy oraz definicja macierzy obserwacji, czyli zbiorze obiektów opisywanych przez zmienne. %W rozdziale dotyczącym wybranych pojęć z~teorii mnogości, topologii oraz algebry liniowej, zostanie podana jej algebraiczna definicja. 
 
 \begin{definition}{Macierz \cite[Rozdział 1]{banaszak2002}}\\
-Niech $K$ będzie ciałem i~$m, n \in \mathbb{N}$. Macierzą o $m$-wierszach, $n$-kolumnach i~o wyrazach z~$K$ nazywamy każdą funkcję postaci
+Niech $K$ będzie ciałem i~$m, n \in \mathbb{N}$. Macierzą o~$m$-wierszach, $n$-kolumnach i~o wyrazach z~$K$ nazywamy każdą funkcję postaci
 $A: \{1,\ldots, m \} \times \{1, \ldots, n\} \rightarrow K$
 \end{definition}
 
 \begin{example}
-Macierz $A$ o $m$-wierszach i~$n$-kolumnach najczęściej zapisuje się postaci $A=[a_{ij}]_{1\leq i~\leq m,  1\leq j\leq n}$, tj. 
+Macierz $A$ o~$m$-wierszach i~$n$-kolumnach najczęściej zapisuje się postaci $A=[a_{ij}]_{1\leq i~\leq m,  1\leq j\leq n}$, tj. 
 $$
 A= \begin{bmatrix}
 a_{11} & a_{12} & \ldots & a_{1n} \\
@@ -221,7 +221,7 @@ Macierzą odległości cech zmiennych nazywamy macierz, której elementami są o
 $D = [d_{ik}].$
 \end{center}
 gdzie:\\
-$d_{ik}$-odległość między $i$-tym a $k$-tym obiektem, dla $i,k=1,2,\ldots,n$
+$d_{ik}$-odległość między $i$-tym a~$k$-tym obiektem, dla $i,k=1,2,\ldots,n$
 \end{definition}
 
 \begin{uwaga}
@@ -249,7 +249,7 @@ Zmienna jest opisana na~skali przedziałowej gdy podobnie jak na~skali porządko
 Zmienna jest opisana na~skali ilorazowej, jeśli jej zbiór wartości jest zbiorem postaci $[0, \infty)$ będący podzbiorem zbioru liczb $\mathbb{R}$, lub też taki zbiór wartości który można utożsamić z~podzbiorem liczb $\mathbb{R}$. Przykłady zmiennych opisywanych na~skali ilorazowej: napięcie elektryczne, bezrobocie. 
 
 %26.05
-%Skala ta, podobna jest do skali przedziałowej, z~tym że występuje w~niej zero bezwględne - punkt, który mówi o tym, że dana zmienna nie występuje, oraz ogranicza lewostronnie zakres skali ilorazowej. Dzięki temu punktowi oprócz działań dodawania i~odejmowania, można korzystać z~dzielenia oraz mnożenia, co pozwala na~przedstawieniu dowolnej wartości cechy danego obiektu, jako wielokrotna wartość cechy innego obiektu. Przykład zmiennych przedstawianych na~skali ilorazowej: napięcie elektryczne, bezrobocie, inflacja.
+%Skala ta, podobna jest do skali przedziałowej, z~tym że występuje w~niej zero bezwględne - punkt, który mówi o~tym, że dana zmienna nie występuje, oraz ogranicza lewostronnie zakres skali ilorazowej. Dzięki temu punktowi oprócz działań dodawania i~odejmowania, można korzystać z~dzielenia oraz mnożenia, co pozwala na~przedstawieniu dowolnej wartości cechy danego obiektu, jako wielokrotna wartość cechy innego obiektu. Przykład zmiennych przedstawianych na~skali ilorazowej: napięcie elektryczne, bezrobocie, inflacja.
 %26.05
 
 \end{itemize}
@@ -277,7 +277,7 @@ Nominantami nazywane są te zmienne, które mają określoną najkorzystniejszą
 \section{Podstawowe pojęcia rachunku prawdopodobieństwa oraz statystyki} \label{rachunek prawdopodobienstwa}
 
 
-Na potrzeby pracy, zostały wykorzystane pojęcia rachunku prawdopodobieństwa oraz statystyki, konieczne do zrozumienia danych jako próby losowej. W~tym celu niezbędne było wprowadzenie definicji prawdopodobieństwa, zmiennej losowej, a także pojęć powiązanych z~tymi definicjami tj. ciała zbiorów, $\sigma$-ciała zbiorów, przestrzeni zdarzeń elementarnych, zdarzenia losowego.
+Na potrzeby pracy, zostały wykorzystane pojęcia rachunku prawdopodobieństwa oraz statystyki, konieczne do zrozumienia danych jako próby losowej. W~tym celu niezbędne było wprowadzenie definicji prawdopodobieństwa, zmiennej losowej, a~także pojęć powiązanych z~tymi definicjami tj. ciała zbiorów, $\sigma$-ciała zbiorów, przestrzeni zdarzeń elementarnych, zdarzenia losowego.
 
 
 \begin{definition}{Ciało zbiorów \cite[Rozdział 8.1]{rudnicki2006}}\\
@@ -285,7 +285,7 @@ Rodzinę $\mathcal{F}$ podzbiorów, niepustego zbioru $X$ nazywamy ciałem zbior
 \begin{enumerate}
 \item $\emptyset \in \mathcal{F}$,
 \item jeżeli $A \in \mathcal{F}$, to $X \setminus A \in \mathcal{F}$,
-\item jeżeli $A \in \mathcal{F}$, to $A \cup B \in \mathcal{F}$.
+\item jeżeli $A, B \in \mathcal{F}$, to $A \cup B \in \mathcal{F}$.
 \end{enumerate}
 \end{definition}
 
@@ -300,7 +300,7 @@ Najważniejszym $\sigma$-ciałem zbiorów w~matematyce są $\sigma$-ciała zbior
 
 
 
-\begin{definition}{Zbiory borelowskie \cite[w opraciu o rozdział 2]{billingsley1987}}\\
+\begin{definition}{Zbiory borelowskie \cite[w opraciu o~rozdział 2]{billingsley1987}}\\
 Zbiorami borelowskimi względem danej przestrzeni $X$, nazywamy zbiory należące do $\sigma$-ciała $X$ generowanego przez rodzinę $\mathfrak{B}(X)$ - wszystkich zbiorów otwartych w~$X$. Rodzinę wszystkich zbiorów borelowskich względem $X$, oznaczamy $\mathcal{B}(X)$.
 \end{definition}
 
@@ -324,17 +324,17 @@ Przestrzenią mierzalną nazywamy parę $(X, \mathcal{F})$, gdzie $\mathcal{F}$ 
 \end{definition}
 
 
-\begin{definition}{Funkcja mierzalna \cite[w oparciu o rozdział 8.2]{rudnicki2006}}\\
-Niech $X$ będzie niepustym zbiorem, $\mathcal{F}$  $\sigma$-ciałem na~$X$ i~$\overline{\mathbb{R}} = \mathbb{R} \cup \{-\infty, \infty \}$. Funkcję $f: X \rightarrow \overline{\mathbb{R}}$ nazywamy mierzalną, jeżeli zbiór $\{ x \in X: f(x) > a \}$ jest mierzalny przy dowolnym $a \in \mathbb{R}$.
+\begin{definition}{Funkcja mierzalna \cite[w oparciu o~rozdział 8.2]{rudnicki2006}}\\
+Niech $X$ będzie niepustym zbiorem, $\mathcal{F}$  $\sigma$-ciałem na~$X$ i~$\overline{\mathbb{R}} = \mathbb{R} \cup \{-\infty, \infty \}$. Funkcję $f: X \rightarrow \overline{\mathbb{R}}$ nazywamy mierzalną, jeżeli zbiór $\{ x \in X: f(x) > a~\}$ jest mierzalny przy dowolnym $a \in \mathbb{R}$.
 \end{definition}
 
 Mając powyższe definicje, wprowadźmy możemy wprowadzić poszukiwane definicje rachunku prawdopodobieństwa. 
 
-\begin{definition}{Przestrzeń zdarzeń elementarnych \cite[w oparciu o rozdział 1.1]{krysicki1999}}\\
+\begin{definition}{Przestrzeń zdarzeń elementarnych \cite[w oparciu o~rozdział 1.1]{krysicki1999}}\\
 Zbiór wszyskich możliwych wyników doświadczenia losowego nazywamy przestrzenią zdarzeń elementarnych i~oznaczamy przez $\Omega$. Elementy zbioru $\Omega$ nazywamy zdarzeniami elementarnymi i~oznaczamy $\omega$.
 \end{definition}
 
-\begin{definition}{Zdarzenie losowe \cite[w oparciu o rozdział 1.1]{krysicki1999}}\\
+\begin{definition}{Zdarzenie losowe \cite[w oparciu o~rozdział 1.1]{krysicki1999}}\\
 Zdarzeniem losowym (zdarzeniem) nazywamy każdy podzbiór $\textit{A}$ zbioru $\Omega$, taki że  $A \in \mathcal{F}$, gdzie $\mathcal{F}$ jest rodziną podzbiorów $\Omega$ spełniającą następujące warunki:
 \begin{enumerate}
 \item $\Omega \in \mathcal{F}$,
@@ -345,8 +345,8 @@ Rodzinę $\mathcal{F}$ spełniającą warunki 1 - 3 nazywamy $\sigma$-ciałem po
 \end{definition}
 
 
-\begin{definition}{Prawdopodobieństwo \cite[w oparciu o rozdział 1.1]{krysicki1999}}\\
-Prawdopodobieństwem nazywamy dowolną funkcję $P$ o wartościach rzeczywistych, określoną na~$\sigma$-ciele zdarzeń $\mathcal{F} \subset 2^\Omega$, spełniającą warunki: 
+\begin{definition}{Prawdopodobieństwo \cite[w oparciu o~rozdział 1.1]{krysicki1999}}\\
+Prawdopodobieństwem nazywamy dowolną funkcję $P$ o~wartościach rzeczywistych, określoną na~$\sigma$-ciele zdarzeń $\mathcal{F} \subset 2^\Omega$, spełniającą warunki: 
 \begin{enumerate}
 \item $\forall{\textit{A} \in \mathcal{F}} \quad \textit{P(A)} \geq 0,$
 \item $\textit{P}(\Omega) = 1,$
@@ -358,7 +358,7 @@ $$P \Big(\bigcup\limits_{i=1}^{\infty} A_{i} \Big)=\sum_{i=1}^{\infty} P(A_{i}).
 \end{definition}
 
 
-\begin{definition}{Przestrzeń probabilistyczna \cite[w oparciu o rozdział 1.2]{krysicki1999}}\\
+\begin{definition}{Przestrzeń probabilistyczna \cite[w oparciu o~rozdział 1.2]{krysicki1999}}\\
 Przestrzenią probabilistyczną nazywamy uporządkowaną trójkę $(\Omega, \mathcal{F}, P)$, gdzie $\Omega$ jest zbiorem zdarzeń elementarnych, $\mathcal{F}$ jest $\sigma$-ciałem podzbiorów $\Omega$, zaś $P$ jest prawdopodobieństwem określonym na~$\mathcal{F}$.
 \end{definition}
 
@@ -377,7 +377,7 @@ Wektorem losowym nazywamy odwzorowanie $Y:\Omega \rightarrow \mathbb{R}^n$, spe�
 
 
 \begin{definition}{Rozkład prawdopodobieństwa zmiennej losowej \cite[Rozdział 5.1]{jakubowski2004}}\\
-Rozkładem prawdopodobieństwa zmiennej losowej $Y$ o wartościach w~$\mathbb{R}$ nazywamy funkcję $\mu_Y$ określoną na~$\mathcal{B}(\mathbb{R})$ zależnością:
+Rozkładem prawdopodobieństwa zmiennej losowej $Y$ o~wartościach w~$\mathbb{R}$ nazywamy funkcję $\mu_Y$ określoną na~$\mathcal{B}(\mathbb{R})$ zależnością:
 $$\mu_Y(B)=P_Y(B)=P(Y^{-1}(B)), \quad B \in \mathcal{B}(\mathbb{R}).$$
  
 \end{definition}
@@ -427,7 +427,7 @@ $$\sigma_Y=\sqrt{\Variance Y}.$$
 
 \begin{definition}{Próba losowa n-elementowa \cite[Rozdział 2]{bartoszewicz1996}}\\
 Niech $(\Omega, \mathcal{F}, P)$ będzie przestrzenią probabilistyczną, zaś $Y_{i}:\Omega^{n}  \rightarrow \mathbb{R}$ będzie zmienną losową.  
-Próbą losowa $n$-elementową nazywamy $n$-elementowy ciąg niezależnych zmiennych losowych o jednakowym prawdopodobieństwie, tzn. ciąg postaci $(\omega_{1}, \omega_{2}, \ldots, \omega_{n}) \in \Omega^{n}$, taki że $Y_{i}(\omega_{1}, \omega_{2}, \ldots, \omega_{n})=Y(\omega_{i})$.
+Próbą losowa $n$-elementową nazywamy $n$-elementowy ciąg niezależnych zmiennych losowych o~jednakowym prawdopodobieństwie, tzn. ciąg postaci $(\omega_{1}, \omega_{2}, \ldots, \omega_{n}) \in \Omega^{n}$, taki że $Y_{i}(\omega_{1}, \omega_{2}, \ldots, \omega_{n})=Y(\omega_{i})$.
 \end{definition}
 
 
@@ -443,7 +443,7 @@ $$
 f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^\frac{-(y-\mu_Y)^2}{2\sigma^2}
 $$ 
 dla $y \in \mathbb{R}$ i~pewnych $\mu_Y \in \mathbb{R}$ i~$\sigma^2 >0$. To mówimy, że zmienna losowa ma rozkład normalny z~parametrami $\mu$ i~$\sigma^2$, co zapisujemy $\mathcal{N}(\mu, \sigma^2)$.\\
-W przypadku, gdy $\mu=0$ i~$\sigma^2=1$, to rozkład ten nazywamy standardowym rozkładem normalnym i~oznaczamy $\mathcal{N}(0,1)$, a gęstość jest postaci
+W przypadku, gdy $\mu=0$ i~$\sigma^2=1$, to rozkład ten nazywamy standardowym rozkładem normalnym i~oznaczamy $\mathcal{N}(0,1)$, a~gęstość jest postaci
 $$f(y)=\frac{1}{\sqrt{2\pi}}e^\frac{-(y)^2}{2}.$$ 
 \end{definition}
 
@@ -475,18 +475,18 @@ Ważnym krokiem przed rozpoczęciem pracy na~zbiorze danych jest ujednolicenie i
 \end{itemize}
 W dalszej części pracy $j$-ta zmienna znormalizowana, $i$-tego obiektu jest oznaczona jako $n_{ij}$. Dodatkowo przyjmujemy oznaczenia: $\overline{x}$ - średnia z~próby, $\sigma{(x)}$ - odchylenie standardowe z~próby.
 \begin{enumerate}
-\item W~wyniku standaryzacji zmienne uzyskują odchylenie standardowe równe 1 i~wartości oczekiwanej  równą 0. W~tym celu dla każdej zmiennej, będącej cechą obiektu oblicza się odchylenie standardowe na~podstawie wartości tej zmiennej dla wszystkich obiektów, a także wartość oczekiwaną na~tej samej zasadzie. W~kolejnym kroku dla każdego obiektu liczymy jego znormalizowaną wartość tj. od wartości zmiennej odejmujemy średnią wartość danej cechy, a otrzymaną różnicę dzielimy przez odchylenie standardowe dla tej cechy. Powyższy opis można zapisać w~postaci: 
+\item W~wyniku standaryzacji zmienne uzyskują odchylenie standardowe równe 1 i~wartości oczekiwanej  równą 0. W~tym celu dla każdej zmiennej, będącej cechą obiektu oblicza się odchylenie standardowe na~podstawie wartości tej zmiennej dla wszystkich obiektów, a~także wartość oczekiwaną na~tej samej zasadzie. W~kolejnym kroku dla każdego obiektu liczymy jego znormalizowaną wartość tj. od wartości zmiennej odejmujemy średnią wartość danej cechy, a~otrzymaną różnicę dzielimy przez odchylenie standardowe dla tej cechy. Powyższy opis można zapisać w~postaci: 
 $$
 n_{ij}=\frac{x_{ij} - \overline{x_{j}}}{\sigma(x_j)}, \quad i~= 1,2, \ldots, n, \quad j=1,2,\ldots, m.
 $$
 
 
 
-\item W~pracy korzystamy również z~unitaryzacji, stosowanej w~celu uzyskania zmiennych o ujednoliconym zakresie zmienności, najczęściej jest to przedział $[0,1]$. W~tym celu od wartości zmiennej w~obiekcie, odejmowana jest minimalna wartość występująca dla tej cechy, a następnie różnica ta dzielona jest przez różnicę między maksymalną a minimalną wartością zmiennej, która została poddana normalizacji. Znormalizowana zmienna jest postaci:
+\item W~pracy korzystamy również z~unitaryzacji, stosowanej w~celu uzyskania zmiennych o~ujednoliconym zakresie zmienności, najczęściej jest to przedział $[0,1]$. W~tym celu od wartości zmiennej w~obiekcie, odejmowana jest minimalna wartość występująca dla tej cechy, a~następnie różnica ta dzielona jest przez różnicę między maksymalną a~minimalną wartością zmiennej, która została poddana normalizacji. Znormalizowana zmienna jest postaci:
 $$
 n_{ij}=\frac{x_{ij} - \min\limits_{i}(x_{ij})}{\max\limits_{i} (x_{ij}) - \min\limits_{i} (x_{ij})}, \quad i~= 1,2, \ldots, n, \quad j=1,2,\ldots, m. 
 $$
-\item Kolejna metoda normalizacyjna, wykorzystana w~pracy to przekształcenie ilorazowe. Stosuje się  je aby odnieść wartości zmiennej do ustalonej wartości - może to być wartość oczekiwana danej zmiennej na~tle analizowanych obiektów, wartość minimalna lub maksymalna tej cechy. W~pracy za tę wartość przyjęliśmy średnią wartość zmiennej. Każda wartość zmiennej dla danego obiektu jest dzielona przez wartość oczekiwaną tej zmiennej, a postać znormalizowanej zmiennej to:
+\item Kolejna metoda normalizacyjna, wykorzystana w~pracy to przekształcenie ilorazowe. Stosuje się  je aby odnieść wartości zmiennej do ustalonej wartości - może to być wartość oczekiwana danej zmiennej na~tle analizowanych obiektów, wartość minimalna lub maksymalna tej cechy. W~pracy za~tę wartość przyjęliśmy średnią wartość zmiennej. Każda wartość zmiennej dla danego obiektu jest dzielona przez wartość oczekiwaną tej zmiennej, a~postać znormalizowanej zmiennej to:
 $$
 n_{ij}=\frac{x_{ij}}{\overline{x_j}}, \quad \overline{x_j} \neq 0 \quad i~= 1,2, \ldots, n, \quad j=1,2,\ldots, m.
 $$ 
@@ -501,15 +501,15 @@ $r$-ranga nadana $i$-temu obiektowi znajdującemu się na~$r$-tym miejscu w~upor
 \subsubsection{Stymulacja zmiennych}
 W celu ujednolicenia charakteru zmiennych należy poddać je pewnym przekształceniom, polegającym na~zamianie destymulant i~nominant na~stymulanty. Tego typu transformacje nazywamy stymulacją. Można wyróżnić dwie najczęściej stosowane metody, tj. przekształcenie ilorazowe oraz przekształcenie różnicowe. W~zależności od skali, na~której mierzone są zmienne, należy stosować odpowiednie przekształcenie stymulacyjne.
 
-Przekształcenie ilorazowe można stosować tylko dla zmiennych mierzonych na~skali ilorazowej. Poniżej zaprezentujemy jego postać dla zmiennych o charakterze destymulant oraz nominant.
+Przekształcenie ilorazowe można stosować tylko dla zmiennych mierzonych na~skali ilorazowej. Poniżej zaprezentujemy jego postać dla zmiennych o~charakterze destymulant oraz nominant.
 \begin{itemize}
-\item Niech $x^{D}$ oznacza dane o charakterze destymulant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
+\item Niech $x^{D}$ oznacza dane o~charakterze destymulant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
 
 $$
 x_{ij}^{S}=[x_{ij}^{D}]^{-1},  \quad i~= 1,2, \ldots, n, \quad j=1,2,\ldots, m,
 $$
 
-\item Analogicznie do powyższego, niech $x^{N}$ oznaczają dane o charakterze nominant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
+\item Analogicznie do powyższego, niech $x^{N}$ oznaczają dane o~charakterze nominant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
 $$
 x_{ij}^{S}=\frac{\min\{x_{j}^{N},x_{ij}^{N}\}}{\max\{x_{j}^{N},x_{ij}^{N}\}}, \quad i~= 1,2, \ldots, n, \quad j=1,2,\ldots, m.
 $$
@@ -518,14 +518,14 @@ $x_{j}^{N}$ - oznacza pożądaną wartość $j$-tej zmiennej,\\
 $x_{ij}^{N}$ - oznacza wartość $j$-tej zmiennej w~$i$-tym obiekcie.
 \end{itemize}
 
-Dla zmiennych mierzonych na~skali ilorazowej czy też przedziałowej stosuje się przekształcenie różnicowe. Postać tego przekształcenia dla zmiennych o charakterze destymulant oraz nominant jest następująca.
+Dla zmiennych mierzonych na~skali ilorazowej czy też przedziałowej stosuje się przekształcenie różnicowe. Postać tego przekształcenia dla zmiennych o~charakterze destymulant oraz nominant jest następująca.
 \begin{itemize}
 
-\item Ponownie niech $x^{D}$ oznacza dane o charakterze destymulant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
+\item Ponownie niech $x^{D}$ oznacza dane o~charakterze destymulant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
 $$
 x_{ij}^{S}=\max\limits_{i} \{x_{ij}^{D}\} - x_{ij}^{D}, \quad i~= 1,2, \ldots, n, \quad j=1,2,\ldots, m,
 $$
-\item Niech teraz $x^{N}$ oznaczają dane o charakterze nominant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
+\item Niech teraz $x^{N}$ oznaczają dane o~charakterze nominant, wtedy dane $x^{S}$ wyznaczone wg. poniższego wzoru, mają charakter stymulant:
 $$
 x_{ij}^{S}=-|x_{ij}^{N}-x_{j}^{N}|, \quad i~= 1,2, \ldots, n, \quad j=1,2,\ldots, m.
 $$
@@ -542,22 +542,22 @@ W celu wprowadzenia kluczowych definicji, należy wcześniej podać podstawowe p
 %make glossary do wprowadzenia pojec -> poczytac i~sie zastanowic
 
 
-\begin{definition}{Para uporządkowana \cite[w oparciu o rozdział 3]{kuratowski2004}}\\
+\begin{definition}{Para uporządkowana \cite[w oparciu o~rozdział 3]{kuratowski2004}}\\
 Niech $X$ będzie dowolnym, niepustym zbiorem oraz niech dane będą dwa elementy $a,b \in X$. Parą uporządkowaną nazywamy parę postaci $<a,b>$, gdzie element $a$ jest poprzednikiem, zaś element $b$ jest następnikiem: $<a,b>=\{\{a\},\{a,b\}\}.$
 \end{definition}
 
-\begin{definition}{Para nieuporządkowana \cite[w oparciu o rozdział 3]{kuratowski2004}}\\
+\begin{definition}{Para nieuporządkowana \cite[w oparciu o~rozdział 3]{kuratowski2004}}\\
 Niech $X$ będzie dowolnym, niepustym zbiorem oraz niech dane będą dwa elementy $a,b \in X$. Parą nieuporządkowaną nazywamy zbiór postaci $\{a,b\}$, tj. zawierający elementy $a$ i~$b$ i~nie zawierający żadnego innego elementu. W~przypadku, gdy $a=b$, to para nieuporządkowana $\{a,b\}$, składa się dokładnie z~jednego elementu.
 \end{definition}
 
-W analogiczny sposób jak parę dwóch punktów można wprowadzić parę dwóch zbiorów. Istotne jest aby podkreślić różnicę pomiędzy parą dwóch wierzchołków, które tworzą krawędź, a parą zbiorów definiującą graf. 
+W analogiczny sposób jak parę dwóch punktów można wprowadzić parę dwóch zbiorów. Istotne jest aby podkreślić różnicę pomiędzy parą dwóch wierzchołków, które tworzą krawędź, a~parą zbiorów definiującą graf. 
 
-\begin{definition}{Graf \cite[w oparciu o rozdział 2]{wilson2008}}\\
+\begin{definition}{Graf \cite[w oparciu o~rozdział 2]{wilson2008}}\\
 Grafem nazywamy parę $G=(V,E)=(V(G),E(G))$, gdzie $V$ jest niepustym, skończonym zbiorem wierzchołków grafu $G$, zaś $E$ jest skończonym podzbiorem zbioru nieuporządkowanych par elementów zbioru $V$.
-%Niech $G$ będzie grafem, tzn. zbiorem składającym się z~niepustego, skończonego zbioru $V(G)$, którego elementy nazywamy wierzchołkami oraz skończonego zbioru $E(G)$, którego elementy nazywamy krawędziami. Zbiór $V(G)$ nazywamy zbiorem wierzchołków, a zbiór $E(G)$ zbiorem krawędzi grafu $G$.\
+%Niech $G$ będzie grafem, tzn. zbiorem składającym się z~niepustego, skończonego zbioru $V(G)$, którego elementy nazywamy wierzchołkami oraz skończonego zbioru $E(G)$, którego elementy nazywamy krawędziami. Zbiór $V(G)$ nazywamy zbiorem wierzchołków, a~zbiór $E(G)$ zbiorem krawędzi grafu $G$.\
 \end{definition}
 %\begin{definition}{Graf prosty \cite[Rozdział 2]{wilson2008}\\}
-%Niech $G$ będzie grafem prostym, tj. grafem składającym się z~niepustego zbioru skończonego $V(G)$, którego elementy nazywamy wierzchołkami (lub węzłami), i~skończonego zbioru $E(G)$ różnych par nieuporządkowanych różnych elementów zbioru $V(G)$, które nazywamy krawędziami. Zbiór $V(G)$ nazywamy zbiorem wierzchołków, a zbiór $E(G)$ $\big (E(G) \subseteq \{\{u,v\}: u,v \in V, u\neq v\} \big)$ zbiorem krawędzi grafu $G$.\\
+%Niech $G$ będzie grafem prostym, tj. grafem składającym się z~niepustego zbioru skończonego $V(G)$, którego elementy nazywamy wierzchołkami (lub węzłami), i~skończonego zbioru $E(G)$ różnych par nieuporządkowanych różnych elementów zbioru $V(G)$, które nazywamy krawędziami. Zbiór $V(G)$ nazywamy zbiorem wierzchołków, a~zbiór $E(G)$ $\big (E(G) \subseteq \{\{u,v\}: u,v \in V, u\neq v\} \big)$ zbiorem krawędzi grafu $G$.\\
 %Mówimy, że krawędź $\{v,w\}$ łączy wierzchołki $v$ i~$w$, i~na~ogół oznaczamy ją krócej symbolem $vw$.\\
 %\end{definition}
 
@@ -596,13 +596,13 @@ $$
 \end{definition}
 
 
-%poczytac i~zrobic w~oparciu o to: http://smurf.mimuw.edu.pl/node/841
+%poczytac i~zrobic w~oparciu o~to: http://smurf.mimuw.edu.pl/node/841
 
-Aby dowiedzieć się o połączeniu dwóch wierzchołków w~grafie, wprowadzimy pojęcie trasy.
+Aby dowiedzieć się o~połączeniu dwóch wierzchołków w~grafie, wprowadzimy pojęcie trasy.
 
 \begin{definition}{Trasa/marszruta \cite[Rozdział 3]{wilson2008}}\\
 Trasą (lub marszrutą) w~danym grafie $G$ nazywamy skończony ciąg krawędzi postaci \newline
-$v_{0}v_{1}, v_{1}v_{2}, \ldots,v_{m-1}v_{m}$, zapisywany również w~postaci $v_{0} \rightarrow{} v_{1} \rightarrow{} v_{2} \rightarrow{} \ldots \rightarrow{} v_{m}$, w~którym każde dwie kolejne krawędzie są albo sąsiednie, albo identyczne. Taka trasa wyznacza ciąg wierzchołków $v_{0}, v_{1}, \ldots, v_{m}$. Wierzchołek $v_{0}$ nazywamy wierzchołkiem początkowym, a wierzchołek $v_{m}$ wierzchołkiem końcowym trasy, mówimy też wtedy, o~ trasie o~d wierzchołka $v_{0}$ do wierzchołka $v_{m}$. Liczbę krawędzi na~trasie nazywamy długością trasy. 
+$v_{0}v_{1}, v_{1}v_{2}, \ldots,v_{m-1}v_{m}$, zapisywany również w~postaci $v_{0} \rightarrow{} v_{1} \rightarrow{} v_{2} \rightarrow{} \ldots \rightarrow{} v_{m}$, w~którym każde dwie kolejne krawędzie są albo sąsiednie, albo identyczne. Taka trasa wyznacza ciąg wierzchołków $v_{0}, v_{1}, \ldots, v_{m}$. Wierzchołek $v_{0}$ nazywamy wierzchołkiem początkowym, a~wierzchołek $v_{m}$ wierzchołkiem końcowym trasy, mówimy też wtedy, o~ trasie o~d wierzchołka $v_{0}$ do wierzchołka $v_{m}$. Liczbę krawędzi na~trasie nazywamy długością trasy. 
 \end{definition}
 
 \begin{definition}{Ścieżka \cite[Rozdział 3]{wilson2008}}\\
@@ -642,7 +642,7 @@ Drzewem nazywamy graf spójny, nie zawierający cykli.
 
 %graf skierowany https://tex.stackexchange.com/questions/162521/tikz-and-directed-graph
 \begin{definition}{Graf skierowany(digraf albo graf zorientowany) \cite[Rozdział 7]{wilson2008}}\\
-Graf skierowany lub digraf $D$, składa się z~niepustego zbioru skończonego $V(D)$ elementów nazywanych wierzchołkami i~skończonej rodziny $E(D)$ par uporządkowanych elementów zbioru $V(D)$, nazywanych łukami. Zbiór $V(D)$ nazywamy zbiorem wierzchołków, a rodzinę $E(D)$ rodziną łuków digrafu D (krawędzi grafu skierowanego). Łuk $(v,w)$ zwykle zapisujemy jako $vw$. Graf skierowany oznaczamy zwykle w~postaci pary uporządkowanej $G=<V,E>$.
+Graf skierowany lub digraf $D$, składa się z~niepustego zbioru skończonego $V(D)$ elementów nazywanych wierzchołkami i~skończonej rodziny $E(D)$ par uporządkowanych elementów zbioru $V(D)$, nazywanych łukami. Zbiór $V(D)$ nazywamy zbiorem wierzchołków, a~rodzinę $E(D)$ rodziną łuków digrafu D (krawędzi grafu skierowanego). Łuk $(v,w)$ zwykle zapisujemy jako $vw$. Graf skierowany oznaczamy zwykle w~postaci pary uporządkowanej $G=<V,E>$.
 \end{definition}
 
 \begin{uwaga}
@@ -742,7 +742,7 @@ Niech dany będzie niepusty zbiór $X$. Relację $\leq$ porządkującą zbiór $
 \begin{definition}{Elementy wyróżnione \cite[Rozdział 2]{blaszczyk2007}}\\
 Niech $X$ będzie zbiorem częściowo uporządkowanym przez relacje $\leq$ oraz niech $a \in X$. Mówimy, że:
 \begin{enumerate}
-\item $a$ jest elementem najmniejszym w~$X$, gdy dla każdego$x \in X \quad a \leq x$
+\item $a$ jest elementem najmniejszym w~$X$, gdy dla każdego$x \in X \quad a~\leq x$
 \item $a$ jest elementem minimalnym w~$X$, gdy jest jedynym elementem najmniejszym w~$X$
 \item $a$ jest elementem największym w~$X$, gdy dla każdego $ x \in X \quad x\leq a$
 \item $a$ jest elementem maksymalnym w~$X$, gdy jest jedynym elementem największym w~$X$
@@ -752,7 +752,7 @@ Niech $X$ będzie zbiorem częściowo uporządkowanym przez relacje $\leq$ oraz 
 
 
 \begin{definition}{Ograniczenie górne \cite[Rozdział 2]{blaszczyk2007}}\\
-Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Element $x \in X$ nazywamy ograniczeniem górnym zbioru $A$ względem relacji $\leq$, gdy dla każdego $a \in A, \quad a \leq x$ . 
+Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Element $x \in X$ nazywamy ograniczeniem górnym zbioru $A$ względem relacji $\leq$, gdy dla każdego $a \in A, \quad a~\leq x$ . 
 \end{definition}
 
 
@@ -769,9 +769,9 @@ Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Zbiór na
 \begin{definition}{Kres górny \cite[Rozdział 2]{blaszczyk2007}}\\
 Niech $A \subseteq X$, gdzie $(X, \leq)$ jest zbiorem uporządkowanym. Jeśli zbiór $A$ jest ograniczony z~góry i~wśród ograniczeń górnych zbioru $A$ istnienie element najmniejszy $x_0$, to element ten nazywamy kresem górnym zbioru $A$ i~oznaczamy symbolem $sup A$. Tak więc $x_0 =sup A$, gdy spełnione są następujące warunki:
 \begin{enumerate}
-\item dla każdego $a \in A \quad a \leq x_0$ ,
+\item dla każdego $a \in A \quad a~\leq x_0$ ,
 \item $\forall x \in X \quad ( \forall a\in A  \quad a\leq x)  \Rightarrow x_0 \leq x$
-%dla każdego $x \in X$, takie że dla każdego $a \in A \quad a \leq x$, zachodzi $x_0 \leq x$.
+%dla każdego $x \in X$, takie że dla każdego $a \in A \quad a~\leq x$, zachodzi $x_0 \leq x$.
 \end{enumerate}
 \end{definition}
 
@@ -858,7 +858,7 @@ Niech $\mathrm{d}_e: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ b�
 $$\forall{(x_1,x_2,\ldots,x_n),(y_1,y_2,\ldots,y_n) \in \mathbb{R}^n} \quad \mathrm{d}_e(x,y):= \sqrt{\sum_{i=1}^{n} |x_i-y_i|^2}.$$
 \end{example}
 
-%Tw o metryce euklidesowej w~K^n ?? -zeszyt topologia rok 2 
+%Tw o~metryce euklidesowej w~K^n ?? -zeszyt topologia rok 2 
 
 %25.06
 %\subsection{Rachunek macierzowy}
@@ -899,12 +899,12 @@ $$\forall{(x_1,x_2,\ldots,x_n),(y_1,y_2,\ldots,y_n) \in \mathbb{R}^n} \quad \mat
 
 
 %\begin{definition}{Macierz \cite[Rozdział 1]{banaszak2002}}
-%Niech $K$ będzie ciałem i~$m, n \in \mathbb{N}$. Macierzą o $m$-wierszach, $n$-kolumnach i~o wyrazach z~$K$ nazywamy każdą funkcję postaci
+%Niech $K$ będzie ciałem i~$m, n \in \mathbb{N}$. Macierzą o~$m$-wierszach, $n$-kolumnach i~o wyrazach z~$K$ nazywamy każdą funkcję postaci
 %$A: \{1,\ldots, m \} \times \{1, \ldots, n\} \rightarrow K$
 %\end{definition}
 %
 %\begin{example}
-%Macierz $A$ o $m$-wierszach i~$n$-kolumnach najczęściej zapisuje się postaci $A= [a_{ij}]_{i \leq m, j \leq n}$, tj. 
+%Macierz $A$ o~$m$-wierszach i~$n$-kolumnach najczęściej zapisuje się postaci $A= [a_{ij}]_{i \leq m, j \leq n}$, tj. 
 %$$
 %A= \begin{bmatrix}
 %a_{11} & a_{12} &  & a_{1n} \\
@@ -918,7 +918,7 @@ $$\forall{(x_1,x_2,\ldots,x_n),(y_1,y_2,\ldots,y_n) \in \mathbb{R}^n} \quad \mat
 
 
 \chapter{Metody porządkowania}\label{metody porzadkowania}
-Rozdział ten został opracowany w~oparciu o pozycję \cite[Rozdział 2]{panek2013}. Omówimy w~nim wybrane metody porządkowania zarówno liniowego jak i~nieliniowego. W~kolejnym rozdziale szczegółowo przyjrzymy się wybranym metodom wraz z~przedstawieniem ich algorytmów oraz dokładnych opisów matematycznych. 
+Rozdział ten został opracowany w~oparciu o~pozycję \cite[Rozdział 2]{panek2013}. Omówimy w~nim wybrane metody porządkowania zarówno liniowego jak i~nieliniowego. W~kolejnym rozdziale szczegółowo przyjrzymy się wybranym metodom wraz z~przedstawieniem ich algorytmów oraz dokładnych opisów matematycznych. 
 
 Metody porządkowania liniowego umożliwiają utworzenie uporządkowanej listy obiektów na~podstawie określonego kryterium (np. wartości zmiennych). 
 Z kolei metody porządkowania nieliniowego zwracają graf połączeń podobnych obiektów, ze względu na~opisujące je zmienne. 
@@ -942,14 +942,14 @@ Powyżej wymienione własności są wynikiem posiadania jedynie skończonej ilo�
 \begin{itemize}
 \item sformalizować rozumienie powyższych własności,
 \item udowodnić ich poprawność,
-\item rozważyć dostateczność tych własności w~zbiorach o skończonej ilości obiektów.
+\item rozważyć dostateczność tych własności w~zbiorach o~skończonej ilości obiektów.
 \end{itemize}
 
 
 Na początku zaczniemy od sprecyzowania takich pojęć jak sąsiad względem relacji.
 
 \begin{definition}{Sąsiad względem relacji $\leq$}\label{def-sasiada} \\
-Niech  $X$ będzie niepustym zbiorem, a $x, y$ będą dwoma różnymi elementami należącymi do tego zbioru. Mówimy, że $y \in X$ jest sąsiadem $x \in X$,co zapisujemy $ySx$, jeśli
+Niech  $X$ będzie niepustym zbiorem, a~$x, y$ będą dwoma różnymi elementami należącymi do tego zbioru. Mówimy, że $y \in X$ jest sąsiadem $x \in X$,co zapisujemy $ySx$, jeśli
 
 $\left(y \leq x \lor x \leq y \right) \quad \land \quad  \left(\lnot \exists_{z \in X}  \quad x\neq z~\neq y \Rightarrow   y \leq z~\leq x \lor x \leq z~\leq y \right)$.
 \end{definition}
@@ -975,9 +975,9 @@ Jednak wiemy, że $y$ nie może być sąsiadem $x$ gdyż ten nie posiada sąsiad
 $$
 z \leq x \lor x \leq z.
 $$
-Powyższe rozumowanie dla $y$ można by dalej zastosować do $z$, uzyskując kolejne $z_1$ a później $z_2,z_3, \ldots$ dowolną ilość różnych elementów, z~których każdy występuje w~relacji liniowego porządku z~$x$, ale żaden z~nich nie jest sąsiadem. Jednak nasz zbiór $X$ jest zbiorem skończonym, więc nigdy nie uda nam się utworzyć dowolnej ilości różnych elementów ze zbioru $X$ (elementy się wyczerpią). Zatem nasze przypuszczenie, że $\licznosc{\{y \in X, ySx\}} = 0$ jest fałszywe.
+Powyższe rozumowanie dla $y$ można by~dalej zastosować do $z$, uzyskując kolejne $z_1$ a~później $z_2,z_3, \ldots$ dowolną ilość różnych elementów, z~których każdy występuje w~relacji liniowego porządku z~$x$, ale żaden z~nich nie jest sąsiadem. Jednak nasz zbiór $X$ jest zbiorem skończonym, więc nigdy nie uda nam się utworzyć dowolnej ilości różnych elementów ze zbioru $X$ (elementy się wyczerpią). Zatem nasze przypuszczenie, że $\licznosc{\{y \in X, ySx\}} = 0$ jest fałszywe.
 
-Przypuśćmy dalej, że $\licznosc{\{y \in X, ySx\}} \geq 3$. Niech $a,b,c$ będą trzema różnymi elementami z~$X$ będącymi sąsiadami dla $x$. Wtedy bez straty o~gólności możemy przyjąć, że $a \leq x, b \leq x$ lub $x \leq a, x \leq b$. Istotnie mając 3 elementy w~relacji wtedy co najmniej dwa muszą znajdować się po zgodnej stronie, a z~dokładnością do o~znaczeń możemy przyjąć, że będą nimi $a$ o~raz $b$. Ustalmy zatem, że $a \leq x, b \leq x$. Wobec definicji \ref{def-porzadek-liniowy} wiemy, że $a \leq b$ lub $b \leq a$. Jeśli $a \leq b$ to $a \leq b \leq x$. Co przeczy temu, że $a$ jest sąsiadem $x$. Jeśli $b \leq a$ to $b \leq a \leq x$ co przeczy temu, że $b$ jest sąsiadem. Analogicznie postępujemy dla przypadku $x \leq a, x \leq b$. Uzyskujemy zatem sprzeczność, będącą efektem przypuszczenia, że mogą istnieć takie 3 elementy $a,b,c$. Zatem o~statecznie $\licznosc{\{y \in X, ySx\}} \in \{ 1,2 \}$.
+Przypuśćmy dalej, że $\licznosc{\{y \in X, ySx\}} \geq 3$. Niech $a,b,c$ będą trzema różnymi elementami z~$X$ będącymi sąsiadami dla $x$. Wtedy bez straty o~gólności możemy przyjąć, że $a \leq x, b \leq x$ lub $x \leq a, x \leq b$. Istotnie mając 3 elementy w~relacji wtedy co najmniej dwa muszą znajdować się po zgodnej stronie, a~z~dokładnością do o~znaczeń możemy przyjąć, że będą nimi $a$ o~raz $b$. Ustalmy zatem, że $a \leq x, b \leq x$. Wobec definicji \ref{def-porzadek-liniowy} wiemy, że $a \leq b$ lub $b \leq a$. Jeśli $a \leq b$ to $a \leq b \leq x$. Co przeczy temu, że $a$ jest sąsiadem $x$. Jeśli $b \leq a$ to $b \leq a~\leq x$ co przeczy temu, że $b$ jest sąsiadem. Analogicznie postępujemy dla przypadku $x \leq a, x \leq b$. Uzyskujemy zatem sprzeczność, będącą efektem przypuszczenia, że mogą istnieć takie 3 elementy $a,b,c$. Zatem o~statecznie $\licznosc{\{y \in X, ySx\}} \in \{ 1,2 \}$.
 
 \item Niech $x,y \in X$ o~raz niech $ySx$. Korzystając z~definicji sąsiada \ref{def-sasiada} mamy, że skoro $ySx$ to  $$\left(y \leq x \lor x\leq y \right)\quad \land \quad  \left(\lnot \exists_{z \in X}  \quad x\neq z~\neq y \Rightarrow   y \leq z~\leq x \lor x \leq z~\leq y \right).$$ 
 Natomiast $xSy$ o~znacza, że 
@@ -1030,7 +1030,7 @@ $$
 Zatem albo $x_m$ jest sąsiadem $x$ albo istnieje $y_1 \in X$ taki, że $y_1 \leq x$.
 Tworzy to kilka możliwych przypadków. W~pierwszym $x_m$ będzie tym jedynym sąsiadem, w~drugim $x_M$ nim będzie, w~ostatnim natomiast, ani $x_m$, ani $x_M$ nie będą sąsiadami.
 
-Zajmiemy się najpierw pierwszym z~nich, tj. $x_m$ jest sąsiadem $x$. Zauważmy teraz, że z~faktu, iż $x_M$ jest elementem maksymalnym zbioru $X$, wynika że $ x \leq x_M$. Nie jest jednak sąsiadem elementu $x$. Zatem istnieje takie $x_1 \in X$, że $x\leq x_1 \leq x_M$. Jednak $x_1$ również nie może być sąsiadem $X$ co powoduje, że istnieje taki element $x_2 \in X$, że $x \leq x_2 \leq x_1 \leq x_M$. Itd. Jednakże, skoro zbiór $X$ jest zbiorem skończonym, to musi istnieć taki element $x_j \in X$, że $x \leq x_j \textrm{ i~} x_j \neq x_m$, który będzie sąsiadem z~$x$, zatem $xSx_j$. Zatem ostatecznie $xSx_m$ i~$xSx_j$, a to przeczy założeniu, że $x$ ma pojedynczego sąsiada. 
+Zajmiemy się najpierw pierwszym z~nich, tj. $x_m$ jest sąsiadem $x$. Zauważmy teraz, że z~faktu, iż $x_M$ jest elementem maksymalnym zbioru $X$, wynika że $ x \leq x_M$. Nie jest jednak sąsiadem elementu $x$. Zatem istnieje takie $x_1 \in X$, że $x\leq x_1 \leq x_M$. Jednak $x_1$ również nie może być sąsiadem $X$ co powoduje, że istnieje taki element $x_2 \in X$, że $x \leq x_2 \leq x_1 \leq x_M$. Itd. Jednakże, skoro zbiór $X$ jest zbiorem skończonym, to musi istnieć taki element $x_j \in X$, że $x \leq x_j \textrm{ i~} x_j \neq x_m$, który będzie sąsiadem z~$x$, zatem $xSx_j$. Zatem ostatecznie $xSx_m$ i~$xSx_j$, a~to przeczy założeniu, że $x$ ma pojedynczego sąsiada. 
 
 Przejdźmy teraz do drugiego przypadku, tj. gdy $x_M$ jest sąsiadem dla $x$. Wtedy $x_m$ nie jest sąsiadem dla $x$ jednak wiedząc, że $x_m \leq X$ musi istnieć $y_1\in X$, taki że $y_1 \leq x$. Jednak wiedząc iż $y_1$ nie jest sąsiadem dla $X$ wnioskujemy, że istnieje taki $y_2 \in X$, że $x_m \leq y_1 \leq y_2 \leq x$. Itd.  Jednakże, skoro zbiór $X$ jest zbiorem skończonym, to musi istnieć taki element $y_i \in X$, że $y_i \leq x$, który będzie sąsiadem z~$x$. Zatem ostatecznie $y_iSx$ i~$xSx_M$, co przeczy założeniu że $x$ ma pojedynczego sąsiada.
 
@@ -1045,7 +1045,7 @@ Zajmijmy się teraz trzecim przypadkiem, tj. gdy ani $x_m$ oraz $x_M$ nie są s�
 Własności, które wykazaliśmy powyżej są często podawane niemal na~równi z~definicją takiego uporządkowania. Poniżej zostaną jednak podane przykłady takich relacji, które mimo, że posiadają powyższy zestaw własności, to nie opisują relacji będących porządkami liniowymi. 
  
 \begin{example}
-Rozważmy zbiór dwuelementowy $X = \{ a, b \}$ gdzie $a \leq b$ jest jedynym punktem tej relacji. Tak zdefiniowana relacja spełnia wszystkie własności, ale nie spełnia założenia o zwrotności - zatem relacja ta nie jest liniowym porządkiem. Diagram Hassego prezentujący tę relację, jest postaci: 
+Rozważmy zbiór dwuelementowy $X = \{ a, b \}$ gdzie $a \leq b$ jest jedynym punktem tej relacji. Tak zdefiniowana relacja spełnia wszystkie własności, ale nie spełnia założenia o~zwrotności - zatem relacja ta nie jest liniowym porządkiem. Diagram Hassego prezentujący tę relację, jest postaci: 
 $$
 \begin{tikzpicture}[scale=.7]
   \node (a) at (-2,0) {$a$};
@@ -1082,17 +1082,17 @@ Z diagramu widać, że taka relacja spełnia wszystkie omawiane wcześniej włas
 %przyklady diagramow hassego!!! https://www.math.uni.wroc.pl/~newelski/dydaktyka/wdm-A/skrypt3/skrypt/node9.html
 
 
-W podsumowaniu tej sekcji należy podkreślić, że by uporządkować liniowo obiekty z~macierzy obserwacji, charakteryzujące je zmienne muszą być mierzone przynajmniej na~skali porządkowej. Istotne jest również aby miały jednakowy charakter. Na~potrzeby pracy zakładamy, że zmienne opisujące obiekty powinny być stymulantami. Dlatego też gdy nimi nie są, należy poddać je np. stymulacji. Operacja ta umożliwia w~dalszym kroku przejście do transformacji normalizacyjnej, która konieczna jest gdy zmienne opisujące obiekty mierzone są na~skali przedziałowej lub ilorazowej, a chcemy uzyskać ich porównywalność.
+W podsumowaniu tej sekcji należy podkreślić, że by~uporządkować liniowo obiekty z~macierzy obserwacji, charakteryzujące je zmienne muszą być mierzone przynajmniej na~skali porządkowej. Istotne jest również aby miały jednakowy charakter. Na~potrzeby pracy zakładamy, że zmienne opisujące obiekty powinny być stymulantami. Dlatego też gdy nimi nie są, należy poddać je np. stymulacji. Operacja ta umożliwia w~dalszym kroku przejście do transformacji normalizacyjnej, która konieczna jest gdy zmienne opisujące obiekty mierzone są na~skali przedziałowej lub ilorazowej, a~chcemy uzyskać ich porównywalność.
 % W~przypadku, gdy zmienne mierzone są na~skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji, dla zapewnienia ich porównywalności.
 
 Metody porządkowania liniowego można podzielić na~metody diagramowe, procedury oparte na~zmiennej syntetycznej oraz procedury iteracyjne bazujące na~funkcji kryterium dobroci uporządkowania. %Tzn. funkcji, którą się przyjmuje, lub też tworzy się, aby w~kolejnych iteracjach szukać takiego uporządkowania, które optymalizuje zbiór wartości tej funkcji. 
-W kolejnej sekcji zostaną pokrótce przedstawione różne metody, z~wyszczególnieniem najważniejszych założeń o każdej z~nich.
+W kolejnej sekcji zostaną pokrótce przedstawione różne metody, z~wyszczególnieniem najważniejszych założeń o~każdej z~nich.
 
 
 \subsection{Metody diagramowe}
 
 
-W metodach diagramowych stosuje się graficzną reprezentację macierzy odległości zwanej diagramem. Macierz konstruowana jest w~oparciu o odległości między obiektami, wyznaczone za pomocą dowolnej metryki. Porządkowanie obiektów polega na~porządkowaniu diagramu, tzn. przestawieniu wierszy i~odpowiadających im kolumn, aby wzdłuż przekątnej skupiały się najmniejsze odległości zaś im dalej od głównej przekątnej tym większe odległości między zmiennymi opisującymi porządkowane obiekty.  %tak aby symbole graficzne reprezentujące najmniejsze odległości skupiały się wzdłuż głównej przekątnej, zaś w~miarę oddalania się od głównej przekątnej znajdowały się symbole graficzne odpowiadające coraz to większym odległością.  %W kolejnym etapie następuje dzielenie mierników odległości macierzy, na~klasy podobieństwa obiektów. Kolejny krok polega na~przyporządkowaniu poszczególnym klasom podobieństwa, obiektów odpowiedniego symbolu graficznego. Samo porządkowanie obiektów polega na~porządkowaniu diagramu, tj. przestawieniu wierszy i~odpowiadających im kolumn diagramu, tak aby symbole graficzne reprezentujące najmniejsze odległości skupiały się wzdłuż głównej przekątnej, zaś w~miarę oddalania się od głównej przekątnej znajdowały się symbole graficzne odpowiadające coraz to większym odległością. 
+W metodach diagramowych stosuje się graficzną reprezentację macierzy odległości zwanej diagramem. Macierz konstruowana jest w~oparciu o~odległości między obiektami, wyznaczone za~pomocą dowolnej metryki. Porządkowanie obiektów polega na~porządkowaniu diagramu, tzn. przestawieniu wierszy i~odpowiadających im kolumn, aby wzdłuż przekątnej skupiały się najmniejsze odległości zaś im dalej od głównej przekątnej tym większe odległości między zmiennymi opisującymi porządkowane obiekty.  %tak aby symbole graficzne reprezentujące najmniejsze odległości skupiały się wzdłuż głównej przekątnej, zaś w~miarę oddalania się od głównej przekątnej znajdowały się symbole graficzne odpowiadające coraz to większym odległością.  %W kolejnym etapie następuje dzielenie mierników odległości macierzy, na~klasy podobieństwa obiektów. Kolejny krok polega na~przyporządkowaniu poszczególnym klasom podobieństwa, obiektów odpowiedniego symbolu graficznego. Samo porządkowanie obiektów polega na~porządkowaniu diagramu, tj. przestawieniu wierszy i~odpowiadających im kolumn diagramu, tak aby symbole graficzne reprezentujące najmniejsze odległości skupiały się wzdłuż głównej przekątnej, zaś w~miarę oddalania się od głównej przekątnej znajdowały się symbole graficzne odpowiadające coraz to większym odległością. 
 Narzędzie pomocnicze w~porządkowaniu danych, może stanowić kryterium postaci:
 
 
@@ -1107,7 +1107,7 @@ $D=[d_{ik}]$ - macierz odległości między $i$-tym i~$k$-tym obiektem,
 $W=[w_{ik}] \quad i,k=1, 2, \ldots, n$ - macierz wag elementów macierzy odległości, wymiaru równego wymiarowi macierzy odległości.
  
 
-Elementy macierzy wag wyznaczone są za pomocą jednego z~poniższych wzorów:
+Elementy macierzy wag wyznaczone są za~pomocą jednego z~poniższych wzorów:
 \begin{enumerate}[label=(\alph*)]
 \item $w_{ik}=\frac{| i-k |}{n-1}, \qquad$
 \item $w_{ik}=\frac{1}{n(n-1)}\lbrack{2n|i-k-1|+i+k-(i-i)^2\rbrack},$
@@ -1128,7 +1128,7 @@ Elementy macierzy wag wyznaczone są za pomocą jednego z~poniższych wzorów:
 
 %%przyklad diagramu http://www.antropologia.uw.edu.pl/MaCzek/maczek.html
 
-Zaprezentujmy teraz przykład uporządkowanego diagramu, przedstawiającego wynik badań Jana Czekanowskiego, dotyczących metod badania różnic między kopalnymi czaszkami ludzkimi. Analizując diagram zauważamy że wzdłuż głównej przekątnej skupiają się najmniejsze odległości między zmiennymi, a im dalej od niej tym odległości zwiększają się. Przykład został znaleziony na~stronie \cite{czekanowski}. 
+Zaprezentujmy teraz przykład uporządkowanego diagramu, przedstawiającego wynik badań Jana Czekanowskiego, dotyczących metod badania różnic między kopalnymi czaszkami ludzkimi. Analizując diagram zauważamy że wzdłuż głównej przekątnej skupiają się najmniejsze odległości między zmiennymi, a~im dalej od niej tym odległości zwiększają się. Przykład został znaleziony na~stronie \cite{czekanowski}. 
 \begin{figure}[h]
 \centering
 %\includegraphics[width=1\textwidth]{zbior2}
@@ -1136,7 +1136,7 @@ Zaprezentujmy teraz przykład uporządkowanego diagramu, przedstawiającego wyni
 %\label{fig:obrazek1}
 \includegraphics[width=0.55\textwidth]{img/diagram_maczek.jpg}
 \caption{Diagram opublikowany w~podręczniku ,,Statystyka dla antropologów" Jana Czekanowskiego, 1913r. \cite{czekanowski}}
-\label{fig:obrazek1}
+%\label{fig:obrazek1} 
 \end{figure}
 
 Metody diagramowe nie leżą w~zakresie zainteresowań tej pracy, z~uwagi na~mały formalizm matematyczny. Są jednak istotnym narzędziem do wizualizacji porządku. 
@@ -1209,7 +1209,7 @@ Dalej wyznaczamy miarę syntetyczną, licząc kolejno:
 $$d_{i0}=\bigg[\sum_{j=1}^{m} (n_{ij} - n_{0j})^2 \bigg]^\frac{1}{2}  $$ 
 \item Następnie dla każdej zmiennej wyznaczana jest średnia odległość od obiektu wzorcowego wg. wzoru:
 $$\overline{d_{0}}=\frac{1}{n}\sum_{i=1}^{n} d_{i0} $$
-\item W~kolejnym kroku wyznaczamy odchylenie standardowe dla każdej zmiennej za pomocą wzoru: 
+\item W~kolejnym kroku wyznaczamy odchylenie standardowe dla każdej zmiennej za~pomocą wzoru: 
 $$\sigma(d_{0})=\bigg[\frac{1}{n}\sum_{i=1}^{n} (d_{i0}-\overline{d_{0}})^2 \bigg]^\frac{1}{2} $$
 \item Mając powyższe, możemy wyznaczyć wartość $d_{0}$ jako sumę średniej odległości oraz podwojonej wartości odchylenia standardowego:
 $$d_{0}=\overline{d_{0}} + 2\sigma(d_{0}) $$
@@ -1221,15 +1221,15 @@ Wartości miary $s_{i}$ zazwyczaj są z~przedziału $[0, 1]$, jednakże mogą zd
 %\subsubsection{Metoda Walesiaka}
 %
 %
-%Metoda ta bazuje na~konstrukcji zmiennej syntetycznej w~oparciu o badanie odległości obiektów od obiektu wzorcowego, przy wykorzystaniu uogólnionej miary odległości. Umożliwia ona  porządkowanie obiektów, jeżeli opisujące je charakterystyki są mierzone przynajmniej na~skali porządkowej. W~takim przypadku, zmienne wejściowe o postaci nominant muszą zostać podaje stymulacji. Z~kolei gdy zmienne są mierzone na~skali przedziałowej lub ilorazowej, należy je znormalizować. 
+%Metoda ta bazuje na~konstrukcji zmiennej syntetycznej w~oparciu o~badanie odległości obiektów od obiektu wzorcowego, przy wykorzystaniu uogólnionej miary odległości. Umożliwia ona  porządkowanie obiektów, jeżeli opisujące je charakterystyki są mierzone przynajmniej na~skali porządkowej. W~takim przypadku, zmienne wejściowe o~postaci nominant muszą zostać podaje stymulacji. Z~kolei gdy zmienne są mierzone na~skali przedziałowej lub ilorazowej, należy je znormalizować. 
 %Miara syntetyczna oparta na~uogólnionej mierze odległości przyjmuje postać:
 %\begin{equation}
 %s_i=\frac{1}{2}-\frac{\sum_{j=1}^{m} w_{j}a_{i0j}b_{0ij} + \sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}a_{ii^{''}j}b_{0i^{''}j}}{2\bigg[\bigg(\sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}a^{2}_{ii^{''}j} \bigg)\cdot \bigg(\sum_{j=1}^{m}\sum_{i^{''}=1}^{n} w_{j}b^{2}_{0i^{''}j}\bigg) \bigg]^{\frac{1}{2} }}
 %\end{equation}
 %gdzie:
 %\begin{itemize}
-%\item $a_{ii^{*}j}$-miernik odległości $i$-tego obiektu o $j$-tej zmiennej, od  $i^{*}$-tego obiektu, gdzie $i^{*}=0,i^{''}$, przy czym $i^{''}\neq 0$
-%\item $b_{0i^{*}j}$-miernik odległości obiektu wzorcowego o $j$-tej zmiennej, od $i^{*}$-tego obiektu, gdzie $i^{*}=i,i^{''}$, przy czym $i^{''}\neq 0$
+%\item $a_{ii^{*}j}$-miernik odległości $i$-tego obiektu o~$j$-tej zmiennej, od  $i^{*}$-tego obiektu, gdzie $i^{*}=0,i^{''}$, przy czym $i^{''}\neq 0$
+%\item $b_{0i^{*}j}$-miernik odległości obiektu wzorcowego o~$j$-tej zmiennej, od $i^{*}$-tego obiektu, gdzie $i^{*}=i,i^{''}$, przy czym $i^{''}\neq 0$
 %\item $w_{j}$-waga $j$ tej zmiennej, dla której spełnione są warunki:
 %\end{itemize}
 %$$w_{j} \in [0, m] \quad \land \quad \sum_{j=1}^{m} w_{j}=m$$
@@ -1268,8 +1268,8 @@ Wartości miary $s_{i}$ zazwyczaj są z~przedziału $[0, 1]$, jednakże mogą zd
 \subsubsection{Metoda dystansowa}
 
 
-Podobnie jak we wcześniejsze metodach, na~początku zmienne należy poddać stymulacji, oraz przekształceniu normalizacyjnemu, wybranemu na~podstawie skal do których należą zmienne opisujące obiekty. W~kolejnym kroku wyznaczane są współrzędne obiektu wzorcowego, a następnie macierz odległości każdego obiektu od obiektu wzorcowego. Odległość od obiektu wzorca jest wyznaczana przy zastosowaniu dowolnej metryki, np. metryki euklidesowej. %W metodzie tej zmienna syntetyczna wyznaczana jest na~podstawie odległości każdego obiektu od obiektu wzorca, przy wykorzystaniu np. metryki euklidesowej. 
-Dla metody tej, miara syntetyczna jest wyznaczana za pomocą przekształcenia unitaryzacyjnego postaci: 
+Podobnie jak we wcześniejsze metodach, na~początku zmienne należy poddać stymulacji, oraz przekształceniu normalizacyjnemu, wybranemu na~podstawie skal do których należą zmienne opisujące obiekty. W~kolejnym kroku wyznaczane są współrzędne obiektu wzorcowego, a~następnie macierz odległości każdego obiektu od obiektu wzorcowego. Odległość od obiektu wzorca jest wyznaczana przy zastosowaniu dowolnej metryki, np. metryki euklidesowej. %W metodzie tej zmienna syntetyczna wyznaczana jest na~podstawie odległości każdego obiektu od obiektu wzorca, przy wykorzystaniu np. metryki euklidesowej. 
+Dla metody tej, miara syntetyczna jest wyznaczana za~pomocą przekształcenia unitaryzacyjnego postaci: 
 
 $$s_{i}=\bigg(\frac{d_{i0}-\min\limits_{i}(d_{i0})}{\max\limits_{i}(d_{i0})-\min\limits_{i}(d_{i0})} \bigg)^{p}, \quad i=1,2,\dots,n, \quad p \in \mathbb{N}.
 $$
@@ -1277,7 +1277,7 @@ Miara syntetyczna uzyskana tą metodą jest unormowana i~przyjmuje wartości z~p
 \subsubsection{Metody bezwzorcowe}
 
 
-W metodach tych zakładamy, że nie istnieje obiekt wzorcowy. %czyli taki o najkorzystniejszych wartościach zmiennych ze względu na~ustalone kryterium porządkowania%. 
+W metodach tych zakładamy, że nie istnieje obiekt wzorcowy. %czyli taki o~najkorzystniejszych wartościach zmiennych ze względu na~ustalone kryterium porządkowania%. 
 Porządkowanie dokonywane jest na~podstawie wartości zmiennej syntetycznej, wyznaczonej dla każdego obiektu. 
 %W metodach tych, unormowane wartości podanych zmiennych wejściowych są uśrednianie, przez przypisywanie im odpowiednich wag. 
 %%%UWAGAposluguje sie uogolnieniem, nie korzystam z~wag zmiennych, obiektow!!!!!
@@ -1286,9 +1286,9 @@ Poniżej zostaną omówione wybrane metody porządkowania bezwzorcowego.
 \subsubsection{Metoda rang}
 
 \begin{definition}{Ranga \cite[Rozdział 1.5]{panek2013}}\\
-Rangą nazywamy zmienną o wartościach ze zbioru ${\mathbb{R}_{+}\setminus{\{0\}}}$, będącą najczęściej liczbą całkowitą. Wartości reprezentują numery miejsc obiektów po uporządkowaniu malejąco.
+Rangą nazywamy zmienną o~wartościach ze zbioru ${\mathbb{R}_{+}\setminus{\{0\}}}$, będącą najczęściej liczbą całkowitą. Wartości reprezentują numery miejsc obiektów po uporządkowaniu malejąco.
 \end{definition}
-Metoda ta opiera się na~normalizacji rangowej, w~związku z~tym zmienne poddane porządkowaniu, powinny być mierzone na~skali porządkowej. Dla każdego obiektu wyznacza się sumę przyporządkowanych mu rang ze względu na~wszystkie zmienne. Na~końcu obliczana jest wartość zmiennej syntetycznej, jako średniej wartości rang. W~oparciu o tę wartość następuje porządkowanie obiektów, tj. im wartość zmiennej syntetycznej jest mniejsza tym wyżej w~hierarchii znajduje się uporządkowany obiekt. Wzór na~obliczenie wartości zmiennej syntetycznej: 
+Metoda ta opiera się na~normalizacji rangowej, w~związku z~tym zmienne poddane porządkowaniu, powinny być mierzone na~skali porządkowej. Dla każdego obiektu wyznacza się sumę przyporządkowanych mu rang ze względu na~wszystkie zmienne. Na~końcu obliczana jest wartość zmiennej syntetycznej, jako średniej wartości rang. W~oparciu o~tę wartość następuje porządkowanie obiektów, tj. im wartość zmiennej syntetycznej jest mniejsza tym wyżej w~hierarchii znajduje się uporządkowany obiekt. Wzór na~obliczenie wartości zmiennej syntetycznej: 
 $$
 s_{i}=\frac{1}{m}\sum_{j=1}^{m} n_{ij},\quad i=1, 2, \ldots, n,
 $$
@@ -1306,7 +1306,7 @@ szeregu obiektów ze względu na~$j$-tą zmienną.
 \subsubsection{Metoda sum}
 
 
-Metoda ta używana jest w~momencie, gdy zmienne mierzone są na~skali ilorazowej lub przedziałowej. W~związku z~tym tuż po stymulacji zmiennych, należy dokonać przekształcenia normalizacyjnego, za pomocą unitaryzacji. W~kolejnym kroku, dla każdego obiektu wyznaczana jest zmienna syntetyczna, jako średnia arytmetyczna wartości zmiennych przy przyjęciu jednakowych wag dla każdej zmiennej.
+Metoda ta używana jest w~momencie, gdy zmienne mierzone są na~skali ilorazowej lub przedziałowej. W~związku z~tym tuż po stymulacji zmiennych, należy dokonać przekształcenia normalizacyjnego, za~pomocą unitaryzacji. W~kolejnym kroku, dla każdego obiektu wyznaczana jest zmienna syntetyczna, jako średnia arytmetyczna wartości zmiennych przy przyjęciu jednakowych wag dla każdej zmiennej.
 Następnie muszą zostać wyeliminowane ujemne wartości zmiennej syntetycznej, do czego służy poniższe przekształcenie:
 %Metoda ta bazuje na~konstrukcji zmiennej syntetycznej przy pomiarze zmiennych na~skali ilorazowej lub przedziałowej, w~związku z~tym w~pierwszym kroku należy dokonać przekształcenia zmiennych przy pomocy unitaryzacji. Następnie dla każdego obiektu obliczana jest wartość zmiennej syntetycznej, jako średnia arytmetyczna wartości zmiennych przy przyjęciu jednakowych wag dla każdej zmiennej. Eliminowane są ujemne wartości zmiennej syntetycznej przy wykorzystaniu przekształcenia: 
 $$
@@ -1342,13 +1342,13 @@ W pierwszym kroku działania tej metody, przeprowadzane jest dowolne liniowe upo
 %.07.06
 %Uporządkowanie to stanowi punkt wyjścia do oceny, czy kolejna transpozycja dowolnej pary obiektów pozwoli na~wzrost wartości funkcji kryterium. Powyższe postępowanie kontynuowane jest tak długo, aż transpozycja dowolnej pary obiektów nie prowadzi do wzrostu wartości funkcji kryterium. 
 %07.06
-% Jeżeli wartość funkcji kryterium dla każdej z~transpozycji par obiektów są mniejsze od wartości tej funkcji dla uporządkowania wyjściowego obiektów, uporządkowanie to uważane jest za najlepsze. W~przeciwnym wypadku, dokonywana jest transpozycja tej pary obiektów, dla której wzrost wartości funkcji kryterium jest największy. 
+% Jeżeli wartość funkcji kryterium dla każdej z~transpozycji par obiektów są mniejsze od wartości tej funkcji dla uporządkowania wyjściowego obiektów, uporządkowanie to uważane jest za~najlepsze. W~przeciwnym wypadku, dokonywana jest transpozycja tej pary obiektów, dla której wzrost wartości funkcji kryterium jest największy. 
 
 %%Wylaczenie tych metod z~pracy: 07.06
 %\subsection{Metody gradientowe} 
 %
 %
-%W metodach gradientowych dąży się do takiego liniowego uporządkowania obiektów, które jak najmniej zniekształca relacje strukturalne porządkowanego zbioru obiektów. Od strony geometrycznej oznacza to, że odległości pomiędzy punktami reprezentującymi obiekty w~przestrzeni jednowymiarowej, określonej przez zmienną syntetyczną, w~jak najmniejszym stopniu zniekształcają odległości pomiędzy tymi punktami w~przestrzeni wielowymiarowej, określonej przez zmienne wejściowe. Metody gradientowe poszukują takich współrzędnych punktów reprezentujących obiekty w~przestrzeni jednowymiarowej, dla których funkcja dobroci uporządkowania osiąga minimum, co można przedstawić za pomocą wariantów:
+%W metodach gradientowych dąży się do takiego liniowego uporządkowania obiektów, które jak najmniej zniekształca relacje strukturalne porządkowanego zbioru obiektów. Od strony geometrycznej oznacza to, że odległości pomiędzy punktami reprezentującymi obiekty w~przestrzeni jednowymiarowej, określonej przez zmienną syntetyczną, w~jak najmniejszym stopniu zniekształcają odległości pomiędzy tymi punktami w~przestrzeni wielowymiarowej, określonej przez zmienne wejściowe. Metody gradientowe poszukują takich współrzędnych punktów reprezentujących obiekty w~przestrzeni jednowymiarowej, dla których funkcja dobroci uporządkowania osiąga minimum, co można przedstawić za~pomocą wariantów:
 % 
 %\begin{equation}
 %F^{3}=\frac{\sum\limits_{i,i^{'}=1,i \neq i^{'}}^n (d_{ii^{'}}^{s} - d_{ii^{'}})^2 }{\sum\limits_{\substack{i,i^{'}=1  i<i^{'}}}^{n} d_{ii^{'}} } \rightarrow     \min  
@@ -1403,13 +1403,13 @@ W pierwszym kroku działania tej metody, przeprowadzane jest dowolne liniowe upo
 %\newline
 %$W$ - parametr.
 
-%Na wstępie zakłada się maksymalną oraz minimalną wartość parametru $W$, wskaźnik skali zmian wartości tego parametru pomiędzy iteracjami $W_{t+1}/W_{t}$ oraz maksymalną liczbę iteracji. Procedurę iteracyjną rozpoczynamy od przyjętej maksymalnej wartości parametru $W$. Postępowanie iteracyjne jest kontynuowane do momentu gdy nastąpi wzrost wartości wzrost wartości funkcji kryterium. Po tym następuje powrót do wartości zmiennej syntetycznej z~poprzedniej iteracji, przy jednoczesnym zmniejszeniu wartości parametru $W$ o przyjęty wskaźnik jego zmian. Procedura kontynuowana jest do momentu, aż wartość parametru $W$, nie spadnie poniżej założonej wartości minimalnej lub gdy osiągnie z~góry założoną liczbę iteracji. 
+%Na wstępie zakłada się maksymalną oraz minimalną wartość parametru $W$, wskaźnik skali zmian wartości tego parametru pomiędzy iteracjami $W_{t+1}/W_{t}$ oraz maksymalną liczbę iteracji. Procedurę iteracyjną rozpoczynamy od przyjętej maksymalnej wartości parametru $W$. Postępowanie iteracyjne jest kontynuowane do momentu gdy nastąpi wzrost wartości wzrost wartości funkcji kryterium. Po tym następuje powrót do wartości zmiennej syntetycznej z~poprzedniej iteracji, przy jednoczesnym zmniejszeniu wartości parametru $W$ o~przyjęty wskaźnik jego zmian. Procedura kontynuowana jest do momentu, aż wartość parametru $W$, nie spadnie poniżej założonej wartości minimalnej lub gdy osiągnie z~góry założoną liczbę iteracji. 
 
 
 \section{Metody porządkowania nieliniowego}
 
 
-Metody porządkowania nieliniowego w~odróżnieniu od metod porządkowania liniowego, polegają nie na~uporządkowaniu obiektów w~sposób hierarchiczny, a na~określeniu dla każdego z~nich, stopnia podobieństwa z~innymi obiektami, na~podstawie opisujących je zmiennych. 
+Metody porządkowania nieliniowego w~odróżnieniu od metod porządkowania liniowego, polegają nie na~uporządkowaniu obiektów w~sposób hierarchiczny, a~na~określeniu dla każdego z~nich, stopnia podobieństwa z~innymi obiektami, na~podstawie opisujących je zmiennych. 
 %nie pozwalają na~ustaleniu hierarchii obiektów, lecz na~określeniu dla każdego z~nich, stopnia podobieństwa do innych obiektów, ze względu na~ich charakterystyki. 
 
 Aby zastosować metody porządkowania nieliniowego, zmienne opisujące obiekty, powinny być mierzone na~skali przedziałowej lub ilorazowej. Gdy zmienne te mierzone są na~skali przedziałowej lub ilorazowej, należy dokonać ich normalizacji.
@@ -1429,7 +1429,7 @@ Metody dendrytowe opierają się na~pojęciach teorii grafów. Metody te polegaj
 \subsubsection{Taksonomia wrocławska}
 
 
-W metodzie tej obiekty dzielone są na~grupy obiektów najbardziej do siebie podobnych, tj. takich, dla których odległość między sobą jest jak najmniejsza. W~związku z~tym w~pierwszej kolejności należy wyznaczyć macierz odległości obiektów $D$ np. przy użyciu metryki euklidesowej, a następnie w~każdym wierszu (kolumnie) macierzy, wyznaczamy jest element najmniejszy: 
+W metodzie tej obiekty dzielone są na~grupy obiektów najbardziej do siebie podobnych, tj. takich, dla których odległość między sobą jest jak najmniejsza. W~związku z~tym w~pierwszej kolejności należy wyznaczyć macierz odległości obiektów $D$ np. przy użyciu metryki euklidesowej, a~następnie w~każdym wierszu (kolumnie) macierzy, wyznaczamy jest element najmniejszy: 
 $$
 d_{ik}= \min\limits_{k} {d_{ik}}, \quad i,k=1,2,\dots,n, i\neq k.
 $$
@@ -1495,9 +1495,9 @@ $$
 %\subsubsection{Metoda Prima}
 %
 %
-%W odróżnieniu od taksonomii wrocławskiej, metoda Prima nie wymaga posługiwania się cały czas wyjściową macierzą odległości. W~trakcie tworzenia dendrytu, zbiór porządkowanych obiektów jest przyporządkowywany do jednego z~dwóch zbiorów, np. niech $C$ i~$E$ oznaczają te zbiory. Niech zbiór $C$ będzie pierwszym z~nich a zbiór $E$ drugim. Pierwszy z~nich zawiera obiekty należące na~danym etapie do dendrytu, zaś drugi zawiera obiekty nie należące na~tym etapie do dendrytu.
+%W odróżnieniu od taksonomii wrocławskiej, metoda Prima nie wymaga posługiwania się cały czas wyjściową macierzą odległości. W~trakcie tworzenia dendrytu, zbiór porządkowanych obiektów jest przyporządkowywany do jednego z~dwóch zbiorów, np. niech $C$ i~$E$ oznaczają te zbiory. Niech zbiór $C$ będzie pierwszym z~nich a~zbiór $E$ drugim. Pierwszy z~nich zawiera obiekty należące na~danym etapie do dendrytu, zaś drugi zawiera obiekty nie należące na~tym etapie do dendrytu.
 %
-%W początkowym etapie, zbiór $C$ jest zbiorem pustym, z~kolei do zbioru $E$ należą wszystkie obiekty, należące do zbioru poddanego porządkowaniu. Następnie w~zbiorze $C$ zostaje umieszczony dowolny element ze zbioru $E$, dowolność nie ma wpływu na~ostateczną postać dendrytu. W~tym momencie zostaje utworzony wektor $c$ w~którym przechowywane są odległości tego elementu od pozostałych elementów zbioru $E$. W~kolejnym etapie do zbioru $C$ włączany jest ten obiekt, którego odległość od elementu  zbioru $C$ jest jak najmniejsza. Po dołączeniu tego elementu wektor $c$ przechowuje odległości tych dwóch obiektów zbioru $C$ od pozostałych elementów zbioru $E$, a procedura dołączania kolejnych obiektów polega na~tym samym. Cały proces trwa do momentu, aż zbiór $E$ nie będzie zawierał żadnego elementu. 
+%W początkowym etapie, zbiór $C$ jest zbiorem pustym, z~kolei do zbioru $E$ należą wszystkie obiekty, należące do zbioru poddanego porządkowaniu. Następnie w~zbiorze $C$ zostaje umieszczony dowolny element ze zbioru $E$, dowolność nie ma wpływu na~ostateczną postać dendrytu. W~tym momencie zostaje utworzony wektor $c$ w~którym przechowywane są odległości tego elementu od pozostałych elementów zbioru $E$. W~kolejnym etapie do zbioru $C$ włączany jest ten obiekt, którego odległość od elementu  zbioru $C$ jest jak najmniejsza. Po dołączeniu tego elementu wektor $c$ przechowuje odległości tych dwóch obiektów zbioru $C$ od pozostałych elementów zbioru $E$, a~procedura dołączania kolejnych obiektów polega na~tym samym. Cały proces trwa do momentu, aż zbiór $E$ nie będzie zawierał żadnego elementu. 
 %03.07
 
 
@@ -1545,9 +1545,9 @@ $$
 
 \noindent{Opis działania metod aglomeracyjnych:}
 
-Istotą metod aglomeracyjnych jest utworzenie łańcucha połączeń i~dendrogramu. W~ten sposób zobrazowana jest kolejność łączenia obiektów, na~podstawie zmniejszającego się podobieństwa między obiektami włączonymi do dendrogramu, a tymi wcześniej do niego należącymi. Położenie obiektów oraz grup obiektów, które powstały w~kolejnych etapach tworzenia łańcucha, jest przeprowadzone na~podstawie kolejności połączeń tych obiektów i~grup. Każde ogniwo w~łańcuchu oznacza grupy obiektów podobnych do siebie. 
+Istotą metod aglomeracyjnych jest utworzenie łańcucha połączeń i~dendrogramu. W~ten sposób zobrazowana jest kolejność łączenia obiektów, na~podstawie zmniejszającego się podobieństwa między obiektami włączonymi do dendrogramu, a~tymi wcześniej do niego należącymi. Położenie obiektów oraz grup obiektów, które powstały w~kolejnych etapach tworzenia łańcucha, jest przeprowadzone na~podstawie kolejności połączeń tych obiektów i~grup. Każde ogniwo w~łańcuchu oznacza grupy obiektów podobnych do siebie. 
 %07.06
-%między obiektami włączonymi do dendrogramu, w~kolejnych etapach a obiektami należącymi już do dendrogramu. Hierarchia połączeń określa wzajemnie położenie względem siebie obiektów oraz grup obiektów powstających w~kolejnych etapach tworzenia drzewka. Grupy podobnych do siebie obiektów tworzą oddzielne gałęzie.  
+%między obiektami włączonymi do dendrogramu, w~kolejnych etapach a~obiektami należącymi już do dendrogramu. Hierarchia połączeń określa wzajemnie położenie względem siebie obiektów oraz grup obiektów powstających w~kolejnych etapach tworzenia drzewka. Grupy podobnych do siebie obiektów tworzą oddzielne gałęzie.  
 %07.06
 %opis algorytmu chyba tu sie powinien rozpoczyna opis, tak jak bylo robione wczesiej
 Wyjściowym założeniem metod aglomeracyjnych jest to, że każdy obiekt stanowi odrębną, jednoelementową grupę $(\mathrm{C_{i}}, i=1,2,\dots,n)$.
@@ -1562,8 +1562,8 @@ gdzie:
 
 $d_{ii^{'}}$ - odległość $i$-tej od $i^{'}$-tej grupy.
 
-W kolejnym kroku, obiekty o najmniejszej odległości między sobą łączone są w~jedną grupę, dzięki czemu liczba grup zmniejsza się o jeden. Zostaje rozpoczęty proces tworzenia łańcucha połączeń. Ponownie badane są odległości między nowo stworzoną grupą, a pozostałymi grupami. Proces trwa do momentu stworzenia pełnego łańcucha połączeń, tj. jednej grupy. 
-%W kolejnym kroku następuje łączenie do siebie obiektów podobnych w~jedną grupę, w~wyniku czego wyjściowa liczba grup zmniejszona jest o jeden, oraz rozpoczęta jest budowa drzewka połączeń. Następnie wyznacza się ponownie odległość nowo utworzonej grupy obiektów od wszystkich pozostałych grup obiektów. Odległości te umieszczone zostają w~macierzy odległości $\mathrm{D}$ - w~miejscu wierszy i~kolumn odpowiadających obiektom(grupom obiektów) połączonych w~jedną grupę. Po każdym etapie grupowania ponownie określana jest odległość między nowo powstałą grupa a pozostałymi grupami. Warto również dodać, że odległości te tworzą nową, aktualną na~danym etapie grupowania, macierz odległości o co raz mniejszym wymiarze $(n-u)(n-u)$, gdzie $u$ jest $u$-tym etapem łączenia grup obiektów.  Procedura łączenia grup obiektów powtarzana jest tak długo, aż nie zostanie utworzona jedna grupa, tj. zostanie utworzone pełne drzewko połączeń. 
+W kolejnym kroku, obiekty o~najmniejszej odległości między sobą łączone są w~jedną grupę, dzięki czemu liczba grup zmniejsza się o~jeden. Zostaje rozpoczęty proces tworzenia łańcucha połączeń. Ponownie badane są odległości między nowo stworzoną grupą, a~pozostałymi grupami. Proces trwa do momentu stworzenia pełnego łańcucha połączeń, tj. jednej grupy. 
+%W kolejnym kroku następuje łączenie do siebie obiektów podobnych w~jedną grupę, w~wyniku czego wyjściowa liczba grup zmniejszona jest o~jeden, oraz rozpoczęta jest budowa drzewka połączeń. Następnie wyznacza się ponownie odległość nowo utworzonej grupy obiektów od wszystkich pozostałych grup obiektów. Odległości te umieszczone zostają w~macierzy odległości $\mathrm{D}$ - w~miejscu wierszy i~kolumn odpowiadających obiektom(grupom obiektów) połączonych w~jedną grupę. Po każdym etapie grupowania ponownie określana jest odległość między nowo powstałą grupa a~pozostałymi grupami. Warto również dodać, że odległości te tworzą nową, aktualną na~danym etapie grupowania, macierz odległości o~co raz mniejszym wymiarze $(n-u)(n-u)$, gdzie $u$ jest $u$-tym etapem łączenia grup obiektów.  Procedura łączenia grup obiektów powtarzana jest tak długo, aż nie zostanie utworzona jedna grupa, tj. zostanie utworzone pełne drzewko połączeń. 
 
 
 Ogólna postać wzoru służącego do wyznaczenia odległości nowo powstałej grupy $\mathrm{C_{i^{''}}}$, (powstałej dzięki połączeniu grup $\mathrm{C_{i}}$ i~$\mathrm{C_{i^{'}}}$), od grup które zostały ${C_i{'''}}$ to:
@@ -1574,7 +1574,7 @@ gdzie:
 $\alpha_{i},\alpha_{i^{'}}, \beta, \gamma$ - współczynniki przekształceń, różne dla poszczególnych metod aglomeracyjnych
 %opis metod
 
-Możemy wyróżnić sześć różnych metod aglomeracyjnych, różniących się sposobem wyznaczenia odległości między grupami obiektów. Poniżej zostaną podane współczynniki przekształceń dla każdej z~nich, a w~dalszej części pracy wybrane z~nich zostaną szczegółowo omówione.
+Możemy wyróżnić sześć różnych metod aglomeracyjnych, różniących się sposobem wyznaczenia odległości między grupami obiektów. Poniżej zostaną podane współczynniki przekształceń dla każdej z~nich, a~w~dalszej części pracy wybrane z~nich zostaną szczegółowo omówione.
 \begin{itemize}
 \item metoda najbliższego sąsiedztwa (metoda pojedynczego wiązania):
 
@@ -1676,7 +1676,7 @@ $$i=1,2,\dots,n_{i}, \quad k=1,2,\dots,n_{i^{'}}, \quad i,i^{'}=1,2,\dots,n, \qu
 %\subsubsection{Metoda Warda}
 %
 %
-%W metodzie tej odległości między dwoma grupami obiektów nie można przedstawić wprost za pomocą odległości między obiektami należącymi do tych grup. Dwie grupy obiektów podczas tworzenia drzewka połączeń, na~dowolnym etapie są łączone w~jedną grupę, w~celu zminimalizowania sumy kwadratów odchyleń wszystkich obiektów z~tych dwóch grup od środka ciężkości nowej grupy, powstałej w~wyniku połączenia tych dwóch grup. Proces ten oznacza, że na~każdym etapie łączenia grup obiektów, w~jedną grupę łączy się te grupy, które charakteryzują się najmniejszym zróżnicowaniem ze względu na~opisujące je zmienne. Zróżnicowanie badania się przy pomocy kryterium $ESS (Erros Sum of Squares)$ sformułowanego przez J.H. Warda, które jest postaci:
+%W metodzie tej odległości między dwoma grupami obiektów nie można przedstawić wprost za~pomocą odległości między obiektami należącymi do tych grup. Dwie grupy obiektów podczas tworzenia drzewka połączeń, na~dowolnym etapie są łączone w~jedną grupę, w~celu zminimalizowania sumy kwadratów odchyleń wszystkich obiektów z~tych dwóch grup od środka ciężkości nowej grupy, powstałej w~wyniku połączenia tych dwóch grup. Proces ten oznacza, że na~każdym etapie łączenia grup obiektów, w~jedną grupę łączy się te grupy, które charakteryzują się najmniejszym zróżnicowaniem ze względu na~opisujące je zmienne. Zróżnicowanie badania się przy pomocy kryterium $ESS (Erros Sum of Squares)$ sformułowanego przez J.H. Warda, które jest postaci:
 %\begin{equation}
 %ESS= \bold{\sum_{i^{''}=1}^{n_r^{''}}} d_{i^{''}i^{''c}}^2 ( \bold{O}_{i^{''}} \in \bold{G}_{r^{''}}, \bold{O}_{i^{''c}}=\bold{\overline{O}}_{r^{''}} \in \bold{G}_{r^{''}} ),
 %\end{equation} 
@@ -1696,7 +1696,7 @@ $$i=1,2,\dots,n_{i}, \quad k=1,2,\dots,n_{i^{'}}, \quad i,i^{'}=1,2,\dots,n, \qu
 \section{Opis zbioru}
 
 %https://tex.stackexchange.com/questions/228271/creating-two-columns-in-beamer
-Zbiór danych jest opracowaniem własnym, na~podstawie ofert sprzedaży samochodów osobowych, zamieszczonych na~portalu $www.otomoto.pl$ w~okresie listopad - grudzień 2017 roku. Zebrane dane dotyczą szczegółowych informacji odnośnie samochodu, tj. jego marki, modelu, wersji, typu, koloru lakieru, pojemności silnika, roku produkcji, przebiegu, liczby drzwi, rodzaju skrzyni biegu, rodzaju paliwa, rodzaju napędu, wyposażenia w: ABS, komputer pokładowy, ESP, klimatyzację. Oprócz danych ściśle związanych z~budową i~wyposażeniem samochodu, pojawiły się również atrybuty, tj. cechy umieszczone w~kolumnach, związane z~informacją o tym czy auto jest uszkodzone oraz bezwypadkowe,czy jest sprowadzane, jaki jest kraj aktualnej rejestracji, czy było serwisowane, czy sprzedający jest pierwszym właścicielem. Dodatkowo oprócz powyższych, został dodany atrybut najbardziej interesujący kupującego - czyli cena oraz województwo tj. miejsce skąd wystawiana została oferta. Zbiór został dołączony do pracy na~płycie. 
+Zbiór danych jest opracowaniem własnym, na~podstawie ofert sprzedaży samochodów osobowych, zamieszczonych na~portalu $www.otomoto.pl$ w~okresie listopad - grudzień 2017 roku. Zebrane dane dotyczą szczegółowych informacji odnośnie samochodu, tj. jego marki, modelu, wersji, typu, koloru lakieru, pojemności silnika, roku produkcji, przebiegu, liczby drzwi, rodzaju skrzyni biegu, rodzaju paliwa, rodzaju napędu, wyposażenia w: ABS, komputer pokładowy, ESP, klimatyzację. Oprócz danych ściśle związanych z~budową i~wyposażeniem samochodu, pojawiły się również atrybuty, tj. cechy umieszczone w~kolumnach, związane z~informacją o~tym czy auto jest uszkodzone oraz bezwypadkowe,czy jest sprowadzane, jaki jest kraj aktualnej rejestracji, czy było serwisowane, czy sprzedający jest pierwszym właścicielem. Dodatkowo oprócz powyższych, został dodany atrybut najbardziej interesujący kupującego - czyli cena oraz województwo tj. miejsce skąd wystawiana została oferta. Zbiór został dołączony do pracy na~płycie. 
 %\begin{center}
 \begin{figure}[h]
 \centering
@@ -1705,7 +1705,7 @@ Zbiór danych jest opracowaniem własnym, na~podstawie ofert sprzedaży samochod
 %\label{fig:obrazek1}
 \includegraphics[width=1\textwidth]{img/zbior3.jpg}
 \caption{Podgląd stworzonego zbioru}
-\label{fig:obrazek1}
+%\label{fig:obrazek1} 
 \end{figure}
 
 
@@ -1794,7 +1794,7 @@ Zbiór danych został umieszczony w~pliku arkusza programu Excel, z~kolei implem
 
 \section{Implementacje wybranych metod}
 W sekcji tej zaprezentujemy implementacje wybranych metod porządkowania liniowego oraz nieliniowego. W~części dotyczącej porządkowania liniowego porównamy również wyniki porządkowania par metod: metody rang i~metody sum, metody sum i~metody Hellwiga, metody rang i~metody Hellwiga. Zostanie to przeprowadzone na~całym zbiorze obiektów. 
-Zaczniemy jednak od przedstawienia ogólnych funkcji odpowiedzialnych za stymulacje oraz transformacje normalizacyjne. Po to by móc następnie je wykorzystać przy prezentacji wybranych metod porządkowania nieliniowego oraz liniowego. 
+Zaczniemy jednak od przedstawienia ogólnych funkcji odpowiedzialnych za~stymulacje oraz transformacje normalizacyjne. Po to by~móc następnie je wykorzystać przy prezentacji wybranych metod porządkowania nieliniowego oraz liniowego. 
 \subsection{Stymulacja zmiennych}
 {
 \newcommand{\VerbBar}{|}
@@ -2056,11 +2056,11 @@ sąsiedztwa, ward - metoda Warda, average - metoda średniej między
 grupowej. Poniżej zostanie zaprezentowane zastosowanie metod single oraz
 complete wraz z~porównaniem wyników porządkowania.
 
-\subsubsection{Import danych}\label{import-danych}
+\subsubsection{Import danych}
 
 Na początku należy jednak zaimportować dane, które chcemy poddać porządkowaniu.
 W tym celu należy zaimportować biblotekę readxl - gdyż dane pobieramy z
-excela, a w~kolejnym kroku wywołujemy plik, podając jego ścieżkę 
+excela, a~w~kolejnym kroku wywołujemy plik, podając jego ścieżkę 
 z rozszerzeniem xlsx. My użyjemy tutaj zbioru wszystkich obiektów,
 będących ofertami sprzedaży aut.
 
@@ -2100,15 +2100,15 @@ Podgląd danych:
 ## #   KLIMATYZAJCA <dbl>, BEZWYPADKOWY <dbl>, USZKODZONY <dbl>
 \end{verbatim}
 
-\subsubsection{Podzbiór danych}\label{podzbior-danych}
+\subsubsection{Podzbiór danych}
 
 W kolejnym, kroku po przyjrzeniu się zbiorowi danych, użytkownik musi
 zadecydować na~których danych ilościowych chce pracować - ważna jest
 znajomość danych. Dodatkowo pierwszą kolumną musi być kolumna
 zawierająca numery indeksów obiektów, ze względu na~to, że jako wynik
-zastosowania funkcji odpowiedzialnej za porządkowanie, zostaną zwrócone
-w kolejności malejącej numery indeksów, mówiące o kolejności
-uporządkowania. W~związku z~tym, za pomocą poniższej procedury
+zastosowania funkcji odpowiedzialnej za~porządkowanie, zostaną zwrócone
+w kolejności malejącej numery indeksów, mówiące o~kolejności
+uporządkowania. W~związku z~tym, za~pomocą poniższej procedury
 użytkownik tworzy podzbiór zaimportowanego zbioru, gdzie w~cudzysłowie
 wpisuje nazwy kolumn zawierających zmienne ilościowe, wybrane do
 porządkowania (zakładamy, że podzbiór będzie nazywał się
@@ -2126,13 +2126,13 @@ przebieg.
 \subsubsection{Transformacje danych}\label{transformacje-danych}
 
 Przed samym porządkowaniem, wymagane jest aby zmienne miały charakter
-stymulant oraz by zostały poddane transformacji normalizacyjnej. Aby
+stymulant oraz by~zostały poddane transformacji normalizacyjnej. Aby
 funkcja dokonująca porządkowania dawała poprawny wynik, użytkownik musi
 zająć się transformacją przed jej zastosowaniem. Poniżej podaliśmy tego
 przykład. Dla zmiennych, które stymulantami nie są, należy dokonać
 stymulacji. Wśród zmiennych poddanych porządkowaniu, do stymulant
 nie należy zmienna zmienna: przebieg - jest destymulantą, w~związku z
-tym, została przekształcona na~stymulantę, za pomocą przekształcenia
+tym, została przekształcona na~stymulantę, za~pomocą przekształcenia
 ilorazowego.
 
 
@@ -2159,7 +2159,7 @@ Chcąc zastosować funkcję agnes, należy w~pierwszej kolejności wyznaczyć
 macierz odległości pomiędzy wszystkimi parami obiektów. Do wyznaczenia
 odległości zostanie użyta metryka euklidesowa - w~tym celu zostanie
 wykorzystania funkcja dist(x, method=``'') - w~miejsce 'x' należy wpisać
-nazwę tabeli zawierających dane do uporządkowania, a w~nawiasie{[},{]}
+nazwę tabeli zawierających dane do uporządkowania, a~w~nawiasie{[},{]}
 na miejscu drugiej współrzędnej należy podać wektor kolumn, na~podstawie
 którego wartości zostanie wyznaczona macierz odległości. W~miejsce
 argumentu method należy wpisać nazwę metryki na~podstawie której zostanie
@@ -2173,12 +2173,12 @@ euklidesowa.
 \end{Highlighting}
 \end{Shaded}
 
-Następnie należy zaimportować bibliotekę cluster, by móc skorzystać z
+Następnie należy zaimportować bibliotekę cluster, by~móc skorzystać z
 metod aglomeracyjnych. Jak już zostało wspomnanie we wstępnie, wywołanie
 metod aglomeracyjnych odbywa się dzięki funkcji agnes(x, method=``'') .
 W miejsce argumentu 'x' - zostanie podana wyznaczona macierz odległości z
 kolei, w~kolejnym argumencie - method zostanie podana reguła wyznaczania
-odległości pomiędzy nową grupą a pozostałymi obiektów. Regułą tą może
+odległości pomiędzy nową grupą a~pozostałymi obiektów. Regułą tą może
 być metoda najbliższego sąsiedztwa, najdalszego, Warda lub średniej
 między grupowej. My wykorzystamy metodę najbliższego sąsiedztwa oraz
 najdalszego.
@@ -2228,16 +2228,16 @@ W przypadku dendrogramu uzyskanego metodą najdalszego sąsiedztwa można
 zauważyć większą odległość wiązań niż dla metody najbliższego
 sąsiedztwa, które to obrazują odległość między grupami. Dodatkowo
 obiekty charakteryzujące się najbardziej korzystnym wartości zmiennych,
-zostały pogrupowane w~jedną grupę (tu mowa o obiektach o numerach
+zostały pogrupowane w~jedną grupę (tu mowa o~obiektach o~numerach
 indeksów 49, 50, 53, 57, 58), natomiast w~przypadku metody najbliższego
 sąsiedztwa obiekty te zostały rozdzielone na~pojedyncze grupy. Można
 również zauważyć, że w~przypadku uporządkowania metodą najdalszego
 sąsiedztwa obiekty tworzą pewnego rodzaju podgrupy - skupiska, z~kolei w
 przypadku uporządkowania metodą najbliższego sąsiada, wynik
 porządkowania można porównać do wyglądu lawiny, lub góry, u której
-podnóża znajdują się obiekty o najniższych wartościach opisywanych je
+podnóża znajdują się obiekty o~najniższych wartościach opisywanych je
 zmiennych, które to następnie łączą się i~dochodzą do szczytu, który stanowią
-obiekty o najwyższych wartościach opisywanych je zmiennych.
+obiekty o~najwyższych wartościach opisywanych je zmiennych.
 
 }
 \subsection{Metody porządkowania liniowego}\label{porzadkowanie-liniowe}
@@ -2284,7 +2284,7 @@ obiekty o najwyższych wartościach opisywanych je zmiennych.
 
 Zostaną tu zaprezentowane metody liniowe: metoda sum, rang oraz Hellwiga. Dla wszystkich metod będziemy korzystać z~tego samego zbioru danych, który jest podzbiorem wyjściowego zbioru - zawiera 8 najbardziej różniących się obiektów. Różnice dla każdej z~metod będą zaczynały się od sekcji związanej z~transformacją danych. 
 
-\subsubsection{Import danych}\label{import-danych}
+\subsubsection{Import danych}
 Wobec powyższego, podobnie jak przy metodach porządkowania nieliniowego, użytkownik musi zaimportować dane, które chce poddać porządkowaniu. 
 
 
@@ -2332,15 +2332,15 @@ Podgląd danych:
 ## #   <dbl>, USZKODZONY <dbl>
 \end{verbatim}
 
-\subsubsection{Podzbiór danych}\label{podzbior-danych}
+\subsubsection{Podzbiór danych}
 
 W kolejnym, kroku po przyjrzeniu się zbiorowi danych, użytkownik musi
 zadecydować na~których danych ilościowych chce pracować - ważna jest
 znajomość danych. Dodatkowo pierwszą kolumną musi być kolumna
 zawierająca numery indeksów obiektów, ze względu na~to, że w~wyniku
-zastosowania funkcji odpowiedzialnej za porządkowanie, zostaną zwrócone
-w kolejności malejącej numery indeksów, mówiące o kolejności
-uporządkowania. W~związku z~tym, za pomocą poniższej procedury
+zastosowania funkcji odpowiedzialnej za~porządkowanie, zostaną zwrócone
+w kolejności malejącej numery indeksów, mówiące o~kolejności
+uporządkowania. W~związku z~tym, za~pomocą poniższej procedury
 użytkownik tworzy podzbiór zaimportowanego zbioru, gdzie w~cudzysłowie
 wpisuje nazwy kolumn zawierających zmienne ilościowe, wybrane do
 porządkowania (przyjmijmy założenie, że podzbiór będzie nazywał się
@@ -2356,7 +2356,7 @@ przebieg.
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Transformacje danych}\label{transformacje-danych}
+\subsubsection{Transformacje danych}
 
 Przed zastosowaiem metod, należy dokonać ich transformacji. W~pierwszym
 kroku należy dokonać stymulacji destymulant - dla metody rang i~metody
@@ -2384,7 +2384,7 @@ natomiast dla metody Hellwiga standaryzacji.
 
 \subsubsection{Funkcja porządkująca}\label{funkcja-porzadkujaca-metoda-sum}
 
-Chcąc przeprowadzić porządkowanie znormalizowanych danych za pomocą metody sum, należy użyć poniższej funkcji:
+Chcąc przeprowadzić porządkowanie znormalizowanych danych za~pomocą metody sum, należy użyć poniższej funkcji:
 %W celu dokonania porządkowania na~unormowanych danych, należy zastosować
 %poniższą funkcję tj. funkcja\_porzadkowanie\_metoda\_sum, zwraca ona
 %numery indeksów obiektów wg kolejności, która uzyskały one po
@@ -2442,7 +2442,7 @@ Wywołanie funkcji dla zbioru dane\_porzadkowanie
 
 Funkcja zwraca nam indeksy uporządkowanych obiektów, tj. 1 miejsce
 zajął obiekt z~numerem indeksu 2, 2 miejsce obiekt z~numerem indeksu
-równym 4, z~kolei miejsce ostatnie zajął obiekt o numerze indeksu równym
+równym 4, z~kolei miejsce ostatnie zajął obiekt o~numerze indeksu równym
 7.
 \subsection{Metoda rang}
 \subsubsection{Stymulacja} 
@@ -2459,7 +2459,7 @@ równym 4, z~kolei miejsce ostatnie zajął obiekt o numerze indeksu równym
 \end{Highlighting}
 \end{Shaded}
 \subsubsection{Funkcja porządkująca}\label{funkcja-porzadkujaca-metoda-rang}
-Chcąc przeprowadzić porządkowanie znormalizowanych danych za pomocą metody rang, należy użyć poniższej funkcji:
+Chcąc przeprowadzić porządkowanie znormalizowanych danych za~pomocą metody rang, należy użyć poniższej funkcji:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{funkcja_porzadkowanie_metoda_rang<-function(x)}
@@ -2509,7 +2509,7 @@ Wywołanie funkcji dla zbioru dane\_porzadkowanie
 \end{verbatim}
 
 Na podstawie powyższego wyniku, widać, że 1 miejsce zajęła oferta
-sprzedaży z~numerem indeksu 2, 2 miejsce oferta o numerze indeksu równym 4, a ostatnie oferta z~numerem indeksu numer 7. Porównując wyniki porządkowania tej metody, z~metodą sum zauważamy, że wyniki są takie same. 
+sprzedaży z~numerem indeksu 2, 2 miejsce oferta o~numerze indeksu równym 4, a~ostatnie oferta z~numerem indeksu numer 7. Porównując wyniki porządkowania tej metody, z~metodą sum zauważamy, że wyniki są takie same. 
 
 \subsection{Metoda Hellwiga}
 \subsubsection{Stymulacja} 
@@ -2526,7 +2526,7 @@ sprzedaży z~numerem indeksu 2, 2 miejsce oferta o numerze indeksu równym 4, a 
 \end{Highlighting}
 \end{Shaded}
 \subsubsection{Funkcja porządkująca}\label{funkcja-porzadkujaca-metoda-Hellwiga}
-Chcąc przeprowadzić porządkowanie znormalizowanych danych za pomocą metody Hellwiga, należy użyć poniższej funkcji:
+Chcąc przeprowadzić porządkowanie znormalizowanych danych za~pomocą metody Hellwiga, należy użyć poniższej funkcji:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{funkcja_porzadkowanie_metoda_Hellwiga<-function(x)}
@@ -2597,7 +2597,7 @@ Wywołanie funkcji dla zbioru dane\_porzadkowanie
 \end{verbatim}
 
 Na podstawie powyższego wyniku, widać, że 1 miejsce zajęła oferta
-sprzedaży z~numerem indeksu 2, a ostatnie oferta z~numerem indeksu o
+sprzedaży z~numerem indeksu 2, a~ostatnie oferta z~numerem indeksu o
 numerze 7. Wobec powyższego wyniki porządkowania tą metodą są inne, niż wyniki metody sum. 
 }
 \subsection{Porównanie wyników metod porządkowania liniowego dla całego zbioru}
@@ -2639,7 +2639,7 @@ numerze 7. Wobec powyższego wyniki porządkowania tą metodą są inne, niż wy
 \newcommand{\NormalTok}[1]{{#1}}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 
-Analizując wyniki porządkowania zaprezentowane w~poprzedniej sekcji, zauważamy że dla tak małego zbioru uzyskaliśmy zgodność rezultatów dla metody sum oraz rang. Sprawdzimy teraz jak będzie w~przypadku zastosowania tych metod dla całego zbioru. W~związku z~tym należy zaimportować cały zbiór danych. W dalszej kolejności, należy stworzyć trzy kopie zbioru, dla każdej z metod porządkowania. Następnie przeprowadzamy o~dpowiednie transformacje o~raz stosujemy algorytmy porządkowania.
+Analizując wyniki porządkowania zaprezentowane w~poprzedniej sekcji, zauważamy że dla tak małego zbioru uzyskaliśmy zgodność rezultatów dla metody sum oraz rang. Sprawdzimy teraz jak będzie w~przypadku zastosowania tych metod dla całego zbioru. W~związku z~tym należy zaimportować cały zbiór danych. W dalszej kolejności, należy stworzyć trzy kopie zbioru, dla każdej z metod porządkowania. Następnie przeprowadzamy odpowiednie transformacje oraz stosujemy algorytmy porządkowania.
  
 \subsubsection{Import danych}
 Tak samo jak przy implementacji metod porządkowania nieliniowego, importujemy pełen zbiór obiektów.
@@ -2678,8 +2678,8 @@ podzbiorów.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Zastosowanie funkcji odpowiedzialnych za porządkowania}
-Wykorzystamy tutaj wcześniej już wyjaśnione funkcje odpowiedzialne za porządkowanie. 
+\subsection{Zastosowanie funkcji odpowiedzialnych za~porządkowania}
+Wykorzystamy tutaj wcześniej już wyjaśnione funkcje odpowiedzialne za~porządkowanie. 
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2764,7 +2764,7 @@ Hellwiga}%\label{para-2-metoda-rang-i-metoda-Hellwiga}
 \NormalTok{\}}
 \KeywordTok{head}\NormalTok{(tabela_porownawcza,}\DecValTok{15}\NormalTok{)}
 \end{Highlighting}
-\end{Shaded}
+\end{Shaded}%$
 \begin{verbatim}
 ##    dane_rang dane_hellwig porownanie
 ## 1         49           53          0
@@ -2813,7 +2813,7 @@ Hellwiga}%\label{para-3-metoda-sum-i-metoda-Hellwiga}
 \NormalTok{\}}
 \KeywordTok{head}\NormalTok{(tabela_porownawcza,}\DecValTok{15}\NormalTok{)}
 \end{Highlighting}
-\end{Shaded}
+\end{Shaded}%$
 \begin{verbatim}
 ##    dane_sum dane_hellwig porownanie
 ## 1        49           53          0
@@ -2839,7 +2839,7 @@ Hellwiga}%\label{para-3-metoda-sum-i-metoda-Hellwiga}
 \KeywordTok{names}\NormalTok{(podsumowanie)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"wartość"}\NormalTok{,}\StringTok{"ilosc wystąpień"}\NormalTok{)}
 \NormalTok{podsumowanie}
 \end{Highlighting}
-\end{Shaded}
+\end{Shaded}%$
 \begin{verbatim}
 ##   wartość ilosc wystąpień
 ## 1       0              59
@@ -2851,12 +2851,12 @@ porządkowania jest widoczne dla pary pierwszej - metody rang oraz metody
 sum. W~przypadku kolejnych par, zgodność ta jest już niewielka.
 }
 \chapter{Podsumowanie}
-W niniejszej pracy rozważone zostały wybrane zastosowania statystycznych metod porządkowania danych wielowymiarowych. Celem było porównanie tych metod praktycznej statystyki z~matematyczną teorią porządków, jak również zaprezentowanie ich zastosowania w~praktycznym przykładzie. W~pracy dostrzeżono wiele analogii pomiędzy porządkami liniowymi i~częściowymi, a rozważanymi metodami porządkowania liniowego oraz nieliniowego. Ponadto, w~efekcie przeprowadzonych eksperymentów, zaobserwowano kilka własności wybranych metod porządkowania. Praca zawiera również wszystkie kody źródłowe przeprowadzonych eksperymentów, które w~naszej ocenie mogą zostać ponownie wykorzystane w~innych zastosowaniach.
+W niniejszej pracy rozważone zostały wybrane zastosowania statystycznych metod porządkowania danych wielowymiarowych. Celem było porównanie tych metod praktycznej statystyki z~matematyczną teorią porządków, jak również zaprezentowanie ich zastosowania w~praktycznym przykładzie. W~pracy dostrzeżono wiele analogii pomiędzy porządkami liniowymi i~częściowymi, a~rozważanymi metodami porządkowania liniowego oraz nieliniowego. Ponadto, w~efekcie przeprowadzonych eksperymentów, zaobserwowano kilka własności wybranych metod porządkowania. Praca zawiera również wszystkie kody źródłowe przeprowadzonych eksperymentów, które w~naszej ocenie mogą zostać ponownie wykorzystane w~innych zastosowaniach.
 % metodach liniowych
-Podstawowe metody porządkowania danych wielowymiarowych, przypuszczają możliwość występowania w~nich porządków liniowych. Przypuszczenie to jest co prawda wysoce niepewne, gdyż dla danych wielowymiarowych, bardziej spodziewane są porządki częściowe. Stosowanie zatem tych algorytmów, jeśli wyniki nie są wyraźnie jednoznaczne, może się okazać wątpliwym. Na~korzyść tych algorytmów przemawia natomiast wysoka zgodność z~matematyczną teorią takich porządków. W~pracy wykazaliśmy, że niesłusznym jest definiowanie porządków liniowych za pomocą jedynie 3 poszukiwanych własności. Jednak obserwujemy, że algorytmy te pracując na~danych, które posiadają naturalne uporządkowanie liniowe, istotnie zwracają zgodne i~prawdziwe uporządkowania. W~dalszej części rozpoznawaliśmy pozostałe algorytmy porządkowania danych, generujących inne matematyczne struktury.
+Podstawowe metody porządkowania danych wielowymiarowych, przypuszczają możliwość występowania w~nich porządków liniowych. Przypuszczenie to jest co prawda wysoce niepewne, gdyż dla danych wielowymiarowych, bardziej spodziewane są porządki częściowe. Stosowanie zatem tych algorytmów, jeśli wyniki nie są wyraźnie jednoznaczne, może się okazać wątpliwym. Na~korzyść tych algorytmów przemawia natomiast wysoka zgodność z~matematyczną teorią takich porządków. W~pracy wykazaliśmy, że niesłusznym jest definiowanie porządków liniowych za~pomocą jedynie 3 poszukiwanych własności. Jednak obserwujemy, że algorytmy te pracując na~danych, które posiadają naturalne uporządkowanie liniowe, istotnie zwracają zgodne i~prawdziwe uporządkowania. W~dalszej części rozpoznawaliśmy pozostałe algorytmy porządkowania danych, generujących inne matematyczne struktury.
 % metoda nieliniowych 
-Aby w~pełni zrozumieć zależności pomiędzy porządkami częściowymi, a algorytmami wyznaczającymi porządki nieliniowe w~danych, niezbędna okazała się podstawowa wiedza z~zakresu teorii grafów. Matematyczna teoria porządków może być bowiem z~łatwością przedstawiana na~grafach nazywanych diagramami Hassego. Z~drugiej strony algorytmy statystyki okazują się poszukiwać w~skończonych zbiorach danych właśnie struktur będących (lub przypominających) grafy. Reprezentowanie porządków na~tych strukturach okazuje się mieć dodatkowe atuty w~postaci przejrzystej wizualizacji uzyskiwanych wyników. Występują tu jednak pewne istotne różnice. obserwujemy, iż nie każdy porządek częściowy, mógłby za pomocą tychże algorytmy zostać wykryty. Algorytmy te bowiem generują grafy nazywane dendrytami, które nie wyczerpują rodziny wszystkich porządków częściowych.
-W~rozdziale \ref{Zastosowanie} zaprezentowaliśmy implementacje wybranych metod porządkowania liniowego, tj. wybraliśmy 3 różne metody: metodę rang, sum oraz Hellwiga. Metoda Hellwiga zaliczana jest do metod wzorcowych, czyli zakłada istnienie obiektu wzorcowego. Jako, że zmienne opisujące obiekty (zgromadzone oferty sprzedaży aut), są w~większości stymulantami, stąd też przyjęliśmy koncepcję, że wartości współrzędnych obiektu wzorcowego przyjmą wartość maksymalną dla każdej zmiennej. Podkreślamy to gdyż zaobserwowaliśmy różnice uzyskiwane przez różne grupy metod. Metody wzorcowe generowały odmienne porządki, w~porównaniu z~metodą sum czy też metodą rang. Wyniki, o których mówimy, znajdują się w~sekcji \ref{porownanie-3metody}. Jednakże przyglądając się wynikom porządkowania zawartym  w~sekcji \ref{porzadkowanie-liniowe}, widać iż dla tych trzech metod otrzymujemy wyniki wspólne dla obiektów skrajnych, znajdujących się najwyżej lub~najniżej w~tym porządkowaniu. Różnice zauważamy głównie dla obiektów ze środka. % porownanie z~eksperymentem na~malym zbiorze
+Aby w~pełni zrozumieć zależności pomiędzy porządkami częściowymi, a~algorytmami wyznaczającymi porządki nieliniowe w~danych, niezbędna okazała się podstawowa wiedza z~zakresu teorii grafów. Matematyczna teoria porządków może być bowiem z~łatwością przedstawiana na~grafach nazywanych diagramami Hassego. Z~drugiej strony algorytmy statystyki okazują się poszukiwać w~skończonych zbiorach danych właśnie struktur będących (lub przypominających) grafy. Reprezentowanie porządków na~tych strukturach okazuje się mieć dodatkowe atuty w~postaci przejrzystej wizualizacji uzyskiwanych wyników. Występują tu jednak pewne istotne różnice. obserwujemy, iż nie każdy porządek częściowy, mógłby za~pomocą tychże algorytmy zostać wykryty. Algorytmy te bowiem generują grafy nazywane dendrytami, które nie wyczerpują rodziny wszystkich porządków częściowych.
+W~rozdziale \ref{Zastosowanie} zaprezentowaliśmy implementacje wybranych metod porządkowania liniowego, tj. wybraliśmy 3 różne metody: metodę rang, sum oraz Hellwiga. Metoda Hellwiga zaliczana jest do metod wzorcowych, czyli zakłada istnienie obiektu wzorcowego. Jako, że zmienne opisujące obiekty (zgromadzone oferty sprzedaży aut), są w~większości stymulantami, stąd też przyjęliśmy koncepcję, że wartości współrzędnych obiektu wzorcowego przyjmą wartość maksymalną dla każdej zmiennej. Podkreślamy to gdyż zaobserwowaliśmy różnice uzyskiwane przez różne grupy metod. Metody wzorcowe generowały odmienne porządki, w~porównaniu z~metodą sum czy też metodą rang. Wyniki, o~których mówimy, znajdują się w~sekcji \ref{porownanie-3metody}. Jednakże przyglądając się wynikom porządkowania zawartym  w~sekcji \ref{porzadkowanie-liniowe}, widać iż dla tych trzech metod otrzymujemy wyniki wspólne dla obiektów skrajnych, znajdujących się najwyżej lub~najniżej w~tym porządkowaniu. Różnice zauważamy głównie dla obiektów ze środka. % porownanie z~eksperymentem na~malym zbiorze
 Rozważone zostały też algorytmy nieliniowe, w~szczególności dla metod aglomeracyjnych zaobserwowano, że 
 istotna jest różnica w~porządkach przy zastosowaniu odległości liczonej wzorem najbliższego oraz najdalszego sąsiada. Umożliwiły nam one zobrazowanie wewnętrznych różnic pomiędzy tymi wersjami algorytmu porządkowania danych. Stąd też można zauważyć, że podobnie jak przy wynikach porządkowania liniowego dla małego zbioru, zaobserwować można zgodność uporządkowania tych metod dla obiektów skrajnych, znajdujących się najwyżej lub~najniżej w~tym uporządkowaniu.
 Wybrane wbudowane funkcje, obok samodzielnie stworzonych funkcji porządkowania przedstawionych w~sekcji \ref{porzadkowanie-liniowe}, mogą zostać użyte do innych zbiorów danych, ze względu na~ich ogólność i~uniwersalność. 
